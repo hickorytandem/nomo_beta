@@ -115,6 +115,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.2-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.12.2-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
     pry (0.13.1)
@@ -229,7 +231,11 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+<<<<<<< HEAD
   x86_64-darwin-20
+=======
+  x86_64-linux
+>>>>>>> 17d65e09d8d9fff79387b1c53d53a2bebb4baa2d
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
