@@ -12,8 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_08_10_111310) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "orders", force: :cascade do |t|
     t.integer "total_price"
@@ -23,6 +25,18 @@ ActiveRecord::Schema.define(version: 2021_08_10_111310) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["buyer_id_id"], name: "index_orders_on_buyer_id_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone_number"
+    t.string "catogory"
+    t.integer "opening_hours"
+    t.integer "closing_hours"
+    t.string "payment_method"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
