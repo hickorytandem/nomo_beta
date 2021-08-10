@@ -5,23 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-  # create_table "restaurants", force: :cascade do |t|
-  #   t.string "name"
-  #   t.string "email"
-  #   t.string "phone_number"
-  #   t.string "catogory"
-  #   t.integer "opening_hours"
-  #   t.integer "closing_hours"
-  #   t.string "payment_method"
 
-  # create_table "orders", force: :cascade do |t|
-  #   t.integer "total_price"
-  #   t.string "pay_method"
-  #   t.string "status"
-  #   t.bigint "buyer_id", null: false
-  #   t.datetime "created_at", precision: 6, null: false
-  #   t.datetime "updated_at", precision: 6, null: false
-  #   t.index ["buyer_id_id"], name: "index_orders_on_buyer_id_id"
+  # create_table "ingredients", force: :cascade do |t|
+  #   t.string "name"
+  #   t.integer "unit_price"
+  #   t.date "expiry_date"
+  #   t.integer "weight"
+  #   t.integer "stock_amount"
+  #   t.integer "unit"
+  #   t.integer "discount_rate"
+  #   t.integer "public_status"
+  #   t.text "description"
+  #   t.integer "status"
+
   puts "Destroying users, restaruants and ingredients..."
   Users.destroy_all
   Restaurant.destroy_all
@@ -44,6 +40,23 @@
       total_price: Faker::Commerce.price,
       pay_method: pay_method,
       status: status,
+      )
+    public_status = ["availalble", "not available"]
+    description = ["Over stock that needs a home, and fast. Quality is good but it must be used quickly
+", "Over ripening stock that is suitable for recipes and cooking, but not to be eaten out of hand
+", "Must be consumed within 2 days. Only take it if you can use it today or tomorrow.
+", "Nothing wrong with this product. We just have too much of it. Help us not waste it!
+"].sample
+    ingredient = Ingredient.new(
+      name: Faker::Food.ingredient,
+      unit_price: Faker::Commerce.price(range: 0..10.0),
+      expiry_date: Faker::Date.between(from: 4.days.ago, to: Date.today),
+      weight: Faker::Measurement.weight,
+      stock_amount: Faker::Number.between(from: 1, to: 15),
+      public_status: public_status,
+      description: description
+
+
       )
 
 
