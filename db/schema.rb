@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_122709) do
     t.bigint "buyer_id_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyer_id_id"], name: "index_orders_on_buyer_id_id"
+    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -92,5 +92,5 @@ ActiveRecord::Schema.define(version: 2021_08_10_122709) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "orders", "users", column: "buyer_id_id"
+  add_foreign_key "orders", "users", column: "buyer_id"
 end
