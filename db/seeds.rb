@@ -19,19 +19,25 @@
   #   t.integer "status"
 
   puts "Destroying users, restaruants and ingredients..."
-  Users.destroy_all
+  User.destroy_all
   Restaurant.destroy_all
   Ingredient.destroy_all
   Order.destroy_all
   puts "Generating new data"
 
   10.times do
-    category = ["Japanese", "Chinese", "Greasy-spoon", "Thai", "Mexican", "Mongolian", "Semi-fast food", "Italian", "Cafe'"].sample
+    opening_hours = [8, 8.30, 9, 9.30, 10].sample
+    closing_hours = [8, 8.30, 9, 9.30, 10, 10.30, 11, 11.30, 12].sample
+    payment_method = ["cash", "credit", "paypal"].sample
+    # category = ["Japanese", "Chinese", "Greasy-spoon", "Thai", "Mexican", "Mongolian", "Semi-fast food", "Italian", "Cafe'"].sample
     user = Restaurant.new(
       name: Faker::Restaurant.name,
       email: Faker::Internet.email,
       phone_number: Faker::PhoneNumber.cell_phone,
-      category: category,
+      # category: category,
+      opening_hours: opening_hours,
+      closing_hours: closing_hours,
+      payment_method: payment_method
       )
 
     pay_method = ["cash", "credit", "paypal"].sample
@@ -41,23 +47,32 @@
       pay_method: pay_method,
       status: status,
       )
-    public_status = ["availalble", "not available"]
+    # public_status = ["availalble", "not available"]
     description = ["Over stock that needs a home, and fast. Quality is good but it must be used quickly
-", "Over ripening stock that is suitable for recipes and cooking, but not to be eaten out of hand
-", "Must be consumed within 2 days. Only take it if you can use it today or tomorrow.
-", "Nothing wrong with this product. We just have too much of it. Help us not waste it!
-"].sample
-    ingredient = Ingredient.new(
+      ", "Over ripening stock that is suitable for recipes and cooking, but not to be eaten out of hand
+      ", "Must be consumed within 2 days. Only take it if you can use it today or tomorrow.
+      ", "Nothing wrong with this product. We just have too much of it. Help us not waste it!
+      "].sample
+      discount_rate = [10, 20, 30, 40, 50, 60, 70, 80, 90].sample
+      ingredient = Ingredient.new(
       name: Faker::Food.ingredient,
       unit_price: Faker::Commerce.price(range: 0..10.0),
       expiry_date: Faker::Date.between(from: 4.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
-      public_status: public_status,
+      discount_rate: discount_rate,
+      # public_status: public_status,
       description: description
-
-
       )
+
+ total_price = [35.50, 52.50, 23, 45, 87, 92.50, 67.60, 55.50, 89, 15, 105, 16.50, 62, 78, 35, 25, 88, 125.50, 29, 40, 9.50].sample
+ order = Order.new(
+    total_price: total_price,
+    pay_method: pay_method,
+  )
+
+
+
 
 
 
