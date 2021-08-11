@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_122709) do
     t.integer "total_price"
     t.string "pay_method"
     t.string "status"
-    t.bigint "buyer_id_id", null: false
+    t.bigint "buyer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
