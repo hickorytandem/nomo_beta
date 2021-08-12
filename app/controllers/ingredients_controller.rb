@@ -21,7 +21,7 @@ class IngredientsController < ApplicationController
 
   def show
     # @restaurant = @ingredient.seller_id.restaurant_id
-    @restaurant = Restaurant.find(id: 1)
+    @restaurant = Restaurant.find(params[:id])
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     if @restaurant.geocoded
       @marker = {
