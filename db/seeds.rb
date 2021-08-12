@@ -19,10 +19,10 @@
   #   t.integer "status"
 
   puts "Destroying users, restaruants and ingredients..."
-  User.destroy_all
   Restaurant.destroy_all
   Ingredient.destroy_all
   Order.destroy_all
+  User.destroy_all
   puts "Generating new data"
 
     #   t.string "address"
@@ -32,12 +32,12 @@
     opening_hours = [8, 8.30, 9, 9.30, 10].sample
     closing_hours = [8, 8.30, 9, 9.30, 10, 10.30, 11, 11.30, 12].sample
     payment_method = ["cash", "credit", "paypal"].sample
-    # category = ["Japanese", "Chinese", "Greasy-spoon", "Thai", "Mexican", "Mongolian", "Semi-fast food", "Italian", "Cafe'"].sample
-    anna_restaurant = Restaurant.create(
+    category = ["Japanese", "Chinese", "Greasy-spoon", "Thai", "Mexican", "Mongolian", "Semi-fast food", "Italian", "Cafe'"].sample
+    anna_restaurant = Restaurant.create!(
       name: Faker::Restaurant.name,
       email: Faker::Internet.email,
       phone_number: Faker::PhoneNumber.cell_phone,
-      # category: category,
+      category: category,
       opening_hours: opening_hours,
       closing_hours: closing_hours,
       payment_method: payment_method
@@ -46,25 +46,25 @@
     opening_hours = [8, 8.30, 9, 9.30, 10].sample
     closing_hours = [8, 8.30, 9, 9.30, 10, 10.30, 11, 11.30, 12].sample
     payment_method = ["cash", "credit", "paypal"].sample
-    # category = ["Japanese", "Chinese", "Greasy-spoon", "Thai", "Mexican", "Mongolian", "Semi-fast food", "Italian", "Cafe'"].sample
-    yui_restaurant = Restaurant.create(
+    category = ["Japanese", "Chinese", "Greasy-spoon", "Thai", "Mexican", "Mongolian", "Semi-fast food", "Italian", "Cafe'"].sample
+    yui_restaurant = Restaurant.create!(
       name: Faker::Restaurant.name,
       email: Faker::Internet.email,
       phone_number: Faker::PhoneNumber.cell_phone,
-      # category: category,
+      category: category,
       opening_hours: opening_hours,
       closing_hours: closing_hours,
       payment_method: payment_method
       )
 
-  michael = User.create(
+  michael = User.create!(
     name:"Michael Carter",
     phone_number: "1234567",
     card_detail: "",
     email: "michael@nomo.com",
     password: "123456",
     )
-   yui = User.create(
+   yui = User.create!(
     name:"Yui Kondo",
     phone_number: "1234567",
     card_detail: "",
@@ -72,7 +72,7 @@
     password: "123456",
     restaurant: yui_restaurant
     )
-    anna = User.create(
+    anna = User.create!(
     name:"Anna Nonaka",
     phone_number: "1234567",
     card_detail: "",
@@ -80,7 +80,7 @@
     password: "123456",
     restaurant: anna_restaurant
     )
-     namkhing = User.create(
+     namkhing = User.create!(
     name:"Nonlapat Leesomprasong",
     phone_number: "1234567",
     card_detail: "",
@@ -90,7 +90,7 @@
 
     pay_method = ["cash", "credit", "paypal"].sample
     status = ["collected", "Not collected"].sample
-    order = Order.create(
+    order = Order.create!(
       total_price: Faker::Commerce.price,
       pay_method: pay_method,
       status: status,
@@ -106,7 +106,7 @@
       ", "Nothing wrong with this product. We just have too much of it. Help us not waste it!
       "].sample
       discount_rate = [10, 20, 30, 40, 50, 60, 70, 80, 90].sample
-      ingredient = Ingredient.create(
+      ingredient = Ingredient.create!(
       name: Faker::Food.ingredient,
       unit_price: Faker::Commerce.price(range: 0..10.0),
       expiry_date: Faker::Date.between(from: 4.days.ago, to: Date.today),
@@ -115,7 +115,9 @@
       discount_rate: discount_rate,
       # public_status: public_status,
       description: description,
-      user: yui
+      seller: yui,
+      order: order,
+      unit: "Kg"
       )
 
     end
