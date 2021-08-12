@@ -1,0 +1,37 @@
+.footer {
+  width: 100vw;
+  padding-top: 32px;
+  padding-bottom: 28px;
+  background: $nm-d-green;
+  color: white;
+}
+
+.footer-sitemap {
+  display: flex;
+  margin-bottom: 28px;
+  .row {
+    width: 25%;
+    margin:0;
+    margin-right: 16px;
+    padding: 24px 0;
+    ul{
+      font-size: 16px;
+      list-style-type: none;
+      color: white;
+      padding: 0;
+      li {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+
+.footer-credit {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 12px;
+  font-size:14px;
+  border-top: 1px solid white;
+  padding-top: 16px;
+}

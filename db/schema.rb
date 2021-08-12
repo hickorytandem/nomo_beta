@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_122709) do
+ActiveRecord::Schema.define(version: 2021_08_12_043555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 2021_08_10_122709) do
     t.integer "total_price"
     t.string "pay_method"
     t.string "status"
-    t.bigint "buyer_id_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyer_id_id"], name: "index_orders_on_buyer_id_id"
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -71,6 +71,9 @@ ActiveRecord::Schema.define(version: 2021_08_10_122709) do
     t.string "payment_method"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,5 +95,5 @@ ActiveRecord::Schema.define(version: 2021_08_10_122709) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "orders", "users", column: "buyer_id_id"
+  add_foreign_key "orders", "users", column: "buyer_id"
 end
