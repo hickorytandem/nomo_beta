@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show, :edit, :update, :destroy]
 
   def index
-
+    @orders = policy_scope(Order)
   end
 
   def new
@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
