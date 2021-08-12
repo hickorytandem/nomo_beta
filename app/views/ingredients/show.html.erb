@@ -1,4 +1,8 @@
 <h1><%= @ingredient.name %></h1>
+<%# Badge %>
+<div class="ingredients-badges">
+  <span class="badge badge-primary"><%= @ingredient.user.restaurant_id.category %></span>
+</div>
 <p><strong>Expiry date: </strong><%= @ingredient.expiry_date %></p>
 <p>Mainly grown in: </p><br>
 <p><%= @ingredient.expiry_date %></p>
@@ -6,8 +10,8 @@
 <div class="row">
   <div class="left">
     <h2>Pickup detail</h2>
-    <p><strong>Opening hours: </strong><%= @ingredient.seller_id.restaurant_id.opening_hours %> - <%= @ingredient.seller_id.restaurant_id.closing_hours %></p>
-    <p><strong>Store location: </strong><%= @ingredient.seller_id.restaurant_id.address %></p>
+    <p><strong>Opening hours: </strong><%= @ingredient.user.restaurant_id.opening_hours %> - <%= @ingredient.user.restaurant_id.closing_hours %></p>
+    <p><strong>Store location: </strong><%= @ingredient.user.restaurant_id.address %></p>
   </div>
   <div class="right">
     <div id="map"
