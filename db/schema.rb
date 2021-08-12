@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_12_103212) do
+ActiveRecord::Schema.define(version: 2021_08_12_110410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,13 +42,17 @@ ActiveRecord::Schema.define(version: 2021_08_12_103212) do
     t.date "expiry_date"
     t.integer "weight"
     t.integer "stock_amount"
-    t.integer "unit"
+    t.string "unit"
     t.integer "discount_rate"
     t.integer "public_status"
     t.text "description"
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "buyer_id", null: false
+    t.bigint "order_id", null: false
+    t.index ["buyer_id"], name: "index_ingredients_on_buyer_id"
+    t.index ["order_id"], name: "index_ingredients_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -95,5 +99,7 @@ ActiveRecord::Schema.define(version: 2021_08_12_103212) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "ingredients", "orders"
+  add_foreign_key "ingredients", "users", column: "buyer_id"
   add_foreign_key "orders", "users", column: "buyer_id"
 end
