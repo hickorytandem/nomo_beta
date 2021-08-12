@@ -1,0 +1,35 @@
+.card-green {
+  width: 265px;
+  height: 96px;
+  border-radius: 16px;
+  background-color: $nm-green;
+  margin: 24px 12px;
+  padding: 16px;
+}
+
+.card-green h2 {
+  font-size: 12px;
+  font-family: Manrope;
+  font-weight: 500;
+  margin: 0;
+  border-bottom: 1px solid black;
+  color: black;
+  padding-bottom: 8px;
+}
+
+.card-green p {
+  font-size: 12px;
+  font-family: Manrope;
+  font-weight: 500;
+  margin: 0;
+  color: black;
+  padding-top: 8px;
+}
+
+.big-bold {
+  color: black;
+  font-size: 26px;
+  font-family: Manrope;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
