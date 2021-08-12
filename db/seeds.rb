@@ -1,22 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-  # create_table "ingredients", force: :cascade do |t|
-  #   t.string "name"
-  #   t.integer "unit_price"
-  #   t.date "expiry_date"
-  #   t.integer "weight"
-  #   t.integer "stock_amount"
-  #   t.integer "unit"
-  #   t.integer "discount_rate"
-  #   t.integer "public_status"
-  #   t.text "description"
-  #   t.integer "status"
+ require "open-uri"
 
   puts "Destroying users, restaruants and ingredients..."
   Restaurant.destroy_all
@@ -106,7 +88,10 @@
       ", "Nothing wrong with this product. We just have too much of it. Help us not waste it!
       "].sample
       discount_rate = [10, 20, 30, 40, 50, 60, 70, 80, 90].sample
-      ingredient = Ingredient.create!(
+
+
+file = URI.open('https://images.unsplash.com/photo-1576856497337-4f2be24683da?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=682&q=80')
+      ingredient = Ingredient.new(
       name: Faker::Food.ingredient,
       unit_price: Faker::Commerce.price(range: 0..10.0),
       expiry_date: Faker::Date.between(from: 4.days.ago, to: Date.today),
@@ -119,7 +104,8 @@
       order: order,
       unit: "Kg"
       )
-
+      ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+      ingredient.save
     end
 
  # total_price = [35.50, 52.50, 23, 45, 87, 92.50, 67.60, 55.50, 89, 15, 105, 16.50, 62, 78, 35, 25, 88, 125.50, 29, 40, 9.50].sample
