@@ -22,7 +22,8 @@
       category: category,
       opening_hours: opening_hours,
       closing_hours: closing_hours,
-      payment_method: payment_method
+      payment_method: payment_method,
+      address: "Kabuto-cho, Nihonbashi, Tokyo, Japan"
       )
 
     opening_hours = [8, 8.30, 9, 9.30, 10].sample
@@ -36,7 +37,8 @@
       category: category,
       opening_hours: opening_hours,
       closing_hours: closing_hours,
-      payment_method: payment_method
+      payment_method: payment_method,
+      address: "Musashikosugi, Kanagawa, Japan"
       )
 
   michael = User.create!(
@@ -45,6 +47,7 @@
     card_detail: "",
     email: "michael@nomo.com",
     password: "123456",
+    address: "Kawasaki-shi, Kanagawa, Japan"
     )
    yui = User.create!(
     name:"Yui Kondo",
@@ -52,7 +55,8 @@
     card_detail: "",
     email: "yui@nomo.com",
     password: "123456",
-    restaurant: yui_restaurant
+    restaurant: yui_restaurant,
+    address: "Meguro-ku, Tokyo, Japan"
     )
     anna = User.create!(
     name:"Anna Nonaka",
@@ -60,14 +64,16 @@
     card_detail: "",
     email: "anna@nomo.com",
     password: "123456",
-    restaurant: anna_restaurant
+    restaurant: anna_restaurant,
+    address: "Shinagawa-ku, Tokyo, Japan"
     )
      namkhing = User.create!(
     name:"Nonlapat Leesomprasong",
     phone_number: "1234567",
     card_detail: "",
     email: "namkhing@nomo.com",
-    password: "123456"
+    password: "123456",
+    address: "Minato-ku, Tokyo, Japan"
     )
 
     pay_method = ["cash", "credit", "paypal"].sample
