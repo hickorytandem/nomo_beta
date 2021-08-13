@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :find_order, only: [ :show, :edit, :update, :destroy]
+  before_action :find_order, only: [:show, :edit, :update, :destroy]
 
   def index
     @orders = policy_scope(Order)
