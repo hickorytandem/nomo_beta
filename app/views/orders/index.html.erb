@@ -17,12 +17,12 @@
   <h1>All orders</h1>
   <%# Tabs %>
   <div class="w3-bar w3-black">
-    <button class="w3-bar-item w3-button" onclick="openCity('London')">Completed Orders</button>
-    <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Wait for pickup</button>
+    <button class="w3-bar-item w3-button" onclick="openCity('complete-order')">Completed Orders</button>
+    <button class="w3-bar-item w3-button" onclick="openCity('not-complete-order')">Wait for pickup</button>
   </div>
   <%# Content %>
   <%# Commplete orders %>
-  <div id="London" class="w3-container city">
+  <div id="complete-order" class="w3-container city">
     <h2>Commpleted</h2>
     <% if @collected_orders.count == 0 %>
       <h2>No orders</h2>
@@ -41,7 +41,7 @@
     <% end %>
   </div>
   <%# Not collected orders %>
-  <div id="Paris" class="w3-container city" style="display:none">
+  <div id="not-complete-order" class="w3-container city" style="display:none">
     <h2>Wait for pickup</h2>
     <% if @not_collected_orders.count == 0 %>
       <h2>No orders</h2>

@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
     @orders = policy_scope(Order)
     @collected_orders = @orders.where(status: "collected")
     @not_collected_orders = @orders.where(status: "Not collected")
-
   end
 
   def new
