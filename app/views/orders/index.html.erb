@@ -26,39 +26,41 @@
     <%# Content %>
     <%# Not collected orders %>
     <div id="not-complete-order" class="w3-container city">
-      <h2>Wait for pickup</h2>
       <% if @not_collected_orders.count == 0 %>
         <h2>No orders</h2>
       <% else %>
         <% @not_collected_orders.each do |not_collected_order| %>
-          <h3>Order #0000<%= not_collected_order.id %> </h3>
-          <% not_collected_order.ingredients.each do |ingredient| %>
-            <%= ingredient.stock_amount %><%= ingredient.name %> <br>
-            <%= ingredient.expiry_date %><br>
-            <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
-          <% end %>
-          Payment: <%= not_collected_order.pay_method %><br>
+          <h3>Order #0000<%= not_collected_order.id %></h3>
+          <br>
           Total price: $<%= not_collected_order.total_price %><br>
-          Order on: <%= change_date_format(not_collected_order.created_at) %>
+          Order on: <%= change_date_format(not_collected_order.created_at) %><br>
+          <div class="container order-card">
+            <% not_collected_order.ingredients.each do |ingredient| %>
+              <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
+              <%= ingredient.stock_amount %><%= ingredient.name %> <br>
+              <%= ingredient.expiry_date %><br>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>
     <%# Commplete orders %>
     <div id="complete-order" class="w3-container city" style="display:none">
-      <h2>Commpleted</h2>
       <% if @collected_orders.count == 0 %>
         <h2>No orders</h2>
       <% else %>
         <% @collected_orders.each do |collected_order| %>
           <h3>Order #0000<%= collected_order.id %> </h3>
-          <% collected_order.ingredients.each do |ingredient| %>
-            <%= ingredient.stock_amount %><%= ingredient.name %> <br>
-            <%= ingredient.expiry_date %><br>
-            <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
-          <% end %>
-          Payment: <%= collected_order.pay_method %><br>
+          <br>
           Total price: $<%= collected_order.total_price %><br>
-          Status: <%= collected_order.status %>
+          Order on: <%= change_date_format(collected_order.created_at) %><br>
+          <div class="order-card">
+            <% collected_order.ingredients.each do |ingredient| %>
+              <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %><br>
+              <%= ingredient.stock_amount %><%= ingredient.name %> <br>
+              <%= ingredient.expiry_date %><br>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>
