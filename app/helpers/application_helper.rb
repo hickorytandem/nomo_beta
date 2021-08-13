@@ -4,4 +4,8 @@ module ApplicationHelper
     Date.parse(new_date).strftime("%b %d")
   end
 
+  def sum_ingredient_price(stock_amount, unit_price)
+    @sum = stock_amount * unit_price
+  end
+
 end
