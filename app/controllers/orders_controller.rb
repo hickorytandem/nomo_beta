@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   def index
     @orders = policy_scope(Order)
     @collected_orders = @orders.where(status: "collected")
-    @not_collected_orders = @orders.where(status: "Not collected")
+    @not_collected_orders = @orders.where(status: "not collected")
+    @ingredients = Ingredient.all
   end
 
   def new
