@@ -1,6 +1,14 @@
-<h1>All orders</h1>
+<div class="container mt-5">
+  <h1>Welcome back<%= current_user.name %>!</h1>
+  <div class="card-banner d-flex">
+    <%= image_tag 'carbon_card.svg' %>
+    <%= image_tag 'bush_card.svg' %>
+  </div>
 
-<% @orders.each do |order| %>
-  Order: <%= order.id %>
-  Payment: <%= order.pay_method %>
-<% end %>
+  <h1>All orders</h1>
+
+  <% @orders.each do |order| %>
+    Order: <%= order.id %>
+    Payment: <%= order.pay_method %>
+  <% end %>
+</div>
