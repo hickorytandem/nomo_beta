@@ -15,46 +15,53 @@
   <hr>
   <%# Order %>
   <h1>All orders</h1>
+  <%# Tabs %>
+  <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="openOrder('all-orders')">All orders</button>
+    <button class="w3-bar-item w3-button" onclick="openOrder('not-collected')">Wait for pickup</button>
+  </div>
+  <%# Contents %>
   <ul>
     <% @orders.each do |order| %>
-      <% order.ingredients.each do |ingredient| %>
-        <li><%= ingredient.seller.restaurant.name %></li>
-        <%= ingredient.name %> <%= ingredient.expiry_date %>
-        <%= cl_image_tag ingredient.photo.key %>
+      <% if order.status == "collected" %>
+        <div id="all-orders" class="order">
+          <h2>All orders</h2>
+          <% order.ingredients.each do |ingredient| %>
+            <li><%= ingredient.seller.restaurant.name %></li>
+            <%= ingredient.name %> <%= ingredient.expiry_date %>
+            <%# <%= cl_image_tag ingredient.photo.key %> %>
+          <% end %>
+          Payment: <%= order.pay_method %>
+          Total: $<%= order.total_price %>
+          Status: <%= order.status %>
+        </div>
+      <% else %>
+        <div id="not-collected" class="order" style="display:none">
+          <% if @not_collected_orders.count == 0 %>
+            <% order.ingredients.each do |ingredient| %>
+              <h2>Wait for pickup</h2>
+              <li><%= ingredient.seller.restaurant.name %></li>
+              <%= ingredient.name %> <%= ingredient.expiry_date %>
+              <%# <%= cl_image_tag ingredient.photo.key %> %>
+            <% end %>
+            Payment: <%= order.pay_method %>
+            Total: $<%= order.total_price %>
+            Status: <%= order.status %>
+          <% else %>
+            <h2>No orders</h2>
+          <% end %>
+        </div>
       <% end %>
-      Payment: <%= order.pay_method %>
-      Total: $<%= order.total_price %>
-      Status: <%= order.status %>
     <% end %>
   </ul>
-</div>
-<%# Tabs %>
-<div class="w3-bar w3-black">
-  <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
-</div>
-<%# Contents %>
-<div id="London" class="city">
-  <h2>London</h2>
-  <p>London is the capital of England.</p>
-</div>
-<div id="Paris" class="city" style="display:none">
-  <h2>Paris</h2>
-  <p>Paris is the capital of France.</p>
-</div>
-<div id="Tokyo" class="city" style="display:none">
-  <h2>Tokyo</h2>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-<%# Javascript for tab %>
-<script>
-  function openCity(cityName) {
-    var i;
-    var x = document.getElementsByClassName("city");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+  <%# Javascript for tab %>
+  <script>
+    function openOrder(cityName) {
+      var i;
+      var x = document.getElementsByClassName("order");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      document.getElementById(cityName).style.display = "block";
     }
-    document.getElementById(cityName).style.display = "block";
-  }
-</script>
+  </script>
