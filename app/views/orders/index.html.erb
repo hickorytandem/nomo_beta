@@ -1,12 +1,19 @@
 <div class="container mt-5">
-  <h1>Welcome back<%= current_user.name %>!</h1>
-
-  <div class="card-banner" style="background-image: url(<%= asset_path('carbon_card') %>);">
-    <h4>So far you’ve rescued 123 ingredients and saved 435 kg of CO2</h4>
-    <%= link_to "Learn more", class:"btn btn-primary" %>
+  <%# Status %>
+  <h1>Welcome back <%= current_user.name %>!</h1>
+  <div class="d-flex">
+    <div class="card-banner" style="background-image: url(<%= asset_path('carbon_card') %>);">
+      <h4>So far you’ve rescued 123 ingredients and saved 435 kg of CO2</h4>
+      <%= link_to "Learn more", class:"btn btn-primary" %>
+    </div>
+    <div class="card-banner" style="background-image: url(<%= asset_path('bush_card') %>); color: white;">
+      <h4>You’re a earth saver</h4>
+      <p>Save another 200 kg to unlock next level and receive more discounts </p>
+      <p>Learn more</p>
+    </div>
   </div>
-
-
+  <hr>
+  <%# Order %>
 
   <h1>All orders</h1>
 
