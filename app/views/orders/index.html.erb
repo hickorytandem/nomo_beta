@@ -1,9 +1,12 @@
 <div class="container mt-5">
   <h1>Welcome back<%= current_user.name %>!</h1>
-  <div class="card-banner d-flex">
-    <%= image_tag 'carbon_card.svg' %>
-    <%= image_tag 'bush_card.svg' %>
+
+  <div class="card-banner" style="background-image: url(<%= asset_path('carbon_card') %>);">
+    <h4>So far you’ve rescued 123 ingredients and saved 435 kg of CO2</h4>
+    <%= link_to "Learn more", class:"btn btn-primary" %>
   </div>
+
+
 
   <h1>All orders</h1>
 
