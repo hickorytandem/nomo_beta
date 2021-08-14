@@ -13,6 +13,18 @@ class IngredientPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    record.user == user
+  end
+
+  def update?
+    edit?
+  end
+
+  def destroy?
+    record.user == user
+  end
+  
   def update?
     record.seller == user
   end
@@ -20,6 +32,4 @@ class IngredientPolicy < ApplicationPolicy
   def destroy
     record.seller == user
   end
-
-
 end

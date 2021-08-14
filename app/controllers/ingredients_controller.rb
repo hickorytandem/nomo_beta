@@ -1,8 +1,9 @@
 class IngredientsController < ApplicationController
   before_action :find_ingredient, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-
+    @ingredients = policy_scope(Ingredient.all)
   end
 
   def new
