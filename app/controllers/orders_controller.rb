@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
     @order_total_price = @ingredient_price.sum
   end
 
+
   # def create
 
   #   @order = Order.new(total_price: 0, status: :pending)
@@ -41,6 +42,11 @@ class OrdersController < ApplicationController
   #   end
 
   # end
+    
+  def success
+    skip_authorization
+  end
+
 
   def show
   end
