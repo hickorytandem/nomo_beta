@@ -23,7 +23,7 @@
       opening_hours: opening_hours,
       closing_hours: closing_hours,
       payment_method: payment_method,
-      address: "Kabuto-cho, Nihonbashi, Tokyo, Japan"
+      address: "Nihonbashi, Tokyo, Japan"
       )
 
     opening_hours = [8, 8.30, 9, 9.30, 10].sample
