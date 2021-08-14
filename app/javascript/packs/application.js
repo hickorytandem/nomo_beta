@@ -24,6 +24,8 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,6 +36,24 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('map')) {
     initMapbox();
   }
+
+  $('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    responsive:{
+      0:{
+        items:1
+       },
+      600:{
+       items:3
+       },
+      1000: {
+          items: 5
+      }
+     },
+     nav: true,
+     navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
+   })
 
 });
 

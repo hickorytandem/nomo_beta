@@ -12,7 +12,7 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.new(ingredient_params)
-    # authorize @ingredient
+    authorize @ingredient
     if @ingredient.save
       redirect_to ingredients_path
     else
@@ -21,15 +21,14 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    # @restaurant = @ingredient.seller_id.restaurant_id
-    @restaurant = Restaurant.find(params[:id])
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    if @restaurant.geocoded
-      @marker = {
-          lat: @restaurant.latitude,
-          lng: @restaurant.longitude
-      }
-    end
+    @restaurant = @ingredient.seller.restaurant
+    # if @restaurant.geocoded
+    #   @marker = {
+    #       lat: @restaurant.latitude,
+    #       lng: @restaurant.longitude
+    #   }
+    # end
+    skip_authorization
   end
 
   def edit
