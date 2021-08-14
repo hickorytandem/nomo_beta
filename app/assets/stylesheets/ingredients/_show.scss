@@ -1,0 +1,91 @@
+// #ingredient-fix {
+//   position: fixed;
+//   right: 0;
+//   top: 50%;
+// }
+
+.quantity {
+    display: flex;
+    justify-content: space-around;
+    background-color: $nm-l-orange;
+    vertical-align: baseline;
+    padding-top: 16px;
+  }
+
+.order {
+  display: flex;
+  justify-content: space-around;
+  background-color: $nm-black;
+  color: white;
+  padding-top: 16px;
+}
+
+.section-one {
+  padding-top: 24px;
+  padding-left: 48px;
+  padding-right: 48px;
+  margin: 0;
+
+  .resto-name {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .ingredient-header {
+    margin: 0;
+    font-size: 32px;
+  }
+
+  .ingredients-badges {
+    padding-bottom: 32px;
+  }
+
+  .ingredient-description {
+    margin-bottom: 8px;
+  }
+
+  .promo-cards {
+    display: flex;
+  }
+
+  .ingredient-info {
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .pickup-detail {
+    font-family: Manrope;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+
+  .detail-item {
+    font-size: 14px;
+  }
+}
+
+.section-two {
+  background-color: $nm-purple;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.section-three {
+  background-color: $nm-l-orange;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.section-four {
+  background-color: $nm-yellow;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 24px;
+  margin: 0;
+}
