@@ -1,0 +1,11 @@
+<h1>My cart</h1>
+<% @orders.each do |order| %>
+  <% order.ingredients.each do |ingredient| %>
+    <%= ingredient.stock_amount %>X<%= ingredient.name %><br>
+    $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %><br>
+    <%= ingredient.seller.restaurant.name %><br>
+    <hr>
+  <% end %>
+<% end %>
+Order total price: <%= @order_total_price %><br>
+<%= link_to "Proceed to checkout", my_cart_success_path, class: "btn btn-outline-primary"%>

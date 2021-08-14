@@ -1,5 +1,5 @@
 class IngredientsController < ApplicationController
-  before_action :find_ingredient, only: [:show]
+  before_action :find_ingredient, only: [:show, :update]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -8,6 +8,7 @@ class IngredientsController < ApplicationController
 
   def new
     @ingredient = Ingredient.new
+
   end
 
   def create
@@ -21,15 +22,13 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredients = Ingredient.where(seller: @ingredient.seller).sample(3)
-    @recipes = policy_scope(Ingredient.all).sample(3)
-
     @restaurant = @ingredient.seller.restaurant
     @marker = {
         lat: @restaurant.latitude,
         lng: @restaurant.longitude
     }
-    skip_authorization
+   @order = current_user.pending_order || Order.new
+
   end
 
   def edit
@@ -37,7 +36,15 @@ class IngredientsController < ApplicationController
   end
 
   def update
-
+    if ingredient_params[:order_id].present?
+      @order = Order.find(ingredient_params[:order_id])
+      @ingredient.update(order: @order)
+      redirect_to my_cart_path
+    else
+      @order = Order.create(buyer: current_user, status: :pending, total_price: 0)
+      @ingredient.update(order: @order)
+      redirect_to my_cart_path
+    end
   end
 
   def destroy
@@ -48,6 +55,7 @@ class IngredientsController < ApplicationController
 
   def find_ingredient
     @ingredient = Ingredient.find(params[:id])
+    authorize @ingredient
   end
 
   def ingredient_params
