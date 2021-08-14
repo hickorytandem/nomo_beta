@@ -24,7 +24,8 @@ class OrdersController < ApplicationController
       order.ingredients.each do |ingredient|
         @ingredient_price << ingredient.stock_amount * ingredient.unit_price
       end
-    @order_total_price = @ingredient_price.sum
+      @order_total_price = @ingredient_price.sum
+    end
   end
 
 
