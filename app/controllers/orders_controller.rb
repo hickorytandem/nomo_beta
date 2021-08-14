@@ -30,6 +30,10 @@ class OrdersController < ApplicationController
 
   end
 
+  def success
+    skip_authorization
+  end
+
   def show
   end
 

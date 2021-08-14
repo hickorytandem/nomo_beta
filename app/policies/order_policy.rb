@@ -28,4 +28,8 @@ class OrderPolicy < ApplicationPolicy
   def destroy?
     user
   end
+
+  def success
+    record.user
+  end
 end
