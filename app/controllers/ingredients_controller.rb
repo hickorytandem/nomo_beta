@@ -22,12 +22,10 @@ class IngredientsController < ApplicationController
 
   def show
     @restaurant = @ingredient.seller.restaurant
-    # if @restaurant.geocoded
-    #   @marker = {
-    #       lat: @restaurant.latitude,
-    #       lng: @restaurant.longitude
-    #   }
-    # end
+    @marker = {
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude
+    }
     skip_authorization
   end
 
