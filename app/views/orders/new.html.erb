@@ -5,6 +5,7 @@
     $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %><br>
     <%= ingredient.seller.restaurant.name %><br>
     <hr>
-    Order total price: <%= @order_total_price %>
   <% end %>
 <% end %>
+Order total price: <%= @order_total_price %><br>
+<%= link_to "Proceed to checkout", my_cart_success_path, class: "btn btn-outline-primary"%>
