@@ -1,0 +1,15 @@
+<% @recipes.each do |recipe| %>
+  <div class="card-column card-ingredient">
+    <%= link_to ingredient_path(recipe), action: 'go' do %>
+    <%= cl_image_tag recipe.photo.key, class: "image" %>
+      <div class="card-ingredient-info">
+        <i class="far fa-heart position-icon"></i>
+        <div class="card-ingredient-text">
+          <p><%= recipe.seller.restaurant.name %></p>
+          <h2><%= recipe.name %></h2>
+          <h3>$<%= recipe.unit_price %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

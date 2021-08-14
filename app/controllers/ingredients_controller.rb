@@ -21,6 +21,8 @@ class IngredientsController < ApplicationController
   end
 
   def show
+    @ingredients = policy_scope(Ingredient.all).sample(3)
+    @recipes = policy_scope(Ingredient.all).sample(3)
     @restaurant = @ingredient.seller.restaurant
     @marker = {
         lat: @restaurant.latitude,
