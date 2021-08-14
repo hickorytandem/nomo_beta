@@ -22,7 +22,7 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredients = Ingredient.where(seller: @ingredient.seller)
+    @ingredients = Ingredient.where(seller: @ingredient.seller).sample(3)
     @recipes = Ingredient.all.sample(3)
     @restaurant = @ingredient.seller.restaurant
     @marker = {
