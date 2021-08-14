@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
   end
-
+# comment
   def create
      @order = Order.new(order_params)
     @order.user = current_user
