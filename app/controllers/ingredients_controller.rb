@@ -1,8 +1,9 @@
 class IngredientsController < ApplicationController
   before_action :find_ingredient, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-
+    @ingredients = policy_scope(Ingredient.all)
   end
 
   def new
@@ -11,7 +12,7 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.new(ingredient_params)
-    # authorize @ingredient
+    authorize @ingredient
     if @ingredient.save
       redirect_to ingredients_path
     else
@@ -20,15 +21,12 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    # @restaurant = @ingredient.seller_id.restaurant_id
-    @restaurant = Restaurant.find(params[:id])
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    if @restaurant.geocoded
-      @marker = {
-          lat: @restaurant.latitude,
-          lng: @restaurant.longitude
-      }
-    end
+    @restaurant = @ingredient.seller.restaurant
+    @marker = {
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude
+    }
+    skip_authorization
   end
 
   def edit

@@ -3,13 +3,30 @@ class OrdersController < ApplicationController
 
   def index
     @orders = policy_scope(Order)
+    @collected_orders = @orders.where(status: "collected")
+    @not_collected_orders = @orders.where(status: "not collected")
+    @my_orders = []
+
+    Order.where(buyer: current_user).each do |order|
+      order.ingredients.each do |ingredient|
+        @my_orders << ingredient.stock_amount
+      end
+    end
+    @my_ingredients = @my_orders.sum
   end
 
   def new
-
+    @order = Order.new
   end
 
   def create
+     @order = Order.new(order_params)
+    @order.user = current_user
+    if @order.save
+      redirect_to order_path(@order)
+    else
+      render :new
+    end
 
   end
 
