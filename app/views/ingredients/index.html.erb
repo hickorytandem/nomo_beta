@@ -1,7 +1,20 @@
-<h1>Today's offer</h1>
-
-<ul>
-  <% @ingredients.each do |ingredient| %>
-    <li><%= link_to "#{ingredient.name}", ingredient_path(ingredient) %></li>
-  <% end %>
-</ul>
+<div class="container mt-5">
+  <h1>Today's offer</h1>
+  <div class="card-row d-flex flex-wrap">
+    <% @ingredients.each do |ingredient| %>
+      <div class="card-column card-ingredient">
+        <%= link_to ingredient_path(ingredient), action: 'go' do %>
+        <%= cl_image_tag ingredient.photo.key, class: "image" %>
+          <div class="card-ingredient-info">
+            <i class="far fa-heart position-icon"></i>
+            <div class="card-ingredient-text">
+              <p><%= ingredient.seller.restaurant.name %></p>
+              <h2><%= ingredient.name %></h2>
+              <h3>$<%= ingredient.unit_price %></h3>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -85,7 +85,7 @@
       buyer: namkhing
       )
 
-  5.times do
+  15.times do
 
     # public_status = ["availalble", "not available"]
     description = ["Over stock that needs a home, and fast. Quality is good but it must be used quickly
@@ -96,7 +96,7 @@
       discount_rate = [10, 20, 30, 40, 50, 60, 70, 80, 90].sample
 
 
-file = URI.open('https://images.unsplash.com/photo-1576856497337-4f2be24683da?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=682&q=80')
+file = URI.open('https://source.unsplash.com/1600x900/?vegetable')
       ingredient = Ingredient.new(
       name: Faker::Food.ingredient,
       unit_price: Faker::Commerce.price(range: 0..10.0),
