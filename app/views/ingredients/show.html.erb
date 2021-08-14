@@ -37,7 +37,7 @@
         <div class="col-6">
           <p class="pickup-detail">Pickup detail</p>
           <p class="detail-item"><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %> - <%= @ingredient.seller.restaurant.closing_hours %></p>
-          <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.address %></p>
+          <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.restaurant.address %></p>
         </div>
         <div class="col-6">
           <div id="map"
@@ -54,12 +54,21 @@
   <div class="col-7">
     <div class="section-two">
       <h1 class="ingredient-header">Matching recipe</h1>
+      <div class="cards-flex">
+        <%= render 'shared/card-recipe' %>
+      </div>
     </div>
     <div class="section-three">
       <h1 class="ingredient-header">Often pair with...</h1>
+      <div class="cards-flex">
+        <%= render 'shared/card-recipe' %>
+      </div>
     </div>
     <div class="section-four">
       <h1 class="ingredient-header">Other products in this store</h1>
+      <div class="cards-flex">
+        <%= render 'shared/card-ingredient' %>
+      </div>
     </div>
   </div>
 </div>
