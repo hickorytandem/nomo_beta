@@ -22,6 +22,8 @@ class IngredientsController < ApplicationController
   end
 
   def show
+    @ingredients = Ingredient.where(seller: @ingredient.seller)
+    @recipes = Ingredient.all.sample(3)
     @restaurant = @ingredient.seller.restaurant
     @marker = {
         lat: @restaurant.latitude,

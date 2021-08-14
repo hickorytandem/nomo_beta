@@ -33,22 +33,14 @@
             <%= render 'shared/card-green' %>
             <%= render 'shared/card-d-green' %>
           </div>
-
- </div>
-    <div class="restaurant-info">
-      <div class="row">
-        <div class="col-6">
-          <p class="pickup-detail">Pickup detail</p>
-          <p class="detail-item"><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %> - <%= @ingredient.seller.restaurant.closing_hours %></p>
-          <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.restaurant.address %></p>
-        </div>
-        <div class="restaurant-info">
-          <div class="row">
-            <div class="col-6">
-              <p class="pickup-detail">Pickup detail</p>
-              <p class="detail-item"><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %> - <%= @ingredient.seller.restaurant.closing_hours %></p>
-              <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.address %></p>
-            </div>
+       </div>
+          <div class="restaurant-info">
+            <div class="row">
+              <div class="col-6">
+                <p class="pickup-detail">Pickup detail</p>
+                <p class="detail-item"><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %> - <%= @ingredient.seller.restaurant.closing_hours %></p>
+                <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.restaurant.address %></p>
+              </div>
             <div class="col-6">
               <div id="map"
           style="width: 100%; height: 200px;"
