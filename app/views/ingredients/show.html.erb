@@ -8,58 +8,60 @@
           <p><%= @ingredient.weight%> kg</p>
         </div>
         <div class="col-6 margin-0">
-          <%= link_to my_cart_path do  %>
-            <div class="order">
-              <p>Add to cart</p>
-              <p>$ <%= @ingredient.unit_price * @ingredient.stock_amount %></p>
-            </div>
+          <%= simple_form_for @ingredient do |f| %>
+            <%= f.input :order_id, value: @order.id, as: :hidden %>
+            <%= f.submit class: "btn btn-success mt-3" %>
           <% end %>
+          <%# <div class="order">
+              <p>Add to cart</p>
+              <p>$ <%= @ingredient.unit_price * @ingredient.stock_amount %><
+        <%# </div> %>
+      </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="col-7 section-one">
-    <div class="ingredient-info">
-      <p class="resto-name"><%= @ingredient.seller.restaurant.name %></p>
-      <h1 class="ingredient-header"><%= @ingredient.name %></h1>
-      <div class="ingredients-badges">
-        <span class="badge-round-yellow"><%= @ingredient.seller.restaurant.category.upcase %></span>
-      </div>
-      <p><strong>Expiry date: </strong><%= @ingredient.expiry_date %></p>
-      <p class="ingredient-description"><%= @ingredient.description %></p>
-      <div class="promo-cards">
-        <%= render 'shared/card-green' %>
-        <%= render 'shared/card-d-green' %>
-      </div>
-    </div>
-    <div class="restaurant-info">
-      <div class="row">
-        <div class="col-6">
-          <p class="pickup-detail">Pickup detail</p>
-          <p class="detail-item"><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %> - <%= @ingredient.seller.restaurant.closing_hours %></p>
-          <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.address %></p>
+      <div class="col-7 section-one">
+        <div class="ingredient-info">
+          <p class="resto-name"><%= @ingredient.seller.restaurant.name %></p>
+          <h1 class="ingredient-header"><%= @ingredient.name %></h1>
+          <div class="ingredients-badges">
+            <span class="badge-round-yellow"><%= @ingredient.seller.restaurant.category.upcase %></span>
+          </div>
+          <p><strong>Expiry date: </strong><%= @ingredient.expiry_date %></p>
+          <p class="ingredient-description"><%= @ingredient.description %></p>
+          <div class="promo-cards">
+            <%= render 'shared/card-green' %>
+            <%= render 'shared/card-d-green' %>
+          </div>
         </div>
-        <div class="col-6">
-          <div id="map"
+        <div class="restaurant-info">
+          <div class="row">
+            <div class="col-6">
+              <p class="pickup-detail">Pickup detail</p>
+              <p class="detail-item"><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %> - <%= @ingredient.seller.restaurant.closing_hours %></p>
+              <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.address %></p>
+            </div>
+            <div class="col-6">
+              <div id="map"
           style="width: 100%; height: 200px;"
           data-markers="<%= @marker.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-5"></div>
-  <div class="col-7">
-    <div class="section-two">
-      <h1 class="ingredient-header">Matching recipe</h1>
+    <div class="row">
+      <div class="col-5"></div>
+      <div class="col-7">
+        <div class="section-two">
+          <h1 class="ingredient-header">Matching recipe</h1>
+        </div>
+        <div class="section-three">
+          <h1 class="ingredient-header">Often pair with...</h1>
+        </div>
+        <div class="section-four">
+          <h1 class="ingredient-header">Other products in this store</h1>
+        </div>
+      </div>
     </div>
-    <div class="section-three">
-      <h1 class="ingredient-header">Often pair with...</h1>
-    </div>
-    <div class="section-four">
-      <h1 class="ingredient-header">Other products in this store</h1>
-    </div>
-  </div>
-</div>

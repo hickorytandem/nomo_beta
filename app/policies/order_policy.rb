@@ -8,8 +8,16 @@ class OrderPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def create?
+  def new?
     true
+  end
+
+  def update?
+    true
+  end
+
+  def create?
+    record.user == user
   end
 
   def edit?
