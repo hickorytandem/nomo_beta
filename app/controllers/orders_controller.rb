@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 
   def new
     # @order = Order.new
-    @orders = Order.where(status: :pending)
+    @orders = Order.where(status: :pending, buyer: current_user)
     skip_authorization
     @ingredient_price = []
     @orders.each do |order|
