@@ -54,12 +54,23 @@
   <div class="col-7">
     <div class="section-two">
       <h1 class="ingredient-header">Matching recipe</h1>
+      <div>
+        <%#= @ingredients.each do |ingredient| %>
+          <%#= render 'shared/card-ingredient' %>
+        <%# end %>
+      </div>
     </div>
     <div class="section-three">
       <h1 class="ingredient-header">Often pair with...</h1>
+      <div>
+        <%#= render 'shared/card-ingredient' %>
+      </div>
     </div>
     <div class="section-four">
       <h1 class="ingredient-header">Other products in this store</h1>
+      <div>
+        <%#= render 'shared/card-ingredient' %>
+      </div>
     </div>
   </div>
 </div>
