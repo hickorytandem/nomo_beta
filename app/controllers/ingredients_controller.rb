@@ -22,7 +22,6 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    skip_authorization
     @restaurant = @ingredient.seller.restaurant
     @marker = {
         lat: @restaurant.latitude,

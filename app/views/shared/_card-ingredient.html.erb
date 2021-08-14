@@ -1,11 +1,15 @@
-<div class="card-ingredient">
-  <%= image_tag 'https://source.unsplash.com/1600x900/?pumpkin', class: "image"%>
-  <div class="card-ingredient-info">
-    <i class="far fa-heart position-icon"></i>
-    <div class="card-ingredient-text">
-      <p>Restaurant name</p>
-      <h2>Small Little Pumpkin</h2>
-      <h3>$18</h3>
-    </div>
+<% @ingredients.each do |ingredient| %>
+  <div class="card-column card-ingredient">
+    <%= link_to ingredient_path(ingredient), action: 'go' do %>
+    <%= cl_image_tag ingredient.photo.key, class: "image" %>
+      <div class="card-ingredient-info">
+        <i class="far fa-heart position-icon"></i>
+        <div class="card-ingredient-text">
+          <p><%= ingredient.seller.restaurant.name %></p>
+          <h2><%= ingredient.name %></h2>
+          <h3>$<%= ingredient.unit_price %></h3>
+        </div>
+      </div>
+    <% end %>
   </div>
-</div>
+<% end %>
