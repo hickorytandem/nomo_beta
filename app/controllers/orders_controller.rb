@@ -2,7 +2,17 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @order = Order.all
+    @orders = policy_scope(Order)
+    @collected_orders = @orders.where(status: "collected")
+    @not_collected_orders = @orders.where(status: "not collected")
+    @my_orders = []
+
+    Order.where(buyer: current_user).each do |order|
+      order.ingredients.each do |ingredient|
+        @my_orders << ingredient.stock_amount
+      end
+    end
+    @my_ingredients = @my_orders.sum
   end
 
   def new
@@ -21,7 +31,6 @@ class OrdersController < ApplicationController
   end
 
   def show
-
   end
 
   def edit

@@ -1,6 +1,119 @@
-<div>
-  <div class="page-title">
-    <h1 class="m-2"> Your Orders</h1>
-    <%= link_to "Add a new order", new_order_path, class: "btn btn-success m-2 rounded" %>
+
+<div class="container mt-5">
+  <%# Status %>
+  <div class="user-status">
+    <h1>Welcome back <%= current_user.name %>!</h1>
+    <div class="d-flex">
+      <div class="card-banner" style="background-image: url(<%= asset_path('carbon_card') %>);">
+        <h4>So far you’ve rescued <span style="color: $nm-d-green;"><%= @my_ingredients %> </span>ingredients and saved 435 kg of CO2</h4>
+        <%= link_to "Learn more", class:"btn btn-primary" %>
+      </div>
+      <div class="card-banner" style="background-image: url(<%= asset_path('bush_card') %>); color: white;">
+        <h4>You’re a earth saver</h4>
+        <p>Save another 200 kg to unlock next level and receive more discounts </p>
+        <p>Learn more</p>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <%# Order %>
+  <div class="all-orders mb-5">
+    <h1>All orders</h1>
+    <%# Tabs %>
+    <div class="w3-bar w3-black">
+      <button class="w3-bar-item w3-button" onclick="openCity('not-complete-order')">Wait for pickup</button>
+      <button class="w3-bar-item w3-button" onclick="openCity('complete-order')">Completed Orders</button>
+    </div>
+    <%# Content %>
+    <%# Not collected orders %>
+    <div id="not-complete-order" class="w3-container city">
+      <% if @not_collected_orders.count == 0 %>
+        <h2>No orders</h2>
+      <% else %>
+        <% @not_collected_orders.each do |not_collected_order| %>
+          <h4 class="mt-3">Order #0000<%= not_collected_order.id %></h4>
+          <p> Total: $<%= not_collected_order.total_price %></p>
+          <p><%= change_date_format(not_collected_order.created_at) %></p>
+          <br>
+          <!-- Trigger/Open The Modal -->
+          <button id="myBtn" class="btn btn-outline-primary">View order detail</button>
+          <div id="myModal" class="modal">
+            <div class="container order-card modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <%# <h2>Modal Header</h2> %>
+              </div>
+              <!-- Modal content -->
+              <div class="modal-body">
+                <h4>Order #0000<%= not_collected_order.id %></h4>
+                <% not_collected_order.ingredients.each do |ingredient| %>
+                  <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
+                  <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
+                  <%= ingredient.seller.restaurant.name %><br>
+                  Expiry Date: <%= ingredient.expiry_date %><br>
+                  Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
+                  <hr>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <%# <h3>Modal Footer</h3> %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <hr>
+    </div>
+    <%# Complete orders %>
+    <div id="complete-order" class="w3-container city" style="display:none">
+      <% if @collected_orders.count == 0 %>
+        <h2>No orders</h2>
+      <% else %>
+        <% @collected_orders.each do |collected_order| %>
+          <h4 class="mt-3">Order #0000<%= collected_order.id %></h4>
+          <p> Total: $<%= collected_order.total_price %></p>
+          <p><%= change_date_format(collected_order.created_at) %></p>
+          <br>
+          <!-- Trigger/Open The Modal -->
+          <button id="myBtn" class="btn btn-outline-primary">View order detail</button>
+          <div id="myModal" class="modal">
+            <div class="container order-card modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <%# <h2>Modal Header</h2> %>
+              </div>
+              <!-- Modal content -->
+              <div class="modal-body">
+                <h4>Order #0000<%= collected_order.id %></h4>
+                <% collected_order.ingredients.each do |ingredient| %>
+                  <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
+                  <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
+                  <%= ingredient.seller.restaurant.name %><br>
+                  Expiry Date: <%= ingredient.expiry_date %><br>
+                  Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
+                  <hr>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <%# <h3>Modal Footer</h3> %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <hr>
+    </div>
   </div>
 </div>
+<%# Javascript for tab %>
+<script>
+  function openCity(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    document.getElementById(cityName).style.display = "block";
+  }
+</script>
+

@@ -3,11 +3,64 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url("https://use.fontawesome.com/releases/v5.7.1/css/all.css");
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+h1 {
+  font-family: Suez One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 42px;
+  color: $nm-black;
+}
+
+h2 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+h3 {
+  font-family: Suez One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+h4 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+p {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+hr {
+  border: 0.5px solid rgba(173, 173, 173, 0.12);
+}
+
+@import "ingredients/index";
+
