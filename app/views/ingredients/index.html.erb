@@ -1,7 +1,6 @@
-<h1>Today's offer</h1>
-
-<ul>
-  <% @ingredients.each do |ingredient| %>
-    <li><%= link_to "#{ingredient.name}", ingredient_path(ingredient) %></li>
-  <% end %>
-</ul>
+<div class="container mt-5">
+  <h1>Today's offer</h1>
+  <div class="card-row d-flex flex-wrap">
+    <%= render 'shared/card-ingredient' %>
+  </div>
+</div>
