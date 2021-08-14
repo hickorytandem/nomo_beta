@@ -67,7 +67,7 @@
     restaurant: anna_restaurant,
     address: "Shinagawa-ku, Tokyo, Japan"
     )
-     namkhing = User.create!(
+    namkhing = User.create!(
     name:"Nonlapat Leesomprasong",
     phone_number: "1234567",
     card_detail: "",
@@ -106,7 +106,7 @@ file = URI.open('https://source.unsplash.com/1600x900/?vegetable')
       discount_rate: discount_rate,
       # public_status: public_status,
       description: description,
-      seller: yui,
+      seller: [yui, anna].sample,
       order: order,
       unit: "Kg"
       )
