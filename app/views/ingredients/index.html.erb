@@ -1,6 +1,31 @@
-<div class="container mt-5">
+<div class="container">
+  <div class="categories">
+    <div class="category nm-green">Vegetarian</div>
+    <div class="category nm-l-green">Vegan</div>
+    <div class="category nm-pink">Gluten free</div>
+    <div class="category nm-l-orange">Lactose free</div>
+    <div class="category nm-blue">Fish</div>
+    <div class="category nm-orange">Meat</div>
+  </div>
+  <div class="monthly-deals">
+    <div class="row">
+      <div class="col-4">
+        <div class="month">
+          <h2>September Deals</h2>
+          <p>Exclusive deals for all Nomo customers, starting from 1 - 30 Sep 2021</p>
+        </div>
+      </div>
+      <div class="col-4 card1">
+        <%= render 'shared/card-frame1' %>
+      </div>
+      <div class="col-4 card2">
+        <%= render 'shared/card-frame2' %>
+      </div>
+    </div>
+  </div>
   <h1>Today's offer</h1>
   <div class="card-row d-flex flex-wrap">
     <%= render 'shared/card-ingredient' %>
   </div>
 </div>
+

@@ -1,1 +1,68 @@
 @import "show";
+
+.categories {
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  padding-top: 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.category {
+  width: 15%;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-right: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.monthly-deals {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.monthly-deals h2 {
+  font-family: $headers-font;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.monthly-deals p {
+  font-family: $body-font;
+  font-size: 14px;
+}
+
+.month {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.nm-green {
+  background-color: $nm-green;
+}
+
+.nm-l-green {
+  background-color: $nm-l-green;
+}
+
+.nm-pink {
+  background-color: $nm-pink;
+}
+
+.nm-l-orange {
+  background-color: $nm-l-orange;
+}
+
+.nm-orange {
+  background-color: $nm-orange;
+}
+
+.nm-blue {
+  background-color: $nm-blue;
+}

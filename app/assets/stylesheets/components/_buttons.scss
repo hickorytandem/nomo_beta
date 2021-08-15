@@ -1,0 +1,12 @@
+.btn-learn-more {
+  background-color: $nm-black;
+  padding: 6px 16px;
+  color: white;
+  margin-top: 8px;
+
+  &:hover {
+    background-color: white;
+    color: $nm-black;
+    text-decoration: none;
+  }
+}
