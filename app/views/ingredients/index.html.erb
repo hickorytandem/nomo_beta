@@ -23,9 +23,60 @@
       </div>
     </div>
   </div>
-  <h1>Today's offer</h1>
-  <div class="card-row d-flex flex-wrap">
-    <%= render 'shared/card-ingredient' %>
+</div>
+<div class="row">
+  <div class="col-3 filter-col">
+    <div class="filters">
+      <h2>Filters</h2>
+      <div class="sort">
+        <p>Sort</p>
+      </div>
+      <div class="price">
+        <p>Price</p>
+      </div>
+      <div class="expiry-date">
+        <p>Expiry date</p>
+      </div>
+      <div class="promotion">
+        <p>Promotion</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-9 ig-col">
+    <div class="ingredients">
+      <div class="section-ig-one">
+        <h1 class="ig-header">Today's offer</h1>
+        <div class="card-row">
+          <div class="owl-carousel owl-theme">
+            <%#= @ingredients.each do |ingredient| %>
+              <%= render 'shared/card-ingredient' %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+      <div class="section-ig-two">
+        <h1 class="ig-header">Popular near you</h1>
+        <div class="card-row">
+          <div class="owl-carousel owl-theme">
+            <%#= @ingredients.each do |ingredient| %>
+              <%= render 'shared/card-ingredient' %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+      <div class="section-ig-three">
+        <h1 class="ig-header">One last call</h1>
+        <div class="card-row">
+          <div class="owl-carousel owl-theme">
+            <%#= @ingredients.each do |ingredient| %>
+              <%= render 'shared/card-ingredient' %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+      <div class="section-ig-four">
+        <%= link_to "Show more", ingredients_path, class: "btn-show-more"  %>
+      </div>
+    </div>
   </div>
 </div>
-

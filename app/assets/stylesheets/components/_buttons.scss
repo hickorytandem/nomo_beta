@@ -10,3 +10,20 @@
     text-decoration: none;
   }
 }
+
+.btn-show-more {
+  background-color: white;
+  padding: 6px 88px;
+  color: $nm-black;
+  margin-top: 8px;
+  border: 1px solid $nm-black;
+  font-size: 16px;
+  font-family: $body-font;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $nm-black;
+    color: white;
+    text-decoration: none;
+  }
+}
