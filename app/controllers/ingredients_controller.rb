@@ -3,7 +3,14 @@ class IngredientsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @ingredients = policy_scope(Ingredient.all)
+    @all_ingredients = policy_scope(Ingredient.all)
+    @restaurants = Restaurant.near(current_user.address, 10) 
+    @ingredients = [] 
+    @restaurants.each do |restaurant| 
+      @ingredients << policy_scope(restaurant.ingredients)
+    # @ingredients << restaurant.users.first.ingredients_as_seller 
+    end
+    @ingredients = @ingredients.flatten
   end
 
   def new
@@ -38,6 +45,10 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
+
+  end
+
+  def near
 
   end
 

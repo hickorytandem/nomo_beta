@@ -1,17 +1,11 @@
 <div class="container mt-5">
     <div class="card-row d-flex flex-wrap">
-      <%= render 'shared/card-ingredient' %>
+      <%= render partial: 'shared/card-ingredient', locals: { ingredients: @all_ingredients } %>
     </div>
   <div id="section2">
     <h1>Popular near you</h1>
     <div class="card-row d-flex flex-wrap">
-      <% @restaurants = Restaurant.near(current_user.address, 10) %>
-      <% @ingredients = [] %>
-      <% @restaurants.each do |restaurant| %>
-        <% @ingredients << restaurant.users.first.ingredients_as_seller %>
-      <% end %>
-      <% @ingredients = @ingredients.flatten %>
-      <%= render 'shared/card-ingredient' %>
+      <%= render partial: 'shared/card-ingredient', locals: { ingredients: @ingredients }%>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<% @ingredients.each do |ingredient| %>
+<% ingredients.each do |ingredient| %>
   <div class="card-column card-ingredient">
     <%= link_to ingredient_path(ingredient), action: 'go' do %>
     <%= cl_image_tag ingredient.photo.key, class: "image" %>
