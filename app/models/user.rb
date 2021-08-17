@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :orders
   has_many :ingredients_as_seller, class_name: "Ingredient", foreign_key: :seller_id
   # has_many :ingredients_as_buyer, through: :orders, source: ingredients
-
   # validates :address, :name, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

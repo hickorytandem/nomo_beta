@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :ingredients
   get "my_cart", to: 'orders#new'
   post "my_cart", to: 'orders#create'
+  get "my_cart/success", to: 'orders#success'
+
 
 end

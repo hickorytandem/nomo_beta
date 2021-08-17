@@ -2,13 +2,13 @@
 <div class="container mt-5">
   <%# Status %>
   <div class="user-status">
-    <h1>Welcome back <%= current_user.name %>!</h1>
+    <h1>Welcome back, <%= current_user.name %>!</h1>
     <div class="d-flex">
-      <div class="card-banner" style="background-image: url(<%= asset_path('carbon_card') %>);">
+      <div class="card-banner" style="background-image: url(<%= asset_path('carbon_card.svg') %>);">
         <h4>So far you’ve rescued <span style="color: $nm-d-green;"><%= @my_ingredients %> </span>ingredients and saved 435 kg of CO2</h4>
         <%= link_to "Learn more", class:"btn btn-primary" %>
       </div>
-      <div class="card-banner" style="background-image: url(<%= asset_path('bush_card') %>); color: white;">
+      <div class="card-banner" style="background-image: url(<%= asset_path('bush_card.svg') %>); color: white;">
         <h4>You’re a earth saver</h4>
         <p>Save another 200 kg to unlock next level and receive more discounts </p>
         <p>Learn more</p>
@@ -21,14 +21,14 @@
     <h1>All orders</h1>
     <%# Tabs %>
     <div class="w3-bar w3-black">
-      <button class="w3-bar-item w3-button" onclick="openCity('not-complete-order')">Wait for pickup</button>
-      <button class="w3-bar-item w3-button" onclick="openCity('complete-order')">Completed Orders</button>
+      <button class="w3-bar-item w3-button btn-all-orders" onclick="openCity('complete-order')">All Orders</button>
+      <button class="w3-bar-item w3-button btn-wait-4-pickup" onclick="openCity('not-complete-order')">Wait for pickup</button>
     </div>
     <%# Content %>
     <%# Not collected orders %>
     <div id="not-complete-order" class="w3-container city">
       <% if @not_collected_orders.count == 0 %>
-        <h2>No orders</h2>
+        <h2 class="no-orders">No orders</h2>
       <% else %>
         <% @not_collected_orders.each do |not_collected_order| %>
           <h4 class="mt-3">Order #0000<%= not_collected_order.id %></h4>

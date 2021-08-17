@@ -1,6 +1,6 @@
 .card-frame2 {
-  height: 356px;
-  width: 320px;
+  height: 160px;
+  width: 27vw;
   background-size: contain;
   background-repeat: no-repeat;
   padding-top: 24px;
@@ -8,8 +8,8 @@
   padding-right: 16px;
 }
 
-.card-frame2 h2{
-  font-family: Manrope;
+.card-frame2 .head{
+  font-family: $body-font;
   font-size: 28px;
   font-style: normal;
   font-weight: 700;
@@ -19,7 +19,7 @@
 }
 
 .card-frame2 p {
-  font-family: Manrope;
+  font-family: $body-font;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;

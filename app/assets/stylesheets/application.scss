@@ -13,6 +13,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "ingredients/index";
+@import "orders/index";
+
 
 
 h1 {
@@ -61,6 +64,4 @@ p {
 hr {
   border: 0.5px solid rgba(173, 173, 173, 0.12);
 }
-
-@import "ingredients/index";
 

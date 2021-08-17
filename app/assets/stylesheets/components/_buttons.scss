@@ -1,0 +1,52 @@
+.btn-learn-more {
+  background-color: $nm-black;
+  padding: 6px 16px;
+  color: white;
+  margin-top: 8px;
+
+  &:hover {
+    background-color: white;
+    color: $nm-black;
+    text-decoration: none;
+  }
+}
+
+.btn-show-more {
+  background-color: white;
+  padding: 6px 88px;
+  color: $nm-black;
+  margin-top: 8px;
+  border: 1px solid $nm-black;
+  font-size: 16px;
+  font-family: $body-font;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $nm-black;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-all-orders {
+  background-color: $nm-black;
+  color: white;
+  border-radius: 8px;
+  border: 2px solid $nm-black;
+  padding: 8px 32px;
+  font-family: $body-font;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.btn-wait-4-pickup {
+  background-color: $nm-green;
+  color: white;
+  border-radius: 8px;
+  border: 2px solid $nm-green;
+  padding: 8px 24px;
+  font-family: $body-font;
+  font-size: 14px;
+  font-weight: bold;
+}

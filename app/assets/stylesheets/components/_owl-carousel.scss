@@ -1,21 +1,27 @@
-.owl-carousel {
-  display: flex;
-  .owl-prev {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 90%;
-    font-size: 30px !important;
-  }
-  .owl-next {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 90%;
-    font-size: 30px !important;
-  }
-}
+// .owl-carousel {
+//   display: flex;
+//   .owl-prev {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     height: 90%;
+//     font-size: 24px !important;
+//     color: $nm-pink;
+//   }
+//   .owl-next {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     height: 90%;
+//     font-size: 24px !important;
+//   }
+// }
 
-.owl-item.active:hover {
-    cursor: grab;
-}
+// .owl-item.active:hover {
+//     cursor: grab;
+// }
+
+// .owl-item {
+//   // padding-right: 0 !important;
+//   // margin-right: 0 !important;
+// }

@@ -1,4 +1,141 @@
 @import "show";
-#section2 {
+
+.categories {
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  padding-top: 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.category {
+  width: 15%;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-right: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.monthly-deals {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.monthly-deals h2 {
+  font-family: $headers-font;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.monthly-deals p {
+  font-family: $body-font;
+  font-size: 14px;
+}
+
+.month {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.filter-col {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 116px;
+}
+
+.filters {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.filters h2 {
+  font-family: $headers-font;
+  font-size: 24px;
+  font-weight: 400px;
+}
+
+.ig-col {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.ingredients {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  // padding-left: 16px;
+  // padding-right: 16px;
+
+  .ig-header {
+    padding-left: 48px;
+  }
+
+  .card-row {
+    padding-left: 32px;
+  }
+
+  .section-ig-one {
+    padding-bottom: 32px;
+  }
+
+  .section-ig-two {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-color: $nm-pink;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .section-ig-three {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .section-ig-four{
+    padding-top: 32px;
+    padding-bottom: 64px;
+    text-align: center;
+  }
+
+  .card-row {
+    display: flex;
+  }
+}
+
+.ingredients h1 {
+  font-size: 32px;
+  font-family: $headers-font;
+  font-weight: 400;
+}
+
+.nm-green {
+  background-color: $nm-green;
+}
+
+.nm-l-green {
+  background-color: $nm-l-green;
+}
+
+.nm-pink {
   background-color: $nm-pink;
+}
+
+.nm-l-orange {
+  background-color: $nm-l-orange;
+}
+
+.nm-orange {
+  background-color: $nm-orange;
+}
+
+.nm-blue {
+  background-color: $nm-blue;
 }
