@@ -1,8 +1,11 @@
-<div class="class">
+<div class="container">
   <h1>Checkout</h1>
   <%= simple_form_for @order do |f| %>
     <%= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
     <%= f.input :status, input_html: { value: :purchased }, as: :hidden %>
     <%= f.submit "Pay & Place order", class: "btn btn-primary" %>
   <% end %>
+  Subtotal<%= @order.total_price %>
+  Discount $0
+  Total<%= @order.total_price %>
 </div>
