@@ -67,13 +67,14 @@ class OrdersController < ApplicationController
 
   def update
     @order = find_order_in_cart
+    @ingredients = Ingredient.where(order_id: @order)
     authorize @order
     if @order.update(order_params)
+      @ingredients.each { |ingredient| ingredient.update(status: 0, public_status: 0)}
       redirect_to my_cart_success_path
     else
       render :new
     end
-
   end
 
   def destroy
@@ -94,5 +95,9 @@ class OrdersController < ApplicationController
   def order_params
     # params.permit(:ingredient_id)
     params.require(:order).permit(:total_price, :pay_method, :status, :ingredient_id)
+  end
+
+  def find_ingredient
+     @ingredients = Ingredient.where(order_id: @order)
   end
 end
