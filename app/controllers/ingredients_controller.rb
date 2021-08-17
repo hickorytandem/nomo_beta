@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @ingredients = policy_scope(Ingredient.all)
+    @ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1))
   end
 
   def new
