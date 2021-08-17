@@ -1,17 +1,19 @@
 <div class="order-success">
   <div class="success-section">
     <div class="success-msg">
-      <h1>Thanks for rescue our food!</h1>
+      <h1>Thanks for rescuing our food!</h1>
       <p>Pick up code has been sent to your phone number.</p>
     </div>
 <div class="carbon-footprint">
-  <img src="images/earth.png" />
-  <div class="carbon-footprint-infos-infos">
+  <%= image_tag "NomoEarth.png", alt: "logo", width: 200 %>
+
+<div class="carbon-footprint-infos-infos">
     <p>You've saved <strong>45 KG</strong> of your carbon footprint</p>
-    <p>Read more about carbon footprints.</p>
+    <p>Read more about <a href='https://www.carbonfootprint.com/' target="blank">carbon footprints.</a></p>
   </div>
 </div>
 
     <%= link_to "View my orders", orders_path, class: "btn btn-primary" %>
   </div>
 </div>
+

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   belongs_to :restaurant, optional: true
-  has_many :orders
+  has_many :orders, :ingredients
   # validates :address, :name, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

@@ -6,9 +6,12 @@ class IngredientsController < ApplicationController
     @ingredients = policy_scope(Ingredient.all)
   end
 
+  def my_ingredients
+    @ingredients = current_user.ingredients
+  end
+
   def new
     @ingredient = Ingredient.new
-
   end
 
   def create
