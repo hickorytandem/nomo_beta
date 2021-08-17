@@ -15,7 +15,7 @@ class IngredientsController < ApplicationController
 
   def new
     @ingredient = Ingredient.new
-
+    authorize @ingredient
   end
 
   def create

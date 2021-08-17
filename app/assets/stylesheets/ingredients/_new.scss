@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+.form-container {
+  height: 100vh;
+  overflow: hidden;
+  width:50%;
+}
+
+.form {
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  height: 100%;
+}
+
+.form-page {
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid white;
+  height: 100vh;
+  scroll-snap-align: center;
+  position: relative;
+}
+
+.input-field {
+  width: 400px;
+  padding: 20px; 
+  width: 400px; 
+  margin-bottom: 20px; 
+  border-bottom-width: 1px; 
+  border-bottom-style: solid; 
+  border-bottom-color: #ecf0f1; 
+  border-top-style: none; 
+  border-right-style: none; 
+  border-left-style: none; 
+  font-weight: 100;
+  color: #ffffff;
+}
+
+.form-group label {
+  color: #262727;
+  font-weight: 100;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+#wrapper{
+	position: relative;/*position stickyの基点にするため relativeをかける*/
+	display: flex;/*左エリア、右エリア横並び指定*/
+	flex-wrap: wrap;/*ボックスの折り返し可*/
+}
+
+#fixed-area{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+	width: 50%;
+	height: 100vh;
+  background-color:#262727;
+
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  h2 {
+    color: white;
+    text-align: center;
+    font-weight: lighter;
+    vertical-align: middle;
+    line-height: 50px;
+  }
+  
+  img {
+    margin-top: 35px;
+    width: 400px;
+    height: 280px;
+    object-fit: cover;
+    vertical-align: middle;
+    border-style: none;
+    border-radius: 30px;
+  }
+
+  .img-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
