@@ -1,6 +1,82 @@
-<div class="container mt-5">
-  <h1>Today's offer</h1>
-  <div class="card-row d-flex flex-wrap">
-    <%= render 'shared/card-ingredient' %>
+<div class="container">
+  <div class="categories">
+    <div class="category nm-green">Vegetarian</div>
+    <div class="category nm-l-green">Vegan</div>
+    <div class="category nm-pink">Gluten free</div>
+    <div class="category nm-l-orange">Lactose free</div>
+    <div class="category nm-blue">Fish</div>
+    <div class="category nm-orange">Meat</div>
+  </div>
+  <div class="monthly-deals">
+    <div class="row">
+      <div class="col-4">
+        <div class="month">
+          <h2>September Deals</h2>
+          <p>Exclusive deals for all Nomo customers, starting from 1 - 30 Sep 2021</p>
+        </div>
+      </div>
+      <div class="col-4 card1">
+        <%= render 'shared/card-frame1' %>
+      </div>
+      <div class="col-4 card2">
+        <%= render 'shared/card-frame2' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 filter-col">
+    <div class="filters">
+      <h2>Filters</h2>
+      <div class="sort">
+        <p>Sort</p>
+      </div>
+      <div class="price">
+        <p>Price</p>
+      </div>
+      <div class="expiry-date">
+        <p>Expiry date</p>
+      </div>
+      <div class="promotion">
+        <p>Promotion</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-9 ig-col">
+    <div class="ingredients">
+      <div class="section-ig-one">
+        <h1 class="ig-header">Today's offer</h1>
+        <div class="card-row">
+          <div class="owl-carousel owl-theme">
+            <%#= @ingredients.each do |ingredient| %>
+              <%= render 'shared/card-ingredient' %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+      <div class="section-ig-two">
+        <h1 class="ig-header">Popular near you</h1>
+        <div class="card-row">
+          <div class="owl-carousel owl-theme">
+            <%#= @ingredients.each do |ingredient| %>
+              <%= render 'shared/card-ingredient' %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+      <div class="section-ig-three">
+        <h1 class="ig-header">One last call</h1>
+        <div class="card-row">
+          <div class="owl-carousel owl-theme">
+            <%#= @ingredients.each do |ingredient| %>
+              <%= render 'shared/card-ingredient' %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+      <div class="section-ig-four">
+        <%= link_to "Show more", ingredients_path, class: "btn-show-more"  %>
+      </div>
+    </div>
   </div>
 </div>

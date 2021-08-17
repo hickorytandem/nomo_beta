@@ -10,12 +10,8 @@
         <div class="col-6 margin-0">
           <%= simple_form_for @ingredient do |f| %>
             <%= f.input :order_id, value: @order.id, as: :hidden %>
-            <%= f.submit class: "btn btn-success mt-3" %>
+            <%= f.submit 'Add to cart', class: "order" %>
           <% end %>
-          <%# <div class="order">
-              <p>Add to cart</p>
-              <p>$ <%= @ingredient.unit_price * @ingredient.stock_amount %><
-        <%# </div> %>
         </div>
       </div>
     </div>
