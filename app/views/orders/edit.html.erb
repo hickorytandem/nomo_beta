@@ -1,11 +1,17 @@
 <div class="container">
   <h1>Checkout</h1>
+  <%# <% binding.pry %> %>
   <%= simple_form_for @order do |f| %>
     <%= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
-    <%= f.input :status, input_html: { value: :purchased }, as: :hidden %>
+    <%= f.hidden_field :total_price, value: @order_total_price %>
+    <%= f.hidden_field :status, value: :purchased %>
     <%= f.submit "Pay & Place order", class: "btn btn-primary" %>
   <% end %>
-  Subtotal<%= @order.total_price %>
+  Subtotal<%= @order_total_price %>
   Discount $0
-  Total<%= @order.total_price %>
+  Total $<%= @order_total_price %>
 </div>
+<%# Change ingredient status %>
+<%# Update total price %>
+<%# Update order status %>
+<%# Update pay_method %>

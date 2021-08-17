@@ -55,6 +55,14 @@ class OrdersController < ApplicationController
   def edit
     @order = find_order_in_cart
     authorize @order
+
+    @ingredients = Ingredient.where(order_id: @order)
+    @total_price = []
+    @ingredients.each do |ingredient|
+      @total_price << ingredient.stock_amount * ingredient.unit_price
+    end
+
+    @order_total_price = @total_price.sum
   end
 
   def update
@@ -65,6 +73,7 @@ class OrdersController < ApplicationController
     else
       render :new
     end
+
   end
 
   def destroy

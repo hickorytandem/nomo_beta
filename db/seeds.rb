@@ -114,10 +114,13 @@ file = URI.open('https://source.unsplash.com/1600x900/?vegetable')
       ingredient.save
     end
 
+    puts "Done!"
  # total_price = [35.50, 52.50, 23, 45, 87, 92.50, 67.60, 55.50, 89, 15, 105, 16.50, 62, 78, 35, 25, 88, 125.50, 29, 40, 9.50].sample
  # order = Order.create(
  #    total_price: total_price,
  #    pay_method: pay_method,
  #    user:
  #  )
+
+
 
