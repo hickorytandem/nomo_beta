@@ -8,4 +8,9 @@
   <% end %>
 <% end %>
 Order total price: <%= @order_total_price %><br>
-<%= link_to "Proceed to checkout", my_cart_success_path, class: "btn btn-outline-primary"%>
+<%# <%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%> %>
+<% @orders.each do |order| %>
+  Order total price: <%= order.total_price %><br>
+  Status: <%= order.status %>
+<% end %>
+<%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%>

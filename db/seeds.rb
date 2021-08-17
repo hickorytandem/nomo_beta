@@ -77,7 +77,7 @@
     )
 
     pay_method = ["cash", "credit", "paypal"].sample
-    status = [:pending, :collected, :not_collected, :cancelled].sample
+    status = [:pending, :collected, :purchased, :cancelled].sample
     order = Order.create!(
       total_price: Faker::Commerce.price,
       pay_method: pay_method,

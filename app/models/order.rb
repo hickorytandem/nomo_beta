@@ -3,5 +3,5 @@ class Order < ApplicationRecord
   belongs_to :buyer, class_name: "User"
   has_many :ingredients
   validates :total_price, :status, presence: true
-  enum status: [:pending, :not_collected, :cancelled, :collected ]
+  enum status: [:pending, :purchased, :cancelled, :collected ]
 end

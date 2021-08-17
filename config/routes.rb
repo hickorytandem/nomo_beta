@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :new, :create, :update]
   resources :ingredients
   get "my_cart", to: 'orders#new'
-  post "my_cart", to: 'orders#create'
+  # post "my_cart", to: 'orders#create'
+  get "checkout", to: 'orders#edit',as: :checkout
   get "my_cart/success", to: 'orders#success'
+
 
 
 end
