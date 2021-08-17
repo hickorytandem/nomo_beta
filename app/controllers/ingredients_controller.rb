@@ -13,6 +13,10 @@ class IngredientsController < ApplicationController
     @ingredients = @ingredients.flatten
   end
 
+  def my_ingredients
+    @ingredients = current_user.ingredients
+  end
+
   def new
     @ingredient = Ingredient.new
     authorize @ingredient
