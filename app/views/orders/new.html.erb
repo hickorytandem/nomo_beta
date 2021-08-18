@@ -1,30 +1,34 @@
-<h1>My cart</h1>
 <%# Sidenave %>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <%# Order in Sidebar %>
-  <% @orders.each do |order| %>
-    <% order.ingredients.each do |ingredient| %>
-      <%= ingredient.stock_amount %>X<%= ingredient.name %><br>
-      $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %><br>
-      <%= ingredient.seller.restaurant.name %><br>
-      <hr>
+  <div id="main">
+    <h4>My cart</h4>
+    <% @orders.each do |order| %>
+      <% order.ingredients.each do |ingredient| %>
+        <%= ingredient.stock_amount %>X<%= ingredient.name %><br>
+        $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %><br>
+        <%= ingredient.seller.restaurant.name %><br>
+        <hr>
+      <% end %>
     <% end %>
-  <% end %>
-  Order total price: <%= @order_total_price %><br>
-  <% @orders.each do |order| %>
-    Order total price: <%= order.total_price %><br>
-    Status: <%= order.status %>
-  <% end %>
-  <%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%>
+    Order total price: <%= @order_total_price %><br>
+    <% @orders.each do |order| %>
+      Order total price: <%= order.total_price %><br>
+      Status: <%= order.status %>
+    <% end %>
+    <%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%>
+  </div>
 </div>
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 <script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
+  // /* Set the width of the side navigation */
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "340px";
   
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
+    }
+    // /* Set the width of the side navigation to 0 */
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
 </script>
