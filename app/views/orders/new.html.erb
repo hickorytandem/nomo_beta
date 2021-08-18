@@ -1,29 +1,23 @@
 <h1>My cart</h1>
-<% @orders.each do |order| %>
-  <% order.ingredients.each do |ingredient| %>
-    <%= ingredient.stock_amount %>X<%= ingredient.name %><br>
-    $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %><br>
-    <%= ingredient.seller.restaurant.name %><br>
-    <hr>
-  <% end %>
-<% end %>
-Order total price: <%= @order_total_price %><br>
-<%# <%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%> %>
-<% @orders.each do |order| %>
-  Order total price: <%= order.total_price %><br>
-  Status: <%= order.status %>
-<% end %>
-<%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%>
-<%# Sidenav %>
+<%# Sidenave %>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  <%# Order in Sidebar %>
+  <% @orders.each do |order| %>
+    <% order.ingredients.each do |ingredient| %>
+      <%= ingredient.stock_amount %>X<%= ingredient.name %><br>
+      $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %><br>
+      <%= ingredient.seller.restaurant.name %><br>
+      <hr>
+    <% end %>
+  <% end %>
+  Order total price: <%= @order_total_price %><br>
+  <% @orders.each do |order| %>
+    Order total price: <%= order.total_price %><br>
+    Status: <%= order.status %>
+  <% end %>
+  <%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%>
 </div>
-<h2>Animated Sidenav Example</h2>
-<p>Click on the element below to open the side navigation menu.</p>
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 <script>
   function openNav() {
