@@ -1,0 +1,23 @@
+<h1>My ingredients, right here, right now!</h1>
+
+<div class="container">
+  <ul>
+
+  <% @ingredients.each do |ingredient| %>
+  <div class="ingredient-card">
+    <li><%= ingredient.name %></li>
+    <li><%= ingredient.unit_price %></li>
+    <li><%= ingredient.expiry_date %></li>
+    <li><%= ingredient.weight %></li>
+    <li><%= ingredient.stock_amount %></li>
+    <li><%= ingredient.unit %></li>
+    <li><%= ingredient.discount_rate %></li>
+    <li><%= ingredient.public_status %></li>
+    <li><%= ingredient.description %></li>
+    <li><%= ingredient.status %></li>
+    <li><%= ingredient.order_id %></li>
+  </div>
+
+  <% end %>
+  </ul>
+</div>
