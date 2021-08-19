@@ -5,7 +5,9 @@
       <div class="card-ingredient-info">
         <i class="far fa-heart position-icon"></i>
         <div class="card-ingredient-text">
+        <% if ingredient.seller.restaurant %>
           <p><%= ingredient.seller.restaurant.name %></p>
+        <% end %>
           <h2><%= ingredient.name %></h2>
           <h3>$<%= ingredient.unit_price %></h3>
         </div>

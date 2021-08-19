@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  belongs_to :order
+  belongs_to :order, optional: true
   belongs_to :seller, class_name: "User", foreign_key: :seller_id
   has_one_attached :photo
   enum status: { sold: 0, unsold: 1 }

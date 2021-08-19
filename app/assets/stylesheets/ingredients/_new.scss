@@ -59,6 +59,12 @@
 	height: 100vh;
   background-color:#010202;
 
+  .text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .center {
     margin: 0 auto;
     position: absolute;
