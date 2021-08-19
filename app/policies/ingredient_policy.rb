@@ -5,6 +5,14 @@ class IngredientPolicy < ApplicationPolicy
     end
   end
 
+  # def index?
+  #   true
+  # end
+
+  def my_ingredients?
+    true
+  end
+
   def show?
     true
   end
