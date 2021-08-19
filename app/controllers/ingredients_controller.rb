@@ -25,6 +25,7 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new(ingredient_params)
     authorize @ingredient
+    @ingredient.seller = current_user
     if @ingredient.save
       redirect_to ingredients_path
     else
