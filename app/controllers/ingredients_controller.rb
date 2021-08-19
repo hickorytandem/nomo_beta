@@ -38,15 +38,13 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    if ingredient_params[:order_id].present?
-      @order = Order.find(ingredient_params[:order_id])
-      @ingredient.update(order: @order)
-      redirect_to my_cart_path
+    if current_user.pending_order.present?
+      @order = current_user.pending_order
     else
       @order = Order.create(buyer: current_user, status: :pending, total_price: 0)
-      @ingredient.update(order: @order)
-      redirect_to my_cart_path
     end
+    @ingredient.update(order: @order)
+    redirect_to ingredient_path(@ingredient, cart:"open")
   end
 
   def destroy

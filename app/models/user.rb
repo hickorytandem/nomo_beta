@@ -10,4 +10,5 @@ class User < ApplicationRecord
   def pending_order
     Order.where(buyer: self).find_by(status: :pending)
   end
+
 end

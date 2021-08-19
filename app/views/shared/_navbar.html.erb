@@ -12,13 +12,15 @@
           <%= link_to "For business", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= render 'shared/cart_sidebar' %>
+          <% if user_signed_in? %>
+            <%= render 'shared/cart_sidebar' %>
+          <% end %>
           <%# <%= link_to my_cart_path, class: "cart_btn" do %>
             <%#= image_tag "icon_cart.svg" %>
             <%# end %>
           </li>
-          <% if user_signed_in? %>
-            <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
+            <% if user_signed_in? %>
               <%= image_tag "nomo_default_avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <div class="user-name">

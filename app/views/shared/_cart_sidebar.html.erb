@@ -11,7 +11,7 @@
         <%= ingredient.seller.restaurant.name %><br>
         <hr>
       <% end %>
-      Order total price: <%= current_user.pending_order.total_price %><br>
+      Order total price: <%= current_user.order_total_price %><br>
       Status: <%= current_user.pending_order.status %>
       <%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%>
     <% else %>
@@ -31,4 +31,9 @@
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     }
+    const urlParams = new URLSearchParams(window.location.search);
+    const cartStatus = urlParams.get('cart');
+    if (cartStatus == "open") {
+      openNav();
+    };
 </script>
