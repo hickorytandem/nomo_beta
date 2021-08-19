@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @all_ingredients = policy_scope(Ingredient.all)
+    @all_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1))
     @restaurants = Restaurant.near(current_user.address, 10) 
     @ingredients = [] 
     @restaurants.each do |restaurant| 
@@ -51,15 +51,13 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    if ingredient_params[:order_id].present?
-      @order = Order.find(ingredient_params[:order_id])
-      @ingredient.update(order: @order)
-      redirect_to my_cart_path
+    if current_user.pending_order.present?
+      @order = current_user.pending_order
     else
       @order = Order.create(buyer: current_user, status: :pending, total_price: 0)
-      @ingredient.update(order: @order)
-      redirect_to my_cart_path
     end
+    @ingredient.update(order: @order)
+    redirect_to ingredient_path(@ingredient, cart:"open")
   end
 
   def destroy

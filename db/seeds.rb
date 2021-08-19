@@ -77,7 +77,7 @@
     )
 
     pay_method = ["cash", "credit", "paypal"].sample
-    status = [:pending, :collected, :not_collected, :cancelled].sample
+    status = [:pending, :collected, :purchased, :cancelled].sample
     order = Order.create!(
       total_price: Faker::Commerce.price,
       pay_method: pay_method,
@@ -96,7 +96,6 @@ User.all.each do |user|
         "].sample
         discount_rate = [10, 20, 30, 40, 50, 60, 70, 80, 90].sample
 
-
     file = URI.open('https://source.unsplash.com/1600x900/?vegetable')
         ingredient = Ingredient.new(
         name: Faker::Food.ingredient,
@@ -105,7 +104,8 @@ User.all.each do |user|
         weight: Faker::Measurement.weight,
         stock_amount: Faker::Number.between(from: 1, to: 15),
         discount_rate: discount_rate,
-        # public_status: public_status,
+        public_status: 1,
+        status: 1,
         description: description,
         seller: user,
         order: order,
@@ -116,10 +116,13 @@ User.all.each do |user|
       end
       end
 
+    puts "Done!"
  # total_price = [35.50, 52.50, 23, 45, 87, 92.50, 67.60, 55.50, 89, 15, 105, 16.50, 62, 78, 35, 25, 88, 125.50, 29, 40, 9.50].sample
  # order = Order.create(
  #    total_price: total_price,
  #    pay_method: pay_method,
  #    user:
  #  )
+
+
 

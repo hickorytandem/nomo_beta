@@ -28,25 +28,19 @@
   }
 }
 
-.btn-all-orders {
-  background-color: $nm-black;
-  color: white;
-  border-radius: 8px;
-  border: 2px solid $nm-black;
-  padding: 8px 32px;
-  font-family: $body-font;
-  font-size: 14px;
-  font-weight: bold;
-  margin-right: 8px;
-}
-
-.btn-wait-4-pickup {
+.btn-tab {
   background-color: $nm-green;
   color: white;
   border-radius: 8px;
-  border: 2px solid $nm-green;
-  padding: 8px 24px;
+  padding: 8px 32px;
   font-family: $body-font;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
+  margin-right: 8px;
+  &:hover {
+    background-color: #27843D;
+    color: white;
+;
+  }
 }
+

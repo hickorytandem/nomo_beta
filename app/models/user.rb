@@ -14,4 +14,14 @@ class User < ApplicationRecord
   def pending_order
     Order.where(buyer: self).find_by(status: :pending)
   end
+
+  def order_total_price
+    @order = self.pending_order
+    @ingredient_price = []
+     @order.ingredients.each do |ingredient|
+        @ingredient_price << ingredient.stock_amount * ingredient.unit_price
+      end
+    @order_total_price = @ingredient_price.sum
+  end
+
 end
