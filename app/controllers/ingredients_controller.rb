@@ -14,8 +14,7 @@ class IngredientsController < ApplicationController
   end
 
   def my_ingredients
-    @ingredients = Ingredient.where(seller_id: current_user.id)
-    authorize @ingredients
+    @ingredients = current_user.ingredients
   end
 
   def new
