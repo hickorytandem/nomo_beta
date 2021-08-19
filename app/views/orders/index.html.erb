@@ -34,33 +34,37 @@
           <p> Total: $<%= not_collected_order.total_price %></p>
           <p><%= change_date_format(not_collected_order.created_at) %></p>
           <br>
-          <!-- Trigger/Open The Modal -->
-          <button id="myBtn" class="btn btn-outline-primary">View order detail</button>
-          <div id="myModal" class="modal">
-            <div class="container order-card modal-content">
-              <div class="modal-header">
-                <span class="close">&times;</span>
-                <%# <h2>Modal Header</h2> %>
+          <hr>
+          <div class="order-modal">
+            <!-- Trigger/Open The Modal -->
+            <button class="order-modal-btn btn btn-outline-primary">View order detail</button>
+            <%# Modal %>
+            <div class="modal">
+              <div class="container order-card order-modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <%# <h2>Modal Header</h2> %>
+                </div>
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <h4>Order #0000<%= not_collected_order.id %></h4>
+                  <% not_collected_order.ingredients.each do |ingredient| %>
+                    <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
+                    <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
+                    <%= ingredient.seller.restaurant.name %><br>
+                    Expiry Date: <%= ingredient.expiry_date %><br>
+                    Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <%# <h3>Modal Footer</h3> %>
+                </div>
               </div>
-              <!-- Modal content -->
-              <div class="modal-body">
-                <h4>Order #0000<%= not_collected_order.id %></h4>
-                <% not_collected_order.ingredients.each do |ingredient| %>
-                  <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
-                  <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
-                  <%= ingredient.seller.restaurant.name %><br>
-                  Expiry Date: <%= ingredient.expiry_date %><br>
-                  Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
-                  <hr>
-                <% end %>
-              </div>
-              <div class="modal-footer">
-                <%# <h3>Modal Footer</h3> %>
-              </div>
+              <%# </div> %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
       <hr>
     </div>
     <%# Complete orders %>
@@ -74,27 +78,29 @@
           <p><%= change_date_format(collected_order.created_at) %></p>
           <br>
           <!-- Trigger/Open The Modal -->
-          <button id="myBtn" class="btn btn-outline-primary">View order detail</button>
-          <div id="myModal" class="modal">
-            <div class="container order-card modal-content">
-              <div class="modal-header">
-                <span class="close">&times;</span>
-                <%# <h2>Modal Header</h2> %>
-              </div>
-              <!-- Modal content -->
-              <div class="modal-body">
-                <h4>Order #0000<%= collected_order.id %></h4>
-                <% collected_order.ingredients.each do |ingredient| %>
-                  <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
-                  <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
-                  <%= ingredient.seller.restaurant.name %><br>
-                  Expiry Date: <%= ingredient.expiry_date %><br>
-                  Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
-                  <hr>
-                <% end %>
-              </div>
-              <div class="modal-footer">
-                <%# <h3>Modal Footer</h3> %>
+          <div class="order-modal">
+            <button class="order-modal-btn btn btn-outline-primary">View order detail</button>
+            <div class="modal">
+              <div class="container order-card modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <%# <h2>Modal Header</h2> %>
+                </div>
+                <!-- Modal content -->
+                <div class="modal-body">
+                  <h4>Order #0000<%= collected_order.id %></h4>
+                  <% collected_order.ingredients.each do |ingredient| %>
+                    <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
+                    <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
+                    <%= ingredient.seller.restaurant.name %><br>
+                    Expiry Date: <%= ingredient.expiry_date %><br>
+                    Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
+                    <hr>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <%# <h3>Modal Footer</h3> %>
+                </div>
               </div>
             </div>
           </div>
@@ -103,15 +109,14 @@
       <hr>
     </div>
   </div>
-</div>
-<%# Javascript for tab %>
-<script>
-  function openCity(cityName) {
-    var i;
-    var x = document.getElementsByClassName("city");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+  <%# Javascript for tab %>
+  <script>
+    function openCity(cityName) {
+      var i;
+      var x = document.getElementsByClassName("city");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      document.getElementById(cityName).style.display = "block";
     }
-    document.getElementById(cityName).style.display = "block";
-  }
-</script>
+  </script>
