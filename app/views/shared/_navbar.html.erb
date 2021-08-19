@@ -44,5 +44,36 @@
           </li>
         </ul>
       </div>
+
+              <%= link_to orders_path, class: "dropdown-item icon" do %>
+                <%= image_tag "Tree.svg", alt: "my-order" %>My orders
+              <% end %>
+              <%= link_to "#", class: "dropdown-item icon" do %>
+                <%= image_tag "Heart.svg", alt: "my-wishlist" %>My wishlist
+              <% end %>
+              <%= link_to "#", class: "dropdown-item icon" do %>
+                <%= image_tag "PencilLine.svg", alt: "my-account" %>Account settings
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item icon" do %>
+                <%= image_tag "ArrowRight.svg", alt: "log-out" %>Log out
+              <% end %>
+            </div>
+          <% else %>
+            <%= image_tag "nomo_default_avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to new_user_registration_path, class: "dropdown-item icon" do %>
+                <%= image_tag "HandWaving.svg", alt: "sign-up" %>Sign up
+              <% end %>
+              <%= link_to user_session_path, class: "dropdown-item icon" do %>
+                <%= image_tag "Key.svg", alt: "log-in" %>Log in
+              <% end %>
+              <%= link_to "#", class: "dropdown-item icon" do %>
+                <%= image_tag "Question.svg", alt: "help" %>Help
+              <% end %>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+
     </div>
   </div>

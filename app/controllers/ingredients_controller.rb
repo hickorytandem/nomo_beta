@@ -3,17 +3,30 @@ class IngredientsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1))
+    @all_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1))
+    @restaurants = Restaurant.near(current_user.address, 10) 
+    @ingredients = [] 
+    @restaurants.each do |restaurant| 
+      @ingredients << policy_scope(restaurant.ingredients)
+    # @ingredients << restaurant.users.first.ingredients_as_seller 
+    end
+    @ingredients = @ingredients.flatten
+  end
+
+  def my_ingredients
+    @ingredients = Ingredient.where(seller_id: current_user.id)
+    authorize @ingredients
   end
 
   def new
     @ingredient = Ingredient.new
-
+    authorize @ingredient
   end
 
   def create
     @ingredient = Ingredient.new(ingredient_params)
     authorize @ingredient
+    @ingredient.seller = current_user
     if @ingredient.save
       redirect_to ingredients_path
     else
@@ -48,6 +61,10 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
+
+  end
+
+  def near
 
   end
 
