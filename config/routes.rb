@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get "checkout", to: 'orders#edit',as: :checkout
   get "my_cart/success", to: 'orders#success'
   get "my_ingredients", to: 'ingredients#my_ingredients'
+  get "dashboard", to: 'restaurants#dashboard'
 
 end

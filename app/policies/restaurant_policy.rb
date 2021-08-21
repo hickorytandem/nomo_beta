@@ -5,6 +5,9 @@ class RestaurantPolicy < ApplicationPolicy
     end
   end
 
+  def dashboard
+  end
+  
   def new?
     create?
   end

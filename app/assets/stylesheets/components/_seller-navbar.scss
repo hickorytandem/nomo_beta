@@ -1,0 +1,126 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: $nm-dashboard-purple;
+    color: #fff;
+    transition: all 0.3s;
+    height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: $nm-dashboard-purple;
+    display: flex;
+    vertical-align: baseline;
+}
+
+
+// #sidebar ul.components {
+//     padding: 20px 0;
+//     border-bottom: 1px solid #47748b;
+// }
+
+#sidebar ul p {
+  color: black;
+  font-family: $body-font;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  text-align: middle;
+  text-align: center;
+  padding: 24px 16px;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: black;
+}
+
+#sidebar ul li a:hover {
+    background-color: $nm-d-green;
+    border-radius: 8px;
+    background-color: rgba(250, 250, 250, 0.3);
+    text-decoration: none;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background-color: $nm-d-green;
+    border-radius: 8px;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+// ul ul a {
+//     font-size: 0.9em !important;
+//     padding-left: 30px !important;
+//     background: #6d7fcc;
+// }
+
+// ul.CTAs {
+//     padding: 20px;
+// }
+
+// ul.CTAs a {
+//     text-align: center;
+//     font-size: 0.9em !important;
+//     display: block;
+//     border-radius: 5px;
+//     margin-bottom: 5px;
+// }
+
+// a.download {
+//     background: #fff;
+//     color: #7386D5;
+// }
+
+// a.article,
+// a.article:hover {
+//     background: #6d7fcc !important;
+//     color: #fff !important;
+// }
+
+// Additional
+.sidebar-header p {
+  color: black;
+  font-family: $body-font;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.sidenav-resto-name {
+  color: black;
+  font-family: $body-font;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  text-align: middle;
+}

@@ -2,6 +2,10 @@ class RestaurantsController < ApplicationController
   def index
   end
 
+  def dashboard
+    skip_authorization
+  end
+  
   def new
     @restaurant = Restaurant.new
     authorize @restaurant
@@ -23,6 +27,5 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:name, :email, :phone_number, :category, :opening_hours, :closing_hours, :payment_method, :address)
   end
-
 
 end
