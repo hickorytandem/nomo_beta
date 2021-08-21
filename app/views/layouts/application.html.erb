@@ -10,7 +10,7 @@
     <%= stylesheet_pack_tag 'application' %>
   </head>
   <body>
-    <% if content_for?(:navbar) == 'dashboard' %>
+    <% if content_for(:navbar) == 'website' %>
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
@@ -20,7 +20,5 @@
       <%= render 'shared/flashes' %>
       <%= yield %>
     <% end %>
-
-
   </body>
 </html>
