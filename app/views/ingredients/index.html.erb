@@ -49,7 +49,7 @@
         <div class="card-row">
           <div class="owl-carousel owl-theme">
             <%#= @ingredients.each do |ingredient| %>
-              <%= render 'shared/card-ingredient' %>
+              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @all_ingredients } %>
             <%# end %>
           </div>
         </div>
@@ -59,7 +59,7 @@
         <div class="card-row">
           <div class="owl-carousel owl-theme">
             <%#= @ingredients.each do |ingredient| %>
-              <%= render 'shared/card-ingredient' %>
+              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @ingredients }%>
             <%# end %>
           </div>
         </div>
@@ -69,7 +69,7 @@
         <div class="card-row">
           <div class="owl-carousel owl-theme">
             <%#= @ingredients.each do |ingredient| %>
-              <%= render 'shared/card-ingredient' %>
+              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @all_ingredients } %>
             <%# end %>
           </div>
         </div>
