@@ -3,8 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   belongs_to :restaurant, optional: true
   has_many :orders
-  has_many :ingredients
+  # has_many :ingredients
   has_many :ingredients_as_seller, class_name: "Ingredient", foreign_key: :seller_id
+  has_many :orders_as_seller, through: :ingredients_as_seller, source: :orders
+  # has_many :orders_as_seller, primary_key: :seller_id, foreign_key: order_id
   # has_many :ingredients_as_buyer, through: :orders, source: ingredients
   # validates :address, :name, presence: true
   devise :database_authenticatable, :registerable,
