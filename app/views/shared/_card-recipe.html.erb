@@ -1,13 +1,11 @@
-<% @recipes.each do |recipe| %>
+<% @recipes_hash.each do |recipe_hash| %>
   <div class="card-column card-ingredient">
-    <%= link_to ingredient_path(recipe), action: 'go' do %>
-    <%= cl_image_tag recipe.photo.key, class: "image" %>
+    <%= link_to recipe_hash[:link], action: 'go' do %>
+    <%#= cl_image_tag recipe.photo.key, class: "image" %>
       <div class="card-ingredient-info">
         <i class="far fa-heart position-icon"></i>
         <div class="card-ingredient-text">
-          <p><%= recipe.seller.restaurant.name %></p>
-          <h2><%= recipe.name %></h2>
-          <h3>$<%= recipe.unit_price %></h3>
+          <h2><%= link_to recipe_hash[:name], recipe_hash[:link] %></h2>
         </div>
       </div>
     <% end %>
