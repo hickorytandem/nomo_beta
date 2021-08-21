@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   belongs_to :restaurant, optional: true
   has_many :orders
+  has_many :ingredients
   has_many :ingredients_as_seller, class_name: "Ingredient", foreign_key: :seller_id
   # has_many :ingredients_as_buyer, through: :orders, source: ingredients
   # validates :address, :name, presence: true
@@ -17,4 +18,14 @@ class User < ApplicationRecord
   def owner?
     restaurant.present?
   end
+
+  def order_total_price
+    @order = self.pending_order
+    @ingredient_price = []
+     @order.ingredients.each do |ingredient|
+        @ingredient_price << ingredient.stock_amount * ingredient.unit_price
+      end
+    @order_total_price = @ingredient_price.sum
+  end
+
 end

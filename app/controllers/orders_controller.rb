@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :find_order, only: [:show, :edit, :update, :destroy]
+  before_action :find_order, only: [:show, :destroy]
 
   def index
     @orders = policy_scope(Order)
-    @collected_orders = @orders.where(status: "collected")
-    @not_collected_orders = @orders.where(status: "not collected")
+    @collected_orders = @orders.where(status: :collected, buyer: current_user)
+    @not_collected_orders = @orders.where(status: :purchased, buyer: current_user)
     @my_orders = []
 
     Order.where(buyer: current_user).each do |order|
@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
   #   end
 
   # end
-    
+
   def success
     skip_authorization
   end
@@ -53,13 +53,28 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @order = find_order_in_cart
+    authorize @order
 
+    @ingredients = Ingredient.where(order_id: @order)
+    @total_price = []
+    @ingredients.each do |ingredient|
+      @total_price << ingredient.stock_amount * ingredient.unit_price
+    end
+
+    @order_total_price = @total_price.sum
   end
 
   def update
-    # @order = Order.new
+    @order = find_order_in_cart
+    @ingredients = Ingredient.where(order_id: @order)
     authorize @order
-    #Check out changing status to purchased
+    if @order.update(order_params)
+      @ingredients.each { |ingredient| ingredient.update(status: 0, public_status: 0)}
+      redirect_to my_cart_success_path
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -72,8 +87,17 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def find_order_in_cart
+    @orders = Order.where(status: :pending, buyer: current_user)
+    @orders.first
+  end
+
   def order_params
     # params.permit(:ingredient_id)
     params.require(:order).permit(:total_price, :pay_method, :status, :ingredient_id)
+  end
+
+  def find_ingredient
+     @ingredients = Ingredient.where(order_id: @order)
   end
 end
