@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :orders, only: [:index, :new, :create, :update]
+  resources :restaurants, only: [:new, :create]
   resources :ingredients
   get "my_cart", to: 'orders#new'
   # post "my_cart", to: 'orders#create'
