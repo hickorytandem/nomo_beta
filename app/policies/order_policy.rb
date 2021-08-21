@@ -2,6 +2,7 @@ class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.where(buyer: user)
+      # scope.where(seller: user)
     end
   end
   def show?
@@ -9,8 +10,8 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def my_orders?
-    true
-    # restaurant id in order == current_user.restaurant
+    # record.sellers.include?(user)
+    user.restaurant
   end
 
   def new?

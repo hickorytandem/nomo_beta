@@ -1,2 +1,20 @@
-<h1>My orders</h1>
-<%# Order table %>
+<div class="container">
+  <%# Page header %>
+  <div class="page-header d-flex justify-content-between">
+    <h1>All orders</h1>
+    <button class="btn btn-primary">Export report</button>
+  </div>
+  <%# Order table %>
+  <div class="table">
+    <% @orders.each do |order| %>
+      #000<%= order.id %><br>
+      <%= order.buyer.name %><br>
+      <%= order.buyer.phone_number %><br>
+      <div class="badge bg-secondary" style="color: white;">
+        <%= order.pay_method %></div>
+      <br>
+      $<%= order.total_price %><br>
+      <%= change_date_format(order.created_at) %>
+    <% end %>
+  </div>
+</div>

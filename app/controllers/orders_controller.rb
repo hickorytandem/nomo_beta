@@ -85,7 +85,13 @@ class OrdersController < ApplicationController
   # Seller Controller
   # --------------------------------------------------------------------------------
   def my_orders
-    @all_orders = Order.where(seller_id: current_user)
+    # @orders = policy_scope(Order)
+    # authorize @orders
+    # @orders = Order.all.map do |order|
+    #   policy_scope(order)
+    # end
+    @orders = Order.all.select { |order| order.sellers.include?(current_user) }
+      authorize @orders
   end
 
   private
