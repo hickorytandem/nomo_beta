@@ -8,61 +8,64 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%# For business %>
-    <div class="nav-item active">
-      <%= link_to "For business", "#", class: "nav-link" %>
-    </div>
-    <%# Cart %>
-    <div class="nav-item">
-      <% if user_signed_in? %>
-        <%= render 'shared/cart_sidebar' %>
-      <% end %>
-    </div>
-    <%# Dropdown %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <%# Avatar %>
-        <li class="nav-item dropdown">
-          <% if user_signed_in? %>
-            <%= image_tag "nomo_default_avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <%# Dropdown List %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%# Username %>
-              <div class="user-name">
-                <p class="username"><%= current_user.name %></p>
-                <p class="email"><%= current_user.email %></p>
+    <%# Right actions %>
+    <div class="navbar-actions">
+      <%# For business %>
+      <div class="nav-item active">
+        <%= link_to "For business", "#", class: "nav-link" %>
+      </div>
+      <%# Cart %>
+      <div class="nav-item">
+        <% if user_signed_in? %>
+          <%= render 'shared/cart_sidebar' %>
+        <% end %>
+      </div>
+      <%# Dropdown %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <%# Avatar %>
+          <li class="nav-item dropdown">
+            <% if user_signed_in? %>
+              <%= image_tag "nomo_default_avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# Dropdown List %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%# Username %>
+                <div class="user-name">
+                  <p class="username"><%= current_user.name %></p>
+                  <p class="email"><%= current_user.email %></p>
+                </div>
+                <%# Icon + List %>
+                <%= link_to orders_path, class: "dropdown-item icon" do %>
+                  <%= image_tag "Tree.svg", alt: "my-order" %>My orders
+                <% end %>
+                <%= link_to "#", class: "dropdown-item icon" do %>
+                  <%= image_tag "Heart.svg", alt: "my-wishlist" %>My wishlist
+                <% end %>
+                <%= link_to "#", class: "dropdown-item icon" do %>
+                  <%= image_tag "PencilLine.svg", alt: "my-account" %>Account settings
+                <% end %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item icon" do %>
+                  <%= image_tag "ArrowRight.svg", alt: "log-out" %>Log out
+                <% end %>
               </div>
-              <%# Icon + List %>
-              <%= link_to orders_path, class: "dropdown-item icon" do %>
-                <%= image_tag "Tree.svg", alt: "my-order" %>My orders
-              <% end %>
-              <%= link_to "#", class: "dropdown-item icon" do %>
-                <%= image_tag "Heart.svg", alt: "my-wishlist" %>My wishlist
-              <% end %>
-              <%= link_to "#", class: "dropdown-item icon" do %>
-                <%= image_tag "PencilLine.svg", alt: "my-account" %>Account settings
-              <% end %>
-              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item icon" do %>
-                <%= image_tag "ArrowRight.svg", alt: "log-out" %>Log out
-              <% end %>
-            </div>
-          <% else %>
-            <%= image_tag "nomo_default_avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <%# DropdownList %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to new_user_registration_path, class: "dropdown-item icon" do %>
-                <%= image_tag "HandWaving.svg", alt: "sign-up" %>Sign up
-              <% end %>
-              <%= link_to user_session_path, class: "dropdown-item icon" do %>
-                <%= image_tag "Key.svg", alt: "log-in" %>Log in
-              <% end %>
-              <%= link_to "#", class: "dropdown-item icon" do %>
-                <%= image_tag "Question.svg", alt: "help" %>Help
-              <% end %>
-            </div>
-          <% end %>
-        </li>
-      </ul>
+            <% else %>
+              <%= image_tag "nomo_default_avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# DropdownList %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to new_user_registration_path, class: "dropdown-item icon" do %>
+                  <%= image_tag "HandWaving.svg", alt: "sign-up" %>Sign up
+                <% end %>
+                <%= link_to user_session_path, class: "dropdown-item icon" do %>
+                  <%= image_tag "Key.svg", alt: "log-in" %>Log in
+                <% end %>
+                <%= link_to "#", class: "dropdown-item icon" do %>
+                  <%= image_tag "Question.svg", alt: "help" %>Help
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

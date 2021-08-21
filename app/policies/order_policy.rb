@@ -8,6 +8,11 @@ class OrderPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def my_orders?
+    true
+    # restaurant id in order == current_user.restaurant
+  end
+
   def new?
     true
   end

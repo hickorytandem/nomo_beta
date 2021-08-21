@@ -81,6 +81,13 @@ class OrdersController < ApplicationController
 
   end
 
+  # --------------------------------------------------------------------------------
+  # Seller Controller
+  # --------------------------------------------------------------------------------
+  def my_orders
+    @all_orders = Order.where(seller_id: current_user)
+  end
+
   private
 
   def find_order

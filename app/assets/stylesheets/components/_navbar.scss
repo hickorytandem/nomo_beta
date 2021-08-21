@@ -1,3 +1,6 @@
+.navbar{
+  height: 72px;
+}
 .navbar-lewagon {
   justify-content: space-between;
   background: $nm-pink;
@@ -9,9 +12,14 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  // width: 40px;
+.navbar-actions {
+  right: 0;
+  display: flex;
+  align-items: center;
 }
+// .navbar-lewagon .navbar-brand img {
+//   // width: 40px;
+// }
 
 // Additional style
 .nav-item {
