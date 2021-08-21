@@ -12,10 +12,17 @@
   list-style-type: none;
   padding: 1rem;
   margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    margin: 16px;
+    padding: 10px 0;
+  }
+
+  li img {
+    justify-content: center;
+  }
 }
 
-li {
-margin: 16px;
-padding: 10px 0;
-}
 
