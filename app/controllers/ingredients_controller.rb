@@ -8,12 +8,12 @@ class IngredientsController < ApplicationController
   def index
     @all_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1))
     @restaurants = Restaurant.near(current_user.address, 10) 
-    @ingredients = [] 
+    @near_ingredients = [] 
     @restaurants.each do |restaurant| 
-      @ingredients << policy_scope(restaurant.ingredients)
+      @near_ingredients << policy_scope(restaurant.ingredients)
     # @ingredients << restaurant.users.first.ingredients_as_seller 
     end
-    @ingredients = @ingredients.flatten
+    @near_ingredients = @near_ingredients.flatten
   end
 
   def my_ingredients
@@ -38,8 +38,13 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredients = Ingredient.where(seller: @ingredient.seller).sample(3)
-
+    @seller_ingredients = Ingredient.where(seller: @ingredient.seller).sample(3)
+    @restaurant = @ingredient.seller.restaurant
+    @marker = {
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude
+    }
+    @order = current_user.pending_order || Order.new
     ingredient = @ingredient.name
     url = "https://www.bbcgoodfood.com/search/recipes?q=#{ingredient}"
     html_file = URI.open(url).read
@@ -50,14 +55,6 @@ class IngredientsController < ApplicationController
       @recipes << { name: element.text.strip, link: "https://www.bbcgoodfood.com/recipes" + element.attribute('href').value }
     end
     @recipes_hash = @recipes.sample(3)
-
-
-    @restaurant = @ingredient.seller.restaurant
-    @marker = {
-        lat: @restaurant.latitude,
-        lng: @restaurant.longitude
-    }
-   @order = current_user.pending_order || Order.new
 
   end
 
