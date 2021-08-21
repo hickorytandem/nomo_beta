@@ -15,6 +15,10 @@ class User < ApplicationRecord
     Order.where(buyer: self).find_by(status: :pending)
   end
 
+  def owner?
+    restaurant.present?
+  end
+
   def order_total_price
     @order = self.pending_order
     @ingredient_price = []
