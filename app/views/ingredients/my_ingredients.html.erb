@@ -10,6 +10,7 @@
         <%= cl_image_tag ingredient.photo.key, alt: "logo", width: 100%></li>
       <li> <%= ingredient.name %></li>
       <li>Price: $<%= ingredient.unit_price %></li>
+      <li>Discount <%= ingredient.discount_rate %>%</li>
       <li>Expiry: <%= ingredient.expiry_date %></li>
       <li><%= ingredient.weight %> Kg</li>
       <li>Item count:<%= ingredient.stock_amount %></li>
