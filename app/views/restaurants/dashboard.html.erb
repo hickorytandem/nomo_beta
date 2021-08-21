@@ -4,11 +4,18 @@
   <%# Content Navbar %>
   <div class="dashboard-topnav">
     <div class="top-nav">
-      <a href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
+      <%# Search %>
+      <div class="input-group">
+        <%= image_tag "search.svg", class: "input-group-text" %>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Search" aria-describedby="basic-addon1">
+      </div>
+      <div class="topnav-actions">
+        <%= image_tag "noti.svg"%>
+        <%= image_tag "nomo_default_avatar.svg"%>
+      </div>
     </div>
   </div>
+  <hr>
   <%# End ContentBox %>
   <div class="dashboard-content">
     <h1>Fixed Top Menu</h1>
