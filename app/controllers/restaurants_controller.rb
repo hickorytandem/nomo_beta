@@ -24,5 +24,4 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name, :email, :phone_number, :category, :opening_hours, :closing_hours, :payment_method, :address)
   end
 
-
 end
