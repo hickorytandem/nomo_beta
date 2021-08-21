@@ -1,16 +1,19 @@
 <div class="wrapper">
-  <!-- Sidebar  -->
-  <nav id="sidebar">
-    <div class="sidebar-header">
-      <%# Logo %>
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag 'Nomo_logo.png', width:"88px" %>
-      <% end %>
-      <p>Business</p>
-    </div>
-    <ul class="list-unstyled components">
+<!-- Sidebar  -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <%# Logo %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag 'Nomo_logo.png', width:"88px" %>
+    <% end %>
+    <p>Business</p>
+  </div>
+  <ul class="list-unstyled components">
+    <% if user_signed_in?%>
       <p><%= current_user.restaurant.name %></p>
-      <!-- <li class="active">
+    <% end %>
+    <!-- <li class="active">
+
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
@@ -27,27 +30,27 @@
             </li>
         </ul>
     </li> -->
-      <li>
-        <%= link_to dashboard_path, class: "dropdown-item icon" do %>
-          <%= image_tag "HouseSimple.svg", alt: "home" %>Home
-        <% end %>
-      </li>
-      <li class="section-item active">
-        <%= link_to my_ingredients_path, class: "dropdown-item icon" do %>
-          <%= image_tag "Tree.svg", alt: "products" %>Products
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "#", class: "dropdown-item icon" do %>
-          <%= image_tag "icon_cart.svg", alt: "orders" %>Orders
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "#", class: "dropdown-item icon" do %>
-          <%= image_tag "Gear.svg", alt: "settings" %>Settings
-        <% end %>
-      </li>
-    </ul>
-    <div class="advertisement">
-    </div>
-  </nav>
+    <li>
+      <%= link_to dashboard_path, class: "dropdown-item icon" do %>
+        <%= image_tag "HouseSimple.svg", alt: "home" %>Home
+      <% end %>
+    </li>
+    <li class="section-item active">
+      <%= link_to my_ingredients_path, class: "dropdown-item icon" do %>
+        <%= image_tag "Tree.svg", alt: "products" %>Products
+      <% end %>
+    </li>
+    <li>
+      <%= link_to my_orders_path, class: "dropdown-item icon" do %>
+        <%= image_tag "icon_cart.svg", alt: "orders" %>Orders
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#", class: "dropdown-item icon" do %>
+        <%= image_tag "Gear.svg", alt: "settings" %>Settings
+      <% end %>
+    </li>
+  </ul>
+  <div class="advertisement">
+  </div>
+</nav>
