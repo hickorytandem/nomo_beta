@@ -1,23 +1,20 @@
-<h1>My ingredients, right here, right now!</h1>
+ <div class="my-ingredients-top">
+  <h1>My food needs a home!</h1>
 
-<div class="container">
-  <ul>
+  <div class="container">
+    <ul>
 
-  <% @ingredients.each do |ingredient| %>
-  <div class="ingredient-card">
-    <li><%= ingredient.name %></li>
-    <li><%= ingredient.unit_price %></li>
-    <li><%= ingredient.expiry_date %></li>
-    <li><%= ingredient.weight %></li>
-    <li><%= ingredient.stock_amount %></li>
-    <li><%= ingredient.unit %></li>
-    <li><%= ingredient.discount_rate %></li>
-    <li><%= ingredient.public_status %></li>
-    <li><%= ingredient.description %></li>
-    <li><%= ingredient.status %></li>
-    <li><%= ingredient.order_id %></li>
+    <% @ingredients.each do |ingredient| %>
+    <div class="ingredient-card">
+      <li class="list-image"><%= image_tag "NomoEarth.png", alt: "logo", width: 50%></li>
+      <li> <%= ingredient.name %></li>
+      <li>Price: $<%= ingredient.unit_price %></li>
+      <li>Expiry: <%= ingredient.expiry_date %></li>
+      <li><%= ingredient.weight %> Kg</li>
+      <li>Item count:<%= ingredient.stock_amount %></li>
+      <li>Not sold</li>
+    </div>
+    <% end %>
+    </ul>
   </div>
-
-  <% end %>
-  </ul>
 </div>
