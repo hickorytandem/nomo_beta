@@ -59,7 +59,7 @@
         <div class="card-row">
           <div class="owl-carousel owl-theme">
             <%#= @ingredients.each do |ingredient| %>
-              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @ingredients }%>
+              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @near_ingredients }%>
             <%# end %>
           </div>
         </div>
