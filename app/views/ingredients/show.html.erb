@@ -65,7 +65,7 @@
     <div class="section-four">
       <h1 class="ingredient-header">Other products in this store</h1>
       <div class="cards-flex">
-        <%= render 'shared/card-ingredient' %>
+        <%= render partial: 'shared/card-ingredient', locals: { ingredients: @seller_ingredients } %>
       </div>
     </div>
   </div>
