@@ -85,7 +85,7 @@
       buyer: namkhing
       )
 User.all.each do |user|
-
+  next unless user.restaurant
     15.times do
 
       # public_status = ["availalble", "not available"]

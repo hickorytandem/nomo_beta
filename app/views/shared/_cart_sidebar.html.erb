@@ -25,15 +25,17 @@
   // /* Set the width of the side navigation */
     function openNav() {
       document.getElementById("mySidenav").style.width = "340px";
+      // document.getElementById("mySidenav").style.display = "block";
   
     }
     // /* Set the width of the side navigation to 0 */
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
+      // document.getElementById("mySidenav").style.display = "none";
     }
     const urlParams = new URLSearchParams(window.location.search);
     const cartStatus = urlParams.get('cart');
-    if (cartStatus == "open") {
+    if (cartStatus === "open") {
       openNav();
     };
 </script>
