@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 class IngredientsController < ApplicationController
   before_action :find_ingredient, only: [:show, :update]
   skip_before_action :authenticate_user!, only: [:index, :show]
@@ -23,7 +26,19 @@ class IngredientsController < ApplicationController
 
   def show
     @ingredients = Ingredient.where(seller: @ingredient.seller).sample(3)
-    @recipes = Ingredient.all.sample(3)
+
+    ingredient = @ingredient.name
+    url = "https://www.bbcgoodfood.com/search/recipes?q=#{ingredient}"
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+
+    @recipes = []
+    html_doc.search('.standard-card-new__article-title').each do |element|
+      @recipes << { name: element.text.strip, link: "https://www.bbcgoodfood.com/recipes" + element.attribute('href').value }
+    end
+    @recipes_hash = @recipes.sample(3)
+
+
     @restaurant = @ingredient.seller.restaurant
     @marker = {
         lat: @restaurant.latitude,
