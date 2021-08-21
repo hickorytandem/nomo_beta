@@ -10,6 +10,4 @@ Rails.application.routes.draw do
   get "my_cart/success", to: 'orders#success'
   get "my_ingredients", to: 'ingredients#my_ingredients'
 
-
-
 end
