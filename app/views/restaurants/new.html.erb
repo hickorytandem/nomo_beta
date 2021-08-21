@@ -1,0 +1,49 @@
+<div id="wrapper">
+    <div id="fixed-area">
+      <div class="center">
+        <div class="text-center">
+        <div><h2>Share your food,</h2><h2>make a difference.</h2></div>
+        </div>
+        <div class="img-center">
+          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="form">
+        <%= simple_form_for(@restaurant) do |f| %>
+        <div class="form-page">
+          <%= f.input :name , input_html:{class: "input-field"} %>
+        </div>
+        <div class="form-page">
+          <%= f.input :email, input_html:{class: "input-field"} %>
+        </div>
+        <div class="form-page">
+          <%= f.input :phone_number, input_html:{class: "input-field"}%>
+        </div>
+        <div class="form-page">
+          <%= f.input :category, input_html:{class: "input-field"} %>
+        </div>
+        <div class="form-page">
+          <%= f.input :opening_hours, input_html:{class: "input-field"} %>
+        </div>
+        <div class="form-page">
+          <%= f.input :closing_hours, input_html:{class: "input-field"} %>
+        </div>
+        <div class="form-page">
+          <%= f.input :payment_method, input_html:{class: "input-field"} %>
+        </div>
+         <div class="form-page">
+          <%= f.input :address, input_html:{class: "input-field"} %>
+        </div>
+        <div class="form-page">
+          <div class="d-flex">
+          <%= link_to "Cancel", ingredients_path, class: "btn btn-outline-primary mr-3" %>
+          <%= f.button :submit, "Add your restaurant", class: "btn btn-primary" %>
+          </div>
+        </div>
+        <% end %>
+       
+      </div>
+    </div>
+　</div>
