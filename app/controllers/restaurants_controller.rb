@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
 
   def settings
     skip_authorization
+    @shop_name = current_user.restaurant.name
   end
 
   private
