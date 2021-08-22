@@ -1,6 +1,10 @@
 <div class="dashboard">
-  <div class="dashboard-sidenav">
-    Nomo
+  <div class="dashboard-sidenav p-3">
+    <%# Logo + Hambuger %>
+    <div class="sidebar-item justify-content-between">
+      <%= image_tag 'nomo-logo-black.svg', id: "nomo-b-logo"%>
+      <%= image_tag 'bars.svg'%>
+    </div>
   </div>
   <div class="dashboard-content-container">
     <% content_for :navbar, 'dashboard' %>
@@ -14,8 +18,8 @@
           <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
         </div>
         <div class="topnav-actions">
-          <%= image_tag "noti.svg"%>
-          <%= image_tag "nomo_default_avatar.svg"%>
+          <%= image_tag "noti.svg", class: "mr-3"%>
+          <%= image_tag "avatar-dashboard.svg"%>
         </div>
       </div>
     </div>

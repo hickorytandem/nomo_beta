@@ -1,19 +1,13 @@
 .dashboard {
   flex-direction: row;
   display: flex;
-
 }
 
 .dashboard-content-container {
   background-color: $nm-dashboard-purple;
-  width: 80%;
-}
+  width: 100%;
+  margin-left: 224px;
 
-.dashboard-sidenav {
-  width: 20%;
-  background-color: $nm-dashboard-bg;
-  height: 100vh;
-  flex-grow: 2;
 }
 
 .dashboard-topnav {
@@ -22,7 +16,7 @@
   position: fixed;
   top: 0;
   width: 80%;
-  padding: 24px 24px 0 24px;
+  padding: 16px 24px 0 24px;
   z-index: 2;
   .top-nav {
     background-color: $nm-dashboard-bg;
@@ -48,3 +42,29 @@
   }
 
 }
+img#nomo-d-logo {
+  height: 16px;
+}
+
+// ------------------------------
+// SIDENAV
+// ------------------------------
+
+.dashboard-sidenav {
+  width: 224px;
+  background-color: $nm-dashboard-bg;
+  height: 100%;
+  flex-grow: 2;
+  position:fixed;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  overflow-x: hidden;
+}
+
+.sidebar-item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
