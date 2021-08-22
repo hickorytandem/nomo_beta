@@ -11,6 +11,25 @@
       <%= @shop_name %>
       <hr class="sidenav-divider">
     </div>
+    <%# Sidenav Menu %>
+    <ul>
+      <li>
+        <%= image_tag 'home-outline.svg', id: "nomo-b-logo"%>
+        <span class="menu-title">Home</span>
+      </li>
+      <li>
+        <%= image_tag 'Tree.svg', id: "nomo-b-logo"%>
+        <span class="menu-title">Ingredients</span>
+      </li>
+      <li>
+        <%= image_tag 'icon_cart.svg', id: "nomo-b-logo"%>
+        <span class="menu-title">Orders</span>
+      </li>
+      <li>
+        <%= image_tag 'Gear.svg', id: "nomo-b-logo"%>
+        <span class="menu-title">Settings</span>
+      </li>
+    </ul>
   </div>
   <div class="dashboard-content-container">
     <% content_for :navbar, 'dashboard' %>
@@ -33,7 +52,6 @@
     <%# End ContentBox %>
     <div class="dashboard-content">
       <div class="content-container">
-        <h1>Fixed Top Menu</h1>
         <h2>Scroll this page to see the effect</h2>
         <h2>The navigation bar will stay at the top of the page while scrolling</h2>
         <p>Some text some text some text some text..</p>
