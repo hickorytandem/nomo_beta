@@ -5,6 +5,12 @@
       <%= image_tag 'nomo-logo-black.svg', id: "nomo-b-logo"%>
       <%= image_tag 'bars.svg'%>
     </div>
+    <%# Shop name %>
+    <div class="shop-name" style="font-weight: 600;">
+      <hr class="sidenav-divider">
+      <%= @shop_name %>
+      <hr class="sidenav-divider">
+    </div>
   </div>
   <div class="dashboard-content-container">
     <% content_for :navbar, 'dashboard' %>

@@ -4,8 +4,9 @@ class RestaurantsController < ApplicationController
 
   def dashboard
     skip_authorization
+    @shop_name = current_user.restaurant.name
   end
-  
+
   def new
     @restaurant = Restaurant.new
     authorize @restaurant
