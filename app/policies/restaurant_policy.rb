@@ -7,12 +7,16 @@ class RestaurantPolicy < ApplicationPolicy
 
   def dashboard
   end
-  
+
   def new?
     create?
   end
 
   def create?
     true
+  end
+
+  def settings
+    user.restaurant
   end
 end

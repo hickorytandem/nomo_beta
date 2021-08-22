@@ -53,7 +53,7 @@ img#nomo-d-logo {
 .dashboard-sidenav {
   width: 224px;
   // background-color: $nm-dashboard-bg;
-   background-color: $nm-dashboard-purple;
+  background-color: $nm-dashboard-purple;
   height: 100%;
   flex-grow: 2;
   position:fixed;
@@ -61,13 +61,42 @@ img#nomo-d-logo {
   top: 0;
   z-index: 4;
   overflow-x: hidden;
+  padding: 24px;
 }
 
-.sidebar-item {
-  height: 40px;
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 28px;
+
+  li.sidenav-item {
   display: flex;
   align-items: center;
+  padding: 12px;
+  // background-color: white;
+  border-radius: 8px;
+  align-items: center;
+  margin-left: 0px;
+  margin-right: 0px;
+  }
+
+  li:hover {
+    background-color: $nm-dashboard-bg;
+
+  }
+  .menu-title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+
 }
+
+
 
 .sidenav-divider {
   border: 0.5px solid rgba(255, 255, 255, 0.6);

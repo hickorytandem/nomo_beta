@@ -1,34 +1,44 @@
 <div class="dashboard">
-  <div class="dashboard-sidenav p-3">
+  <div class="dashboard-sidenav">
     <%# Logo + Hambuger %>
-    <div class="sidebar-item justify-content-between">
+    <div class="sidebar-item justify-content-between d-flex mt-2">
       <%= image_tag 'nomo-logo-black.svg', id: "nomo-b-logo"%>
       <%= image_tag 'bars.svg'%>
     </div>
     <%# Shop name %>
-    <div class="shop-name" style="font-weight: 600;">
+    <div class="shop-name mt-4" style="font-weight: 600;">
       <hr class="sidenav-divider">
       <%= @shop_name %>
       <hr class="sidenav-divider">
     </div>
     <%# Sidenav Menu %>
     <ul>
-      <li>
-        <%= image_tag 'home-outline.svg', id: "nomo-b-logo"%>
-        <span class="menu-title">Home</span>
-      </li>
-      <li>
-        <%= image_tag 'Tree.svg', id: "nomo-b-logo"%>
-        <span class="menu-title">Ingredients</span>
-      </li>
-      <li>
-        <%= image_tag 'icon_cart.svg', id: "nomo-b-logo"%>
-        <span class="menu-title">Orders</span>
-      </li>
-      <li>
-        <%= image_tag 'Gear.svg', id: "nomo-b-logo"%>
-        <span class="menu-title">Settings</span>
-      </li>
+      <%# Home %>
+      <%= link_to dashboard_path do %>
+        <li class="sidenav-item d-flex">
+          <%= image_tag 'home-outline.svg', id: "nomo-b-logo", class: "mr-2"%>
+          <span class="menu-title">Home</span>
+        </li>
+      <% end %>
+      <%# Ingredients %>
+      <%= link_to my_ingredients_path do %>
+        <li class="sidenav-item d-flex">
+          <%= image_tag 'Tree.svg', id: "nomo-b-logo", class: "mr-2"%>
+          <span class="menu-title">Ingredients</span>
+        </li>
+      <% end %>
+      <%= link_to my_orders_path do %>
+        <li class="sidenav-item d-flex">
+          <%= image_tag 'icon_cart.svg', id: "nomo-b-logo", class: "mr-2"%>
+          <span class="menu-title">Orders</span>
+        </li>
+      <% end %>
+      <%= link_to shop_settings_path do %>
+        <li class="sidenav-item d-flex">
+          <%= image_tag 'Gear.svg', id: "nomo-b-logo", class: "mr-2"%>
+          <span class="menu-title">Shop settings</span>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="dashboard-content-container">

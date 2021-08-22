@@ -23,6 +23,10 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def settings
+    skip_authorization
+  end
+
   private
 
   def restaurant_params
