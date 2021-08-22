@@ -2,7 +2,6 @@
   <%= render 'shared/dashboard_sidenav' %>
   <div class="dashboard-content-container">
     <% content_for :navbar, 'dashboard' %>
-    <%# ContentBox %>
     <%# Content Navbar %>
     <div class="dashboard-topnav">
       <div class="top-nav">
@@ -13,12 +12,13 @@
         </div>
         <div class="topnav-actions">
           <%= image_tag "noti.svg", class: "mr-3"%>
+          <%= render 'shared/dashboard_topnav' %>
           <%= image_tag "avatar-dashboard.svg"%>
         </div>
       </div>
     </div>
     <hr class="#">
-    <%# End ContentBox %>
+    <%# End Topnav %>
     <div class="dashboard-content">
       <div class="content-container">
         <%# Put your content below %>
