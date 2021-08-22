@@ -165,8 +165,8 @@ User.all.each do |user|
     file = URI.open(veg[:url])
       ingredient = Ingredient.new(
       name: veg[:name],
-      unit_price: Faker::Commerce.price(range: 0..10.0),
-      expiry_date: Faker::Date.between(from: 4.days.ago, to: Date.today),
+      unit_price: Faker::Commerce.price(range: 1..10.0),
+      expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
       discount_rate: discount_rate,

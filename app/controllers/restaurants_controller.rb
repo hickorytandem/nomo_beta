@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    # @restaurant.users = current_user
+    @restaurant.users << current_user
     authorize @restaurant
     if @restaurant.save
       redirect_to ingredients_path
