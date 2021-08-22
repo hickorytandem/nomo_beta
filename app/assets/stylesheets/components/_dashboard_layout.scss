@@ -60,7 +60,7 @@ img#nomo-d-logo {
   left: 0;
   top: 0;
   z-index: 4;
-  overflow-x: hidden;
+  overflow: hidden;
   padding: 24px;
 }
 
@@ -78,13 +78,26 @@ ul {
   // background-color: white;
   border-radius: 8px;
   align-items: center;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin: 8px 0;
+
   }
 
-  li:hover {
-    background-color: $nm-dashboard-bg;
+  li.sidenav-item-active {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: $nm-d-green;
+    border-radius: 8px;
+    align-items: center;
+    margin: 8px 0;
+    color: white;
+  }
 
+  .sidenav-item-active:hover {
+    background-color: $nm-dashboard-bg;
+  }
+  .sidenav-item:hover {
+    background-color: $nm-dashboard-bg;
   }
   .menu-title {
     font-weight: 500;
@@ -102,6 +115,8 @@ ul {
   border: 0.5px solid rgba(255, 255, 255, 0.6);
 }
 
+
+
 @media screen and (max-width: 1800px) {
   .dashboard-content-container {
     width: 100%;
@@ -109,4 +124,27 @@ ul {
     margin-bottom: 20px;
   }
 
+}
+
+
+li.donate{
+  margin: 0;
+  padding: 0;
+}
+
+#donate-banner{
+  height: 230px;
+  width: 178px;
+  padding: 132px 12px 0 16px;
+}
+.banner-text {
+
+  z-index: 3;
+}
+.item {
+  align-items: center;
+  p {
+    margin: 0;
+    color: $nm-d-green;
+  }
 }
