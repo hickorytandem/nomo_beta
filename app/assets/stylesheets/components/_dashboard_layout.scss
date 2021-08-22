@@ -6,8 +6,8 @@
 .dashboard-content-container {
   background-color: $nm-dashboard-purple;
   width: 100%;
-  margin-left: 224px;
-
+  margin-left: 200px;
+  padding: 0 0 0 24px;
 }
 
 .dashboard-topnav {
@@ -15,7 +15,7 @@
   background-color: $nm-dashboard-purple;
   position: fixed;
   top: 0;
-  width: 80%;
+  width: 85%;
   padding: 16px 24px 0 24px;
   z-index: 2;
   .top-nav {
@@ -30,7 +30,7 @@
 }
 
 .dashboard-content {
-  width: 80%;
+  width: 85%;
   padding: 0 24px 0 24px;
   background-color: $nm-dashboard-purple;
   position: absolute;
@@ -68,3 +68,11 @@ img#nomo-d-logo {
   align-items: center;
 }
 
+@media screen and (max-width: 1800px) {
+  .dashboard-content-container {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+}
