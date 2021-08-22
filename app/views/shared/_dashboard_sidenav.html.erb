@@ -1,0 +1,61 @@
+<div class="dashboard-sidenav">
+  <%# Logo + Hambuger %>
+  <div class="sidebar-item justify-content-between d-flex mt-2">
+    <%= image_tag 'nomo-logo-black.svg', id: "nomo-b-logo"%>
+    <%= image_tag 'bars.svg'%>
+  </div>
+  <%# Shop name %>
+  <div class="shop-name mt-4" style="font-weight: 600;">
+    <hr class="sidenav-divider">
+    <%= @shop_name %>
+    <hr class="sidenav-divider">
+  </div>
+  <%# Sidenav Menu %>
+  <ul>
+    <%# Home %>
+    <%= link_to dashboard_path do %>
+      <li class="sidenav-item-active d-flex">
+        <%= image_tag 'home-filled.svg', id: "nomo-b-logo", class: "mr-2"%>
+        <span class="menu-title">Home</span>
+      </li>
+    <% end %>
+    <%# Ingredients %>
+    <%= link_to my_ingredients_path do %>
+      <li class="sidenav-item d-flex">
+        <%= image_tag 'Tree.svg', id: "nomo-b-logo", class: "mr-2"%>
+        <span class="menu-title">Ingredients</span>
+      </li>
+    <% end %>
+    <%# Orders %>
+    <%= link_to my_orders_path do %>
+      <li class="sidenav-item d-flex">
+        <%= image_tag 'icon_cart.svg', id: "nomo-b-logo", class: "mr-2"%>
+        <span class="menu-title">Orders</span>
+      </li>
+    <% end %>
+    <%# Setting %>
+    <%= link_to shop_settings_path do %>
+      <li class="sidenav-item d-flex">
+        <%= image_tag 'Gear.svg', id: "nomo-b-logo", class: "mr-2"%>
+        <span class="menu-title">Store settings</span>
+      </li>
+    <% end %>
+    <%# Donate banner %>
+    <li class="donate">
+      <div id="donate-banner" style="background-image: url(<%= asset_path('donate-banner.svg') %>);">
+        <p><strong>Donate your product to local food banks</strong></p>
+        <div class="d-flex item">
+          <p style="font-size: 14px;">Get started</p>
+          <%= image_tag 'arrow-right.svg', id: "nomo-b-logo", class: "ml-2"%>
+        </div>
+      </div>
+    </li>
+    <%# Back to NOMO %>
+    <%= link_to ingredients_path do %>
+      <li class="sidenav-item d-flex">
+        <%= image_tag 'arrow-out.svg', id: "nomo-b-logo", class: "mr-2"%>
+        <span class="menu-title">Back to Nomo</span>
+      </li>
+    <% end %>
+  </ul>
+</div>

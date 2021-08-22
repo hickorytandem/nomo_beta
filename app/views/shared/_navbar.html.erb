@@ -38,8 +38,8 @@
                   <p class="username"><%= current_user.name %></p>
                   <p class="email"><%= current_user.email %></p>
                 </div>
-                <%# Icon + List : Buy mode %>
-                <%= link_to orders_path, class: "dropdown-item icon" do %>
+                <%# Icon + List %>
+                <%= link_to orders_path, class: "dropdown-item icon mt-2" do %>
                   <%= image_tag "Tree.svg", alt: "my-order" %>My orders
                 <% end %>
                 <%= link_to "#", class: "dropdown-item icon" do %>
@@ -48,18 +48,18 @@
                 <%= link_to "#", class: "dropdown-item icon" do %>
                   <%= image_tag "PencilLine.svg", alt: "my-account" %>Account settings
                 <% end %>
-                <%# Icon + List : Business %>
+                <p class="business">BUSINESS</p>
                 <%= link_to dashboard_path, class: "dropdown-item icon" do %>
-                  <%= image_tag "store.svg", alt: "my-order" %>Manage store
+                  <%= image_tag "store.svg", alt: "my-account" %>Manage store
                 <% end %>
-                <%= link_to "#", class: "dropdown-item icon" do %>
-                  <%= image_tag "setting.svg", alt: "my-wishlist" %>Store settings
+                <%= link_to shop_settings_path, class: "dropdown-item icon" do %>
+                  <%= image_tag "Gear.svg", alt: "my-account" %>Store settings
+                  <hr>
                 <% end %>
-                <%# Icon + List : Logout %>
                 <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item icon" do %>
                   <%= image_tag "ArrowRight.svg", alt: "log-out" %>Log out
                 <% end %>
-              </div>
+            </div>
             <% elsif user_signed_in? %>
               <%= image_tag "nomo_default_avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <%# DropdownList : Not Login%>

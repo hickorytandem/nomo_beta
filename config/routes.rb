@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get "my_ingredients", to: 'ingredients#my_ingredients'
   get "my_orders", to: 'orders#my_orders'
   get "dashboard", to: 'restaurants#dashboard'
-
+  get "shop_settings", to: 'restaurants#settings'
 end

@@ -9,16 +9,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= stylesheet_pack_tag 'application' %>
   </head>
-  <body>
-    <% if content_for(:navbar) == 'dashboard' %>
+  <% if content_for(:navbar) == 'dashboard' %>
+    <body style="background-color: #CED3F9;">
+      <%= render 'shared/seller-navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </body>
+  <% else %>
+    <body style="background-color: ##F4F4F4;">
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
       <%= render 'shared/footer' %>
-    <% else %>
-      <%= render 'shared/seller-navbar' %>
-      <%= render 'shared/flashes' %>
-      <%= yield %>
-    <% end %>
-  </body>
+    </body>
+  <% end %>
 </html>

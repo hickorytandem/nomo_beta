@@ -6,6 +6,7 @@
   background: $nm-pink;
   padding-left: 48px;
   padding-right: 48px;
+  height: 72px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,6 +17,7 @@
   right: 0;
   display: flex;
   align-items: center;
+
 }
 // .navbar-lewagon .navbar-brand img {
 //   // width: 40px;
@@ -24,6 +26,7 @@
 // Additional style
 .nav-item {
   margin-right: 16px;
+  align-items: center;
 }
 
 // .navbar {
@@ -31,7 +34,10 @@
 //   top: 0;
 // }
 .dropdown-menu {
+  width: 218px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
   border-radius: 12px;
+  border: 0;
 }
 
 .user-name {
@@ -41,21 +47,21 @@
   .username {
     font-family: $body-font;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 0;
     padding-top: 8px;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
     padding-left: 16px;
     padding-right: 8px;
   }
   .email {
     font-family: $body-font;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     color: $nm-grey;
     margin-bottom: 0;
     padding-top: 2px;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
     padding-left: 16px;
     padding-right: 8px;
   }
@@ -69,6 +75,32 @@
   margin-right: 12px;
 }
 
-// .navbar-actions .form-control {
+.dropdown-item {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  &:hover {
+    background-color: $nm-l-brown;
+  }
+}
 
+.navbar-collapse ul{
+  margin: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+.business {
+color: #BDBDBD;
+font-weight: 600;
+font-size: 12px;
+height: 24px;
+padding: 8px 0px 8px 12px;
+margin:0 8px 8px 0;
+}
+
+// .dropdown {
+//   display: inline-block;
 // }
