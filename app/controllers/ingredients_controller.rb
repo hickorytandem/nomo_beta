@@ -51,8 +51,14 @@ class IngredientsController < ApplicationController
     html_doc = Nokogiri::HTML(html_file)
 
     @recipes = []
+    # html_doc.search('standard-card-new standard-card-new--skinny').each do |ele|
+
+
+    # end
     html_doc.search('.standard-card-new__article-title').each do |element|
-      @recipes << { name: element.text.strip, link: "https://www.bbcgoodfood.com/recipes" + element.attribute('href').value }
+      name = element.text.strip
+      link = "https://www.bbcgoodfood.com/recipes" + element.attribute('href').value
+      @recipes << { name: name, link: link }
     end
     @recipes_hash = @recipes.sample(3)
 

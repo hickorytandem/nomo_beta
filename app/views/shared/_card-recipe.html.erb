@@ -3,9 +3,8 @@
     <%= link_to recipe_hash[:link], action: 'go' do %>
     <%#= cl_image_tag recipe.photo.key, class: "image" %>
       <div class="card-ingredient-info">
-        <i class="far fa-heart position-icon"></i>
         <div class="card-ingredient-text">
-          <h2><%= link_to recipe_hash[:name], recipe_hash[:link] %></h2>
+          <h2><%= recipe_hash[:name] %></h2>
         </div>
       </div>
     <% end %>
