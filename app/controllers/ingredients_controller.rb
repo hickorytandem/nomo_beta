@@ -39,6 +39,7 @@ class IngredientsController < ApplicationController
 
   def show
     @seller_ingredients = Ingredient.where(seller: @ingredient.seller).sample(3)
+    @paired_ingredients = Ingredient.all.sample(3)
     @restaurant = @ingredient.seller.restaurant
     @marker = {
         lat: @restaurant.latitude,
