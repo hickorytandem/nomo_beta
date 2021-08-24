@@ -178,3 +178,19 @@ li.donate{
 
 
 }
+.dashboard-button-white {
+  background-color: white;
+  height: 40px;
+  color:$nm-black;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  width: 150px;
+  &:hover {
+    background-color: #EEF1F7;
+    color: $nm-black;
+  }
+
+
+}
