@@ -90,6 +90,7 @@ class OrdersController < ApplicationController
     # @orders = Order.all.map do |order|
     #   policy_scope(order)
     # end
+    @shop_name = current_user.restaurant.name
     @orders = Order.all.select { |order| order.sellers.include?(current_user) }
       authorize @orders
   end

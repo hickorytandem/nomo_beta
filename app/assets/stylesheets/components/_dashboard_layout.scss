@@ -1,0 +1,150 @@
+.dashboard {
+  flex-direction: row;
+  display: flex;
+}
+
+.dashboard-content-container {
+  background-color: $nm-dashboard-purple;
+  width: 100%;
+  margin-left: 190px;
+  padding: 0 0 0 24px;
+}
+
+.dashboard-topnav {
+  overflow: hidden;
+  background-color: $nm-dashboard-purple;
+  position: fixed;
+  top: 0;
+  width: 85%;
+  padding: 16px 24px 0 24px;
+  z-index: 2;
+  .top-nav {
+    background-color: $nm-dashboard-bg;
+    height: 72px;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 28px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+}
+
+.dashboard-content {
+  width: 85%;
+  padding: 0 24px 0 24px;
+  background-color: $nm-dashboard-purple;
+  position: absolute;
+  top: 72px;
+  .content-container {
+    background-color: $nm-dashboard-bg;
+    border-radius: 0 0 20px 20px;
+    padding: 28px;
+  }
+
+}
+img#nomo-d-logo {
+  height: 16px;
+}
+
+// ------------------------------
+// SIDENAV
+// ------------------------------
+
+.dashboard-sidenav {
+  width: 224px;
+  // background-color: $nm-dashboard-bg;
+  background-color: $nm-dashboard-purple;
+  height: 100%;
+  flex-grow: 2;
+  position:fixed;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  overflow: hidden;
+  padding: 24px;
+}
+
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 28px;
+
+  li.sidenav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  // background-color: white;
+  border-radius: 8px;
+  align-items: center;
+  margin: 8px 0;
+
+  }
+
+  li.sidenav-item-active {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: $nm-d-green;
+    border-radius: 8px;
+    align-items: center;
+    margin: 8px 0;
+    color: white;
+  }
+
+  .sidenav-item-active:hover {
+    background-color: $nm-dashboard-bg;
+  }
+  .sidenav-item:hover {
+    background-color: $nm-dashboard-bg;
+  }
+  .menu-title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+
+}
+
+
+
+.sidenav-divider {
+  border: 0.5px solid rgba(255, 255, 255, 0.6);
+}
+
+
+
+@media screen and (max-width: 1800px) {
+  .dashboard-content-container {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+}
+
+
+li.donate{
+  margin: 0;
+  padding: 0;
+}
+
+#donate-banner{
+  height: 230px;
+  width: 178px;
+  padding: 132px 12px 0 16px;
+}
+.banner-text {
+
+  z-index: 3;
+}
+.item {
+  align-items: center;
+  p {
+    margin: 0;
+    color: $nm-d-green;
+  }
+}
