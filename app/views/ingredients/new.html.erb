@@ -1,17 +1,20 @@
 <div id="wrapper">
-    <div id="fixed-area">
-      <div class="center">
-        <div class="text-center">
-        <div><h2>Share your food,</h2><h2>make a difference.</h2></div>
-        </div>
-        <div class="img-center">
-          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
+  <div id="fixed-area">
+    <div class="center">
+      <div class="text-center">
+        <div>
+          <h2>Share your food,</h2>
+          <h2>make a difference.</h2>
         </div>
       </div>
+      <div class="img-center">
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
+      </div>
     </div>
-    <div class="form-container">
-      <div class="form">
-        <%= simple_form_for(@ingredient) do |f| %>
+  </div>
+  <div class="form-container">
+    <div class="form">
+      <%= simple_form_for(@ingredient) do |f| %>
         <div class="form-page">
           <%= f.input :name , input_html:{class: "input-field"} %>
         </div>
@@ -32,12 +35,65 @@
         </div>
         <div class="form-page">
           <div class="d-flex">
-          <%= link_to "Cancel", ingredients_path, class: "btn btn-outline-primary mr-3" %>
-          <%= f.button :submit, "Create product", class: "btn btn-primary" %>
+            <%= link_to "Cancel", ingredients_path, class: "btn btn-outline-primary mr-3" %>
+            <%= f.button :submit, "Create product", class: "btn btn-primary" %>
           </div>
         </div>
-        <% end %>
-       
+      <% end %>
+    </div>
+  </div>
+  　</div>
+<div class="dashboard">
+  <%= render 'shared/dashboard_sidenav' %>
+  <div class="dashboard-content-container">
+    <% content_for :navbar, 'dashboard' %>
+    <%# Content Navbar %>
+    <div class="dashboard-topnav">
+      <div class="top-nav">
+        <%# Search %>
+        <div class="input-group">
+          <%= image_tag "search.svg", class: "input-group-text" %>
+          <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+        </div>
+        <div class="topnav-actions">
+          <%= image_tag "noti.svg", class: "mr-3"%>
+          <%# <%= render 'shared/dashboard_topnav' %>
+          <%= image_tag "avatar-dashboard.svg"%>
+        </div>
       </div>
     </div>
-　</div>
+    <hr class="#">
+    <%# End Topnav %>
+    <div class="dashboard-content">
+      <div class="content-container">
+        <%# Page header %>
+        <div class="dashboard-page-header d-flex justify-content-between">
+          <h1>New ingredient</h1>
+          <div class="topnav-actions">
+            <button class="btn dashboard-button-white mr-2">Import</button>
+            <%= link_to 'Add product', new_ingredient_path, class: "btn dashboard-button" %>
+          </div>
+        </div>
+        <%# Form container %>
+        <div class="dashboard-form-container">
+          <%# Left panel %>
+          <div class="dashboard-form-container-left">
+            <%= simple_form_for(@ingredient) do |f| %>
+              <%= f.input :name, label: 'Ingredient name', placeholder: 'e.g. Apple, Banana,etc.', required: true  %>
+              <%= f.input :unit_price, placeholder: '$ ', required: true %>
+            </div>
+            <%# Right panel %>
+            <div class="dashboard-form-container-right">
+              <%= f.input :name, label: 'Ingredient name', placeholder: 'e.g. Apple, Banana,etc.', required: true  %>
+              <%= f.input :unit_price, placeholder: '$ ', required: true %>
+              ohlr
+            </div>
+          <% end %>
+          <%# End of form%>
+        </div>
+        <%# Place your content below %>
+      </div>
+    </div>
+    <%# Background End %>
+  </div>
+</div>

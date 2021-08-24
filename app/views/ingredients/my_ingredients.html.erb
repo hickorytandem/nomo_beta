@@ -21,7 +21,6 @@
     <%# End Topnav %>
     <div class="dashboard-content">
       <div class="content-container">
-        <%# Place your content below %>
         <%# Page header %>
         <div class="dashboard-page-header d-flex justify-content-between">
           <h1>All ingredients</h1>
@@ -30,34 +29,33 @@
             <%= link_to 'Add product', new_ingredient_path, class: "btn dashboard-button" %>
           </div>
         </div>
-        <%# Order table %>
-        <div class="order-modal">
-          <table class="table table-light mt-4">
-            <thead>
-              <tr class="table-primary">
-                <th scope="col" class="table-primary">Name</th>
-                <th scope="col" class="table-primary">Unit price</th>
-                <th scope="col" class="table-primary">Qty</th>
-                <th scope="col" class="table-primary">Unit</th>
-                <th scope="col" class="table-primary">Discount(%)</th>
-                <%# <th scope="col" class="table-primary">Category</th> %>
-                <th scope="col" class="table-primary">Expiry date</th>
+        <%# Place your content below %>
+        <%# Ingredient table %>
+        <table class="table table-light mt-4">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col" class="table-primary">Name</th>
+              <th scope="col" class="table-primary">Unit price</th>
+              <th scope="col" class="table-primary">Qty</th>
+              <th scope="col" class="table-primary">Unit</th>
+              <th scope="col" class="table-primary">Discount(%)</th>
+              <%# <th scope="col" class="table-primary">Category</th> %>
+              <th scope="col" class="table-primary">Expiry date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @ingredients.each do |ingredient| %>
+              <tr>
+                <td scope="row"><%= cl_image_tag ingredient.photo.key, alt: "logo", width: 100%></td>
+                <td scope="row">$<%= ingredient.unit_price %></td>
+                <td scope="row"><%= ingredient.stock_amount %></td>
+                <td scope="row"><%= ingredient.unit %></td>
+                <td scope="row"><%= ingredient.discount_rate %>%</td>
+                <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
               </tr>
-            </thead>
-            <tbody>
-              <% @ingredients.each do |ingredient| %>
-                <tr>
-                  <td scope="row"><%= cl_image_tag ingredient.photo.key, alt: "logo", width: 100%></td>
-                  <td scope="row">$<%= ingredient.unit_price %></td>
-                  <td scope="row"><%= ingredient.stock_amount %></td>
-                  <td scope="row"><%= ingredient.unit %></td>
-                  <td scope="row"><%= ingredient.discount_rate %>%</td>
-                  <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
     <%# Background End %>
