@@ -1,5 +1,5 @@
 .table {
-  border-collapse: separate;
+  // border-collapse: separate;
 }
 .table th {
   font-style: normal;
@@ -12,7 +12,10 @@
 }
 
 tr {
-  margin: 8px;
+  &:hover {
+    background-color: #EEF1F7;
+    cursor: pointer;
+  }
 }
 
 td {
