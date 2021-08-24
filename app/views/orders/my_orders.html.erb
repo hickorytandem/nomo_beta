@@ -23,9 +23,9 @@
       <div class="content-container">
         <%# Place your content below %>
         <%# Page header %>
-        <div class="page-header d-flex justify-content-between mt-5">
+        <div class="dashboard-page-header d-flex justify-content-between">
           <h1>All orders</h1>
-          <button class="btn btn-primary">Export report</button>
+          <button class="btn dashboard-button">Export report</button>
         </div>
         <%# Order table %>
         <table class="table table-light mt-4">
@@ -41,14 +41,16 @@
           </thead>
           <tbody>
             <% @orders.each do |order| %>
-              <td scope="row">#000<%= order.id %></td>
-              <td scope="row"><%= order.buyer.name %></td>
-              <td scope="row"><%= order.buyer.phone_number %></td>
-              <td scope="row">
-                <div class="badge bg-secondary" style="color: white;"><%= order.pay_method %></div>
-              </td>
-              <td scope="row"><%= order.total_price %>.00</td>
-              <td scope="row"><%= change_date_format(order.created_at) %></td>
+              <tr>
+                <td scope="row">#000<%= order.id %></td>
+                <td scope="row"><%= order.buyer.name %></td>
+                <td scope="row"><%= order.buyer.phone_number %></td>
+                <td scope="row">
+                  <div class="badge bg-secondary" style="color: white;"><%= order.pay_method %></div>
+                </td>
+                <td scope="row"><%= order.total_price %>.00</td>
+                <td scope="row"><%= change_date_format(order.created_at) %></td>
+              </tr>
             <% end %>
           </tbody>
         </table>
