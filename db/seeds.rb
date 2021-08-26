@@ -102,7 +102,7 @@
       )
 ingredient_data = [
   {
-    name: 'Tortilla',
+    name: 'Tortillas',
     url: 'https://images.unsplash.com/photo-1599232288126-7dbd2127db14?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
   },
   {
@@ -114,7 +114,7 @@ ingredient_data = [
     url: 'https://images.unsplash.com/photo-1615484478243-c94e896edbae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80',
   },
   {
-    name: 'Tomatos',
+    name: 'Tomatoes',
     url: 'https://images.unsplash.com/photo-1597160308671-bb9ec5348ae3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
   },
   {
@@ -176,7 +176,7 @@ User.all.each do |user|
       ", "Must be consumed within 2 days. Only take it if you can use it today or tomorrow.
       ", "Nothing wrong with this product. We just have too much of it. Help us not waste it!
       "].sample
-    discount_rate = [10, 20, 30, 40, 50, 60, 70, 80, 90].sample
+    discount_rate = [30, 40, 50, 60].sample
     veg = ingredient_data[veg_index]
     file = URI.open(veg[:url])
       ingredient = Ingredient.new(
@@ -213,7 +213,7 @@ end
       expiry_date: Date.today - 3.months - time.days,
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
-      discount_rate: 50,
+      discount_rate: [30, 40, 50, 60].sample,
       public_status: 1,
       status: [0, 1].sample,
       description: description,
