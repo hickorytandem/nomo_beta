@@ -50,8 +50,8 @@
             <% @ingredients.each do |ingredient| %>
               <tr>
                 <td scope="row"><%= cl_image_tag ingredient.photo.key, alt: "logo", width: 100%></td>
-                <td scope="row">$<%= ingredient.name %></td>
-                <td scope="row">$<%= ingredient.unit_price %></td>
+                <td scope="row"><%= ingredient.name %></td>
+                <td scope="row">$ <%= ingredient.unit_price %></td>
                 <td scope="row"><%= ingredient.stock_amount %></td>
                 <td scope="row"><%= ingredient.unit %></td>
                 <td scope="row"><%= ingredient.discount_rate %>%</td>
