@@ -193,3 +193,34 @@ li.donate{
   }
 }
 
+.dashboard-button-large {
+  // padding: 16px;
+  width: 150px;
+  background-color: $nm-d-green;
+  color: white;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  height: 48px;
+  &:hover {
+    background-color: #064532;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+#cancel {
+  background-color: white;
+  border-radius: 8px;
+  // height: 48px;
+  align-items: center;
+  padding: 12px 16px;
+  font-weight: 600;
+  margin-right: 12px;
+  &:hover {
+    background-color: #EEF1F7;
+    color: $nm-black;
+  }
+}

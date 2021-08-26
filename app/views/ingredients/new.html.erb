@@ -59,9 +59,9 @@
                 <%= f.input :unit, label: 'Stock unit', placeholder: 'e.g. kg, grams, etc. ', required: true %>
                 <%= f.input :stock_amount, as: :numeric, label: 'Stock amount', required: true%>
               </div>
-              <div class="container">
-                <%= link_to "Cancel", ingredients_path, class: "dashboard-button" %>
-                <%= f.button :submit, "Create product", class: "btn btn-primary" %>
+              <div class="container p-0">
+                <%= link_to "Cancel", my_ingredients_path, class: "btn", id: "cancel" %>
+                <%= f.button :submit, "Create product", class: "dashboard-button-large" %>
               </div>
             </div>
           <% end %>
