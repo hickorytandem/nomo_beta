@@ -70,23 +70,40 @@
         <div class="dashboard-page-header d-flex justify-content-between">
           <h1>New ingredient</h1>
           <div class="topnav-actions">
-            <button class="btn dashboard-button-white mr-2">Import</button>
-            <%= link_to 'Add product', new_ingredient_path, class: "btn dashboard-button" %>
+            <%# <%= link_to 'Create', new_ingredient_path, class: "btn dashboard-button" %>
           </div>
         </div>
         <%# Form container %>
         <div class="dashboard-form-container">
           <%# Left panel %>
           <div class="dashboard-form-container-left">
-            <%= simple_form_for(@ingredient) do |f| %>
-              <%= f.input :name, label: 'Ingredient name', placeholder: 'e.g. Apple, Banana,etc.', required: true  %>
-              <%= f.input :unit_price, placeholder: '$ ', required: true %>
+            <div class="form-box">
+              <h4 class="mb-4">Basic info</h4>
+              <%= simple_form_for(@ingredient) do |f| %>
+                <%= f.input :name, label: 'Ingredient name', placeholder: 'e.g. Apple, Banana,etc.', required: true  %>
+                <%= f.input :description, placeholder: 'Tell us more about your ingredient...' %>
+              </div>
+              <div class="form-box">
+                <h4>Expiry Date<span style="color:red;">*</span></h4>
+                <%= f.input :expiry_date, as: :date, html5: true, label: false%>
+              </div>
+              <div class="form-box">
+                <h4>Photo<span style="color:red;">*</span></h4>
+                <%= f.input :photo, as: :file, label: false %>
+              </div>
             </div>
             <%# Right panel %>
             <div class="dashboard-form-container-right">
-              <%= f.input :name, label: 'Ingredient name', placeholder: 'e.g. Apple, Banana,etc.', required: true  %>
-              <%= f.input :unit_price, placeholder: '$ ', required: true %>
-              ohlr
+              <div class="form-box">
+                <h4>Pricing<span style="color:red;">*</span></h4>
+                <%= f.input :unit_price,  as: :numeric, label: 'Unit price ($)', placeholder: '$', required: true %>
+                <%= f.input :discount_rate, as: :numeric, label: 'Discount rate',placeholder: '%' %>
+              </div>
+              <div class="form-box">
+                <h4>Inventory<span style="color:red;">*</span></h4>
+                <%= f.input :stock_amount,  as: :numeric, label: 'Stock unit', placeholder: 'e.g. ', required: true %>
+                <%= f.input :discount_rate, as: :numeric, label: 'Discount rate', placeholder: '%' %>
+              </div>
             </div>
           <% end %>
           <%# End of form%>

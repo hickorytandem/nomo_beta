@@ -25,8 +25,9 @@
         <div class="dashboard-page-header d-flex justify-content-between">
           <h1>All ingredients</h1>
           <div class="topnav-actions">
-            <button class="btn dashboard-button-white mr-2">Import</button>
-            <%= link_to 'Add product', new_ingredient_path, class: "btn dashboard-button" %>
+            <%# <button class="btn dashboard-button-white mr-2">Import</button> %>
+            <%= link_to 'Import', "#", class: "dashboard-button dashboard-button-white mr-2" %>
+            <%= link_to 'Add ingredient', new_ingredient_path, class: "dashboard-button" %>
           </div>
         </div>
         <%# Place your content below %>

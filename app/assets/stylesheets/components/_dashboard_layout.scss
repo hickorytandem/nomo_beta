@@ -80,26 +80,25 @@ ul {
   border-radius: 8px;
   align-items: center;
   margin: 8px 0;
+  &:hover { background-color: $nm-dashboard-bg; }
+  &:active { background-color: $nm-dashboard-bg; }
+}
 
-  }
+  // li.sidenav-item-active {
+  //   display: flex;
+  //   align-items: center;
+  //   padding: 12px;
+  //   background-color: $nm-d-green;
+  //   border-radius: 8px;
+  //   align-items: center;
+  //   margin: 8px 0;
+  //   color: white;
+  // }
 
-  li.sidenav-item-active {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    background-color: $nm-d-green;
-    border-radius: 8px;
-    align-items: center;
-    margin: 8px 0;
-    color: white;
-  }
+  // .sidenav-item-active:hover {
+  //   background-color: $nm-dashboard-bg;
+  // }
 
-  .sidenav-item-active:hover {
-    background-color: $nm-dashboard-bg;
-  }
-  .sidenav-item:hover {
-    background-color: $nm-dashboard-bg;
-  }
   .menu-title {
     font-weight: 500;
     font-size: 16px;
@@ -158,9 +157,13 @@ li.donate{
   font-weight: bold;
   font-size: 24px;
   line-height: 33px;
-  color: $nm-black;}
-
+  color: $nm-black;
 }
+  .topnav-actions {
+    align-items: center;
+    display: flex;
+}
+  }
 
 .dashboard-button {
   background-color: $nm-d-green;
@@ -171,55 +174,22 @@ li.donate{
   font-weight: 600;
   font-size: 14px;
   width: 150px;
+  padding: 10px 16px;
+  text-align: center;
   &:hover {
     background-color: #064532;
     color: white;
+    text-decoration: none;
   }
 
 
 }
 .dashboard-button-white {
   background-color: white;
-  height: 40px;
-  color:$nm-black;
-  border-radius: 8px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  width: 150px;
+  color: $nm-black;
   &:hover {
     background-color: #EEF1F7;
     color: $nm-black;
   }
-
-
 }
 
-
-
-.dashboard-form-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 32px;
-  width: inherit;
-  .form-group label{
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-}
-.dashboard-form-container-left {
-  background-color: white;
-  border: 1px solid #F2F2F2;
-  box-sizing: border-box;
-  border-radius: 12px;
-  width: 55%;
-  margin-right: 16px
-}
-
-.dashboard-form-container-right {
-  background-color: white;
-  border: 1px solid #F2F2F2;
-  box-sizing: border-box;
-  border-radius: 12px;
-  width: 45%;
-}
