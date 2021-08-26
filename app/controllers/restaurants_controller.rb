@@ -47,7 +47,6 @@ class RestaurantsController < ApplicationController
 
     # ??number of customers
     @total_customers = @all_ingredients.map{ |ingredient| ingredient&.order&.buyer_id}.uniq.count
-    raise
   end
 
   def new
