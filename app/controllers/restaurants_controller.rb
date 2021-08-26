@@ -37,7 +37,7 @@ class RestaurantsController < ApplicationController
     end
 
     # percentage sold/added
-    @sales_probability = @sold_amount / @total_amount.to_f 
+    @sales_probability = (@sold_amount.to_f / @total_amount.to_f) * 100
 
     # products most sold
     # return max using symbol(stock_amount) of instance
@@ -47,7 +47,6 @@ class RestaurantsController < ApplicationController
 
     # ??number of customers
     @total_customers = @all_ingredients.map{ |ingredient| ingredient&.order&.buyer_id}.uniq.count
-    raise
   end
 
   def new
