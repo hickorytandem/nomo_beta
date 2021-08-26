@@ -37,7 +37,7 @@ class RestaurantsController < ApplicationController
     end
 
     # percentage sold/added
-    @sales_probability = @sold_amount / @total_amount.to_f 
+    @sales_probability = (@sold_amount.to_f / @total_amount.to_f) * 100
 
     # products most sold
     # return max using symbol(stock_amount) of instance
