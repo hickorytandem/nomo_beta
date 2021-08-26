@@ -32,7 +32,7 @@ class IngredientsController < ApplicationController
     authorize @ingredient
     @ingredient.seller = current_user
     if @ingredient.save
-      redirect_to ingredients_path
+      redirect_to my_ingredients_path
     else
       render :new
     end
