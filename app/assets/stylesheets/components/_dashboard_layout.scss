@@ -37,6 +37,7 @@
   top: 72px;
   .content-container {
     background-color: $nm-dashboard-bg;
+    // background-color: #919191;
     border-radius: 0 0 20px 20px;
     padding: 28px;
   }
@@ -79,26 +80,25 @@ ul {
   border-radius: 8px;
   align-items: center;
   margin: 8px 0;
+  &:hover { background-color: $nm-dashboard-bg; }
+  &:active { background-color: $nm-dashboard-bg; }
+}
 
-  }
+  // li.sidenav-item-active {
+  //   display: flex;
+  //   align-items: center;
+  //   padding: 12px;
+  //   background-color: $nm-d-green;
+  //   border-radius: 8px;
+  //   align-items: center;
+  //   margin: 8px 0;
+  //   color: white;
+  // }
 
-  li.sidenav-item-active {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    background-color: $nm-d-green;
-    border-radius: 8px;
-    align-items: center;
-    margin: 8px 0;
-    color: white;
-  }
+  // .sidenav-item-active:hover {
+  //   background-color: $nm-dashboard-bg;
+  // }
 
-  .sidenav-item-active:hover {
-    background-color: $nm-dashboard-bg;
-  }
-  .sidenav-item:hover {
-    background-color: $nm-dashboard-bg;
-  }
   .menu-title {
     font-weight: 500;
     font-size: 16px;
@@ -146,5 +146,81 @@ li.donate{
   p {
     margin: 0;
     color: $nm-d-green;
+  }
+}
+
+.dashboard-page-header {
+  margin-top: 24px;
+  h1 {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  color: $nm-black;
+}
+  .topnav-actions {
+    align-items: center;
+    display: flex;
+}
+  }
+
+.dashboard-button {
+  background-color: $nm-d-green;
+  height: 40px;
+  color: white;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  width: 150px;
+  padding: 10px 16px;
+  text-align: center;
+  &:hover {
+    background-color: #064532;
+    color: white;
+    text-decoration: none;
+  }
+
+
+}
+.dashboard-button-white {
+  background-color: white;
+  color: $nm-black;
+  &:hover {
+    background-color: #EEF1F7;
+    color: $nm-black;
+  }
+}
+
+.dashboard-button-large {
+  // padding: 16px;
+  width: 150px;
+  background-color: $nm-d-green;
+  color: white;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  height: 48px;
+  &:hover {
+    background-color: #064532;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+#cancel {
+  background-color: white;
+  border-radius: 8px;
+  // height: 48px;
+  align-items: center;
+  padding: 12px 16px;
+  font-weight: 600;
+  margin-right: 12px;
+  &:hover {
+    background-color: #EEF1F7;
+    color: $nm-black;
   }
 }

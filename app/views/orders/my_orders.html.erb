@@ -23,35 +23,72 @@
       <div class="content-container">
         <%# Place your content below %>
         <%# Page header %>
-        <div class="page-header d-flex justify-content-between mt-5">
+        <div class="dashboard-page-header d-flex justify-content-between">
           <h1>All orders</h1>
-          <button class="btn btn-primary">Export report</button>
+          <%= link_to 'Export report', "#", class: "dashboard-button" %>
         </div>
         <%# Order table %>
-        <table class="table table-light mt-4">
-          <thead>
-            <tr class="table-primary">
-              <th scope="col" class="table-primary">Order Id</th>
-              <th scope="col" class="table-primary">Customer</th>
-              <th scope="col" class="table-primary">Phone number</th>
-              <th scope="col" class="table-primary">Pay method</th>
-              <th scope="col" class="table-primary">Total price($)</th>
-              <th scope="col" class="table-primary">Purchased on</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @orders.each do |order| %>
-              <td scope="row">#000<%= order.id %></td>
-              <td scope="row"><%= order.buyer.name %></td>
-              <td scope="row"><%= order.buyer.phone_number %></td>
-              <td scope="row">
-                <div class="badge bg-secondary" style="color: white;"><%= order.pay_method %></div>
-              </td>
-              <td scope="row"><%= order.total_price %>.00</td>
-              <td scope="row"><%= change_date_format(order.created_at) %></td>
-            <% end %>
-          </tbody>
-        </table>
+        <div class="order-modal">
+          <table class="table table-light mt-4">
+            <thead>
+              <tr class="table-primary">
+                <th scope="col" class="table-primary">Order Id</th>
+                <th scope="col" class="table-primary">Customer</th>
+                <th scope="col" class="table-primary">Phone number</th>
+                <th scope="col" class="table-primary">Pay method</th>
+                <th scope="col" class="table-primary">Total price($)</th>
+                <th scope="col" class="table-primary">Purchased on</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @orders.each do |order| %>
+                <tr class="order-modal-btn">
+                  <td scope="row">#000<%= order.id %></td>
+                  <td scope="row"><%= order.buyer.name %></td>
+                  <td scope="row"><%= order.buyer.phone_number %></td>
+                  <td scope="row">
+                    <div class="badge bg-secondary" style="color: white;"><%= order.pay_method %></div>
+                  </td>
+                  <td scope="row"><%= order.total_price %>.00</td>
+                  <td scope="row"><%= change_date_format(order.created_at) %></td>
+                  <%# Order Modal %>
+                  <div class="modal">
+                    <div class="container order-card modal-content">
+                      <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <%# <h2>Modal Header</h2> %>
+                      </div>
+                      <!-- Modal content -->
+                      <div class="modal-body">
+                        <h4>Order #0000<%= order.id %></h4>
+                        <% order.ingredients.each do |ingredient| %>
+                          <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
+                          <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
+                          <%= ingredient.seller.restaurant.name %><br>
+                          Expiry Date: <%= ingredient.expiry_date %><br>
+                          Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
+                          <hr>
+                        <% end %>
+                        <h4>Payment method</h4>
+                        <p><strong><%= order.pay_method %></strong></p>
+                        <p><%= order.pay_method == "cash" ? '' : 'VISA 1234 2345 2345 XXXX' %></p>
+                        <hr>
+                        <h4>Customer Detail</h4>
+                        <p><strong>Phone number: </strong><%= order.buyer.phone_number %></p>
+                        <p><strong>Email: </strong><%= order.buyer.email %></p>
+                        <hr>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn dashboard-button">Order collected</button>
+                      </div>
+                    </div>
+                  </div>
+                  <%# End of modal %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <%# Background End %>

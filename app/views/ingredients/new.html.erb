@@ -1,43 +1,75 @@
-<div id="wrapper">
-    <div id="fixed-area">
-      <div class="center">
-        <div class="text-center">
-        <div><h2>Share your food,</h2><h2>make a difference.</h2></div>
+<div class="dashboard">
+  <%= render 'shared/dashboard_sidenav' %>
+  <div class="dashboard-content-container">
+    <% content_for :navbar, 'dashboard' %>
+    <%# Content Navbar %>
+    <div class="dashboard-topnav">
+      <div class="top-nav">
+        <%# Search %>
+        <div class="input-group">
+          <%= image_tag "search.svg", class: "input-group-text" %>
+          <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
         </div>
-        <div class="img-center">
-          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
+        <div class="topnav-actions">
+          <%= image_tag "noti.svg", class: "mr-3"%>
+          <%# <%= render 'shared/dashboard_topnav' %>
+          <%= image_tag "avatar-dashboard.svg"%>
         </div>
       </div>
     </div>
-    <div class="form-container">
-      <div class="form">
-        <%= simple_form_for(@ingredient) do |f| %>
-        <div class="form-page">
-          <%= f.input :name , input_html:{class: "input-field"} %>
-        </div>
-        <div class="form-page">
-          <%= f.input :unit_price, input_html:{class: "input-field"} %>
-        </div>
-        <div class="form-page">
-          <%= f.input :expiry_date, label:"Date", input_html:{class: "input-field"}%>
-        </div>
-        <div class="form-page">
-          <%= f.input :unit, input_html:{class: "input-field"} %>
-        </div>
-        <div class="form-page">
-          <%= f.input :stock_amount, input_html:{class: "input-field"} %>
-        </div>
-        <div class="form-page">
-          <%= f.input :photo, as: :file %>
-        </div>
-        <div class="form-page">
-          <div class="d-flex">
-          <%= link_to "Cancel", ingredients_path, class: "btn btn-outline-primary mr-3" %>
-          <%= f.button :submit, "Create product", class: "btn btn-primary" %>
+    <hr class="#">
+    <%# End Topnav %>
+    <div class="dashboard-content">
+      <div class="content-container">
+        <%# Page header %>
+        <div class="dashboard-page-header d-flex justify-content-between">
+          <h1>New ingredient</h1>
+          <div class="topnav-actions">
+            <%# <%= link_to 'Create', new_ingredient_path, class: "btn dashboard-button" %>
           </div>
         </div>
-        <% end %>
-       
+        <%# Form container %>
+        <div class="dashboard-form-container">
+          <%# Left panel %>
+          <div class="dashboard-form-container-left">
+            <div class="form-box">
+              <h4 class="mb-4">Basic info</h4>
+              <%= simple_form_for(@ingredient) do |f| %>
+                <%= f.input :name, label: 'Ingredient name', placeholder: 'e.g. Apple, Banana,etc.', required: true  %>
+                <%= f.input :description, placeholder: 'Tell us more about your ingredient...' %>
+              </div>
+              <div class="form-box">
+                <h4>Expiry Date<span style="color:red;">*</span></h4>
+                <%= f.input :expiry_date, as: :date, html5: true, label: false%>
+              </div>
+              <div class="form-box">
+                <h4>Photo<span style="color:red;">*</span></h4>
+                <%= f.input :photo, as: :file, label: false %>
+              </div>
+            </div>
+            <%# Right panel %>
+            <div class="dashboard-form-container-right">
+              <div class="form-box">
+                <h4>Pricing<span style="color:red;">*</span></h4>
+                <%= f.input :unit_price,  as: :numeric, label: 'Unit price ($)', placeholder: '$', required: true %>
+                <%= f.input :discount_rate, as: :numeric, label: 'Discount rate',placeholder: '%' %>
+              </div>
+              <div class="form-box">
+                <h4>Inventory<span style="color:red;">*</span></h4>
+                <%= f.input :unit, label: 'Stock unit', placeholder: 'e.g. kg, grams, etc. ', required: true %>
+                <%= f.input :stock_amount, as: :numeric, label: 'Stock amount', required: true%>
+              </div>
+              <div class="container p-0">
+                <%= link_to "Cancel", my_ingredients_path, class: "btn", id: "cancel" %>
+                <%= f.button :submit, "Create product", class: "dashboard-button-large" %>
+              </div>
+            </div>
+          <% end %>
+          <%# End of form%>
+        </div>
+        <%# Place your content below %>
       </div>
     </div>
-　</div>
+    <%# Background End %>
+  </div>
+</div>
