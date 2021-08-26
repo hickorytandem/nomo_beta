@@ -47,22 +47,41 @@ class IngredientsController < ApplicationController
     }
     @order = current_user.pending_order || Order.new
     ingredient = @ingredient.name
-    url = "https://www.bbcgoodfood.com/search/recipes?q=#{ingredient}"
+    url = "https://www.allrecipes.com/search/results/?search=#{ingredient}"
     html_file = URI.open(url).read
     html_doc = Nokogiri::HTML(html_file)
 
-    @recipes = []
-    # html_doc.search('standard-card-new standard-card-new--skinny').each do |ele|
+    @recipe_hashes = []
 
-
-    # end
-    html_doc.search('.standard-card-new__article-title').each do |element|
-      name = element.text.strip
-      link = "https://www.bbcgoodfood.com/recipes" + element.attribute('href').value
-      @recipes << { name: name, link: link }
+    html_doc.search('.card__title').first(3).each do |element|
+      @name = element.text.strip
+      @recipe_hashes << { name: @name }
     end
-    @recipes_hash = @recipes.sample(3)
 
+    html_doc.search('.card__titleLink').first(3).each do |ele|
+      @recipe_hashes.each do |recipe|
+        recipe[:link] = ele.attribute('href').value
+      end
+    end
+
+    html_doc.search('.card__summary').first(3).each do |ele|
+      @recipe_hashes.each do |recipe|
+        recipe[:summary] = ele.text.strip
+      end
+    end
+
+    html_doc.search('.card__authorName').first(3).each do |ele|
+      @recipe_hashes.each do |recipe|
+        recipe[:author] = ele.text.strip
+      end
+    end
+
+    # html_doc.search('.standard-card-new__additional-info-item mr-md mb-xxs').first(3).each do |ele|
+    #   ele.text.strip
+    #   @recipe_hashes.each do |recipe|
+    #     recipe[:difficulty] = ele.text.strip
+    #   end
+    # end
   end
 
   def edit

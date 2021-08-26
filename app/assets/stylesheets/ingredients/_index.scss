@@ -3,10 +3,12 @@
 
 .categories {
   display: flex;
-  padding: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  padding-top: 88px;
   justify-content: space-between;
   padding-bottom: 24px;
-  padding-top: 32px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 

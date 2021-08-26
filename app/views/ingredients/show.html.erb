@@ -9,7 +9,7 @@
         </div>
         <div class="col-6 margin-0">
           <%= simple_form_for @ingredient do |f| %>
-            <%= f.input :order_id, value: @order.id, as: :hidden %>
+            <%= f.input :order_id, value: @order.id, as: :hidden, class: "nm-black mt-0" %>
             <%= f.submit 'Add to cart', class: "order" %>
           <% end %>
         </div>

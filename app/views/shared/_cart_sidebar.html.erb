@@ -3,17 +3,28 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <%# Order in Sidebar %>
   <div id="main">
-    <h4>My cart</h4>
+    <h4 class="my-cart">My cart</h4>
     <% if current_user.pending_order.present?  %>
       <% current_user.pending_order.ingredients.each do |ingredient| %>
-        <%= ingredient.stock_amount %>X<%= ingredient.name %><br>
-        $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %><br>
-        <%= ingredient.seller.restaurant.name %><br>
-        <hr>
+      <div class="row cart-item">
+        <div class="col-4">
+          <%= cl_image_tag ingredient.photo.key, class: "cart-img" %>
+        </div>
+        <div class="col-8">
+          <div class="cart-detail">
+            <div class="item-price">
+              <p><%= ingredient.stock_amount %> X <%= ingredient.name %></p>
+              <p>$<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %></p>
+            </div>
+            <p class="cart-resto"><%= ingredient.seller.restaurant.name %></p>
+          </div>
+        </div>
+      </div>
       <% end %>
-      Order total price: <%= current_user.order_total_price %><br>
-      Status: <%= current_user.pending_order.status %>
-      <%= link_to "Proceed to checkout", checkout_path, class: "btn btn-outline-primary"%>
+      <%= link_to checkout_path, class: "btn btn-checkout" do %>
+        <p>Proceed to checkout</p>
+        <p>$ <%= current_user.order_total_price %></p>
+      <% end %>
     <% else %>
       <%= "Cart is empty" %>
     <% end %>

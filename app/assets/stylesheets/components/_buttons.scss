@@ -44,3 +44,53 @@
   }
 }
 
+.btn-pay {
+  background-color: $nm-black;
+  padding: 6px 72px;
+  color: white;
+  margin-top: 8px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: white;
+    color: $nm-black;
+    text-decoration: none;
+  }
+}
+
+.btn-checkout {
+  background-color: white;
+  padding: 2px 32px;
+  color: $nm-black;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid $nm-black;
+
+  &:hover {
+    background-color: $nm-black;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-view-orders {
+  background-color: $nm-black;
+  padding: 8px 72px;
+  color: white;
+  margin-top: 8px;
+  border-radius: 8px;
+  font-family: $body-font;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 36%;
+
+  &:hover {
+    background-color: white;
+    color: $nm-black;
+    text-decoration: none;
+  }
+}
