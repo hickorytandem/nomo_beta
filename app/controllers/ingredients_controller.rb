@@ -24,6 +24,7 @@ class IngredientsController < ApplicationController
 
   def new
     @ingredient = Ingredient.new
+    @shop_name = current_user.restaurant.name
     authorize @ingredient
   end
 

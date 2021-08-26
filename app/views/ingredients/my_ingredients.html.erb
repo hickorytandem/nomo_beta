@@ -35,6 +35,7 @@
         <table class="table table-light mt-4">
           <thead>
             <tr class="table-primary">
+              <th scope="col" class="table-primary"></th>
               <th scope="col" class="table-primary">Name</th>
               <th scope="col" class="table-primary">Unit price</th>
               <th scope="col" class="table-primary">Qty</th>
@@ -48,6 +49,7 @@
             <% @ingredients.each do |ingredient| %>
               <tr>
                 <td scope="row"><%= cl_image_tag ingredient.photo.key, alt: "logo", width: 100%></td>
+                <td scope="row">$<%= ingredient.name %></td>
                 <td scope="row">$<%= ingredient.unit_price %></td>
                 <td scope="row"><%= ingredient.stock_amount %></td>
                 <td scope="row"><%= ingredient.unit %></td>
