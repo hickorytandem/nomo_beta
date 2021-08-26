@@ -1,22 +1,67 @@
- <div class="my-ingredients-top">
-  <h1>My food needs a home!</h1>
-
-  <div class="container">
-    <ul>
-
-    <% @ingredients.each do |ingredient| %>
-    <div class="ingredient-card">
-      <li class="list-image">
-        <%= cl_image_tag ingredient.photo.key, alt: "logo", width: 100, height: 80%></li>
-      <li> <%= ingredient.name %></li>
-      <li>Price: $<%= ingredient.unit_price %></li>
-      <li>Disc. <%= ingredient.discount_rate %>%</li>
-      <li>Expiry: <%= ingredient.expiry_date %></li>
-      <li><%= ingredient.weight %> Kg</li>
-      <li>Item count:<%= ingredient.stock_amount %></li>
-      <li><%= ingredient.status %></li>
+<div class="dashboard">
+  <%= render 'shared/dashboard_sidenav' %>
+  <div class="dashboard-content-container">
+    <% content_for :navbar, 'dashboard' %>
+    <%# Content Navbar %>
+    <div class="dashboard-topnav">
+      <div class="top-nav">
+        <%# Search %>
+        <div class="input-group">
+          <%= image_tag "search.svg", class: "input-group-text" %>
+          <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+        </div>
+        <div class="topnav-actions">
+          <%= image_tag "noti.svg", class: "mr-3"%>
+          <%# <%= render 'shared/dashboard_topnav' %>
+          <%= image_tag "avatar-dashboard.svg"%>
+        </div>
+      </div>
     </div>
-    <% end %>
-    </ul>
+    <hr class="#">
+    <%# End Topnav %>
+    <div class="dashboard-content">
+      <div class="content-container">
+        <%# Page header %>
+        <div class="dashboard-page-header d-flex justify-content-between">
+          <h1>All ingredients</h1>
+          <div class="topnav-actions">
+            <%# <button class="btn dashboard-button-white mr-2">Import</button> %>
+            <%= link_to 'Import', "#", class: "dashboard-button dashboard-button-white mr-2" %>
+            <%= link_to 'Add ingredient', new_ingredient_path, class: "dashboard-button" %>
+          </div>
+        </div>
+        <%# Place your content below %>
+        <%# Ingredient table %>
+        <table class="table table-light mt-4">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col" class="table-primary"></th>
+              <th scope="col" class="table-primary">Name</th>
+              <th scope="col" class="table-primary">Unit price</th>
+              <th scope="col" class="table-primary">Qty</th>
+              <th scope="col" class="table-primary">Unit</th>
+              <th scope="col" class="table-primary">Discount(%)</th>
+              <%# <th scope="col" class="table-primary">Category</th> %>
+              <th scope="col" class="table-primary">Expiry date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @ingredients.each do |ingredient| %>
+              <tr>
+                <td scope="row"><input class="form-check-input" type="checkbox"></td>
+                <td scope="row"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
+                <td scope="row"><%= ingredient.name %></td>
+                <td scope="row">$<%= ingredient.unit_price %></td>
+                <td scope="row"><%= ingredient.stock_amount %></td>
+                <td scope="row"><%= ingredient.unit %></td>
+                <td scope="row"><%= ingredient.discount_rate %>%</td>
+                <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <%# Background End %>
   </div>
 </div>

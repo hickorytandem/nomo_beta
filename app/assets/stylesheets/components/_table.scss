@@ -1,3 +1,8 @@
+table {
+  // border-collapse: separate;
+  border-radius: 12px;
+   border: 1px solid #F2F2F2;
+}
 .table th {
   font-style: normal;
   font-weight: 600;
@@ -6,4 +11,23 @@
   padding: 12px 16px;
   background: #FFFFFF;
   border-radius: 6px;
+}
+
+tr {
+  min-height: 64px;
+  &:hover {
+    background-color: #EEF1F7;
+    cursor: pointer;
+  }
+}
+
+.table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.form-check-input {
+  position: inherit;
+  margin-left: 4px;
 }

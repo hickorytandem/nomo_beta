@@ -18,11 +18,13 @@ class IngredientsController < ApplicationController
 
   def my_ingredients
     @ingredients = Ingredient.where(seller_id: current_user.id)
+    @shop_name = current_user.restaurant.name
     authorize @ingredients
   end
 
   def new
     @ingredient = Ingredient.new
+    @shop_name = current_user.restaurant.name
     authorize @ingredient
   end
 
@@ -31,7 +33,7 @@ class IngredientsController < ApplicationController
     authorize @ingredient
     @ingredient.seller = current_user
     if @ingredient.save
-      redirect_to ingredients_path
+      redirect_to my_ingredients_path
     else
       render :new
     end
