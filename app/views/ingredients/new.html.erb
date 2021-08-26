@@ -40,7 +40,9 @@
               </div>
               <div class="form-box">
                 <h4>Expiry Date<span style="color:red;">*</span></h4>
-                <%= f.input :expiry_date, as: :date, html5: true, label: false%>
+                <%= f.input :expiry_date, as: :date, html5: true, label: false %>
+                <% f.input :status, input_html: {value: 'unsold'} %>
+                <% f.input :public_status, input_html: {value: 'available'} %>
               </div>
               <div class="form-box">
                 <h4>Photo<span style="color:red;">*</span></h4>

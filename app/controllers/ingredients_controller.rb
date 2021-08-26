@@ -18,6 +18,7 @@ class IngredientsController < ApplicationController
 
   def my_ingredients
     @ingredients = Ingredient.where(seller_id: current_user.id).reverse_order
+    # @expired_ingredients = Ingredient.where()
     @shop_name = current_user.restaurant.name
     authorize @ingredients
   end
@@ -90,6 +91,6 @@ class IngredientsController < ApplicationController
   end
 
   def ingredient_params
-    params.require(:ingredient).permit(:name, :photo, :unit_price, :expiry_date, :weight, :stock_amount, :unit, :discount_rate, :publish_status, :description, :status)
+    params.require(:ingredient).permit(:name, :photo, :unit_price, :expiry_date, :weight, :stock_amount, :unit, :discount_rate, :public_status, :description, :status)
   end
 end
