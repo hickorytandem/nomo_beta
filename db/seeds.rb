@@ -102,68 +102,68 @@
       )
 ingredient_data = [
   {
-    name: 'mango',
-    url: 'https://images.unsplash.com/photo-1587131808575-655697d61a4e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8aW5ncmVkaWVudHMsbWFuZ298fHx8fHwxNjI5NTE2MjA0&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600',
+    name: 'Tortilla',
+    url: 'https://images.unsplash.com/photo-1599232288126-7dbd2127db14?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
   },
   {
-    name: 'banana',
-    url: 'https://images.unsplash.com/photo-1587334206596-c0f9f7dccbe6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8YmFuYW5hfHx8fHx8MTYyOTUxNjM1Ng&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600',
+    name: 'Garlic',
+    url: 'https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
   },
   {
-    name: 'ginger',
+    name: 'Ginger',
     url: 'https://images.unsplash.com/photo-1615484478243-c94e896edbae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80',
   },
   {
-    name: 'tomato',
+    name: 'Tomatos',
     url: 'https://images.unsplash.com/photo-1597160308671-bb9ec5348ae3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
   },
   {
-    name: 'lettuce',
+    name: 'Lettuce',
     url: 'https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80',
   },
   {
-    name: 'clams',
+    name: 'Clams',
     url: 'https://images.unsplash.com/photo-1545447890-4d8dc17c2a88?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2252&q=80',
   },
   {
-    name: 'fish',
+    name: 'Fish',
     url: 'https://images.unsplash.com/photo-1499125562588-29fb8a56b5d5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80',
   },
   {
-    name: 'strawberry',
-    url: 'https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80',
+    name: 'Shrimp',
+    url: 'https://images.unsplash.com/photo-1587045170851-8c8e5c08b6e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
   },
   {
-    name: 'beef',
+    name: 'Beef',
     url: 'https://images.unsplash.com/photo-1595356161904-6708c97be89c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    name: 'asparagus',
+    name: 'Asparagus',
     url: 'https://images.unsplash.com/photo-1555704574-f9ecf4717298?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    name: 'carrot',
+    name: 'Carrots',
     url: 'https://images.unsplash.com/photo-1582515073490-39981397c445?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
   },
   {
-    name: 'grapefruit',
-    url: 'https://images.unsplash.com/photo-1533252720003-9be5ea45fffc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1104&q=80',
+    name: 'Cilantro',
+    url: 'https://images.unsplash.com/photo-1535189487909-a262ad10c165?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2189&q=80',
   },
   {
-    name: 'beans',
+    name: 'Beans',
     url: 'https://images.unsplash.com/photo-1599249478506-ae175f801b1e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    name: 'avocado',
+    name: 'Avocados',
     url: 'https://images.unsplash.com/photo-1543363136-7fbfcd3b240d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    name: 'radish',
+    name: 'Radishes',
     url: 'https://images.unsplash.com/photo-1593026122758-19bebc625104?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
   },
   {
-    name: 'brussel sprout',
-    url: 'https://images.unsplash.com/photo-1438118907704-7718ee9a191a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    name: 'Limes',
+    url: 'https://images.unsplash.com/photo-1620101680155-b251043b700b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2426&q=80',
   }
 ]
 veg_index = 0
@@ -215,7 +215,7 @@ end
       stock_amount: Faker::Number.between(from: 1, to: 15),
       discount_rate: 50,
       public_status: 1,
-      status: 1,
+      status: [0, 1].sample,
       description: description,
       seller: michael,
       unit: "Kg"
