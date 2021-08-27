@@ -31,47 +31,105 @@
           </div>
         </div>
         <%# Place your content below %>
-        <%# Ingredient table %>
-        <table class="table table-light mt-4">
-          <thead>
-            <tr class="table-primary">
-              <th scope="col" class="table-primary pl-0"></th>
-              <th scope="col" class="table-primary pl-2 pr-0"></th>
-              <th scope="col" class="table-primary">ID</th>
-              <th scope="col" class="table-primary">Name</th>
-              <th scope="col" class="table-primary">Unit price</th>
-              <th scope="col" class="table-primary">Qty</th>
-              <th scope="col" class="table-primary">Unit</th>
-              <th scope="col" class="table-primary">Discount(%)</th>
-              <%# <th scope="col" class="table-primary">Category</th> %>
-              <th scope="col" class="table-primary">Expiry date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @expired_ingredients.each do |ingredient| %>
-              <tr>
-                <td scope="row" class="pr-0"><input class="form-check-input" type="checkbox"></td>
-                <td scope="row" class="pl-2 pr-0"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
-                <td scope="row">000<%= ingredient.id %></td>
-                <td scope="row"><%= ingredient.name %></td>
-                <td scope="row">$<%= ingredient.unit_price %></td>
-                <td scope="row"><%= ingredient.stock_amount %></td>
-                <td scope="row"><%= ingredient.unit %></td>
-                <td scope="row"><%= ingredient.discount_rate %>%</td>
-                <% if ingredient.expiry_date == Date.today %>
-                  <td scope="row" style="color: #EE7246;">Today</td>
-                  <td scope="row"><%= image_tag "alert.svg" %></td>
-                <% elsif ingredient.expiry_date == Date.tomorrow %>
-                  <td scope="row" style="color: #EE7246;">Tomorrow</td>
-                  <td scope="row"><%= image_tag "alert.svg" %></td>
-                <% else %>
-                  <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
-                  <td scope="row"></td>
+        <%# Tab %>
+        <ul class="nav nav-pills">
+          <li class="active"><a data-toggle="pill" href="#all-ingredients">All</a></li>
+          <li><a data-toggle="pill" href="#expired">Expired</a></li>
+          <li><a data-toggle="pill" href="#sold">Sold</a></li>
+        </ul>
+        <%# Content %>
+        <div class="tab-content">
+          <%# All %>
+          <div id="all-ingredients" class="tab-pane active">
+            <table class="table table-light mt-4">
+              <%= render 'shared/ingredient_table_head' %>
+              <tbody>
+                <% @ingredients.each do |ingredient| %>
+                  <tr>
+                    <td scope="row" class="pr-0"><input class="form-check-input" type="checkbox"></td>
+                    <td scope="row" class="pl-2 pr-0"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
+                    <td scope="row">000<%= ingredient.id %></td>
+                    <td scope="row"><%= ingredient.name %></td>
+                    <td scope="row">$<%= ingredient.unit_price %></td>
+                    <td scope="row"><%= ingredient.stock_amount %></td>
+                    <td scope="row"><%= ingredient.unit %></td>
+                    <td scope="row"><%= ingredient.discount_rate %>%</td>
+                    <% if ingredient.expiry_date == Date.today %>
+                      <td scope="row" style="color: #EE7246;">Today</td>
+                      <td scope="row"><%= image_tag "alert.svg" %></td>
+                    <% elsif ingredient.expiry_date == Date.tomorrow %>
+                      <td scope="row" style="color: #EE7246;">Tomorrow</td>
+                      <td scope="row"><%= image_tag "alert.svg" %></td>
+                    <% else %>
+                      <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
+                      <td scope="row"></td>
+                    <% end %>
+                  </tr>
                 <% end %>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+          <%# Expired %>
+          <div id="expired" class="tab-pane fade">
+            <table class="table table-light mt-4">
+              <%= render 'shared/ingredient_table_head' %>
+              <tbody>
+                <% @expired_ingredients.each do |ingredient| %>
+                  <tr>
+                    <td scope="row" class="pr-0"><input class="form-check-input" type="checkbox"></td>
+                    <td scope="row" class="pl-2 pr-0"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
+                    <td scope="row">000<%= ingredient.id %></td>
+                    <td scope="row"><%= ingredient.name %></td>
+                    <td scope="row">$<%= ingredient.unit_price %></td>
+                    <td scope="row"><%= ingredient.stock_amount %></td>
+                    <td scope="row"><%= ingredient.unit %></td>
+                    <td scope="row"><%= ingredient.discount_rate %>%</td>
+                    <% if ingredient.expiry_date == Date.today %>
+                      <td scope="row" style="color: #EE7246;">Today</td>
+                      <td scope="row"><%= image_tag "alert.svg" %></td>
+                    <% elsif ingredient.expiry_date == Date.tomorrow %>
+                      <td scope="row" style="color: #EE7246;">Tomorrow</td>
+                      <td scope="row"><%= image_tag "alert.svg" %></td>
+                    <% else %>
+                      <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
+                      <td scope="row"></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <%# Sold %>
+          <div id="sold" class="tab-pane fade">
+            <table class="table table-light mt-4">
+              <%= render 'shared/ingredient_table_head' %>
+              <tbody>
+                <% @sold_ingredients.each do |ingredient| %>
+                  <tr>
+                    <td scope="row" class="pr-0"><input class="form-check-input" type="checkbox"></td>
+                    <td scope="row" class="pl-2 pr-0"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
+                    <td scope="row">000<%= ingredient.id %></td>
+                    <td scope="row"><%= ingredient.name %></td>
+                    <td scope="row">$<%= ingredient.unit_price %></td>
+                    <td scope="row"><%= ingredient.stock_amount %></td>
+                    <td scope="row"><%= ingredient.unit %></td>
+                    <td scope="row"><%= ingredient.discount_rate %>%</td>
+                    <% if ingredient.expiry_date == Date.today %>
+                      <td scope="row" style="color: #EE7246;">Today</td>
+                      <td scope="row"><%= image_tag "alert.svg" %></td>
+                    <% elsif ingredient.expiry_date == Date.tomorrow %>
+                      <td scope="row" style="color: #EE7246;">Tomorrow</td>
+                      <td scope="row"><%= image_tag "alert.svg" %></td>
+                    <% else %>
+                      <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
+                      <td scope="row"></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
     <%# Background End %>

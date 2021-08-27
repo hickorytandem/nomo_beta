@@ -19,6 +19,7 @@ class IngredientsController < ApplicationController
   def my_ingredients
     @ingredients = Ingredient.where(seller_id: current_user.id).reverse_order
     @expired_ingredients = Ingredient.where(seller_id: current_user.id,expiry_date: Date.new..2.days.ago).reverse_order
+    @sold_ingredients = Ingredient.where(seller_id: current_user, status: :sold)
     @shop_name = current_user.restaurant.name
     authorize @ingredients
   end

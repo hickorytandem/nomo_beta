@@ -55,15 +55,25 @@
 }
 
 .modal-header {
-  padding: 2px 16px;
+  padding: 20px;
   color: $nm-black;
   border-radius: 16px 16px 0 0;
+  height: 60px;
+  align-items: center;
+  border-bottom: 0;
+  .close {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .modal-body {
-  padding: 2px 16px;
+  padding: 20px 28px 28px 28px;
   max-height: calc(100vh - 300px);
   overflow-y: auto;
+  h4 {
+    font-weight: 700;
+  }
 }
 
 .modal-footer {

@@ -55,12 +55,15 @@
                   <div class="modal">
                     <div class="container order-card modal-content">
                       <div class="modal-header">
-                        <span class="close">&times;</span>
+                        <span class="close"><%= image_tag "close.svg" %></span>
                         <%# <h2>Modal Header</h2> %>
                       </div>
                       <!-- Modal content -->
                       <div class="modal-body">
-                        <h4>Order #0000<%= order.id %></h4>
+                        <div class="modal-title d-flex justify-content-between">
+                          <h4>Order #0000<%= order.id %></h4>
+                          <h4>$<%= order.total_price %>.00</h4>
+                        </div>
                         <% order.ingredients.each do |ingredient| %>
                           <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
                           <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
