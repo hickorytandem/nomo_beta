@@ -27,7 +27,7 @@ class User < ApplicationRecord
      @order.ingredients.each do |ingredient|
         @ingredient_price << ingredient.price_cents
       end
-    @order_total_price = @ingredient_price.sum
+    @order_total_price = @ingredient_price.sum/100.to_f
   end
 
 end

@@ -23,7 +23,7 @@
       <% end %>
       <%= link_to checkout_path, class: "btn btn-checkout" do %>
         <p>Proceed to checkout</p>
-        <p>$ <%= current_user.order_total_price %></p>
+        <p>$<%= current_user.order_total_price %></p>
       <% end %>
     <% else %>
       <%= "Cart is empty" %>

@@ -82,7 +82,7 @@ class OrdersController < ApplicationController
       @total_price << ingredient.price_cents
     end
 
-    @order_total_price = @total_price.sum
+    @order_total_price = @total_price.sum/100.to_f
   end
 
   def update
