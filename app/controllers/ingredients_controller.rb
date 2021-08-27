@@ -46,6 +46,7 @@ class IngredientsController < ApplicationController
         lng: @restaurant.longitude
     }
     @order = current_user.pending_order || Order.new
+
     ingredient = @ingredient.name
     url = "https://www.allrecipes.com/search/results/?search=#{ingredient}"
     html_file = URI.open(url).read
@@ -75,13 +76,6 @@ class IngredientsController < ApplicationController
         recipe[:author] = ele.text.strip
       end
     end
-
-    # html_doc.search('.standard-card-new__additional-info-item mr-md mb-xxs').first(3).each do |ele|
-    #   ele.text.strip
-    #   @recipe_hashes.each do |recipe|
-    #     recipe[:difficulty] = ele.text.strip
-    #   end
-    # end
   end
 
   def edit
@@ -114,6 +108,6 @@ class IngredientsController < ApplicationController
   end
 
   def ingredient_params
-    params.require(:ingredient).permit(:name, :photo, :unit_price, :expiry_date, :weight, :stock_amount, :unit, :discount_rate, :publish_status, :description, :status)
+    params.require(:ingredient).permit(:name, :photo, :unit_price, :price_cents, :price_cents, :expiry_date, :weight, :stock_amount, :unit, :discount_rate, :publish_status, :description, :status)
   end
 end

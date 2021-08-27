@@ -9,7 +9,7 @@
           <p><%= ingredient.seller.restaurant.name %></p>
         <% end %>
           <h2><%= ingredient.name %></h2>
-          <h3>$<%= ingredient.unit_price %></h3>
+          <h3><%= humanized_money_with_symbol(ingredient.price) %></h3>
         </div>
       </div>
     <% end %>

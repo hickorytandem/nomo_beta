@@ -14,7 +14,7 @@
           <div class="cart-detail">
             <div class="item-price">
               <p><%= ingredient.stock_amount %> X <%= ingredient.name %></p>
-              <p>$<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) %></p>
+              <p><%= humanized_money_with_symbol(ingredient.price) %></p>
             </div>
             <p class="cart-resto"><%= ingredient.seller.restaurant.name %></p>
           </div>

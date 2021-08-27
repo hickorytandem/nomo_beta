@@ -181,7 +181,7 @@ User.all.each do |user|
     file = URI.open(veg[:url])
       ingredient = Ingredient.new(
       name: veg[:name],
-      unit_price: Faker::Commerce.price(range: 1..10.0),
+      price_cents: Faker::Commerce.price(range: 1..10.0),
       expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
@@ -209,7 +209,7 @@ end
       file = URI.open(veg[:url])
       ingredient = Ingredient.new(
       name: veg[:name],
-      unit_price: Faker::Commerce.price(range: 1..10.0),
+      price_cents: Faker::Commerce.price(range: 1..10.0),
       expiry_date: Date.today - 3.months - time.days,
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
@@ -218,7 +218,7 @@ end
       status: [0, 1].sample,
       description: description,
       seller: michael,
-      unit: "Kg"
+      unit: "Kg",
       )
       ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
       ingredient.save

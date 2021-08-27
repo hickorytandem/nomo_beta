@@ -4,7 +4,7 @@ class Ingredient < ApplicationRecord
   has_one_attached :photo
   enum status: { sold: 0, unsold: 1 }
   enum public_status: { unavailable: 0, available: 1 }
-  validates :name, :unit_price, :expiry_date, :unit, :stock_amount, presence: true
+  validates :name, :price_cents, :expiry_date, :unit, :stock_amount, presence: true
   monetize :price_cents
 
 end
