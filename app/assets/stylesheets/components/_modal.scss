@@ -93,6 +93,11 @@
   }
 }
 .modal-footer {
-  padding: 2px 16px;
+  padding: 12px 16px;
   color: $nm-black;
+}
+
+.modal-detail {
+  margin-top:36px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }

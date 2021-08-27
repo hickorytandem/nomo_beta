@@ -84,16 +84,7 @@
                     <td scope="row"><%= ingredient.stock_amount %></td>
                     <td scope="row"><%= ingredient.unit %></td>
                     <td scope="row"><%= ingredient.discount_rate %>%</td>
-                    <% if ingredient.expiry_date == Date.today %>
-                      <td scope="row" style="color: #EE7246;">Today</td>
-                      <td scope="row"><%= image_tag "alert.svg" %></td>
-                    <% elsif ingredient.expiry_date == Date.tomorrow %>
-                      <td scope="row" style="color: #EE7246;">Tomorrow</td>
-                      <td scope="row"><%= image_tag "alert.svg" %></td>
-                    <% else %>
-                      <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
-                      <td scope="row"></td>
-                    <% end %>
+                    <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
                   </tr>
                 <% end %>
               </tbody>
@@ -114,16 +105,7 @@
                     <td scope="row"><%= ingredient.stock_amount %></td>
                     <td scope="row"><%= ingredient.unit %></td>
                     <td scope="row"><%= ingredient.discount_rate %>%</td>
-                    <% if ingredient.expiry_date == Date.today %>
-                      <td scope="row" style="color: #EE7246;">Today</td>
-                      <td scope="row"><%= image_tag "alert.svg" %></td>
-                    <% elsif ingredient.expiry_date == Date.tomorrow %>
-                      <td scope="row" style="color: #EE7246;">Tomorrow</td>
-                      <td scope="row"><%= image_tag "alert.svg" %></td>
-                    <% else %>
-                      <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
-                      <td scope="row"></td>
-                    <% end %>
+                    <td scope="row"><%= change_date_format(ingredient.expiry_date) %></td>
                   </tr>
                 <% end %>
               </tbody>

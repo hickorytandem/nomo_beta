@@ -69,7 +69,7 @@
                           <div class="modal-list">
                             <%= cl_image_tag ingredient.photo.key, height: 50, width: 50, crop: :fill %>
                             <div class="label ml-3">
-                              <strong><%= ingredient.stock_amount %>x <%= ingredient.name %></strong>
+                              <strong><%= ingredient.stock_amount %><%= ingredient.unit.downcase %> x <%= ingredient.name %></strong>
                               <p class="mb-0" style="color: rgba(0, 0, 0, 0.5);">#000<%= ingredient.id %></p>
                             </div>
                             <div class="price">
@@ -78,17 +78,24 @@
                             <hr>
                           </div>
                         <% end %>
-                        <h4>Payment method</h4>
-                        <p><strong><%= order.pay_method %></strong></p>
-                        <p><%= order.pay_method == "cash" ? '' : 'VISA 1234 2345 2345 XXXX' %></p>
-                        <hr>
-                        <h4>Customer Detail</h4>
-                        <p><strong>Phone number: </strong><%= order.buyer.phone_number %></p>
-                        <p><strong>Email: </strong><%= order.buyer.email %></p>
-                        <hr>
+                        <div class="modal-detail d-flex justify-content-between">
+                          <h4>Payment method</h4>
+                          <div class="label mb-3" style="width: 35%;">
+                            <p class="mb-1"><strong><%= order.pay_method.upcase %></strong></p>
+                            <p style="font-weight: 400;"><%= order.pay_method == "cash" ? 'No payment detail' : 'VISA 1234 2345 2345 XXXX' %></p>
+                          </div>
+                        </div>
+                        <div class="modal-detail d-flex justify-content-between" style="border-bottom:0;">
+                          <h4>Customer Detail</h4>
+                          <div class="label mb-4" style="width: 35%;">
+                            <p class="mb-1"><strong><%= order.buyer.name %></strong></p>
+                            <p class="mb-1" style="font-weight: 400;">Phone number: <%= order.buyer.phone_number %></p>
+                            <p style="font-weight: 400;">Email: <%= order.buyer.email %></p>
+                          </div>
+                        </div>
                       </div>
                       <div class="modal-footer">
-                        <button class="btn dashboard-button">Order collected</button>
+                        <button class="btn dashboard-button-large">Order collected</button>
                       </div>
                     </div>
                   </div>
