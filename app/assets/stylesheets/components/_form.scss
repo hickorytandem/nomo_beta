@@ -7,7 +7,8 @@
   background: #FFFFFF;
   border: 1px solid #EFF2F6;
   border-radius: 8px;
-  color: rgba($color: $nm-black, $alpha: 0.6)
+  color: rgba($color: $nm-black, $alpha: 0.6);
+  margin-left: 0;
   // opacity: 0.6;
 }
 
@@ -17,4 +18,57 @@
   color: rgba($color: $nm-black, $alpha: 0.6);
   border: 1px solid #EFF2F6;
 
+}
+
+
+// ------------------------------------------------
+// Dashboard form
+// -------------------------------------------------
+
+
+.dashboard-form-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  width: inherit;
+  .form-group label{
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+}
+.dashboard-form-container-left {
+  box-sizing: border-box;
+  width: 55%;
+  margin-right: 16px;
+
+}
+
+.dashboard-form-container-right {
+  box-sizing: border-box;
+  width: 45%;
+}
+
+
+textarea.form-control {
+  height: 120px;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-box {
+  padding: 20px 24px 8px 24px;
+  background-color: white;
+  border: 1px solid #F2F2F2;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  h4 {
+    font-size: 16px;
+    weight: 700px;
+  }
 }

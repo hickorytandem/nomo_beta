@@ -164,6 +164,30 @@ ingredient_data = [
   {
     name: 'Limes',
     url: 'https://images.unsplash.com/photo-1620101680155-b251043b700b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2426&q=80',
+  },
+  {
+    name: 'Bell Peppers',
+    url: 'https://images.unsplash.com/photo-1621953723422-6023013f659d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80',
+  },
+    {
+    name: 'Corn',
+    url: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80',
+  },
+    {
+    name: 'Spinach',
+    url: 'https://images.unsplash.com/photo-1583681781586-b980500f327a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80',
+  },
+    {
+    name: 'Mushrooms',
+    url: 'https://images.unsplash.com/photo-1552825897-bb5efa86eab1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80',
+  },
+    {
+    name: 'Jalapenos',
+    url: 'https://images.unsplash.com/photo-1597115580039-b849ed2d6398?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2767&q=80',
+  },
+    {
+    name: 'Onions',
+    url: 'https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80',
   }
 ]
 veg_index = 0
@@ -182,7 +206,9 @@ User.all.each do |user|
       ingredient = Ingredient.new(
       name: veg[:name],
       price_cents: Faker::Commerce.price(range: 1..10.0),
-      expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
+      unit_price: Faker::Commerce.price(range: 1..10.0),
+      # expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
+      expiry_date: Faker::Date.between(from: 10.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
       discount_rate: discount_rate,
@@ -210,7 +236,9 @@ end
       ingredient = Ingredient.new(
       name: veg[:name],
       price_cents: Faker::Commerce.price(range: 1..10.0),
-      expiry_date: Date.today - 3.months - time.days,
+      unit_price: Faker::Commerce.price(range: 1..10.0),
+      # expiry_date: Date.today - 3.months - time.days,
+      expiry_date: Faker::Date.between(from: 30.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
       discount_rate: [30, 40, 50, 60].sample,
