@@ -22,7 +22,7 @@
     <%# Tabs %>
     <div class="w3-bar w3-black order-btns">
       <button class="btn btn-tab" onclick="openCity('not-complete-order')">Wait for pickup</button>
-      <button class="btn btn-tab" onclick="openCity('complete-order')">All Orders</button>
+      <button class="btn btn-tab" onclick="openCity('complete-order')">All orders</button>
     </div>
     <%# Content %>
     <%# Not collected orders %>
@@ -65,9 +65,12 @@
                         </div>
                       </div>
                     <% end %>
+                    <div class="modal-content-footer">
+                      <p class="total">Total</p>
+                      <p>$<%= not_collected_order.total_price %></p>
+                    </div>
                   </div>
                   <div class="modal-footer">
-                    <%# <h3>Modal Footer</h3> %>
                   </div>
                 </div>
               </div>

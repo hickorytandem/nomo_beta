@@ -132,3 +132,21 @@
   padding: 2px 16px;
   color: $nm-black;
 }
+
+.modal-content-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.modal-content-footer p {
+  font-family: $body-font;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: right;
+}
