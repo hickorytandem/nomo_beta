@@ -61,16 +61,22 @@
                       <!-- Modal content -->
                       <div class="modal-body">
                         <div class="modal-title d-flex justify-content-between">
-                          <h4>Order #0000<%= order.id %></h4>
+                          <h4>Order #000<%= order.id %></h4>
                           <h4>$<%= order.total_price %>.00</h4>
                         </div>
+                        <p class="mb-4" style="color: rgba(0, 0, 0, 0.5);; font-weight: 400;"><%= change_date_format(order.created_at) %></p>
                         <% order.ingredients.each do |ingredient| %>
-                          <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
-                          <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
-                          <%= ingredient.seller.restaurant.name %><br>
-                          Expiry Date: <%= ingredient.expiry_date %><br>
-                          Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
-                          <hr>
+                          <div class="modal-list">
+                            <%= cl_image_tag ingredient.photo.key, height: 50, width: 50, crop: :fill %>
+                            <div class="label ml-3">
+                              <strong><%= ingredient.stock_amount %>x <%= ingredient.name %></strong>
+                              <p class="mb-0" style="color: rgba(0, 0, 0, 0.5);">#000<%= ingredient.id %></p>
+                            </div>
+                            <div class="price">
+                              <strong>$<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%></strong>
+                            </div>
+                            <hr>
+                          </div>
                         <% end %>
                         <h4>Payment method</h4>
                         <p><strong><%= order.pay_method %></strong></p>
