@@ -25,22 +25,24 @@
         <div class="dashboard-page-header d-flex justify-content-between">
           <h1>New ingredient</h1>
           <div class="topnav-actions">
-            <%# <%= link_to 'Create', new_ingredient_path, class: "btn dashboard-button" %>
+            <%# <button class="btn dashboard-button-white mr-2">Import</button> %>
           </div>
         </div>
-        <%# Form container %>
-        <div class="dashboard-form-container">
-          <%# Left panel %>
-          <div class="dashboard-form-container-left">
-            <div class="form-box">
-              <h4 class="mb-4">Basic info</h4>
-              <%= simple_form_for(@ingredient) do |f| %>
+        <%# Place your content below %>
+        <%= simple_form_for(@ingredient) do |f| %>
+          <div class="dashboard-form-container">
+            <%# Left panel %>
+            <div class="dashboard-form-container-left">
+              <div class="form-box">
+                <h4 class="mb-4">Basic info</h4>
                 <%= f.input :name, label: 'Ingredient name', placeholder: 'e.g. Apple, Banana,etc.', required: true  %>
                 <%= f.input :description, placeholder: 'Tell us more about your ingredient...' %>
               </div>
               <div class="form-box">
                 <h4>Expiry Date<span style="color:red;">*</span></h4>
-                <%= f.input :expiry_date, as: :date, html5: true, label: false%>
+                <%= f.input :expiry_date, as: :date, html5: true, label: false %>
+                <% f.input :status, input_html: {value: 'unsold'} %>
+                <% f.input :public_status, input_html: {value: 'available'} %>
               </div>
               <div class="form-box">
                 <h4>Photo<span style="color:red;">*</span></h4>
@@ -59,15 +61,13 @@
                 <%= f.input :unit, label: 'Stock unit', placeholder: 'e.g. kg, grams, etc. ', required: true %>
                 <%= f.input :stock_amount, as: :numeric, label: 'Stock amount', required: true%>
               </div>
-              <div class="container p-0">
-                <%= link_to "Cancel", my_ingredients_path, class: "btn", id: "cancel" %>
-                <%= f.button :submit, "Create product", class: "dashboard-button-large" %>
-              </div>
             </div>
-          <% end %>
-          <%# End of form%>
-        </div>
-        <%# Place your content below %>
+          </div>
+          <hr>
+          <%= link_to "Cancel", my_ingredients_path, class: "btn", id: "cancel" %>
+          <%= f.button :submit, "Create product", class: "dashboard-button-large" %>
+        <% end %>
+        <%# End of content %>
       </div>
     </div>
     <%# Background End %>
