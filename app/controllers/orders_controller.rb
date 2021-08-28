@@ -116,7 +116,6 @@ class OrdersController < ApplicationController
     # @collected_orders = @orders.where(status: :collected)
     # @not_collected_orders = @orders.where(status: :purchased)
     @my_orders = []
-
   #   Order.where(buyer: current_user).each do |order|
   #     order.ingredients.each do |ingredient|
   #       @my_orders << ingredient.stock_amount

@@ -49,7 +49,7 @@
                   <td scope="row">
                     <span class="badge-round-black" style="color: white;"><%= order.pay_method.upcase %></span>
                   </td>
-                  <td scope="row"><%= order.total_price %>.00</td>
+                  <td scope="row"><%= order.total_price %></td>
                   <td scope="row"><%= change_date_format(order.created_at) %></td>
                   <%# Order Modal %>
                   <div class="modal">
@@ -62,7 +62,7 @@
                       <div class="modal-body">
                         <div class="modal-title d-flex justify-content-between">
                           <h4>Order #000<%= order.id %></h4>
-                          <h4>$<%= order.total_price %>.00</h4>
+                          <h4>$<%= order.total_price %></h4>
                         </div>
                         <p class="mb-4" style="color: rgba(0, 0, 0, 0.5);; font-weight: 400;"><%= change_date_format(order.created_at) %></p>
                         <% order.ingredients.each do |ingredient| %>
