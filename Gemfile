@@ -35,6 +35,8 @@ gem 'devise'
 gem 'geocoder'
 gem 'pundit'
 gem 'flatpickr'
+gem 'chartkick'
+gem 'groupdate'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

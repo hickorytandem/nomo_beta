@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Chart test</title>
+</head>
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+    // Global Options
+    // Chart.defaults.global.defaultFontFamily: 'Lato';
+    // Chart.defaults.glo
+    let massPopChart = new Chart(myChart, {
+      type:'doughnut', 
+      data: {
+        labels:['Boston', 'Worcester', 'MIT', 'Cambridge', 'aa', 'bb'],
+        datasets:[{
+          label:'Population',
+          data:[
+            711888,
+            3883,
+            383993,
+            383849,
+            3884300,
+            4942800
+          ],
+          backgroundColor: [
+            '#FFDEE5',
+            '#FEE8D9',
+            '#D3D6ED'
+          ]
+        }]
+      },
+      options:{
+        title:{
+          display: true,
+          text: 'Laegest',
+          fontsize:25
+        },
+        legend:{
+          display:true,
+          position:'right'
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
