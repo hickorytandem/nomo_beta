@@ -26,7 +26,7 @@
     <%# Content %>
     <div class="tab-content">
     <%# Not collected orders %>
-      <div id="not-complete-order" class="container city tab-pane active">
+      <div id="not-complete-order" class="tab-pane active">
         <% if @not_collected_orders.count == 0 %>
           <h2 class="no-orders">No orders</h2>
         <% else %>
@@ -81,7 +81,7 @@
       </div>
     </div>
     <%# Complete orders %>
-    <div id="complete-order" class="container city tab-pane active">
+    <div id="complete-order" class="tab-pane active">
       <% if @collected_orders.count == 0 %>
         <h2>No orders</h2>
       <% else %>
