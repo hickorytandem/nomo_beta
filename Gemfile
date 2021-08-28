@@ -37,6 +37,7 @@ gem 'pundit'
 gem 'flatpickr'
 gem 'stripe'
 gem 'money-rails'
+gem 'stripe_event'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

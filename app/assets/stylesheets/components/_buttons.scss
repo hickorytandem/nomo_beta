@@ -45,15 +45,24 @@
 }
 
 .btn-pay {
-  background-color: $nm-black;
+  // background-color: white;
   padding: 6px 72px;
-  color: white;
+  color: $nm-black;
   margin-top: 8px;
   border-radius: 8px;
+  border: 1px solid $nm-black;
+  text-align: center;
+  font-family: $body-font;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
 
   &:hover {
-    background-color: white;
-    color: $nm-black;
+    background-color: $nm-black;
+    color: white;
     text-decoration: none;
   }
 }

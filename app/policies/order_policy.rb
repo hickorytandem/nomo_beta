@@ -6,7 +6,7 @@ class OrderPolicy < ApplicationPolicy
     end
   end
   def show?
-    record.user == user
+    record.buyer == user
   end
 
   def my_orders?
