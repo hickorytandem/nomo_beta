@@ -284,6 +284,7 @@ end
     new_orders.each do |order|
       order.total_price = order.ingredients.map{ |ingredient| ingredient.unit_price }.inject(0){|sum,x| sum + x }
       order.save
+      order.update(created_at: Faker::Date.between(from: 15.days.ago, to: Date.today))
       p order
     end
 
