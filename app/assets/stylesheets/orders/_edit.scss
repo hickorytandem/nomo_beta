@@ -72,5 +72,13 @@
   line-height: 27px;
   letter-spacing: 0em;
   text-align: left;
+}
 
+.checkout-summary {
+  padding-top: 48px;
+}
+
+.checkout-pay {
+  display: flex;
+  justify-content: center;
 }

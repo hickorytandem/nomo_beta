@@ -28,48 +28,14 @@ class OrdersController < ApplicationController
     end
   end
 
-  def create
-    ingredient = Ingredient.find(params[:ingredient_id])
-    order  = Order.create!(ingredient: ingredient, pay_method: ingredient.pay_method, amount: ingredient.price, status: 'pending', user: current_user)
-
-    session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      line_items: [{
-        name: ingredient.name,
-        images: [ingredient.photo],
-        amount: ingredient.price_cents,
-        currency: 'usd',
-        quantity: 1
-      }],
-      success_url: order_url(order),
-      cancel_url: order_url(order)
-    )
-
-    order.update(checkout_session_id: session.id)
-    redirect_to checkout_path(order)
-  end
-  # def create
-
-  #   @order = Order.new(total_price: 0, status: :pending)
-  #   authorize @order
-  #   @order.buyer = current_user
-  #   if @order.save
-  #     @ingredient = Ingredient.find(order_params[:ingredient_id])
-  #     @ingredient.update(order: @order)
-  #     redirect_to order_path(@order)
-  #   else
-  #     render :new
-  #   end
-
-  # end
-
   def success
     skip_authorization
   end
 
 
   def show
-    @order = current_user.orders.find(params[:id])
+    @order = Order.find(params[:id])
+    authorize @order
   end
 
   def edit
@@ -83,6 +49,16 @@ class OrdersController < ApplicationController
     end
 
     @order_total_price = @total_price.sum/100.to_f
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: @ingredients.map { |ingredient| {name: ingredient.name, images: [ingredient.photo], amount: ingredient.unit_price, currency: 'usd', quantity: ingredient.stock_amount } },
+      success_url: my_cart_success_url,
+      cancel_url: order_url(@order)
+    )
+    @order.update(checkout_session_id: session.id)
+    @order.update(status: :purchased)
+    @order.update(total_price: @order_total_price)
   end
 
   def update
@@ -98,7 +74,7 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-
+    #@order.destroy
   end
 
   # --------------------------------------------------------------------------------

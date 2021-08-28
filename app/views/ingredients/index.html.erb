@@ -116,31 +116,31 @@
       <div class="section-ig-one">
         <h1 class="ig-header">Today's offer</h1>
         <div class="card-row">
-          <div class="owl-carousel owl-theme">
+          <!-- <div class="owl-carousel owl-theme"> -->
             <%#= @ingredients.each do |ingredient| %>
-              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @all_ingredients } %>
+              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @all_six_ing } %>
             <%# end %>
-          </div>
+          <!-- </div> -->
         </div>
       </div>
       <div class="section-ig-two">
         <h1 class="ig-header">Popular near you</h1>
         <div class="card-row">
-          <div class="owl-carousel owl-theme">
+     <!--      <div class="owl-carousel owl-theme"> -->
             <%#= @ingredients.each do |ingredient| %>
               <%= render partial: 'shared/card-ingredient', locals: { ingredients: @near_ingredients }%>
             <%# end %>
-          </div>
+          <!-- </div> -->
         </div>
       </div>
       <div class="section-ig-three">
         <h1 class="ig-header">One last call</h1>
         <div class="card-row">
-          <div class="owl-carousel owl-theme">
+          <!-- <div class="owl-carousel owl-theme"> -->
             <%#= @ingredients.each do |ingredient| %>
               <%= render partial: 'shared/card-ingredient', locals: { ingredients: @all_ingredients } %>
             <%# end %>
-          </div>
+<!--           </div> -->
         </div>
       </div>
       <div class="section-ig-four">
