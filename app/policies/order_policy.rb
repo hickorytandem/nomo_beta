@@ -1,7 +1,8 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(buyer: user)
+      scope.all
+      # scope.where(buyer: user)
       # scope.where(seller: user)
     end
   end
