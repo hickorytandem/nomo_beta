@@ -111,8 +111,8 @@ class OrdersController < ApplicationController
     #   policy_scope(order)
     # end
     @shop_name = current_user.restaurant.name
-    @orders = Order.all.select { |order| order.sellers.include?(current_user) }
-    authorize @orders
+    @orders = policy_scope(Order).select { |order| order.sellers.include?(current_user) }
+    # authorize @orders
     # @collected_orders = @orders.where(status: :collected)
     # @not_collected_orders = @orders.where(status: :purchased)
     @my_orders = []
