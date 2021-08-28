@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
     @co2 = @total_weight * 2.54
 
     # amount added items
-    @total_amount =@all_ingredients.each.map(&:stock_amount).sum
+    @total_amount = @all_ingredients.each.map(&:stock_amount).sum
 
     # sold_amount
     @sold_amount = 0
@@ -47,6 +47,12 @@ class RestaurantsController < ApplicationController
 
     # ??number of customers
     @total_customers = @all_ingredients.map{ |ingredient| ingredient&.order&.buyer_id}.uniq.count
+
+    # order to be picked up
+    @orders = Order.all.select { |order| order.sellers.include?(current_user) }.count
+
+    #Ingredient expires soon
+    @expire_soon =  Ingredient.where(seller_id: current_user.id, expiry_date: Date.today..Date.tomorrow).count
   end
 
   def new
