@@ -25,13 +25,14 @@
   padding: 4px 24px;
 }
 
-.badge-round-black {
+.badge-round-l-green {
   border-radius: 24px;
-  background-color: $nm-black;
-  color: black;
+  background-color: $nm-bg-green;
+  color: $nm-d-green;
   font-size: 12px;
+  font-weight: 600;
   font-family: Manrope;
-  padding: 4px 24px;
+  padding: 4px 12px;
   text-align: center;
   word-wrap: normal;
 
