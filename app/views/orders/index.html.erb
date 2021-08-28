@@ -60,7 +60,7 @@
                           <p class="mb-0" style="color: rgba(0, 0, 0, 0.5);">#000<%= ingredient.id %></p>
                         </div>
                         <div class="price">
-                          <strong>$<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%></strong>
+                          <strong><%= humanized_money_with_symbol(ingredient.price)%></strong>
                         </div>
                         <hr>
                       </div>
@@ -69,7 +69,7 @@
                   <%# Modal footer %>
                   <div class="modal-footer py-3" style="height: 60px;">
                     <h4 style="position: absolute; left:28px;">Total</h4>
-                    <h4 style="position: absolute; right:28px;">$<%= not_collected_order.total_price %>.00</h4>
+                    <h4 style="position: absolute; right:28px;">$<%= not_collected_order.total_price %></h4>
                   </div>
                 </div>
               </div>
