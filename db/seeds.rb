@@ -58,7 +58,7 @@
 
   michael = User.create!(
     name:"Michael Carter",
-    phone_number: "1234567",
+    phone_number: Faker::PhoneNumber.cell_phone,
     card_detail: "",
     email: "michael@nomo.com",
     password: "123456",
@@ -67,7 +67,7 @@
     )
    yui = User.create!(
     name:"Yui Kondo",
-    phone_number: "1234567",
+    phone_number: Faker::PhoneNumber.cell_phone,
     card_detail: "",
     email: "yui@nomo.com",
     password: "123456",
@@ -76,7 +76,7 @@
     )
     anna = User.create!(
     name:"Anna Nonaka",
-    phone_number: "1234567",
+    phone_number: Faker::PhoneNumber.cell_phone,
     card_detail: "",
     email: "anna@nomo.com",
     password: "123456",
@@ -85,7 +85,7 @@
     )
     namkhing = User.create!(
     name:"Nonlapat Leesomprasong",
-    phone_number: "1234567",
+    phone_number: Faker::PhoneNumber.cell_phone,
     card_detail: "",
     email: "namkhing@nomo.com",
     password: "123456",
