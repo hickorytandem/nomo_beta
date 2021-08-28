@@ -1,4 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <div class="dashboard">
   <%= render 'shared/dashboard_sidenav' %>
   <div class="dashboard-content-container">
@@ -24,14 +23,12 @@
       <div class="content-container">
         <%# Page header %>
         <div class="dashboard-page-header d-flex justify-content-between">
-          <h1>Welcome!</h1>
+          <h1>Good afternoon, <%= current_user.name %> </h1>
           <%# <button class="btn dashboard-button">Export report</button> %>
         </div>
         <%# Place your content below %>
-        <h2>Scroll this page to see the effect</h2>
-        <h2>The navigation bar will stay at the top of the page while scrolling</h2>
-         <%= column_chart @sold_ingredients.group_by_day(range: 2.days.ago.midnight..Time.now){ |ingredient| ingredient.updated_at}.map { |k, v|  [k, v.map(&:weight).sum] }.to_h %>
-       
+        <%# Status %>
+        <%= render 'shared/dashboard_status' %>
       </div>
     </div>
   </div>

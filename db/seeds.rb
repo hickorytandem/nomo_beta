@@ -100,6 +100,7 @@
       status: status,
       buyer: namkhing
       )
+
 ingredient_data = [
   {
     name: 'Tortillas',
@@ -205,7 +206,8 @@ User.all.each do |user|
     file = URI.open(veg[:url])
       ingredient = Ingredient.new(
       name: veg[:name],
-      unit_price: Faker::Commerce.price(range: 1..10.0),
+      # price_cents: Faker::Commerce.price(range: 1..10.0),
+      unit_price: Faker::Commerce.price(range: 1..50.0),
       # expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
       expiry_date: Faker::Date.between(from: 10.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
@@ -218,12 +220,13 @@ User.all.each do |user|
       order: order,
       unit: "Kg"
       )
+    ingredient[:price_cents] = ingredient[:unit_price]*ingredient[:stock_amount]
     ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     ingredient.save
     veg_index += 1
   end
 end
-
+  michael_ingredients = []
   90.times do |time|
        description = ["Over stock that needs a home, and fast. Quality is good but it must be used quickly
       ", "Over ripening stock that is suitable for recipes and cooking, but not to be eaten out of hand
@@ -234,26 +237,55 @@ end
       file = URI.open(veg[:url])
       ingredient = Ingredient.new(
       name: veg[:name],
-      unit_price: Faker::Commerce.price(range: 1..10.0),
+      # price_cents: Faker::Commerce.price(range: 1..10.0),
+      unit_price: Faker::Commerce.price(range: 1..50.0),
       # expiry_date: Date.today - 3.months - time.days,
       expiry_date: Faker::Date.between(from: 30.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
       discount_rate: [30, 40, 50, 60].sample,
       public_status: 1,
-      status: [0, 1].sample,
+      status: 0,
       description: description,
       seller: michael,
-      unit: "Kg"
+      unit: "Kg",
       )
+      ingredient[:price_cents] = ingredient[:unit_price]*ingredient[:stock_amount]
       ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-      ingredient.save
-      if veg_index >= 15
+      michael_ingredients << ingredient if ingredient.save
+      if veg_index >= 21
         veg_index = 0
       else
         veg_index += 1
       end
+
 end
+
+    pay_method = ["cash", "credit", "paypal"]
+    users = [namkhing, yui, anna]
+    status = [:pending, :collected, :purchased, :cancelled]
+    new_orders = []
+    15.times do |time|
+
+      order = Order.new(
+        # total_price: Faker::Commerce.price,
+        pay_method: pay_method.sample,
+        status: status.sample,
+        buyer: users.sample
+        )
+      new_orders << order if order.save
+    end
+    p new_orders
+    michael_ingredients.each do |ingredient|
+      ingredient.order = new_orders.sample
+      ingredient.save
+      p ingredient
+    end
+    new_orders.each do |order|
+      order.total_price = order.ingredients.map{ |ingredient| ingredient.unit_price }.inject(0){|sum,x| sum + x }
+      order.save
+      p order
+    end
 
     puts "Done!"
  # total_price = [35.50, 52.50, 23, 45, 87, 92.50, 67.60, 55.50, 89, 15, 105, 16.50, 62, 78, 35, 25, 88, 125.50, 29, 40, 9.50].sample

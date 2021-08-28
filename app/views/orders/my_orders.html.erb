@@ -53,33 +53,49 @@
                   <td scope="row"><%= change_date_format(order.created_at) %></td>
                   <%# Order Modal %>
                   <div class="modal">
-                    <div class="container order-card modal-content">
+                    <div class="order-card modal-content">
                       <div class="modal-header">
-                        <span class="close">&times;</span>
+                        <span class="close"><%= image_tag "close.svg" %></span>
                         <%# <h2>Modal Header</h2> %>
                       </div>
                       <!-- Modal content -->
                       <div class="modal-body">
-                        <h4>Order #0000<%= order.id %></h4>
+                        <div class="modal-title d-flex justify-content-between">
+                          <h4>Order #000<%= order.id %></h4>
+                          <h4>$<%= order.total_price %>.00</h4>
+                        </div>
+                        <p class="mb-4" style="color: rgba(0, 0, 0, 0.5);; font-weight: 400;"><%= change_date_format(order.created_at) %></p>
                         <% order.ingredients.each do |ingredient| %>
-                          <%# <%= cl_image_tag ingredient.photo.key, height: 100, width: 100, crop: :fill %>
-                          <strong><%= ingredient.stock_amount %>X<%= ingredient.name %></strong><br>
-                          <%= ingredient.seller.restaurant.name %><br>
-                          Expiry Date: <%= ingredient.expiry_date %><br>
-                          Total: $<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%>
-                          <hr>
+                          <div class="modal-list">
+                            <%= cl_image_tag ingredient.photo.key, height: 50, width: 50, crop: :fill %>
+                            <div class="label ml-3">
+                              <strong><%= ingredient.stock_amount %><%= ingredient.unit.downcase %> x <%= ingredient.name %></strong>
+                              <p class="mb-0" style="color: rgba(0, 0, 0, 0.5);">#000<%= ingredient.id %></p>
+                            </div>
+                            <div class="price">
+                              <strong>$<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%></strong>
+                            </div>
+                            <hr>
+                          </div>
                         <% end %>
-                        <h4>Payment method</h4>
-                        <p><strong><%= order.pay_method %></strong></p>
-                        <p><%= order.pay_method == "cash" ? '' : 'VISA 1234 2345 2345 XXXX' %></p>
-                        <hr>
-                        <h4>Customer Detail</h4>
-                        <p><strong>Phone number: </strong><%= order.buyer.phone_number %></p>
-                        <p><strong>Email: </strong><%= order.buyer.email %></p>
-                        <hr>
+                        <div class="modal-detail d-flex justify-content-between">
+                          <h4>Payment method</h4>
+                          <div class="label mb-3" style="width: 35%;">
+                            <p class="mb-1"><strong><%= order.pay_method.upcase %></strong></p>
+                            <p style="font-weight: 400;"><%= order.pay_method == "cash" ? 'No payment detail' : 'VISA 1234 2345 2345 XXXX' %></p>
+                          </div>
+                        </div>
+                        <div class="modal-detail d-flex justify-content-between" style="border-bottom:0;">
+                          <h4>Customer Detail</h4>
+                          <div class="label mb-4" style="width: 35%;">
+                            <p class="mb-1"><strong><%= order.buyer.name %></strong></p>
+                            <p class="mb-1" style="font-weight: 400;">Phone number: <%= order.buyer.phone_number %></p>
+                            <p style="font-weight: 400;">Email: <%= order.buyer.email %></p>
+                          </div>
+                        </div>
                       </div>
                       <div class="modal-footer">
-                        <button class="btn dashboard-button">Order collected</button>
+                        <button class="btn dashboard-button-large">Order collected</button>
                       </div>
                     </div>
                   </div>

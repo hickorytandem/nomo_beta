@@ -37,6 +37,8 @@ gem 'pundit'
 gem 'flatpickr'
 gem 'chartkick'
 gem 'groupdate'
+gem 'stripe'
+gem 'money-rails'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

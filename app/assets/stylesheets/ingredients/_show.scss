@@ -1,10 +1,18 @@
 .ingredient-fix {
   position: relative;
   padding: 0;
+  top: 64px;
+  height: 100wh;
 }
+
 .left-pane {
     position: fixed;
-    width: 42.6%;
+    width: 43.8%;
+    height: 100%;
+}
+
+.nm-black {
+  background-color: $nm-black;
 }
 
 #map {
@@ -20,6 +28,7 @@
 
 .ingredient-image {
   width: 100% !important;
+  height: 83%;
 }
 
 .ingredient-header {
@@ -37,9 +46,13 @@
   justify-content: space-around;
   background-color: $nm-l-orange;
   vertical-align: baseline;
-  font-weight: 700;
+  padding-top: 20px;
+}
+
+.quantity p {
+  font-weight: 700 !important;
   font-size: 16px;
-  }
+}
 
 .order {
   display: flex;
@@ -56,12 +69,13 @@
 }
 
 .section-one {
-  padding-top: 24px;
+  padding-top: 64px;
   padding-left: 48px;
   padding-right: 48px;
   margin: 0;
 
   .resto-name {
+    padding-top: 24px;
     font-size: 14px;
   }
 

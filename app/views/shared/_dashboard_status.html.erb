@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between mt-3">
+  <%# Pickup %>
+  <div class="status-card d-flex">
+    <%= image_tag 'pickup.svg' %>
+    <div class="label">
+      <p>To be picked up</p>
+      <h4><%= @orders %></h4>
+    </div>
+  </div>
+  <%# Expire soon %>
+  <div class="status-card d-flex">
+    <%= image_tag 'expired.svg' %>
+    <div class="label">
+      <p>Expire soon</p>
+      <h4><%= @expire_soon %></h4>
+    </div>
+  </div>
+  <%# Sold today %>
+  <div class="status-card d-flex">
+    <%= image_tag 'sun.svg' %>
+    <div class="label">
+      <p>Ingredient sold</p>
+      <h4><%=  @sold_amount %></h4>
+    </div>
+  </div>
+  <%# Wasted today %>
+  <div class="status-card d-flex mr-0">
+    <%= image_tag 'waste.svg' %>
+    <div class="label">
+      <p>Waste produced (kg)</p>
+      <h4><%= @wasted_amount %></h4>
+    </div>
+  </div>
+</div>

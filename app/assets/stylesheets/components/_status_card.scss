@@ -1,0 +1,18 @@
+.status-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  width: 25%;
+  margin-right: 12px;
+  .label {
+    margin-left: 12px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  h4 {
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
