@@ -52,18 +52,13 @@ class OrdersController < ApplicationController
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      line_items: @ingredients.map { |ingredient| {name: ingredient.name, images: [ingredient.photo], amount: ingredient.price_cents, currency: 'usd', quantity: ingredient.stock_amount } },
+      line_items: @ingredients.map { |ingredient| {name: ingredient.name, images: [ingredient.photo], amount: ingredient.unit_price, currency: 'usd', quantity: ingredient.stock_amount } },
       success_url: my_cart_success_url,
       cancel_url: order_url(@order)
     )
     @order.update(checkout_session_id: session.id)
-
-    if @order.update(order_params)
-      @ingredients.each { |ingredient| ingredient.update(status: 0, public_status: 0)}
-      redirect_to my_cart_success_path
-    else
-      render :new
-    end
+    @order.update(status: :purchased)
+    @order.update(total_price: @order_total_price)
   end
 
   def update
@@ -79,7 +74,7 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order.destroy
+    #@order.destroy
   end
 
   # --------------------------------------------------------------------------------
@@ -121,7 +116,7 @@ class OrdersController < ApplicationController
 
   def order_params
     # params.permit(:ingredient_id)
-    params.require(:order).permit(:total_price, :pay_method, :status, :ingredient_id, :public_status)
+    params.require(:order).permit(:total_price, :pay_method, :status, :ingredient_id)
   end
 
   def find_ingredient

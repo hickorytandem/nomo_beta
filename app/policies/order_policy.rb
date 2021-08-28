@@ -34,7 +34,7 @@ class OrderPolicy < ApplicationPolicy
     user
   end
 
-  def success
-    record.user
+  def success?
+    record.buyer == user
   end
 end
