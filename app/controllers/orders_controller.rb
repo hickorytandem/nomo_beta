@@ -22,13 +22,32 @@ class OrdersController < ApplicationController
     @ingredient_price = []
     @orders.each do |order|
       order.ingredients.each do |ingredient|
-        @ingredient_price << ingredient.stock_amount * ingredient.unit_price
+        @ingredient_price << ingredient.price_cents
       end
       @order_total_price = @ingredient_price.sum
     end
   end
 
+  def create
+    ingredient = Ingredient.find(params[:ingredient_id])
+    order  = Order.create!(ingredient: ingredient, pay_method: ingredient.pay_method, amount: ingredient.price, status: 'pending', user: current_user)
 
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: ingredient.name,
+        images: [ingredient.photo],
+        amount: ingredient.price_cents,
+        currency: 'usd',
+        quantity: 1
+      }],
+      success_url: order_url(order),
+      cancel_url: order_url(order)
+    )
+
+    order.update(checkout_session_id: session.id)
+    redirect_to checkout_path(order)
+  end
   # def create
 
   #   @order = Order.new(total_price: 0, status: :pending)
@@ -50,6 +69,7 @@ class OrdersController < ApplicationController
 
 
   def show
+    @order = current_user.orders.find(params[:id])
   end
 
   def edit
@@ -59,10 +79,10 @@ class OrdersController < ApplicationController
     @ingredients = Ingredient.where(order_id: @order)
     @total_price = []
     @ingredients.each do |ingredient|
-      @total_price << ingredient.stock_amount * ingredient.unit_price
+      @total_price << ingredient.price_cents
     end
 
-    @order_total_price = @total_price.sum
+    @order_total_price = @total_price.sum/100.to_f
   end
 
   def update

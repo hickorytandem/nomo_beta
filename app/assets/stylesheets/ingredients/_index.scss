@@ -3,10 +3,12 @@
 
 .categories {
   display: flex;
-  padding: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  padding-top: 88px;
   justify-content: space-between;
   padding-bottom: 24px;
-  padding-top: 32px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -48,6 +50,7 @@
   margin-right: 0 !important;
   padding-right: 0 !important;
   padding-left: 116px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .filters {
@@ -55,13 +58,14 @@
   padding-bottom: 32px;
   padding-left: 16px;
   padding-right: 16px;
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .filters h2 {
   font-family: $headers-font;
   font-size: 24px;
   font-weight: 400px;
+  padding-top: 24px;
+  padding-bottom: 32px;
 }
 
 .ig-col {
@@ -115,6 +119,57 @@
   font-size: 32px;
   font-family: $headers-font;
   font-weight: 400;
+}
+
+.promotion-item {
+  font-family: $body-font;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 12px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.form-check {
+  padding-left: 0 !important;
+}
+
+.sort p {
+  margin-bottom: 8px;
+  font-family: $body-font;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.expiry-date p {
+  margin-bottom: 8px;
+  font-family: $body-font;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.promotion p {
+  margin-bottom: 8px;
+  font-family: $body-font;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.radio-buttons {
+  margin-bottom: 24px;
 }
 
 .nm-green {

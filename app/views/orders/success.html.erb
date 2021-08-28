@@ -4,16 +4,15 @@
       <h1>Thanks for rescuing our food!</h1>
       <p>Pick up code has been sent to your phone number.</p>
     </div>
-<div class="carbon-footprint">
-  <%= image_tag "NomoEarth.png", alt: "logo", width: 200 %>
-
-<div class="carbon-footprint-infos-infos">
-    <p>You've saved <strong>8 KG</strong> of your carbon footprint</p>
-    <p>Read more about <a href='https://www.carbonfootprint.com/' target="blank">carbon footprints.</a></p>
-  </div>
-</div>
-
-    <%= link_to "View my orders", orders_path, class: "btn btn-primary" %>
+    <div class="carbon-footprint">
+      <%= image_tag "NomoEarth.png", alt: "logo" %>
+      <div class="carbon-footprint-infos-infos">
+        <p>You've saved<br>
+        <span class="carbon-kg">45 KG</span> of your carbon footprint</p>
+        <p class="carbon-note">Read more about <a href='https://www.carbonfootprint.com/' target="blank">carbon footprints.</a></p>
+      </div>
+    </div>
+    <%= link_to "View my orders", orders_path, class: "btn btn-view-orders" %>
   </div>
 </div>
 

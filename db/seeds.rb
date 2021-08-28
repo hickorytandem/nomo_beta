@@ -205,7 +205,8 @@ User.all.each do |user|
     file = URI.open(veg[:url])
       ingredient = Ingredient.new(
       name: veg[:name],
-      unit_price: Faker::Commerce.price(range: 1..10.0),
+      # price_cents: Faker::Commerce.price(range: 1..10.0),
+      unit_price: Faker::Commerce.price(range: 1..50.0),
       # expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
       expiry_date: Faker::Date.between(from: 10.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
@@ -218,6 +219,7 @@ User.all.each do |user|
       order: order,
       unit: "Kg"
       )
+    ingredient[:price_cents] = ingredient[:unit_price]*ingredient[:stock_amount]
     ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     ingredient.save
     veg_index += 1
@@ -234,7 +236,8 @@ end
       file = URI.open(veg[:url])
       ingredient = Ingredient.new(
       name: veg[:name],
-      unit_price: Faker::Commerce.price(range: 1..10.0),
+      # price_cents: Faker::Commerce.price(range: 1..10.0),
+      unit_price: Faker::Commerce.price(range: 1..50.0),
       # expiry_date: Date.today - 3.months - time.days,
       expiry_date: Faker::Date.between(from: 30.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
@@ -244,8 +247,9 @@ end
       status: [0, 1].sample,
       description: description,
       seller: michael,
-      unit: "Kg"
+      unit: "Kg",
       )
+      ingredient[:price_cents] = ingredient[:unit_price]*ingredient[:stock_amount]
       ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
       ingredient.save
       if veg_index >= 15

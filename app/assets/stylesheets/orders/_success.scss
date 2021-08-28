@@ -2,6 +2,7 @@
   background-color: $nm-pink;
   height: 100vh;
   text-align: center;
+  padding-top: 168px;
 }
 
 .success-section {
@@ -9,7 +10,7 @@
 }
 
 .success-msg h1 {
-  font-family: Suez One;
+  font-family: $headers-font;
   font-size: 32px;
 
 }
@@ -18,5 +19,60 @@
 
 }
 
+.carbon-footprint {
+  border-radius: 12px;
+  width: 36%;
+  height: 168px;
+  box-shadow: none;
+}
 
+.carbon-footprint img {
+  width: 104px;
+  height: 104px;
+}
 
+.carbon-footprint-infos-infos p {
+  font-family: $body-font;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.carbon-kg {
+  font-family: $body-font;
+  font-size: 32px !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: 40px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: $nm-d-green
+}
+
+.carbon-note {
+  font-family: $body-font;
+  color: rgba(0,0,0,0.5);
+  font-size: 12px !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left !important;
+}
+
+.carbon-note a {
+  color: rgba(0,0,0,0.5);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+
+  &:hover {
+    text-decoration: none;
+    color: $nm-black;
+  }
+}

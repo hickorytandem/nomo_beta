@@ -6,5 +6,6 @@ class Order < ApplicationRecord
   has_many :sellers, through: :ingredients
   validates :total_price, :status, presence: true
   # enum status: [:pending, :purchased, :cancelled, :collected ]
+  monetize :total_price_cents
 
 end
