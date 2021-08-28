@@ -28,21 +28,23 @@
           <%= link_to 'Export report', "#", class: "dashboard-button" %>
         </div>
         <%# Order table %>
-        <div class="order-modal">
-          <table class="table table-light mt-4">
-            <thead>
-              <tr class="table-primary">
-                <th scope="col" class="table-primary">Order Id</th>
-                <th scope="col" class="table-primary">Customer</th>
-                <th scope="col" class="table-primary">Phone number</th>
-                <th scope="col" class="table-primary">Pay method</th>
-                <th scope="col" class="table-primary">Total price($)</th>
-                <th scope="col" class="table-primary">Purchased on</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @orders.each do |order| %>
-                <tr class="order-modal-btn" style="height: 64px;">
+        <%# <div class="order-modal"> %>
+        <table class="table table-light mt-4">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col" class="table-primary">Order Id</th>
+              <th scope="col" class="table-primary">Customer</th>
+              <th scope="col" class="table-primary">Phone number</th>
+              <th scope="col" class="table-primary">Pay method</th>
+              <th scope="col" class="table-primary">Total price($)</th>
+              <th scope="col" class="table-primary">Purchased on</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%# <div class="order-modal"> %>
+            <% @orders.each do |order| %>
+              <div class="order-modal">
+                <tr class="order-modal-btn">
                   <td scope="row">#000<%= order.id %></td>
                   <td scope="row"><%= order.buyer.name %></td>
                   <td scope="row"><%= order.buyer.phone_number %></td>
@@ -101,10 +103,11 @@
                   </div>
                   <%# End of modal %>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+              </div>
+            <% end %>
+          </tbody>
+        </table>
+        <%# </div> %>
       </div>
     </div>
     <%# Background End %>

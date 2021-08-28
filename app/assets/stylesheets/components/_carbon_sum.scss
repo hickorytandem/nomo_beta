@@ -1,0 +1,26 @@
+.carbon-sum {
+  background-color: $nm-bg-green;
+  border-radius: 12px;
+  border: 1px solid #57BD6F;
+  height: 104px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  h4{
+    font-weight: 500;
+    margin-bottom: 0px;
+  }
+  a {
+    font-size:12px;
+  }
+  h1 {
+    color: $nm-d-green;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+}
+

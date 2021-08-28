@@ -40,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
 
   initCarousel();
   initOrderModal();
+  // initDashboardModal();
 
 });
 
