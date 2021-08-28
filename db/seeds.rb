@@ -207,9 +207,9 @@ User.all.each do |user|
       ingredient = Ingredient.new(
       name: veg[:name],
       # price_cents: Faker::Commerce.price(range: 1..10.0),
-      unit_price: Faker::Commerce.price(range: 1..50.0),
+      unit_price: (1..50).to_a.sample,
       # expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
-      expiry_date: Faker::Date.between(from: 10.days.ago, to: Date.today),
+      expiry_date: Faker::Date.between(from: 14.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
       discount_rate: discount_rate,
@@ -238,9 +238,9 @@ end
       ingredient = Ingredient.new(
       name: veg[:name],
       # price_cents: Faker::Commerce.price(range: 1..10.0),
-      unit_price: Faker::Commerce.price(range: 1..50.0),
+      unit_price: (1..50).to_a.sample,
       # expiry_date: Date.today - 3.months - time.days,
-      expiry_date: Faker::Date.between(from: 30.days.ago, to: Date.today),
+      expiry_date: Faker::Date.between(from: 15.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
       stock_amount: Faker::Number.between(from: 1, to: 15),
       discount_rate: [30, 40, 50, 60].sample,
@@ -275,15 +275,16 @@ end
         )
       new_orders << order if order.save
     end
-    p new_orders
+
     michael_ingredients.each do |ingredient|
       ingredient.order = new_orders.sample
       ingredient.save
-      p ingredient
+
     end
     new_orders.each do |order|
       order.total_price = order.ingredients.map{ |ingredient| ingredient.unit_price }.inject(0){|sum,x| sum + x }
       order.save
+      order.update(created_at: Faker::Date.between(from: 15.days.ago, to: Date.today))
       p order
     end
 
