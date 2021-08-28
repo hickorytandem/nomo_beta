@@ -3,11 +3,6 @@ const initOrderModal = () => {
     const modals = document.querySelectorAll('.modal');
     const closers = document.querySelectorAll('.close');
     const btns = document.querySelectorAll('.order-modal-btn')
-    // btns.forEach((btn) => {
-    //   btn.addEventListener("click", (e)=>{
-    //     console.log(e);
-    //   }
-    // })
     btns.forEach((btn,index)=>{
       btn.addEventListener('click', (e)=>{
         modals[index].style.display = "block"
@@ -18,13 +13,7 @@ const initOrderModal = () => {
         modals[index].style.display = "none"
       })
     })
-
-    // span.onclick = function () {mo
-    //   modal.style.display = "none";
-    // }
-
 };
 
 
 export {initOrderModal};
-
