@@ -7,13 +7,14 @@ class IngredientsController < ApplicationController
 
   def index
     @all_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1))
+    @all_six_ing = @all_ingredients.first(6)
     @restaurants = Restaurant.near(current_user.address, 10)
     @near_ingredients = []
     @restaurants.each do |restaurant|
       @near_ingredients << policy_scope(restaurant.ingredients_for_sale)
     # @ingredients << restaurant.users.first.ingredients_as_seller
     end
-    @near_ingredients = @near_ingredients.flatten
+    @near_ingredients = @near_ingredients.flatten.first(6)
   end
 
   def my_ingredients

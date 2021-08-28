@@ -85,6 +85,13 @@
 
   .card-row {
     padding-left: 32px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 88px;
+    margin-right: 24px;
+    margin-left: 24px;
+    border-bottom: 1px solid rgba(0,0,0, 0.08)
   }
 
   .section-ig-one {
@@ -94,7 +101,6 @@
   .section-ig-two {
     padding-top: 32px;
     padding-bottom: 32px;
-    background-color: $nm-pink;
     padding-left: 0 !important;
     margin-left: 0 !important;
   }
