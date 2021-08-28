@@ -25,7 +25,7 @@
     </ul>
     <%# Content %>
     <div class="tab-content">
-    <%# Not collected orders %>
+      <%# Not collected orders %>
       <div id="not-complete-order" class="tab-pane active">
         <% if @not_collected_orders.count == 0 %>
           <h2 class="no-orders">No orders</h2>
@@ -42,7 +42,7 @@
                 <button class="order-modal-btn btn btn-outline-order">View order detail</button>
                 <%# Modal %>
                 <div class="modal">
-                  <div class="container order-card modal-content">
+                  <div class="order-card modal-content">
                     <div class="modal-header">
                       <span class="close"><%= image_tag "close.svg" %></span>
                       <%# <h2>Modal Header</h2> %>
@@ -68,7 +68,7 @@
                       <% end %>
                     </div>
                     <%# Modal footer %>
-                    <div class="modal-footer py-3" style="height: 60px;">
+                    <div class="modal-footer py-3" style="height: 72px;">
                       <h4 style="position: absolute; left:28px;">Total</h4>
                       <h4 style="position: absolute; right:28px;">$<%= not_collected_order.total_price %></h4>
                     </div>
@@ -91,11 +91,11 @@
                 <p class="order-date"><%= change_date_format(collected_order.created_at) %></p>
                 <p class="order-price"> Total: $<%= collected_order.total_price %></p>
               </div>
-          <!-- Trigger/Open The Modal -->
+              <!-- Trigger/Open The Modal -->
               <div class="order-modal">
                 <button class="order-modal-btn btn btn-outline-primary">View order detail</button>
                 <div class="modal">
-                  <div class="container order-card modal-content">
+                  <div class="order-card modal-content">
                     <div class="modal-header">
                       <span class="close"><%= image_tag "close.svg" %></span>
                       <%# <h2>Modal Header</h2> %>
