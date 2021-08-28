@@ -18,7 +18,7 @@
     anna_restaurant = Restaurant.create!(
       name: Faker::Restaurant.name,
       email: Faker::Internet.email,
-      phone_number: Faker::PhoneNumber.cell_phone,
+      phone_number: Faker::PhoneNumber.cell_phone_in_e164,
       category: category,
       opening_hours: opening_hours,
       closing_hours: closing_hours,
@@ -33,7 +33,7 @@
     yui_restaurant = Restaurant.create!(
       name: Faker::Restaurant.name,
       email: Faker::Internet.email,
-      phone_number: Faker::PhoneNumber.cell_phone,
+      phone_number: Faker::PhoneNumber.cell_phone_in_e164,
       category: category,
       opening_hours: opening_hours,
       closing_hours: closing_hours,
@@ -48,7 +48,7 @@
       michael_restaurant = Restaurant.create!(
       name: "Miguels",
       email: Faker::Internet.email,
-      phone_number: Faker::PhoneNumber.cell_phone,
+      phone_number: Faker::PhoneNumber.cell_phone_in_e164,
       category: "Mexican",
       opening_hours: opening_hours,
       closing_hours: closing_hours,
@@ -58,7 +58,7 @@
 
   michael = User.create!(
     name:"Michael Carter",
-    phone_number: Faker::PhoneNumber.cell_phone,
+    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     card_detail: "",
     email: "michael@nomo.com",
     password: "123456",
@@ -67,7 +67,7 @@
     )
    yui = User.create!(
     name:"Yui Kondo",
-    phone_number: Faker::PhoneNumber.cell_phone,
+    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     card_detail: "",
     email: "yui@nomo.com",
     password: "123456",
@@ -76,7 +76,7 @@
     )
     anna = User.create!(
     name:"Anna Nonaka",
-    phone_number: Faker::PhoneNumber.cell_phone,
+    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     card_detail: "",
     email: "anna@nomo.com",
     password: "123456",
@@ -84,8 +84,8 @@
     address: "Shinagawa-ku, Tokyo, Japan"
     )
     namkhing = User.create!(
-    name:"Nonlapat Leesomprasong",
-    phone_number: Faker::PhoneNumber.cell_phone,
+    name:"Namkhing Nonlapat",
+    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     card_detail: "",
     email: "namkhing@nomo.com",
     password: "123456",
