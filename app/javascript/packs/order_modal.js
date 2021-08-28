@@ -1,6 +1,7 @@
 // Will return an array of all the modal containers
 const initOrderModal = () => {
   const modalContainers = document.querySelectorAll('.order-modal')
+  // console.log(modalContainers)
   modalContainers.forEach(modalContainer => {
     // When the user clicks on <span> (x), close the modal
     var modal = modalContainer.querySelector('.modal');

@@ -1,115 +1,33 @@
-<div class="dashboard">
-  <%= render 'shared/dashboard_sidenav' %>
-  <div class="dashboard-content-container">
-    <% content_for :navbar, 'dashboard' %>
-    <%# Content Navbar %>
-    <div class="dashboard-topnav">
-      <div class="top-nav">
-        <%# Search %>
-        <div class="input-group">
-          <%= image_tag "search.svg", class: "input-group-text" %>
-          <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-        </div>
-        <div class="topnav-actions">
-          <%= image_tag "noti.svg", class: "mr-3"%>
-          <%# <%= render 'shared/dashboard_topnav' %>
-          <%= image_tag "avatar-dashboard.svg"%>
+<table class="table table-light mt-4">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col" class="table-primary">Order Id</th>
+      <th scope="col" class="table-primary">Customer</th>
+      <th scope="col" class="table-primary">Phone number</th>
+      <th scope="col" class="table-primary">Pay method</th>
+      <th scope="col" class="table-primary">Total price($)</th>
+      <th scope="col" class="table-primary">Purchased on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%# <div class="order-modal"> %>
+    <% @orders.each do |order| %>
+      <div class="order-modal">
+        <%# Table row %>
+        <tr class="order-modal-btn">
+          <td scope="row">#000<%= order.id %></td>
+          <td scope="row"><%= order.buyer.name %></td>
+          <td scope="row"><%= order.buyer.phone_number %></td>
+          <td scope="row">
+            <span class="badge-round-l-green"><%= order.pay_method.upcase %></span>
+          </td>
+          <td scope="row"><%= order.total_price %></td>
+          <td scope="row"><%= change_date_format(order.created_at) %></td>
+        </tr>
+        <div class="modal">
+          HIII
         </div>
       </div>
-    </div>
-    <hr class="#">
-    <%# End Topnav %>
-    <div class="dashboard-content">
-      <div class="content-container">
-        <%# Place your content below %>
-        <%# Page header %>
-        <div class="dashboard-page-header d-flex justify-content-between">
-          <h1>All orders</h1>
-          <%= link_to 'Export report', "#", class: "dashboard-button" %>
-        </div>
-        <%# Order table %>
-        <%# <div class="order-modal"> %>
-        <table class="table table-light mt-4">
-          <thead>
-            <tr class="table-primary">
-              <th scope="col" class="table-primary">Order Id</th>
-              <th scope="col" class="table-primary">Customer</th>
-              <th scope="col" class="table-primary">Phone number</th>
-              <th scope="col" class="table-primary">Pay method</th>
-              <th scope="col" class="table-primary">Total price($)</th>
-              <th scope="col" class="table-primary">Purchased on</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%# <div class="order-modal"> %>
-            <% @orders.each do |order| %>
-              <div class="order-modal">
-                <tr class="order-modal-btn">
-                  <td scope="row">#000<%= order.id %></td>
-                  <td scope="row"><%= order.buyer.name %></td>
-                  <td scope="row"><%= order.buyer.phone_number %></td>
-                  <td scope="row">
-                    <span class="badge-round-l-green"><%= order.pay_method.upcase %></span>
-                  </td>
-                  <td scope="row"><%= order.total_price %>.00</td>
-                  <td scope="row"><%= change_date_format(order.created_at) %></td>
-                  <%# Order Modal %>
-                  <div class="modal">
-                    <div class="order-card modal-content">
-                      <div class="modal-header">
-                        <span class="close"><%= image_tag "close.svg" %></span>
-                        <%# <h2>Modal Header</h2> %>
-                      </div>
-                      <!-- Modal content -->
-                      <div class="modal-body">
-                        <div class="modal-title d-flex justify-content-between">
-                          <h4>Order #000<%= order.id %></h4>
-                          <h4>$<%= order.total_price %>.00</h4>
-                        </div>
-                        <p class="mb-4" style="color: rgba(0, 0, 0, 0.5);; font-weight: 400;"><%= change_date_format(order.created_at) %></p>
-                        <% order.ingredients.each do |ingredient| %>
-                          <div class="modal-list">
-                            <%= cl_image_tag ingredient.photo.key, height: 50, width: 50, crop: :fill %>
-                            <div class="label ml-3">
-                              <strong><%= ingredient.stock_amount %><%= ingredient.unit.downcase %> x <%= ingredient.name %></strong>
-                              <p class="mb-0" style="color: rgba(0, 0, 0, 0.5);">#000<%= ingredient.id %></p>
-                            </div>
-                            <div class="price">
-                              <strong>$<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%></strong>
-                            </div>
-                            <hr>
-                          </div>
-                        <% end %>
-                        <div class="modal-detail d-flex justify-content-between">
-                          <h4>Payment method</h4>
-                          <div class="label mb-3" style="width: 35%;">
-                            <p class="mb-1"><strong><%= order.pay_method.upcase %></strong></p>
-                            <p style="font-weight: 400;"><%= order.pay_method == "cash" ? 'No payment detail' : 'VISA 1234 2345 2345 XXXX' %></p>
-                          </div>
-                        </div>
-                        <div class="modal-detail d-flex justify-content-between" style="border-bottom:0;">
-                          <h4>Customer Detail</h4>
-                          <div class="label mb-4" style="width: 35%;">
-                            <p class="mb-1"><strong><%= order.buyer.name %></strong></p>
-                            <p class="mb-1" style="font-weight: 400;">Phone number: <%= order.buyer.phone_number %></p>
-                            <p style="font-weight: 400;">Email: <%= order.buyer.email %></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button class="btn dashboard-button-large">Order collected</button>
-                      </div>
-                    </div>
-                  </div>
-                  <%# End of modal %>
-                </tr>
-              </div>
-            <% end %>
-          </tbody>
-        </table>
-        <%# </div> %>
-      </div>
-    </div>
-    <%# Background End %>
-  </div>
-</div>
+    <% end %>
+  </tbody>
+</table>
