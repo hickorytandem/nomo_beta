@@ -1,0 +1,54 @@
+.home-banner {
+  background-image: image-url('2xbanner-1.jpg');
+  background-size: 100vw;
+  height: 100vh;
+  padding: auto;
+  align-items: center;
+  color: white;
+  h4 {
+    font-family: Anton;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    line-height: 110px;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-family: 'Beth Ellen', 'Gamja Flower' ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    line-height: 110px;
+    // text-decoration: underline;
+  }
+  span {
+    position: absolute;
+    z-index: 1;
+    top: 210px;
+    left: 598px;
+  }
+
+  span::before {
+    content: "goodbye";
+    // animation: animate infinite 3s;
+    padding-left: 10px;
+  }
+}
+
+
+@keyframes animate {
+
+    0% {
+      content: "goodbye";
+    }
+
+    50% {
+      content: "さようなら";
+    }
+
+    75% {
+      content: "adiós";
+      // position: relative;
+      // left: 12px;
+    }
+  }
