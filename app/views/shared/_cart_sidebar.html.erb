@@ -6,20 +6,20 @@
     <h4 class="my-cart">My cart</h4>
     <% if current_user.pending_order.present?  %>
       <% current_user.pending_order.ingredients.each do |ingredient| %>
-      <div class="row cart-item">
-        <div class="col-4">
-          <%= cl_image_tag ingredient.photo.key, class: "cart-img" %>
-        </div>
-        <div class="col-8">
-          <div class="cart-detail">
-            <div class="item-price">
-              <p><%= ingredient.stock_amount %> X <%= ingredient.name %></p>
-              <p><%= humanized_money_with_symbol(ingredient.price) %></p>
+        <div class="row cart-item">
+          <div class="col-4">
+            <%= cl_image_tag ingredient.photo.key, class: "cart-img" %>
+          </div>
+          <div class="col-8">
+            <div class="cart-detail">
+              <div class="item-price">
+                <p><%= ingredient.stock_amount %> X <%= ingredient.name %></p>
+                <p><%= humanized_money_with_symbol(ingredient.price) %></p>
+              </div>
+              <p class="cart-resto"><%= ingredient.seller.restaurant.name %></p>
             </div>
-            <p class="cart-resto"><%= ingredient.seller.restaurant.name %></p>
           </div>
         </div>
-      </div>
       <% end %>
       <%= link_to checkout_path, class: "btn btn-checkout" do %>
         <p>Proceed to checkout</p>
@@ -31,7 +31,16 @@
   </div>
 </div>
 <%# Cart Icon %>
-<span style="cursor:pointer" onclick="openNav()"><%= image_tag "icon_cart.svg" %></span>
+<span style="cursor:pointer" onclick="openNav()" class="m-2">
+  <div class="cart-number d-flex">
+    <%= image_tag "icon_cart.svg" %>
+    <% if current_user.pending_order.ingredients.count == 0 %>
+      <p>0</p>
+    <% else %>
+      <p><%= current_user.pending_order.ingredients.count %></p>
+    <% end %>
+  </div>
+</span>
 <script>
   // /* Set the width of the side navigation */
     function openNav() {
