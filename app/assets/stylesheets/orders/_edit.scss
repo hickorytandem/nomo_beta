@@ -74,8 +74,73 @@
   text-align: left;
 }
 
+.checkout-summary-left {
+  padding-top: 112px;
+  background-color: #F9F8F6;
+  height: 100wh;
+  display: flex;
+  justify-content: center;
+}
+
+.co-container {
+  width: 70%;
+}
+
+.order-ingredient {
+  display: flex;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.order-ingredient img {
+  margin-right: 16px;
+}
+
+.checkout-summary-left h2 {
+  font-family: $body-font;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 27px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding-bottom: 16px;
+}
+
+.ingredient-quantity-and-name {
+  font-family: $body-font;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding-bottom: 0;
+  margin-bottom: 16px;
+}
+
+.order-ingredient-description {
+  margin-right: 112px;
+}
+
+.order-ingredient-details {
+  width: max-content;
+}
+
+.resto-name-grey {
+  font-family: $body-font;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(0,0,0,0.3);
+}
+
 .checkout-summary {
-  padding-top: 48px;
+  padding: 72px 48px;
 }
 
 .checkout-pay {
