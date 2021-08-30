@@ -1,13 +1,20 @@
 <% @recipe_hashes.each do |recipe_hash| %>
-  <div class="card-column card-ingredient">
+  <div class="card-column card-recipe">
     <%= link_to recipe_hash[:link], action: 'go' do %>
     <%#= image_tag recipe_hash[:src], alt: "alttext" %>
     <%#= cl_image_tag recipe.photo.key, class: "image" %>
-      <div class="card-ingredient-info">
-        <div class="card-ingredient-text">
-          <h2><%= recipe_hash[:name] %></h2>
-          <p><%= recipe_hash[:summary] %></p>
-          <p>By <strong><%= recipe_hash[:author] %></strong></p>
+      <div class="card-recipe-info">
+        <div class="card-recipe-text">
+          <div class="text-head">
+            <%= image_tag "Review-star.svg", alt: "review-star", width: "24px" %>
+            <p><%= recipe_hash[:review] %></p>
+          </div>
+          <div class="text-body">
+            <h2><%= recipe_hash[:name] %></h2>
+          </div>
+          <div class="text-foot">
+            <p>By <strong><%= recipe_hash[:author] %></strong></p>
+          </div>
         </div>
       </div>
     <% end %>

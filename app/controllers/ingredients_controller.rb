@@ -75,9 +75,10 @@ class IngredientsController < ApplicationController
       end
     end
 
-    html_doc.search('.card__summary').first(3).each do |ele|
+    html_doc.search('.recipe-ratings').first(3).each do |ele|
       @recipe_hashes.each do |recipe|
-        recipe[:summary] = ele.text.strip
+        recipe[:review] = ele.text.strip
+        recipe[:review] = recipe[:review].slice(7, 4)
       end
     end
 
