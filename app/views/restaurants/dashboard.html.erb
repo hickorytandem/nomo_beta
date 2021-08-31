@@ -29,9 +29,17 @@
         <%# Place your content below %>
         <%# Status %>
         <%= render 'shared/dashboard_status' %>
+        <%#= column_chart @sold_ingredients.group_by_day(:created_at) %>
+        <%= column_chart @orders.group_by_day(:created_at).sum(:weight) %>
+        <%= line_chart @total_customers.group_by_day(:created_at).count %>
+        <%= line_chart @orders.group_by_day(:created_at).count %>
+        <%= line_chart @orders.group_by_day(:created_at).sum(:total_price) %>
+        <%= pie_chart @sold_ingredients.group(:name).sum(:stock_amount) %>
+
         <%= render 'shared/carbon_perf' %>
         <%= render 'shared/shop_setup' %>
         <%= render 'shared/shop_score' %>
+
       </div>
     </div>
   </div>
