@@ -34,11 +34,7 @@
 <span style="cursor:pointer" onclick="openNav()" class="m-2">
   <div class="cart-number d-flex">
     <%= image_tag "icon_cart.svg" %>
-    <% if current_user.pending_order.ingredients.count == 0 %>
-      <p>0</p>
-    <% else %>
-      <p><%= current_user.pending_order.ingredients.count %></p>
-    <% end %>
+      <p><%= current_user.pending_order&.ingredients&.count %></p>
   </div>
 </span>
 <script>

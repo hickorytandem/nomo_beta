@@ -30,11 +30,11 @@
         <%# Status %>
         <%= render 'shared/dashboard_status' %>
         <%#= column_chart @sold_ingredients.group_by_day(:created_at) %>
-        <%= column_chart @orders.group_by_day(:created_at).sum(:weight) %>
+        <%= column_chart @orders.group_by_day(:created_at).sum(:weight), colors: ["#FFDEE5", "#FEE8D9", "#D3D6ED"] %>
         <%= line_chart @total_customers.group_by_day(:created_at).count %>
         <%= line_chart @orders.group_by_day(:created_at).count %>
         <%= line_chart @orders.group_by_day(:created_at).sum(:total_price) %>
-        <%= pie_chart @sold_ingredients.group(:name).sum(:stock_amount) %>
+        <%= bar_chart @sold_ingredients.group(:name).sum(:stock_amount) %>
 
         <%= render 'shared/carbon_perf' %>
         <%= render 'shared/shop_setup' %>
