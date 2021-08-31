@@ -29,7 +29,10 @@ class OrdersController < ApplicationController
   end
 
   def success
-    skip_authorization
+    @order = find_order_in_cart
+    authorize @order
+    @order.update(status: :purchased)
+    @order.update(total_price: @order_total_price)
   end
 
 
@@ -57,8 +60,8 @@ class OrdersController < ApplicationController
       cancel_url: order_url(@order)
     )
     @order.update(checkout_session_id: session.id)
-    @order.update(status: :purchased)
-    @order.update(total_price: @order_total_price)
+    # @order.update(status: :purchased)
+    # @order.update(total_price: @order_total_price)
   end
 
   def update
