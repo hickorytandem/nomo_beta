@@ -85,23 +85,34 @@
 
   .card-row {
     padding-left: 32px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 88px;
+    margin-bottom: 24px;
   }
 
   .section-ig-one {
-    padding-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin-right: 32px;
+    margin-left: 16px;
   }
 
   .section-ig-two {
     padding-top: 32px;
-    padding-bottom: 32px;
-    background-color: $nm-pink;
+    padding-bottom: 16px;
     padding-left: 0 !important;
-    margin-left: 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin-right: 32px;
+    margin-left: 16px;
   }
 
   .section-ig-three {
     padding-top: 32px;
-    padding-bottom: 32px;
+    padding-bottom: 16px;
+    margin-right: 32px;
+    margin-left: 16px;
   }
 
   .section-ig-four{

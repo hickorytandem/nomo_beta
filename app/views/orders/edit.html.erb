@@ -5,30 +5,47 @@
 
     </div>
     <div class="col-6">
-      <h2 class="section-title">Payment Detail</h2>
-      <p class="section-description">Complete your purchase by providing your payment details.</p>
-      <%= simple_form_for @order do |f| %>
-        <%= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
-        <%= f.hidden_field :total_price, value: @order_total_price %>
-        <%= f.hidden_field :status, value: :purchased %>
-        <%= f.submit "Pay & Place order", class: "btn btn-pay" %>
-      <% end %>
-      <div class="summary">
-        <div class="summary-top">
-          <div class="top1">
-            <p class="top">Subtotal</p>
-            <p class="top">$ <%= @order_total_price %></p>
+      <div class="row py-4">
+        <div class="col-12 checkout-summary">
+          <h1>Summary</h1>
+          <div class="summary">
+            <div class="summary-top">
+              <div class="top1">
+                <p class="top">Subtotal</p>
+                <p class="top">$ <%= @order_total_price %></p>
+              </div>
+              <div class="top2">
+                <p class="top">Discount</p>
+                <p class="top">$ 0</p>
+              </div>
+            </div>
+            <div class="summary-bottom">
+              <p class="total">Total</p>
+              <p class="total">$ <%= @order_total_price %></p>
+            </div>
           </div>
-          <div class="top2">
-            <p class="top">Discount</p>
-            <p class="top">$ 0</p>
+          <div class="checkout-pay">
+            <button id="pay" class="btn btn-pay">Checkout</button>
           </div>
-        </div>
-        <div class="summary-bottom">
-          <p class="total">Total</p>
-          <p class="total">$ <%= @order_total_price %></p>
+
+          <script src="https://js.stripe.com/v3/"></script>
+          <script>
+            const paymentButton = document.getElementById('pay');
+            paymentButton.addEventListener('click', () => {
+              const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+              stripe.redirectToCheckout({
+                sessionId: '<%= @order.checkout_session_id %>'
+              });
+            });
+          </script>
         </div>
       </div>
+      <%#= simple_form_for @order do |f| %>
+        <%#= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
+        <%#= f.hidden_field :total_price, value: @order_total_price %>
+        <%#= f.hidden_field :status, value: :purchased %>
+        <%#= f.submit "Pay & Place order", class: "btn btn-pay" %>
+      <%# end %>
     </div>
   </div>
 </div>

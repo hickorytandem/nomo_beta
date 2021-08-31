@@ -1,0 +1,15 @@
+<%# Section header %>
+<div class="dashboard-page-header d-flex justify-content-between mt-5">
+  <h1>Carbon performance</h1>
+</div>
+<%# Content %>
+<div class="carbon-sum justify-content-between">
+  <div class="label">
+    <h4>So far, you’ve decreased carbon emission</h4>
+    <%= link_to 'See how we calculate the emission', '#' %>
+  </div>
+  <div class="lable-right d-flex">
+    <%= image_tag 'tree-large.svg', class: "mr-2" %>
+    <h1 class="mr-2"><%= number_with_delimiter(@co2, :delimiter => ',') %> kg</h1>
+  </div>
+</div>
