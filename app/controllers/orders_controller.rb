@@ -13,6 +13,14 @@ class OrdersController < ApplicationController
       end
     end
     @my_ingredients = @my_orders.sum
+
+    # Order.where(buyer: current_user).each do |order|
+    #   @my_order_ingredients = []
+    #   order.ingredients.each do |ingredient|
+    #     @my_order_ingredients << ingredient.price_cents
+    #   end
+    #   order.total_price = @my_order_ingredients.sum
+    # end
   end
 
   def new

@@ -34,7 +34,8 @@
               <div class="order-details">
                 <h4 class="mt-3">Order #0000<%= not_collected_order.id %></h4>
                 <p class="order-date"><%= change_date_format(not_collected_order.created_at) %></p>
-                <p class="order-price"> Total: $<%= not_collected_order.total_price %></p>
+                <p class="order-price"> Total: <%= humanized_money_with_symbol(not_collected_order.ingredients.map(&:price).sum)%></p>
+                <%# raise %>
               </div>
               <div class="order-modal">
                 <!-- Trigger/Open The Modal -->
@@ -70,7 +71,7 @@
                     <%# Modal footer %>
                     <div class="modal-footer py-3" style="height: 72px;">
                       <h4 style="position: absolute; left:28px;">Total</h4>
-                      <h4 style="position: absolute; right:28px;"><%= humanized_money_with_symbol(not_collected_order.total_price)%></h4>
+                      <h4 style="position: absolute; right:28px;"><%= humanized_money_with_symbol(not_collected_order.ingredients.map(&:price).sum)%></h4>
                     </div>
                   </div>
                 </div>
