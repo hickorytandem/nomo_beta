@@ -12,7 +12,14 @@
     <div class="navbar-actions">
       <%# Search %>
       <div class="nav-item">
-        <input type="ingredient" class="form-control" id="exampleFormControlInput" placeholder="Search">
+        <%= form_tag ingredients_path, method: :get do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search"
+          %>
+        <%= submit_tag "", style: "display: none;" %>
+        <% end %>
       </div>
       <%# For business %>
       <div class="nav-item active">
