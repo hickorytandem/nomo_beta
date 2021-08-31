@@ -38,6 +38,9 @@
             </div>
           </div>
           <div class="checkout-pay">
+            <%= simple_form_for @order do |f| %>
+              <%= f.hidden_field :total_price, value: @order_total_price %>
+            <% end %>
             <button id="pay" class="btn btn-pay">Checkout</button>
           </div>
 

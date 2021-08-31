@@ -28,14 +28,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def success
-    @order = find_order_in_cart
-    authorize @order
-    @order.update(status: :purchased)
-    @order.update(total_price: @order_total_price)
-  end
-
-
   def show
     @order = Order.find(params[:id])
     authorize @order
@@ -56,12 +48,20 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: @ingredients.map { |ingredient| {name: ingredient.name, images: [ingredient.photo], amount: ingredient.unit_price, currency: 'usd', quantity: ingredient.stock_amount } },
+      # line_items: [{name: ingredient.name, images: [ingredient.photo], amount: ingredient.unit_price, currency: 'usd', quantity: ingredient.stock_amount } ],
       success_url: my_cart_success_url,
       cancel_url: order_url(@order)
     )
     @order.update(checkout_session_id: session.id)
     # @order.update(status: :purchased)
     # @order.update(total_price: @order_total_price)
+  end
+
+  def success
+    @order = find_order_in_cart
+    authorize @order
+    @order.update(status: :purchased)
+    @order.update(total_price: @order_total_price)
   end
 
   def update
