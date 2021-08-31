@@ -4,7 +4,7 @@
     <%= image_tag 'pickup.svg' %>
     <div class="label">
       <p>To be picked up</p>
-      <h4><%= @orders %></h4>
+      <h4><%= @orders_to_collect.count %></h4>
     </div>
   </div>
   <%# Expire soon %>
@@ -12,7 +12,7 @@
     <%= image_tag 'expired.svg' %>
     <div class="label">
       <p>Expire soon</p>
-      <h4><%= @expire_soon %></h4>
+      <h4><%= @expire_soon.sum(:stock_amount) %></h4>
     </div>
   </div>
   <%# Sold today %>
@@ -20,7 +20,7 @@
     <%= image_tag 'sun.svg' %>
     <div class="label">
       <p>Ingredient sold</p>
-      <h4><%=  @sold_amount %></h4>
+      <h4><%=  @sold_ingredients.sum(:stock_amount) %></h4>
     </div>
   </div>
   <%# Wasted today %>
@@ -28,7 +28,7 @@
     <%= image_tag 'waste.svg' %>
     <div class="label">
       <p>Waste produced (kg)</p>
-      <h4><%= @wasted_amount %></h4>
+      <h4><%= @unsold_ingredients.sum(:stock_amount) %></h4>
     </div>
   </div>
 </div>
