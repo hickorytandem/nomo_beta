@@ -9,7 +9,7 @@
   padding-top: 88px;
   justify-content: space-between;
   padding-bottom: 24px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .category {
@@ -23,11 +23,17 @@
 }
 
 .monthly-deals {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 16px;
-  padding-right: 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 88px;
+  padding-right: 80px;
+  background-color: #F5F7FA;
+  display: flex;
+  justify-content: space-between;
+}
+
+.monthly-deals-layout {
+  display: flex;
 }
 
 .monthly-deals h2 {
@@ -44,6 +50,7 @@
 .month {
   padding-left: 16px;
   padding-right: 16px;
+  margin-right: 88px;
 }
 
 .filter-col {
@@ -51,10 +58,11 @@
   padding-right: 0 !important;
   padding-left: 116px;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
+  margin-top: 32px;
 }
 
 .filters {
-  padding-top: 32px;
+  // padding-top: 32px;
   padding-bottom: 32px;
   padding-left: 16px;
   padding-right: 16px;
@@ -104,8 +112,8 @@
     padding-bottom: 16px;
     padding-left: 0 !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    margin-right: 32px;
-    margin-left: 16px;
+    margin-right: 56px;
+    margin-left: 32px;
   }
 
   .section-ig-three {

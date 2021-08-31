@@ -2,7 +2,7 @@
 <div class="container mt-5">
   <div class="user-status">
     <h1>Welcome back, <%= current_user.name %>!</h1>
-    <div class="d-flex">
+    <div class="d-flex promo-cards">
       <div class="card-banner" style="background-image: url(<%= asset_path('carbon_card.svg') %>);">
         <h4>So far you’ve rescued <span style="color: $nm-d-green;"><%= @my_ingredients %> </span>ingredients and saved 435 kg of CO2</h4>
         <%= link_to "Learn more", class:"btn btn-primary" %>
