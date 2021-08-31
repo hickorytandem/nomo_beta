@@ -19,10 +19,8 @@
         <%= link_to "For business", "#", class: "nav-link" %>
       </div>
       <%# Cart %>
-      <div class="nav-item">
-        <% if user_signed_in? %>
-          <%= render 'shared/cart_sidebar' %>
-        <% end %>
+      <div class="nav-item mr-0">
+        <%= render 'shared/cart_sidebar' if user_signed_in? %>
       </div>
       <%# Dropdown %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
