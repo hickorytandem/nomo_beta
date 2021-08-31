@@ -13,6 +13,14 @@ class OrdersController < ApplicationController
       end
     end
     @my_ingredients = @my_orders.sum
+
+    # Order.where(buyer: current_user).each do |order|
+    #   @my_order_ingredients = []
+    #   order.ingredients.each do |ingredient|
+    #     @my_order_ingredients << ingredient.price_cents
+    #   end
+    #   order.total_price = @my_order_ingredients.sum
+    # end
   end
 
   def new
@@ -27,11 +35,6 @@ class OrdersController < ApplicationController
       @order_total_price = @ingredient_price.sum
     end
   end
-
-  def success
-    skip_authorization
-  end
-
 
   def show
     @order = Order.find(params[:id])
@@ -53,10 +56,18 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: @ingredients.map { |ingredient| {name: ingredient.name, images: [ingredient.photo], amount: ingredient.unit_price, currency: 'usd', quantity: ingredient.stock_amount } },
+      # line_items: [{name: ingredient.name, images: [ingredient.photo], amount: ingredient.unit_price, currency: 'usd', quantity: ingredient.stock_amount } ],
       success_url: my_cart_success_url,
       cancel_url: order_url(@order)
     )
     @order.update(checkout_session_id: session.id)
+    # @order.update(status: :purchased)
+    # @order.update(total_price: @order_total_price)
+  end
+
+  def success
+    @order = find_order_in_cart
+    authorize @order
     @order.update(status: :purchased)
     @order.update(total_price: @order_total_price)
   end

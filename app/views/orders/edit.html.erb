@@ -1,10 +1,23 @@
-<div class="container">
-  <h1 class="checkout">Checkout</h1>
-  <div class="row">
-    <div class="col-6">
-
+<div class="row">
+  <div class="col-6 checkout-summary-left">
+    <div class="co-container">
+      <h2>Items</h2>
+      <% @order.ingredients.each do |ingredient| %>
+        <div class="order-ingredient">
+          <%= cl_image_tag ingredient.photo.key, class: "cart-img" %>
+          <div class="order-ingredient-description">
+            <div class="order-ingredient-details">
+              <p class="ingredient-quantity-and-name"><%= ingredient.stock_amount %> X <%= ingredient.name %></p>
+              <p class="resto-name-grey"><%= ingredient.seller.restaurant.name %></p>
+            </div>
+          </div>
+          <p class="ingredient-quantity-and-name"><%= humanized_money_with_symbol(ingredient.price)%></p>
+        </div>
+      <% end %>
     </div>
-    <div class="col-6">
+  </div>
+  <div class="col-6">
+    <div class="container">
       <div class="row py-4">
         <div class="col-12 checkout-summary">
           <h1>Summary</h1>
@@ -25,6 +38,9 @@
             </div>
           </div>
           <div class="checkout-pay">
+            <%= simple_form_for @order do |f| %>
+              <%= f.hidden_field :total_price, value: @order_total_price %>
+            <% end %>
             <button id="pay" class="btn btn-pay">Checkout</button>
           </div>
 
@@ -40,12 +56,12 @@
           </script>
         </div>
       </div>
-      <%#= simple_form_for @order do |f| %>
-        <%#= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
-        <%#= f.hidden_field :total_price, value: @order_total_price %>
-        <%#= f.hidden_field :status, value: :purchased %>
-        <%#= f.submit "Pay & Place order", class: "btn btn-pay" %>
-      <%# end %>
     </div>
+    <%#= simple_form_for @order do |f| %>
+      <%#= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
+      <%#= f.hidden_field :total_price, value: @order_total_price %>
+      <%#= f.hidden_field :status, value: :purchased %>
+      <%#= f.submit "Pay & Place order", class: "btn btn-pay" %>
+    <%# end %>
   </div>
 </div>

@@ -1,9 +1,8 @@
 <% content_for :navbar, 'dasboard' %>
 <div class="container mt-5">
-  <%# Status %>
   <div class="user-status">
     <h1>Welcome back, <%= current_user.name %>!</h1>
-    <div class="d-flex">
+    <div class="d-flex promo-cards">
       <div class="card-banner" style="background-image: url(<%= asset_path('carbon_card.svg') %>);">
         <h4>So far you’ve rescued <span style="color: $nm-d-green;"><%= @my_ingredients %> </span>ingredients and saved 435 kg of CO2</h4>
         <%= link_to "Learn more", class:"btn btn-primary" %>
@@ -35,7 +34,8 @@
               <div class="order-details">
                 <h4 class="mt-3">Order #0000<%= not_collected_order.id %></h4>
                 <p class="order-date"><%= change_date_format(not_collected_order.created_at) %></p>
-                <p class="order-price"> Total: $<%= not_collected_order.total_price %></p>
+                <p class="order-price"> Total: <%= humanized_money_with_symbol(not_collected_order.ingredients.map(&:price).sum)%></p>
+                <%# raise %>
               </div>
               <div class="order-modal">
                 <!-- Trigger/Open The Modal -->
@@ -47,10 +47,10 @@
                       <span class="close"><%= image_tag "close.svg" %></span>
                       <%# <h2>Modal Header</h2> %>
                     </div>
-                    <!-- Modal content -->
                     <div class="modal-body">
                       <div class="modal-title d-flex justify-content-between">
                         <h4>Order #000<%= not_collected_order.id %></h4>
+                        <p></p>
                       </div>
                       <p class="mb-4" style="color: rgba(0, 0, 0, 0.5);; font-weight: 400;"><%= change_date_format(not_collected_order.created_at) %></p>
                       <% not_collected_order.ingredients.each do |ingredient| %>
@@ -62,6 +62,7 @@
                           </div>
                           <div class="price">
                             <strong><%= humanized_money_with_symbol(ingredient.price)%></strong>
+                            <p></p>
                           </div>
                           <hr>
                         </div>
@@ -70,7 +71,7 @@
                     <%# Modal footer %>
                     <div class="modal-footer py-3" style="height: 72px;">
                       <h4 style="position: absolute; left:28px;">Total</h4>
-                      <h4 style="position: absolute; right:28px;">$<%= not_collected_order.total_price %></h4>
+                      <h4 style="position: absolute; right:28px;"><%= humanized_money_with_symbol(not_collected_order.ingredients.map(&:price).sum)%></h4>
                     </div>
                   </div>
                 </div>
@@ -80,7 +81,7 @@
         <% end %>
       </div>
       <%# Complete orders %>
-      <div id="complete-order" class="tab-pane active">
+      <div id="complete-order" class="tab-pane">
         <% if @collected_orders.count == 0 %>
           <h2>No orders</h2>
         <% else %>
@@ -107,7 +108,7 @@
                         <h4>$<%= collected_order.total_price %>.00</h4>
                       </div>
                       <p class="mb-4" style="color: rgba(0, 0, 0, 0.5);; font-weight: 400;"><%= change_date_format(collected_order.created_at) %></p>
-                      <% order.ingredients.each do |ingredient| %>
+                      <% collected_order.ingredients.each do |ingredient| %>
                         <div class="modal-list">
                           <%= cl_image_tag ingredient.photo.key, height: 50, width: 50, crop: :fill %>
                           <div class="label ml-3">
@@ -116,6 +117,7 @@
                           </div>
                           <div class="price">
                             <strong>$<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%></strong>
+                            <p></p>
                           </div>
                           <hr>
                         </div>
