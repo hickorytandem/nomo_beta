@@ -48,7 +48,11 @@
                 <div style="width: 25%;" class="table-data"><%= order.buyer.name %></div>
                 <div style="width: 15%;" class="table-data"><%= order.buyer.phone_number %></div>
                 <div style="width: 20%;" class="table-data">
-                  <span class="badge-round-l-green"><%= order.pay_method.upcase %></span>
+                  <% if order.pay_method.present? %>
+                    <span class="badge-round-l-green"><%= order.pay_method.upcase %></span>
+                  <% else %>
+                    <span class="badge-round-l-green">CREDIT</span>
+                  <% end %>
                 </div>
                 <div style="width: 15%;" class="table-data"><%= order.total_price %></div>
                 <div style="width: 15%;" class="table-data"><%= change_date_format(order.created_at) %></div>
@@ -82,7 +86,11 @@
                     <div class="modal-detail d-flex justify-content-between">
                       <h4>Payment method</h4>
                       <div class="label mb-3" style="width: 35%;">
-                        <p class="mb-1"><strong><%= order.pay_method.upcase %></strong></p>
+                        <% if order.pay_method.present? %>
+                          <p class="mb-1"><strong><%= order.pay_method.upcase %></strong></p>
+                        <% else %>
+                          <p class="mb-1"><strong>Credit Card</strong></p>
+                        <% end %>
                         <p style="font-weight: 400;"><%= order.pay_method == "cash" ? 'No payment detail' : 'VISA 1234 2345 2345 XXXX' %></p>
                       </div>
                     </div>
