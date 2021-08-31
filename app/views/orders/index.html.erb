@@ -1,6 +1,5 @@
 <% content_for :navbar, 'dasboard' %>
 <div class="container mt-5">
-  <%# Status %>
   <div class="user-status">
     <h1>Welcome back, <%= current_user.name %>!</h1>
     <div class="d-flex">
@@ -47,10 +46,10 @@
                       <span class="close"><%= image_tag "close.svg" %></span>
                       <%# <h2>Modal Header</h2> %>
                     </div>
-                    <!-- Modal content -->
                     <div class="modal-body">
                       <div class="modal-title d-flex justify-content-between">
                         <h4>Order #000<%= not_collected_order.id %></h4>
+                        <p></p>
                       </div>
                       <p class="mb-4" style="color: rgba(0, 0, 0, 0.5);; font-weight: 400;"><%= change_date_format(not_collected_order.created_at) %></p>
                       <% not_collected_order.ingredients.each do |ingredient| %>
@@ -62,6 +61,7 @@
                           </div>
                           <div class="price">
                             <strong><%= humanized_money_with_symbol(ingredient.price)%></strong>
+                            <p></p>
                           </div>
                           <hr>
                         </div>
@@ -80,7 +80,7 @@
         <% end %>
       </div>
       <%# Complete orders %>
-      <div id="complete-order" class="tab-pane active">
+      <div id="complete-order" class="tab-pane">
         <% if @collected_orders.count == 0 %>
           <h2>No orders</h2>
         <% else %>
@@ -116,6 +116,7 @@
                           </div>
                           <div class="price">
                             <strong>$<%= sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price )%></strong>
+                            <p></p>
                           </div>
                           <hr>
                         </div>
