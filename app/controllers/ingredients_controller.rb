@@ -15,6 +15,11 @@ class IngredientsController < ApplicationController
     # @ingredients << restaurant.users.first.ingredients_as_seller
     end
     @near_ingredients = @near_ingredients.flatten.first(6)
+    if params[:query].present?
+      @ingredients = Ingredient.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @ingredients = Ingredient.all
+    end
   end
 
   def my_ingredients

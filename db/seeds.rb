@@ -265,27 +265,25 @@ end
     users = [namkhing, yui, anna]
     status = [:pending, :collected, :purchased, :cancelled]
     new_orders = []
-    15.times do |time|
-
-      order = Order.new(
-        # total_price: Faker::Commerce.price,
-        pay_method: pay_method.sample,
-        status: status.sample,
-        buyer: users.sample
-        )
-      new_orders << order if order.save
-    end
-
-    michael_ingredients.each do |ingredient|
-      ingredient.order = new_orders.sample
-      ingredient.save
-
-    end
-    new_orders.each do |order|
+    users.each do |user|
+      15.times do |time|
+        order = Order.new(
+          # total_price: Faker::Commerce.price,
+          pay_method: pay_method.sample,
+          status: status.sample,
+          buyer: user
+          )
       order.total_price = order.ingredients.map{ |ingredient| ingredient.unit_price }.inject(0){|sum,x| sum + x }
       order.save
       order.update(created_at: Faker::Date.between(from: 15.days.ago, to: Date.today))
+      new_orders << order
       p order
+      end
+    end
+  
+    michael_ingredients.each do |ingredient|
+      ingredient.order = new_orders.sample
+      ingredient.save
     end
 
     puts "Done!"
