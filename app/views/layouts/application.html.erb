@@ -15,6 +15,12 @@
       <%= render 'shared/flashes' %>
       <%= yield %>
     </body>
+  <% elsif content_for(:navbar) == 'home' %>
+    <body style="background-color: ##F4F4F4;">
+      <%= render 'shared/home_navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </body>
   <% else %>
     <body style="background-color: ##F4F4F4;">
       <%= render 'shared/navbar' %>

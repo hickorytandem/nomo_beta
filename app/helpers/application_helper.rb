@@ -8,4 +8,14 @@ module ApplicationHelper
     @sum = stock_amount * unit_price
   end
 
+  def total_price(order)
+    @total_price = 0
+    # All sum ingredients
+    order.ingredients.each do |ingredient|
+      ingredient_price = sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price)
+      @total_price += ingredient_price
+    end
+    @total_price
+  end
+
 end
