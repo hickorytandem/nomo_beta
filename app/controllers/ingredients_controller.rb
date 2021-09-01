@@ -20,6 +20,11 @@ class IngredientsController < ApplicationController
 
     @expire_today_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1).where(expiry_date: Date.today))
     @expire_today_three_ing = @expire_today_ingredients.first(3)
+    if params[:query].present?
+      @ingredients = Ingredient.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @ingredients = Ingredient.all
+    end
   end
 
   def my_ingredients

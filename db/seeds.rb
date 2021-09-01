@@ -207,7 +207,7 @@ User.all.each do |user|
       ingredient = Ingredient.new(
       name: veg[:name],
       # price_cents: Faker::Commerce.price(range: 1..10.0),
-      unit_price: (1..50).to_a.sample,
+      unit_price: (100..500).to_a.sample / 100.0 ,
       # expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
       expiry_date: Faker::Date.between(from: 14.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
@@ -238,7 +238,7 @@ end
       ingredient = Ingredient.new(
       name: veg[:name],
       # price_cents: Faker::Commerce.price(range: 1..10.0),
-      unit_price: (1..50).to_a.sample,
+      unit_price: (100..500).to_a.sample / 100.0 ,
       # expiry_date: Date.today - 3.months - time.days,
       expiry_date: Faker::Date.between(from: 15.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
@@ -258,34 +258,35 @@ end
       else
         veg_index += 1
       end
-
 end
 
     pay_method = ["cash", "credit", "paypal"]
     users = [namkhing, yui, anna]
-    status = [:pending, :collected, :purchased, :cancelled]
+    status = [:collected, :purchased, :cancelled]
     new_orders = []
-    15.times do |time|
-
-      order = Order.new(
-        # total_price: Faker::Commerce.price,
-        pay_method: pay_method.sample,
-        status: status.sample,
-        buyer: users.sample
-        )
-      new_orders << order if order.save
+    users.each do |user|
+      15.times do |time|
+        order = Order.new(
+          # total_price: Faker::Commerce.price,
+          pay_method: pay_method.sample,
+          status: status.sample,
+          buyer: user
+          )
+      order[:total_price_cents] = order.ingredients.map{ |ingredient| ingredient.unit_price }.inject(0){|sum,x| sum + x }
+      # p order.total_price_cents
+      # prices = order.ingredients.map{ |ingredient| sum_ingredient_price(ingredient.stock_amount, ingredient.unit_price) }
+      # order.total_price_cents = prices.sum
+      order.save
+      order.update(created_at: Faker::Date.between(from: 15.days.ago, to: Date.today))
+      new_orders << order
+      p order
+      end
     end
+
 
     michael_ingredients.each do |ingredient|
       ingredient.order = new_orders.sample
       ingredient.save
-
-    end
-    new_orders.each do |order|
-      order.total_price = order.ingredients.map{ |ingredient| ingredient.unit_price }.inject(0){|sum,x| sum + x }
-      order.save
-      order.update(created_at: Faker::Date.between(from: 15.days.ago, to: Date.today))
-      p order
     end
 
     puts "Done!"

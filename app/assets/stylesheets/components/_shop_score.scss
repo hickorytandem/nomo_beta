@@ -1,0 +1,37 @@
+.rank-large {
+  background-color: $nm-green;
+  // padding: auto;
+  width: 64px;
+  height: 64px;
+  margin-right: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+  color: white;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  }
+
+}
+
+
+.suggest-action-container {
+  background-color: white;
+  width: 60%;
+  margin-right: 20px;
+  height: 20px;
+   border-radius: 12px;
+
+}
+
+.nearby-score-container {
+  background-color: white;
+  width: 40%;
+  height: 20px;
+   border-radius: 12px;
+}
