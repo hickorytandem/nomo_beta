@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-5 ingredient-fix">
     <div class="left-pane">
-      <%= cl_image_tag @ingredient.photo.key, class:"ingredient-image", crop: :fill%>
+      <%= cl_image_tag @ingredient.photo.key, class:"ingredient-image", crop: :crop %>
       <div class="qty-order">
         <div class="col-6 quantity margin-0">
           <p>QTY : </p>
@@ -23,9 +23,9 @@
       <div class="ingredients-badges">
         <span class="badge-round-yellow"><%= @ingredient.seller.restaurant.category.upcase %></span>
       </div>
-      <p><strong>Expiry date: </strong><%= @ingredient.expiry_date %></p>
       <p class="ingredient-description"><%= @ingredient.description %></p>
       <div class="promo-cards">
+        <%= render 'shared/card-l-green' %>
         <%= render 'shared/card-green' %>
         <%= render 'shared/card-d-green' %>
       </div>
@@ -52,20 +52,20 @@
   <div class="col-7">
     <div class="section-two">
       <h1 class="ingredient-header">Matching recipe</h1>
-      <div class="cards-flex">
+      <div class="cards-flex padding-8">
         <%= render 'shared/card-recipe' %>
       </div>
     </div>
     <div class="section-three">
       <h1 class="ingredient-header">Often pair with...</h1>
       <div class="cards-flex">
-        <%= render partial: 'shared/card-ingredient', locals: { ingredients: @paired_ingredients } %>
+        <%= render partial: 'shared/show-card-ingredient', locals: { ingredients: @paired_ingredients } %>
       </div>
     </div>
     <div class="section-four">
       <h1 class="ingredient-header">Other products in this store</h1>
       <div class="cards-flex">
-        <%= render partial: 'shared/card-ingredient', locals: { ingredients: @seller_ingredients } %>
+        <%= render partial: 'shared/show-card-ingredient', locals: { ingredients: @seller_ingredients } %>
       </div>
     </div>
   </div>

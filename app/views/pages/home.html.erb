@@ -1,8 +1,24 @@
-<% content_for :navbar, 'home' %>
 <div class="home-banner d-flex justify-content-center">
   <div class="animate-text">
     <%= image_tag 'say.svg' %>
     <h3><span> </span></h3>
     <h4>to food waste</h4>
+    <%= link_to ingredients_path, class: "btn btn-shop-now" do %>
+      <p>SHOP NOW</p>
+      <%= image_tag 'Icon-arrow-right.svg', class:"shop-arrow-right" %>
+    <% end %>
+  </div>
+</div>
+<div class="home-banner-2 d-flex justify-content-center">
+  <div class="home-banner-2-left">
+    <h4>SAVE YOUR BILL AND SAVE THE WORLD</h4>
+    <p>Fight food waste with sustainably sourced groceries with <strong>up to 50% off</strong> normal grocery price. </p>
+    <%= link_to ingredients_path, class: "btn btn-get-started" do %>
+      <p>GET STARTED</p>
+      <%= image_tag 'Icon-arrow-right.svg', class:"shop-arrow-right" %>
+    <% end %>
+  </div>
+  <div class="home-banner-2-right">
+    <%= image_tag 'home_banner_2.jpg' %>
   </div>
 </div>

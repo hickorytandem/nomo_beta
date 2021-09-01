@@ -1,22 +1,22 @@
-.card-ingredient {
-  width: 228px;
-  height: 256px;
-  margin: 24px 12px 12px 12px;
+.show-card-ingredient {
+  width: 210px;
+  height: 230px;
+  margin: 24px 12px 24px 12px;
   border-radius: 8px;
   // &:hover {
   //   background-color: $nm-l-orange;
   // }
 }
 
-.card-ingredient a {
+.show-card-ingredient a {
   &:hover {
     text-decoration: none;
   }
 }
 
-.card-ingredient img {
-  width: 228px;
-  height: 160px;
+.show-card-ingredient img {
+  width: 210px;
+  height: 190px;
   object-fit: cover;
   border-radius: 8px;
   &:hover {
@@ -26,10 +26,10 @@
 }
 
 .fas .fa-thin {
-  text-shadow: 0 0 10px #000; 
+  text-shadow: 0 0 10px #000;
 }
 
-.card-ingredient .position-icon {
+.show-card-ingredient .position-icon {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -38,7 +38,7 @@
   font-size: 16px;
 }
 
-.card-ingredient-info {
+.show-card-ingredient-info {
   padding-left: 11px;
   padding-right: 11px;
   padding-top: 9px;
@@ -74,7 +74,7 @@
 //   padding-bottom: 11px;
 // }
 
-.card-ingredient-text p {
+.show-card-ingredient-text p {
   font-family: $body-font;
   font-size: 10px;
   font-style: normal;
@@ -85,7 +85,7 @@
   margin-bottom: 0;
 }
 
-.card-ingredient-text h2 {
+.show-card-ingredient-text h2 {
   font-family: $body-font !important;
   font-size: 20px;
   font-style: normal;
@@ -96,7 +96,7 @@
   padding-top: 4px;
 }
 
-.card-ingredient-text h3 {
+.show-card-ingredient-text h3 {
   font-family: $body-font !important;
   font-size: 16px;
   font-style: normal;
