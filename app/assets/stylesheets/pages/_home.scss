@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
 .home-banner {
   background-image: image-url('2xbanner-1.jpg');
-  background-size: 100vw;
+  background-size: cover;
+  // background-size: 100vw;
   height: 100vh;
   padding: auto;
   align-items: center;
@@ -42,15 +43,20 @@
   margin-left: 16px;
 }
 
+.shop-arrow-right-white {
+  margin-left: 16px;
+  color: white;
+}
+
 .home-banner-2 {
   background-color: $nm-orange;
   background-size: 100vw;
-  height: 100vh;
-  padding: auto;
+  height: 96vh;
+  padding: 48px 64px;
   align-items: center;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   h4 {
     font-family: $home-font;
@@ -60,13 +66,218 @@
     line-height: 110px;
     text-transform: uppercase;
     color: $nm-black;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-family: $body-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $nm-black;
+    margin-bottom: 32px;
   }
 }
 
 .home-banner-2-right {
   height: 100%;
+  width: 36%;
 }
 
+.home-banner-3 {
+  background-color: $nm-pink;
+  background-size: 100vw;
+  height: 84vh;
+  padding: 56px 64px;
+  align-items: center;
+  color: white;
+
+  h3 {
+    font-family: $home-font;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 79px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $nm-black;
+    margin-bottom: 48px;
+    margin-left: 48px;
+  }
+}
+
+.home-banner-3-row {
+  display:flex;
+  justify-content: space-around;
+  padding-bottom: 24px;
+}
+
+.home-banner-3-card {
+
+  img {
+    margin-bottom: 16px;
+  }
+
+  h5 {
+    font-family: $home-font;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $nm-black;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-family: $body-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $nm-black;
+  }
+}
+
+.home-banner-4 {
+  background-color: $nm-l-brown;
+  background-size: 100vw;
+  height: 96vh;
+  padding: 56px 64px;
+  align-items: center;
+  color: $nm-black;
+
+  h3 {
+    font-family: $home-font;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+
+  p {
+    font-family: $body-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+}
+
+.home-banner-4-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-banner-4-card-1 {
+  background-image: image-url('home-banner-4-card-1.jpg');
+  background-size: cover;
+  width: 25%;
+  height: 48vh;
+  padding: auto;
+  position: relative;
+
+  p {
+    font-family: $body-font;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $nm-l-brown;
+    padding-left: 16px;
+    position: absolute;
+    top: 248px;
+  }
+}
+
+.home-banner-4-card-2 {
+  background-image: image-url('home-banner-4-card-2.jpg');
+  background-size: cover;
+  width: 25%;
+  height: 48vh;
+  padding: auto;
+  position: relative;
+
+  p {
+    font-family: $body-font;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $nm-l-brown;
+    padding-left: 16px;
+    position: absolute;
+    top: 248px;
+  }
+}
+
+.home-banner-4-card-3 {
+  background-image: image-url('home-banner-4-card-3.jpg');
+  background-size: cover;
+  width: 25%;
+  height: 48vh;
+  padding: auto;
+  position: relative;
+
+  p {
+    font-family: $body-font;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $nm-l-brown;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: absolute;
+    top: 216px;
+  }
+}
+
+.home-banner-5 {
+  background-color: $nm-yellow;
+  background-size: 100vw;
+  height: 80vh;
+  padding: 56px 64px;
+  align-items: center;
+  color: $nm-black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-banner-5-left {
+  height: 100%;
+  width: 32%;
+}
+
+.home-banner-5-right {
+  h4 {
+    font-family: $home-font;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 96px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $nm-black;
+  }
+}
 
 @keyframes animate {
 

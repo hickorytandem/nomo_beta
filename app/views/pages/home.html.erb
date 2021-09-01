@@ -1,3 +1,4 @@
+<% content_for :navbar, 'home' %>
 <div class="home-banner d-flex justify-content-center">
   <div class="animate-text">
     <%= image_tag 'say.svg' %>
@@ -9,16 +10,66 @@
     <% end %>
   </div>
 </div>
-<div class="home-banner-2 d-flex justify-content-center">
+<div class="home-banner-2">
   <div class="home-banner-2-left">
-    <h4>SAVE YOUR BILL AND SAVE THE WORLD</h4>
-    <p>Fight food waste with sustainably sourced groceries with <strong>up to 50% off</strong> normal grocery price. </p>
+    <h4>SAVE YOUR<br>BILL AND SAVE<br> THE WORLD</h4>
+    <p>Fight food waste with sustainably sourced groceries with <br><strong>up to 50% off</strong> normal grocery price. </p>
     <%= link_to ingredients_path, class: "btn btn-get-started" do %>
       <p>GET STARTED</p>
       <%= image_tag 'Icon-arrow-right.svg', class:"shop-arrow-right" %>
     <% end %>
   </div>
-  <div class="home-banner-2-right">
-    <%= image_tag 'home_banner_2.jpg' %>
+  <%= image_tag 'home_banner_2.jpg', crop: :fill, class:"home-banner-2-right" %>
+</div>
+<div class="home-banner-3">
+  <h3>HOW IT WORKS.</h3>
+  <div class="row home-banner-3-row">
+    <div class="col-3 home-banner-3-card">
+      <%= image_tag "real-time.svg", alt: "real-time" %>
+      <h5>RESCUE FOOD IN REAL-TIME</h5>
+      <p>Discover surplus ingredients daily at great discounts.</p>
+    </div>
+    <div class="col-3 home-banner-3-card">
+      <%= image_tag "local.svg", alt: "locality" %>
+      <h5>PURCHASE FROM OVER 10K LOCAL SHOPS</h5>
+      <p>Easily pickup your order atthe shop closet to your area.</p>
+    </div>
+    <div class="col-3 home-banner-3-card">
+      <%= image_tag "statistics.svg", alt: "statistics" %>
+      <h5>TRACK THE IMPACT</h5>
+      <p>View environmental impact you’ve made in numbers.</p>
+    </div>
   </div>
+  <%= link_to ingredients_path, class: "btn btn-try-now" do %>
+    <p>TRY NOW</p>
+    <%= image_tag 'Icon-arrow-right.svg', class:"shop-arrow-right-white" %>
+  <% end %>
+</div>
+<div class="home-banner-4">
+  <h3>MORE TO EXPLORE<br></h3>
+  <p>Visit our blog for food waster, recipes, and the latest Nomo news.</p>
+  <div class="home-banner-4-row">
+    <div class="home-banner-4-card-1">
+      <p>Make produce last even longer</p>
+    </div>
+    <div class="home-banner-4-card-2">
+      <p>Bobby Flay’s Must-Have Pantry Spices</p>
+    </div>
+    <div class="home-banner-4-card-3">
+      <p>Most people waste more food than they think—here's how to fix</p>
+    </div>
+  </div>
+</div>
+<div class="home-banner-5">
+  <%= image_tag 'home-banner-5.jpg', crop: :fill, class:"home-banner-5-left" %>
+  <div class="home-banner-5-right">
+    <h4>DON'T WANNA <br>THROW AWAY YOUR<br> SURPLUS INGREDIENTS</h4>
+    <%= link_to ingredients_path, class: "btn btn-become-seller" do %>
+      <p>BECOME A SELLER</p>
+      <%= image_tag 'Icon-arrow-right.svg', class:"shop-arrow-right" %>
+    <% end %>
+  </div>
+</div>
+<div class="home-footer">
+  <%= render 'shared/footer' %>
 </div>
