@@ -20,18 +20,44 @@
 }
 
 
+.rank-rectangle {
+  background-color: $nm-d-green;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 72px;
+  h3 {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: Manrope;
+    margin:0;
+  }
+}
+
+
 .suggest-action-container {
   background-color: white;
   width: 60%;
   margin-right: 20px;
-  height: 20px;
-   border-radius: 12px;
+  border-radius: 12px;
+  padding: 24px;
+  h4 {
+    font-weight: 700;
+  }
+
 
 }
 
 .nearby-score-container {
   background-color: white;
   width: 40%;
-  height: 20px;
-   border-radius: 12px;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.green-action {
+  width: 48%;
 }
