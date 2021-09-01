@@ -11,6 +11,35 @@
   }
 }
 
+.btn-shop-now {
+  background-color: $nm-pink;
+  padding: 16px 24px;
+  color: black;
+  // margin-top: 8px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  width: 36%;
+  align-items: middle;
+  text-align: center;
+  margin: 16px auto;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-shop-now p {
+  font-family: $body-font;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 27px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
 .btn-show-more {
   background-color: white;
   padding: 6px 88px;
