@@ -1,0 +1,10 @@
+<%# Section header %>
+<div class="dashboard-page-header d-flex justify-content-between mt-5">
+  <h1>Don't forget to complete the setup</h1>
+</div>
+<%# Content %>
+<%# Chart %>
+<%= line_chart @total_customers.group_by_day(:created_at).count, colors: ["#FFDEE5"]%>
+<%= line_chart @orders.group_by_day(:created_at).count, colors: ["#F6C042"] %>
+<%= line_chart @orders.group_by_day(:created_at).sum(:total_price), colors: ["#D3D6ED"] %>
+<%= bar_chart @sold_ingredients.group(:name).sum(:stock_amount), colors: [["#F6C042", "#FFDEE5", "#A3D0BF", "#EE7246", "#095941", "#CED3F9", "#57BD6F"]] %>
