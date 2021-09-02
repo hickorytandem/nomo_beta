@@ -74,23 +74,20 @@ class IngredientsController < ApplicationController
       @recipe_hashes << { name: @name }
     end
 
-    html_doc.search('.card__titleLink').first(3).each do |ele|
-      @recipe_hashes.each do |recipe|
-        recipe[:link] = ele.attribute('href').value
-      end
+    html_doc.search('.card__titleLink').first(3).each_with_index do |ele, index|
+      @recipe_hashes[index][:link] = ele.attribute('href').value
+      html_file_for_recipe = URI.open(@recipe_hashes[index][:link]).read
+      html_file_for_recipe_doc = Nokogiri::HTML(html_file_for_recipe)
+      @recipe_hashes[index][:time] = html_file_for_recipe_doc.search('.recipe-meta-item-body')[2].text.strip
+      @recipe_hashes[index][:num_of_ingredients] = html_file_for_recipe_doc.search('.ingredients-item').count
     end
 
-    html_doc.search('.recipe-ratings').first(3).each do |ele|
-      @recipe_hashes.each do |recipe|
-        recipe[:review] = ele.text.strip
-        recipe[:review] = recipe[:review].slice(7, 4)
-      end
+    html_doc.search('.review-star-text').first(3).each_with_index do |ele, index|
+      @recipe_hashes[index][:review] = ele.children.first.text.split(" ")[1]
     end
 
-    html_doc.search('.card__authorName').first(3).each do |ele|
-      @recipe_hashes.each do |recipe|
-        recipe[:author] = ele.text.strip
-      end
+    html_doc.search('.card__authorName').first(3).each_with_index do |ele, index|
+      @recipe_hashes[index][:author] = ele.text.strip
     end
   end
 
