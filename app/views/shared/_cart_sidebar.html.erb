@@ -15,7 +15,7 @@
               <%# Remove %>
             </div>
           </div>
-          <p mb-0><%= humanized_money_with_symbol(ingredient.price) %></p>
+          <p mb-0><%= humanized_money_with_symbol(ingredient.price * ingredient.stock_amount) %></p>
         </div>
       <% end %>
       <%= link_to order_checkout_path(current_user.pending_order), class: "btn btn-checkout bg-black mt-4" do %>

@@ -15,7 +15,7 @@
               <p class="mt-4">Remove</p>
             </div>
           </div>
-          <p class="ingredient-quantity-and-name">$<%= ingredient.price_cents%>.00</p>
+          <p class="ingredient-quantity-and-name"><%= humanized_money_with_symbol(ingredient.price * ingredient.stock_amount) %></p>
         </div>
       <% end %>
       <%= link_to "Add item", ingredients_path, class: "btn checkout-button mt-4"%>
@@ -30,7 +30,7 @@
       <%# Summary %>
       <div class="summary d-flex justify-content-between mt-5">
         <p>Subtotal</p>
-        <p>$<%= @order_total_price %></p>
+        <p>$<%= current_user.order_total_price %></p>
       </div>
       <div class="summary d-flex justify-content-between">
         <p>Discount</p>
@@ -39,7 +39,7 @@
       <hr>
       <div class="summary-bottom summary d-flex justify-content-between">
         <p>Total</p>
-        <p>$<%= @order_total_price %></p>
+        <p>$<%= current_user.order_total_price %></p>
       </div>
       <%# Checkout form %>
       <div class="checkout-pay">
