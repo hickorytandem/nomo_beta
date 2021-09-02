@@ -37,7 +37,99 @@
   line-height: 27px;
   letter-spacing: 0px;
   text-align: left;
-  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.btn-get-started {
+  background-color: $nm-l-brown;
+  padding: 16px 8px;
+  color: black;
+  margin-top: 8px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  width: 48%;
+  align-items: middle;
+  text-align: center;
+  height: 56px;
+  margin-top: 16px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-get-started p {
+  font-family: $body-font !important;
+  font-size: 20px !important;
+  font-style: normal;
+  font-weight: 800 !important;
+  line-height: 27px;
+  letter-spacing: 0.30000001192092896px;
+  text-align: left;
+  padding-top: 0;
+  margin-bottom: 0 !important;
+}
+
+.btn-become-seller {
+  background-color: $nm-black;
+  padding: 16px 8px;
+  color: white;
+  margin-top: 8px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  width: 48%;
+  align-items: middle;
+  text-align: center;
+  height: 56px;
+  margin-top: 32px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-become-seller p {
+  font-family: $body-font !important;
+  font-size: 20px !important;
+  font-style: normal;
+  font-weight: 800 !important;
+  line-height: 27px;
+  letter-spacing: 0.30000001192092896px;
+  text-align: left;
+  padding-top: 0;
+  margin-bottom: 0 !important;
+}
+
+.btn-try-now {
+  background-color: $nm-black;
+  padding: 16px 24px;
+  color: white;
+  margin-top: 8px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  align-items: middle;
+  text-align: center;
+  height: 56px;
+  margin-top: 16px;
+  margin-left: 48px;
+
+  img {
+    color: white;
+  }
+}
+
+.btn-try-now p {
+  font-family: $body-font;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 27px;
+  letter-spacing: 0px;
+  text-align: left;
 }
 
 .btn-show-more {
