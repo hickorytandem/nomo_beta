@@ -17,7 +17,6 @@
         </div>
       </div>
     </div>
-    <hr class="#">
     <%# End Topnav %>
     <div class="dashboard-content">
       <div class="content-container">
@@ -32,12 +31,12 @@
         <%#= column_chart @sold_ingredients.group_by_day(:created_at) %>
         <div class="dashboard_chart">
           <h3>Rescued Food</h3>
-          <%= column_chart @orders.group_by_day(:created_at).sum(:weight), colors: [["#57BD6F", "#FFDEE5", "#F6C042", "#D3D6ED"]]%>
+          <%= column_chart @orders.group_by_day(:created_at).sum(:weight).transform_keys{ |key| key.strftime("%A") }, colors: [["#57BD6F", "#FFDEE5", "#F6C042", "#D3D6ED"]]%>
         </div>
         
-        <%= line_chart @total_customers.group_by_day(:created_at).count, colors: ["#FFDEE5"]%>
+        <%= line_chart @orders.group_by_day(:created_at).count(:buyer_id), colors: ["#FFDEE5"]%>
         <%= line_chart @orders.group_by_day(:created_at).count, colors: ["#F6C042"] %>
-        <%= line_chart @orders.group_by_day(:created_at).sum(:total_price), colors: ["#D3D6ED"] %>
+        <%= line_chart @orders.group_by_day(:created_at).sum("total_price_cents / 100"), colors: ["#D3D6ED"] %>
         <%= bar_chart @sold_ingredients.group(:name).sum(:stock_amount), colors: [["#57BD6F", "#FFDEE5", "#F6C042", "#D3D6ED"]] %>
 
         <%= render 'shared/carbon_perf' %>

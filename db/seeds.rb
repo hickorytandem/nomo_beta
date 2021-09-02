@@ -251,7 +251,7 @@ end
       unit: "Kg",
       )
       ingredient[:price_cents] = ingredient[:unit_price]*ingredient[:stock_amount]
-      ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+      # ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
       michael_ingredients << ingredient if ingredient.save
       if veg_index >= 21
         veg_index = 0
@@ -266,18 +266,16 @@ end
     status = [:pending, :collected, :purchased, :cancelled]
     new_orders = []
     users.each do |user|
-      15.times do |time|
+      15.times do 
         order = Order.new(
           # total_price: Faker::Commerce.price,
           pay_method: pay_method.sample,
           status: status.sample,
           buyer: user
           )
-      order.total_price = order.ingredients.map{ |ingredient| ingredient.unit_price }.inject(0){|sum,x| sum + x }
-      order.save
-      order.update(created_at: Faker::Date.between(from: 15.days.ago, to: Date.today))
-      new_orders << order
-      p order
+        order.save
+        order.update(created_at: Faker::Date.between(from: 15.days.ago, to: Date.today))
+        new_orders << order
       end
     end
   
@@ -286,6 +284,10 @@ end
       ingredient.save
     end
 
+    Order.all.each do |order|
+      order.total_price = order.ingredients.sum("stock_amount * unit_price")
+      order.save
+    end
     puts "Done!"
  # total_price = [35.50, 52.50, 23, 45, 87, 92.50, 67.60, 55.50, 89, 15, 105, 16.50, 62, 78, 35, 25, 88, 125.50, 29, 40, 9.50].sample
  # order = Order.create(
