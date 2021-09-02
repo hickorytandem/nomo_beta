@@ -10,10 +10,10 @@
 }
 
 .cart-item {
-  // border-bottom: 1px solid rgba(0,0,0,0.12);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   // padding-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
   width: 100%;
 }
 
@@ -23,16 +23,13 @@
 }
 
 .item-price {
-  width: 180px;
+  // width: 180px;
   margin-left: 12px;
   p {
-    font-family: Manrope;
+  font-family: Manrope;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
-  letter-spacing: 0px;
-  text-align: left;
   width: 60%;
   }
   .cart-resto {
@@ -48,15 +45,21 @@
 .btn-checkout {
   display: flex;
   justify-content: space-between;
-}
-
-.btn-checkout p {
+  align-items: center;
+  width: 85%;
+  height: 60px;
+  padding-top: 19px;
+  background-color: white;
+  z-index: inherit;
+  position: absolute;
+  bottom: 32px;
+   p {
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: left;
-  padding-top: 12px;
+  font-weight: 600;
+
 }
+
+}
+
