@@ -3,15 +3,114 @@
   <h1>Analytic</h1>
 </div>
 <%# Content %>
+<%# Rank banner %>
 <div class="carbon-sum justify-content-between" style="height: 96px;">
-  <div class="rank-large">
-    <h4>56</h4>
+  <div class="left-panel d-flex">
+    <div class="rank-large">
+      <h4>56</h4>
+    </div>
+    <div class="label">
+      <p class="mb-0">Overall green score</p>
+      <h4>Rank <span class="text-highlight">#126</span> from <span class="text-highlight">344</span> local shops</h4>
+    </div>
   </div>
   <div class="label">
-    <p>Overall green score</p>
-    <h4>Rank <span>#126</span>from 344 local shops</h4>
+    What is a green score?
   </div>
-  <div class="label">
-    What is green score?
+</div>
+<%# Suggest action + Nearby score %>
+<div class="panel-container d-flex mt-3">
+  <%# Suggest action %>
+  <div class="suggest-action-container">
+    <h4 class="mb-4">Suggested greener actions</h4>
+    <div class="container d-flex flex-wrap p-0">
+      <%# Actions %>
+      <div class="green-action mr-3 mb-5">
+        <div class="rank-rectangle">
+          <h3>+$32</h3>
+        </div>
+        <p style="font-weight: 600;" class="mb-1 mt-2">Try decreasing overall tomato consumption by 5%</p>
+        <p style="color: rgba(0, 0, 0, 0.6);">You will save $32 per month and <br>
+          prevent 40kg of CO2!</p>
+      </div>
+      <div class="green-action mb-5">
+        <div class="rank-rectangle">
+          <h3>-18kg</h3>
+        </div>
+        <p style="font-weight: 600;" class="mb-1 mt-2">List seafood on the market 1 day earlier</p>
+        <p style="color: rgba(0, 0, 0, 0.6);">Customers will be more likely to buy and you will waste less! <br>
+          Reduce 18kg of your CO2 footprint!</p>
+      </div>
+      <div class="green-action">
+        <div class="rank-rectangle">
+          <h3>+$45</h3>
+        </div>
+        <p style="font-weight: 600;" class="mb-1 mt-2">Order 18% less lettuce!</p>
+        <p style="color: rgba(0, 0, 0, 0.6);">You will waste 10kg less per month!<br>
+          and save $45</p>
+      </div>
+      <div class="green-action">
+        <div class="rank-rectangle">
+          <h3>🤣</h3>
+        </div>
+        <p style="font-weight: 600;" class="mb-1 mt-2">Adjust your fruit orders on Friday!</p>
+        <p style="color: rgba(0, 0, 0, 0.6);">You usually order too many bananas!<br>
+          Haste makes waste! Don't be a wiener. Be a winner!</p>
+      </div>
+    </div>
+  </div>
+  <%# Nearby score %>
+  <div class="nearby-score-container">
+    <%# Header%>
+    <div class="d-flex justify-content-between">
+      <h4 class="mb-4">Nearby shops</h4>
+      <span style="font-size: 14px;"><%= link_to 'View all', "#" %></span>
+    </div>
+    <%# Score list %>
+    <div class="score-list">
+      <div class="rank-small bg-d-green">
+        <h4>87</h4>
+      </div>
+      <div class="label">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #34</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
+    <div class="score-list">
+      <div class="rank-small">
+        <h4>58</h4>
+      </div>
+      <div class="label ">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #90</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
+    <div class="score-list">
+      <div class="rank-small bg-l-green" style="background-color: $nm-l-green;">
+        <h4>45</h4>
+      </div>
+      <div class="label">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #123</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
+    <div class="score-list">
+      <div class="rank-small bg-yellow">
+        <h4>32</h4>
+      </div>
+      <div class="label">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #238</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
+    <div class="score-list mb-0">
+      <div class="rank-small bg-orange" style="background-color: $nm-orange;">
+        <h4>12</h4>
+      </div>
+      <div class="label">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #457</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
   </div>
 </div>

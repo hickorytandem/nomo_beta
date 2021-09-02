@@ -12,7 +12,7 @@
     # t.string "phone_number"
     # t.string "card_detail"
     opening_hours = [8, 8.30, 9, 9.30, 10].sample
-    closing_hours = [8, 8.30, 9, 9.30, 10, 10.30, 11, 11.30, 12].sample
+    closing_hours = [8, 8.30, 9, 9.30, 10, 10.30, 11, 11.30].sample
     payment_method = ["cash", "credit", "paypal"].sample
     category = ["Japanese", "Chinese", "Greasy-spoon", "Thai", "Mexican", "Mongolian", "Semi-fast food", "Italian", "Cafe'"].sample
     anna_restaurant = Restaurant.create!(
@@ -207,7 +207,7 @@ User.all.each do |user|
       ingredient = Ingredient.new(
       name: veg[:name],
       # price_cents: Faker::Commerce.price(range: 1..10.0),
-      unit_price: (1..50).to_a.sample,
+      unit_price: (100..500).to_a.sample / 100.0 ,
       # expiry_date: Faker::Date.between(from: '2021-08-23', to: '2021-08-30'),
       expiry_date: Faker::Date.between(from: 14.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
@@ -238,7 +238,7 @@ end
       ingredient = Ingredient.new(
       name: veg[:name],
       # price_cents: Faker::Commerce.price(range: 1..10.0),
-      unit_price: (1..50).to_a.sample,
+      unit_price: (100..500).to_a.sample / 100.0 ,
       # expiry_date: Date.today - 3.months - time.days,
       expiry_date: Faker::Date.between(from: 15.days.ago, to: Date.today),
       weight: Faker::Measurement.weight,
@@ -258,12 +258,11 @@ end
       else
         veg_index += 1
       end
-
 end
 
     pay_method = ["cash", "credit", "paypal"]
     users = [namkhing, yui, anna]
-    status = [:pending, :collected, :purchased, :cancelled]
+    status = [:collected, :purchased, :cancelled]
     new_orders = []
     users.each do |user|
       15.times do 
@@ -278,7 +277,8 @@ end
         new_orders << order
       end
     end
-  
+
+
     michael_ingredients.each do |ingredient|
       ingredient.order = new_orders.sample
       ingredient.save

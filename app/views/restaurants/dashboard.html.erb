@@ -26,26 +26,26 @@
           <%# <button class="btn dashboard-button">Export report</button> %>
         </div>
         <%# Place your content below %>
-        <%# Status %>
+        <%# Score %>
         <%= render 'shared/dashboard_status' %>
         <%#= column_chart @sold_ingredients.group_by_day(:created_at) %>
         <div class="dashboard_chart">
           <h3>Rescued Food</h3>
           <%= column_chart @orders.group_by_day(:created_at).sum(:weight).transform_keys{ |key| key.strftime("%A") }, colors: [["#57BD6F", "#FFDEE5", "#F6C042", "#D3D6ED"]]%>
         </div>
-        
+        # Total Customer
         <%= line_chart @orders.group_by_day(:created_at).count(:buyer_id), colors: ["#FFDEE5"]%>
+        # Total Amount of ingredient
         <%= line_chart @orders.group_by_day(:created_at).count, colors: ["#F6C042"] %>
+        # Revenue
         <%= line_chart @orders.group_by_day(:created_at).sum("total_price_cents / 100"), colors: ["#D3D6ED"] %>
+        # Ingredient by stock_amount 
         <%= bar_chart @sold_ingredients.group(:name).sum(:stock_amount), colors: [["#57BD6F", "#FFDEE5", "#F6C042", "#D3D6ED"]] %>
-
         <%= render 'shared/carbon_perf' %>
         <%= render 'shared/shop_setup' %>
         <%= render 'shared/shop_score' %>
-
+        <%= render 'shared/chart' %>
       </div>
+      <%# Background End %>
     </div>
   </div>
-    <%# Background End %>
-</div>
-

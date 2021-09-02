@@ -21,6 +21,12 @@
       <%= render 'shared/flashes' %>
       <%= yield %>
     </body>
+  <% elsif content_for(:navbar) == 'checkout' %>
+    <body style="background-color: #F4F4F4;">
+      <%= render 'shared/checkout_navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </body>
   <% else %>
     <body style="background-color: #F4F4F4;">
       <%= render 'shared/navbar' %>

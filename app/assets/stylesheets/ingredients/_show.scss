@@ -7,8 +7,19 @@
 
 .left-pane {
     position: fixed;
-    width: 43.8%;
-    height: 100%;
+    width: 46%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:50% 50%;
+}
+
+.right-pane {
+  position: absolute;
+  right: 0;
+  width: 54%;
+  padding-top: 48px;
+
 }
 
 .nm-black {
@@ -26,53 +37,69 @@
   padding-right: 0;
 }
 
-.ingredient-image {
-  width: 100% !important;
-  height: 83%;
-}
 
 .ingredient-header {
     font-size: 32px;
+     font-family: Manrope;
+     font-weight: 700;
   }
 
 .qty-order {
   display: flex;
-  align-item: top;
-  margin-top: 0;
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  background-color: white;
+  width: 100%;
+  z-index: 2;
 }
 
 .quantity {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: $nm-l-orange;
   vertical-align: baseline;
-  padding-top: 20px;
+  padding: 20px;
+  z-index: 10;
 }
 
 .quantity p {
   font-weight: 700 !important;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .order {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   background-color: $nm-black;
   color: white;
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 18px;
   margin: 0;
   width: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border: 2px solid $nm-black;
+  padding: 20px;
+  .order-btn {
+    color: white;
+    background-color: transparent;
+    font-weight: 500;
+    padding: 0;
+    border: none;
+
+  }
+}
+
+.form-group-valid {
+  margin-bottom: 0px;
 }
 
 .section-one {
-  padding-top: 64px;
-  padding-left: 48px;
-  padding-right: 48px;
+  padding: 42px 48px 0px 48px;
   margin: 0;
+  hr {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
 
   .resto-name {
     padding-top: 24px;
@@ -91,45 +118,27 @@
     display: flex;
   }
 
-  .ingredient-info {
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  }
-
-  .pickup-detail {
-    font-family: Manrope;
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 24px;
-    margin-bottom: 32px;
-  }
-
   .detail-item {
     font-size: 14px;
   }
 }
 
 .section-two {
+  padding: 42px 48px 56px 48px;
   background-color: $nm-purple;
   padding-top: 48px;
-  padding-bottom: 48px;
-  padding-left: 24px;
   margin: 0;
 }
 
 .section-three {
   background-color: $nm-l-orange;
-  padding-top: 48px;
-  padding-bottom: 48px;
-  padding-left: 24px;
+  padding: 42px 48px 56px 48px;
   margin: 0;
 }
 
 .section-four {
   background-color: $nm-yellow;
-  padding-top: 48px;
-  padding-bottom: 48px;
-  padding-left: 24px;
+  padding: 56px 48px 56px 48px;
   margin: 0;
 }
 
@@ -137,3 +146,20 @@
   display: flex;
   justify-content: space-around;
 }
+
+.padding-8 {
+  padding-right: 8px;
+}
+
+
+.pickup-detail {
+  font-family: Manrope;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  }
+
+  .restaurant-info {
+    padding: 42px 48px 48px 48px;
+  }

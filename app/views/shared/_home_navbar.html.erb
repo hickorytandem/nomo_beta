@@ -2,7 +2,7 @@
   <div class="container">
     <%# Logo %>
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag 'nomo-pink.svg', width:"88px" %>
+      <%= image_tag 'nomo_pink.svg', width:"88px" %>
     <% end %>
     <%# Dropdown trigger %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
                   <%= image_tag "PencilLine.svg", alt: "my-account" %>Account settings
                 <% end %>
                 <p class="business">BUSINESS</p>
-                <%= link_to dashboard_path, class: "dropdown-item icon" do %>
+                <%= link_to dashboard_path, class: "dropdown-item icon", target: :_blank do %>
                   <%= image_tag "store.svg", alt: "my-account" %>Manage store
                 <% end %>
                 <%= link_to shop_settings_path, class: "dropdown-item icon" do %>

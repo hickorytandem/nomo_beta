@@ -1,35 +1,31 @@
 .card-d-green {
-  width: 265px;
-  height: 96px;
+  width: 27%;
   border-radius: 16px;
   background-color: $nm-d-green;
-  margin: 24px 12px;
-  padding: 4px 16px;
+  margin: 24px 12px 24px 0;
+  padding: 16px;
 }
 
 .card-d-green h2 {
-  font-size: 12px;
-  font-family: Manrope;
+  font-family: $body-font;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 500;
-  margin: 0;
-  border-bottom: 1px solid white;
+  line-height: 19px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding-bottom: 56px;
   color: white;
 }
 
 .card-d-green p {
-  font-size: 16px;
-  font-family: Manrope;
+  font-family: $body-font;
+  font-size: 28px;
+  font-style: normal;
   font-weight: 700;
-  margin: 0;
+  line-height: 38px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-bottom: 0;
   color: white;
-  padding-top: 8px;
-  line-height: 1.2;
 }
-
-// .big-bold {
-//   color: white;
-//   font-size: 28px;
-//   font-family: Manrope;
-//   font-weight: 400;
-//   letter-spacing: -1px;
-// }

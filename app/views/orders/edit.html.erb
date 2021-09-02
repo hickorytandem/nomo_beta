@@ -1,51 +1,72 @@
-<div class="container">
-  <h1 class="checkout">Checkout</h1>
-  <div class="row">
-    <div class="col-6">
-
-    </div>
-    <div class="col-6">
-      <div class="row py-4">
-        <div class="col-12 checkout-summary">
-          <h1>Summary</h1>
-          <div class="summary">
-            <div class="summary-top">
-              <div class="top1">
-                <p class="top">Subtotal</p>
-                <p class="top">$ <%= @order_total_price %></p>
-              </div>
-              <div class="top2">
-                <p class="top">Discount</p>
-                <p class="top">$ 0</p>
-              </div>
-            </div>
-            <div class="summary-bottom">
-              <p class="total">Total</p>
-              <p class="total">$ <%= @order_total_price %></p>
+<%# Cart Navigation %>
+<%= content_for :navbar, 'checkout' %>
+<%# Left Pane %>
+<div class="d-flex">
+  <div class="checkout-left-pane">
+    <div class="checkout-container">
+      <h2 class="mb-4 mt-5">Items</h2>
+      <% @order.ingredients.each do |ingredient| %>
+        <div class="order-ingredient">
+          <%= cl_image_tag ingredient.photo.key, class: "cart-img" %>
+          <div class="order-ingredient-description">
+            <div class="order-ingredient-details">
+              <p class="ingredient-quantity-and-name mb-1"><%= ingredient.stock_amount %><%= ingredient.unit.downcase %>x <%= ingredient.name %></p>
+              <p class="resto-name-grey"><%= ingredient.seller.restaurant.name %></p>
+              <p class="mt-4">Remove</p>
             </div>
           </div>
-          <div class="checkout-pay">
-            <button id="pay" class="btn btn-pay">Checkout</button>
-          </div>
-
-          <script src="https://js.stripe.com/v3/"></script>
-          <script>
-            const paymentButton = document.getElementById('pay');
-            paymentButton.addEventListener('click', () => {
-              const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-              stripe.redirectToCheckout({
-                sessionId: '<%= @order.checkout_session_id %>'
-              });
-            });
-          </script>
+          <p class="ingredient-quantity-and-name"><%= humanized_money_with_symbol(ingredient.price * ingredient.stock_amount) %></p>
         </div>
-      </div>
-      <%#= simple_form_for @order do |f| %>
-        <%#= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
-        <%#= f.hidden_field :total_price, value: @order_total_price %>
-        <%#= f.hidden_field :status, value: :purchased %>
-        <%#= f.submit "Pay & Place order", class: "btn btn-pay" %>
-      <%# end %>
+      <% end %>
+      <%= link_to "Add item", ingredients_path, class: "btn checkout-button mt-4"%>
     </div>
   </div>
+  <%# Right pane %>
+  <div class="checkout-right-pane">
+    <div class="checkout-container">
+      <h2 class="mb-2 mt-5">Payment detail</h2>
+      <p>Complete your purchase by providing your payment details</p>
+      <hr>
+      <%# Summary %>
+      <div class="summary d-flex justify-content-between mt-5">
+        <p>Subtotal</p>
+        <p>$<%= current_user.order_total_price %></p>
+      </div>
+      <div class="summary d-flex justify-content-between">
+        <p>Discount</p>
+        <p>$0</p>
+      </div>
+      <hr>
+      <div class="summary-bottom summary d-flex justify-content-between">
+        <p>Total</p>
+        <p>$<%= current_user.order_total_price %></p>
+      </div>
+      <%# Checkout form %>
+      <div class="checkout-pay">
+        <%= simple_form_for @order do |f| %>
+          <%= f.hidden_field :total_price, value: @order_total_price %>
+        <% end %>
+        <button class="btn checkout-button mt-4 bg-pink">Pay with cash</button>
+        <button id="pay" class="btn checkout-button mt-4 bg-black">Pay with credit card</button>
+      </div>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @order.checkout_session_id %>'
+          });
+        });
+      </script>
+      <%# End of container %>
+    </div>
+    <%# End of right pane %>
+  </div>
 </div>
+<%#= simple_form_for @order do |f| %>
+  <%#= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
+  <%#= f.hidden_field :total_price, value: @order_total_price %>
+  <%#= f.hidden_field :status, value: :purchased %>
+  <%#= f.submit "Pay & Place order", class: "btn btn-pay" %>
+  <%# end %>

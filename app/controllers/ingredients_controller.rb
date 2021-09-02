@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'date'
 
 class IngredientsController < ApplicationController
   before_action :find_ingredient, only: [:show, :update]
@@ -8,13 +9,17 @@ class IngredientsController < ApplicationController
   def index
     @all_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1))
     @all_six_ing = @all_ingredients.first(6)
+
     @restaurants = Restaurant.near(current_user.address, 10)
     @near_ingredients = []
     @restaurants.each do |restaurant|
       @near_ingredients << policy_scope(restaurant.ingredients_for_sale)
     # @ingredients << restaurant.users.first.ingredients_as_seller
     end
-    @near_ingredients = @near_ingredients.flatten.first(6)
+    @near_ingredients = @near_ingredients.flatten.first(3)
+
+    @expire_today_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1).where(expiry_date: Date.today))
+    @expire_today_three_ing = @expire_today_ingredients.first(3)
     if params[:query].present?
       @ingredients = Ingredient.where("name ILIKE ?", "%#{params[:query]}%")
     else
@@ -24,7 +29,7 @@ class IngredientsController < ApplicationController
 
   def my_ingredients
     @ingredients = Ingredient.where(seller_id: current_user.id).where("expiry_date >= ?", Date.today).reverse_order
-    @expired_ingredients = Ingredient.where(seller_id: current_user.id, status: :unsold).where("expiry_date < ?", Date.today).reverse_order
+    @expired_ingredients = Ingredient.where(seller_id: current_user.id).where("expiry_date < ?", Date.today).reverse_order
     @sold_ingredients = Ingredient.where(seller_id: current_user, status: :sold)
     @shop_name = current_user.restaurant.name
     authorize @ingredients
@@ -69,22 +74,20 @@ class IngredientsController < ApplicationController
       @recipe_hashes << { name: @name }
     end
 
-    html_doc.search('.card__titleLink').first(3).each do |ele|
-      @recipe_hashes.each do |recipe|
-        recipe[:link] = ele.attribute('href').value
-      end
+    html_doc.search('.card__titleLink').first(3).each_with_index do |ele, index|
+      @recipe_hashes[index][:link] = ele.attribute('href').value
+      html_file_for_recipe = URI.open(@recipe_hashes[index][:link]).read
+      html_file_for_recipe_doc = Nokogiri::HTML(html_file_for_recipe)
+      @recipe_hashes[index][:time] = html_file_for_recipe_doc.search('.recipe-meta-item-body')[2].text.strip
+      @recipe_hashes[index][:num_of_ingredients] = html_file_for_recipe_doc.search('.ingredients-item').count
     end
 
-    html_doc.search('.card__summary').first(3).each do |ele|
-      @recipe_hashes.each do |recipe|
-        recipe[:summary] = ele.text.strip
-      end
+    html_doc.search('.review-star-text').first(3).each_with_index do |ele, index|
+      @recipe_hashes[index][:review] = ele.children.first.text.split(" ")[1]
     end
 
-    html_doc.search('.card__authorName').first(3).each do |ele|
-      @recipe_hashes.each do |recipe|
-        recipe[:author] = ele.text.strip
-      end
+    html_doc.search('.card__authorName').first(3).each_with_index do |ele, index|
+      @recipe_hashes[index][:author] = ele.text.strip
     end
   end
 

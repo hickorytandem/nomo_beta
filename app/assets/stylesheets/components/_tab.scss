@@ -1,11 +1,12 @@
 .nav-pills {
   // height: 34px;
-  margin: 8px 0;
+  margin: 0;
+  padding: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
   li {
     margin-right: 20px;
-    margin: 12px 24px 12px 0;
+    margin: 12px 24px 0 0 !important;
     padding: 0;
     a {
       color: #9e9e9e;

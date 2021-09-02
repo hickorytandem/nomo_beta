@@ -3,26 +3,23 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <%# Order in Sidebar %>
   <div id="main">
-    <h4 class="my-cart">My cart</h4>
+    <h4 class="my-cart mb-4">My Cart</h4>
     <% if current_user.pending_order.present?  %>
       <% current_user.pending_order.ingredients.each do |ingredient| %>
-        <div class="row cart-item">
-          <div class="col-4">
+        <div class="cart-item d-flex justify-content-between mb-3">
+          <div class="cart-detail d-flex align-middle">
             <%= cl_image_tag ingredient.photo.key, class: "cart-img" %>
-          </div>
-          <div class="col-8">
-            <div class="cart-detail">
-              <div class="item-price">
-                <p><%= ingredient.stock_amount %> X <%= ingredient.name %></p>
-                <p><%= humanized_money_with_symbol(ingredient.price) %></p>
-              </div>
-              <p class="cart-resto"><%= ingredient.seller.restaurant.name %></p>
+            <div class="item-price">
+              <p class="mb-0" style="font-size: 16px; font-weight: 600;"><%= ingredient.stock_amount %><%= ingredient.unit.downcase %>x <%= ingredient.name %></p>
+              <p class="cart-resto mt-1"><%= ingredient.seller.restaurant.name %></p>
+              <%# Remove %>
             </div>
           </div>
+          <p mb-0><%= humanized_money_with_symbol(ingredient.price * ingredient.stock_amount) %></p>
         </div>
       <% end %>
-      <%= link_to order_checkout_path(current_user.pending_order), class: "btn btn-checkout" do %>
-        <p>Proceed to checkout</p>
+      <%= link_to order_checkout_path(current_user.pending_order), class: "btn btn-checkout bg-black mt-4" do %>
+        <p>Checkout</p>
         <p>$<%= current_user.order_total_price %></p>
       <% end %>
     <% else %>

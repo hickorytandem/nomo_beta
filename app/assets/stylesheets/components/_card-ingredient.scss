@@ -1,7 +1,7 @@
 .card-ingredient {
   width: 228px;
   height: 256px;
-  margin: 24px 12px 32px 12px;
+  margin: 24px 12px 12px 12px;
   border-radius: 8px;
   // &:hover {
   //   background-color: $nm-l-orange;
@@ -46,33 +46,33 @@
   position: relative;
 }
 
-.card-ingredient p {
-  font-size: 10px;
-  font-family: Manrope;
-  font-weight: 500;
-  color: black;
-  padding-bottom: 1px;
-  margin: 0;
-}
+// .card-ingredient p {
+//   font-size: 10px;
+//   font-family: Manrope;
+//   font-weight: 500;
+//   color: black;
+//   padding-bottom: 1px;
+//   margin: 0;
+// }
 
 
-.card-ingredient h2 {
-  font-size: 24px;
-  font-family: Suez One;
-  font-weight: 500;
-  color: black;
-  padding-bottom: 20px;
-  margin: 0;
-}
+// .card-ingredient h2 {
+//   font-size: 24px;
+//   font-family: Suez One;
+//   font-weight: 500;
+//   color: black;
+//   padding-bottom: 20px;
+//   margin: 0;
+// }
 
-.card-ingredient h3 {
-  font-size: 20px;
-  font-family: Manrope;
-  font-weight: 700;
-  color: black;
-  margin: 0;
-  padding-bottom: 11px;
-}
+// .card-ingredient h3 {
+//   font-size: 20px;
+//   font-family: Manrope;
+//   font-weight: 700;
+//   color: black;
+//   margin: 0;
+//   padding-bottom: 11px;
+// }
 
 .card-ingredient-text p {
   font-family: $body-font;
@@ -82,6 +82,7 @@
   line-height: 14px;
   letter-spacing: 0px;
   text-align: left;
+  margin-bottom: 0;
 }
 
 .card-ingredient-text h2 {
