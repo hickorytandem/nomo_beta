@@ -4,7 +4,7 @@
 <div class="d-flex">
   <div class="checkout-left-pane">
     <div class="checkout-container">
-      <h2 class="mb-4 mt-3">Items</h2>
+      <h2 class="mb-4 mt-5">Items</h2>
       <% @order.ingredients.each do |ingredient| %>
         <div class="order-ingredient">
           <%= cl_image_tag ingredient.photo.key, class: "cart-img" %>
@@ -24,22 +24,22 @@
   <%# Right pane %>
   <div class="checkout-right-pane">
     <div class="checkout-container">
-      <h2 class="mb-2 mt-3">Payment detail</h2>
+      <h2 class="mb-2 mt-5">Payment detail</h2>
       <p>Complete your purchase by providing your payment details</p>
       <hr>
       <%# Summary %>
       <div class="summary d-flex justify-content-between mt-5">
         <p>Subtotal</p>
-        <p>$ <%= @order_total_price %></p>
+        <p>$<%= @order_total_price %></p>
       </div>
       <div class="summary d-flex justify-content-between">
         <p>Discount</p>
-        <p>$ 0</p>
+        <p>$0</p>
       </div>
       <hr>
       <div class="summary-bottom summary d-flex justify-content-between">
         <p>Total</p>
-        <p>$ <%= @order_total_price %></p>
+        <p>$<%= @order_total_price %></p>
       </div>
       <%# Checkout form %>
       <div class="checkout-pay">
@@ -64,3 +64,9 @@
     <%# End of right pane %>
   </div>
 </div>
+<%#= simple_form_for @order do |f| %>
+  <%#= f.input :pay_method, as: :radio_buttons, collection: ['Cash', 'Credit card'] %>
+  <%#= f.hidden_field :total_price, value: @order_total_price %>
+  <%#= f.hidden_field :status, value: :purchased %>
+  <%#= f.submit "Pay & Place order", class: "btn btn-pay" %>
+  <%# end %>
