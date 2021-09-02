@@ -18,7 +18,7 @@ class IngredientsController < ApplicationController
     end
     @near_ingredients = @near_ingredients.flatten.first(3)
 
-    @expire_today_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1).where(expiry_date: Date.today))
+    @expire_today_ingredients = policy_scope(Ingredient.where(status: 1, public_status: 1).where(expiry_date: Date.today..Date.tomorrow))
     @expire_today_three_ing = @expire_today_ingredients.first(3)
     if params[:query].present?
       @ingredients = Ingredient.where("name ILIKE ?", "%#{params[:query]}%")

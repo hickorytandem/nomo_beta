@@ -20,50 +20,59 @@
   </div>
   <!-- </div> -->
 </div>
-<div class="row">
-  <div class="col-3 filter-col">
+<div class="d-flex">
+  <div class="filter-col">
     <div class="filters">
-      <h2>Filters</h2>
+      <h2>All ingredients</h2>
       <div class="sort">
         <p>Sort</p>
         <div class="radio-buttons">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label promotion-item" for="flexRadioDefault1">
               Most popular
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               Location
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               Opening hours
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               Ratings
             </label>
           </div>
         </div>
       </div>
+      <div class="expiry-date mb-4">
+        <p>Price</p>
+        <div class="d-flex">
+          <div class="tag">$</div>
+          <div class="tag">$$</div>
+          <div class="tag">$$$</div>
+          <div class="tag">$$$$</div>
+        </div>
+      </div>
       <div class="expiry-date">
         <p>Expiry date</p>
         <div class="radio-buttons">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label promotion-item" for="flexRadioDefault1">
               Newest
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               Oldest
             </label>
@@ -74,31 +83,31 @@
         <p>Promotion</p>
         <div class="radio-buttons">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label promotion-item" for="flexRadioDefault1">
               5% off
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               10% off
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               15% off
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
               20% off
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               50% off
             </label>
@@ -139,8 +148,8 @@
                 <!--           </div> -->
               </div>
             </div>
-            <div class="section-ig-four">
-              <%= link_to "Show more", ingredients_path, class: "btn-show-more"  %>
+            <div class="section-ig-fourth">
+              <%= link_to "Show more", ingredients_path, class: "checkout-button"  %>
             </div>
           </div>
         </div>
