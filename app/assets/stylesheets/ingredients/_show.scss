@@ -18,7 +18,7 @@
   position: absolute;
   right: 0;
   width: 54%;
-  padding: 48px;
+  padding-top: 48px;
 
 }
 
@@ -94,9 +94,12 @@
 }
 
 .section-one {
-  padding-top: 42px;
+  padding: 42px 48px 0px 48px;
   margin: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  hr {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
 
   .resto-name {
     padding-top: 24px;
@@ -115,36 +118,27 @@
     display: flex;
   }
 
-  // .ingredient-info {
-  //   padding-bottom: 16px;
-  //   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  // }
   .detail-item {
     font-size: 14px;
   }
 }
 
 .section-two {
+  padding: 42px 48px 56px 48px;
   background-color: $nm-purple;
   padding-top: 48px;
-  padding-bottom: 48px;
-  padding-left: 24px;
   margin: 0;
 }
 
 .section-three {
   background-color: $nm-l-orange;
-  padding-top: 48px;
-  padding-bottom: 48px;
-  padding-left: 24px;
+  padding: 42px 48px 56px 48px;
   margin: 0;
 }
 
 .section-four {
   background-color: $nm-yellow;
-  padding-top: 48px;
-  padding-bottom: 48px;
-  padding-left: 24px;
+  padding: 56px 48px 56px 48px;
   margin: 0;
 }
 
@@ -166,3 +160,6 @@
   margin-bottom: 32px;
   }
 
+  .restaurant-info {
+    padding: 42px 48px 48px 48px;
+  }
