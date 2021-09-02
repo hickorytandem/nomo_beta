@@ -1,72 +1,74 @@
-<div class="row">
-  <div class="col-5 ingredient-fix">
-    <div class="left-pane">
-      <%= cl_image_tag @ingredient.photo.key, class:"ingredient-image", crop: :crop %>
-      <div class="qty-order">
-        <div class="col-6 quantity margin-0">
-          <p>QTY : </p>
-          <p><%= @ingredient.weight%> kg</p>
-        </div>
-        <div class="col-6 margin-0">
-          <%= simple_form_for @ingredient do |f| %>
-            <%= f.input :order_id, value: @order.id, as: :hidden, class: "nm-black mt-0" %>
-            <%= f.submit 'Add to cart', class: "order" %>
-          <% end %>
-        </div>
-      </div>
+<%# Left panel %>
+<div class="left-pane" style="background-image: url('<%= cl_image_path @ingredient.photo.key %>')">
+  <%# QTY + Add to cart %>
+  <div class="qty-order">
+    <div class="col-6 quantity margin-0">
+      <p>QTY : </p>
+      <p><%= @ingredient.weight%> kg</p>
     </div>
-  </div>
-  <div class="col-7 section-one">
-    <div class="ingredient-info">
-      <p class="resto-name"><%= @ingredient.seller.restaurant.name %></p>
-      <h1 class="ingredient-header"><%= @ingredient.name %></h1>
-      <div class="ingredients-badges">
-        <span class="badge-round-yellow"><%= @ingredient.seller.restaurant.category.upcase %></span>
-      </div>
-      <p class="ingredient-description"><%= @ingredient.description %></p>
-      <div class="promo-cards">
-        <%= render 'shared/card-l-green' %>
-        <%= render 'shared/card-green' %>
-        <%= render 'shared/card-d-green' %>
-      </div>
-    </div>
-    <div class="restaurant-info">
-      <div class="row">
-        <div class="col-6">
-          <p class="pickup-detail">Pickup detail</p>
-          <p class="detail-item"><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %> - <%= @ingredient.seller.restaurant.closing_hours %></p>
-          <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.restaurant.address %></p>
-        </div>
-        <div class="col-6">
-          <div id="map"
-      style="width: 100%; height: 200px;"
-      data-markers="<%= @marker.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-        </div>
-      </div>
+    <div class="col-6 margin-0 order">
+      <%= simple_form_for @ingredient do |f| %>
+        <%= f.input :order_id, value: @order.id, as: :hidden, class: "nm-black mt-0" %>
+        <%= f.submit 'Add to cart', class: 'order-btn'%>
+      <% end %>
+      $<%= @ingredient.price_cents %>.00
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-5"></div>
-  <div class="col-7">
-    <div class="section-two">
-      <h1 class="ingredient-header">Matching recipe</h1>
-      <div class="cards-flex padding-8">
-        <%= render 'shared/card-recipe' %>
-      </div>
+<%# Right panel %>
+<div class="right-pane">
+  <%# First Section %>
+  <div class=" section-one">
+    <p class="resto-name"><%= @ingredient.seller.restaurant.name %></p>
+    <h1 class="ingredient-header"><%= @ingredient.name %></h1>
+    <div class="ingredients-badges">
+      <span class="badge-round-yellow"><%= @ingredient.seller.restaurant.category.upcase %></span>
+      <span class="badge-round-yellow bg-orange"><%= @ingredient.discount_rate %>% OFF</span>
     </div>
-    <div class="section-three">
-      <h1 class="ingredient-header">Often pair with...</h1>
-      <div class="cards-flex">
-        <%= render partial: 'shared/show-card-ingredient', locals: { ingredients: @paired_ingredients } %>
-      </div>
+    <p class="ingredient-description"><%= @ingredient.description %></p>
+    <div class="promo-cards">
+      <%= render 'shared/card-l-green' %>
+      <%= render 'shared/card-green' %>
+      <%= render 'shared/card-d-green' %>
     </div>
-    <div class="section-four">
-      <h1 class="ingredient-header">Other products in this store</h1>
-      <div class="cards-flex">
-        <%= render partial: 'shared/show-card-ingredient', locals: { ingredients: @seller_ingredients } %>
+    <hr>
+  </div>
+  <%# Restaurant info %>
+  <div class="restaurant-info py-4">
+    <div class="row">
+      <div class="col-6">
+        <p class="pickup-detail">Pickup detail</p>
+        <p class="detail-item "><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %>AM - <%= @ingredient.seller.restaurant.closing_hours %>PM</p>
+        <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.restaurant.address %></p>
+      </div>
+      <div class="col-6">
+        <div id="map"
+      style="width: 100%; height: 200px;"
+      data-markers="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
     </div>
   </div>
+  <%# Matching recipe %>
+  <div class="section-two">
+    <h1 class="ingredient-header">Matching recipe</h1>
+    <div class="cards-flex justify-content-between">
+      <%= render 'shared/card-recipe' %>
+    </div>
+  </div>
+  <%# Often pair with %>
+  <div class="section-three">
+    <h1 class="ingredient-header">Often pair with...</h1>
+    <div class="cards-flex justify-content-between">
+      <%= render partial: 'shared/show-card-ingredient', locals: { ingredients: @paired_ingredients } %>
+    </div>
+  </div>
+  <%# Other product in this store %>
+  <div class="section-four">
+    <h1 class="ingredient-header">Other products in this store</h1>
+    <div class="cards-flex justify-content-between">
+      <%= render partial: 'shared/show-card-ingredient', locals: { ingredients: @seller_ingredients } %>
+    </div>
+  </div>
+  <%# End of right panel %>
 </div>

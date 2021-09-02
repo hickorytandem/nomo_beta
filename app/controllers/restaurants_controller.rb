@@ -34,7 +34,6 @@ class RestaurantsController < ApplicationController
     # @unsold_ingredients.each do |ingredient|
     #   @unsold_amount += ingredient.stock_amount
     # end
-    # @random_restaurant = Faker::Restaurant.name
     # percentage sold/added
     @sales_probability = (@sold_amount.to_f / @total_amount.to_f) * 100
 

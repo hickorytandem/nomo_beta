@@ -1,8 +1,8 @@
 <% @recipe_hashes.each do |recipe_hash| %>
   <div class="card-column card-recipe">
     <%= link_to recipe_hash[:link], action: 'go' do %>
-    <%#= image_tag recipe_hash[:src], alt: "alttext" %>
-    <%#= cl_image_tag recipe.photo.key, class: "image" %>
+      <%#= image_tag recipe_hash[:src], alt: "alttext" %>
+      <%#= cl_image_tag recipe.photo.key, class: "image" %>
       <div class="card-recipe-info">
         <div class="card-recipe-text">
           <div class="text-head">
