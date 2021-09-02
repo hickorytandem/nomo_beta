@@ -1,7 +1,9 @@
 <% ingredients.each do |ingredient| %>
   <div class="card-column show-card-ingredient ml-0 mr-4">
     <%= link_to ingredient_path(ingredient), action: 'go' do %>
-      <%= cl_image_tag ingredient.photo.key, class: "image" %>
+      <% if ingredient.photo.attached? %>
+        <%= cl_image_tag ingredient.photo.key, class: "image" %>
+      <% end %>
       <div class="show-card-ingredient-info">
         <i class="far fa-heart position-icon mt-2"></i>
         <div class="show-card-ingredient-text">
