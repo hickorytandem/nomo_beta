@@ -42,7 +42,7 @@
           <% @orders.each do |order| %>
             <div class="order-modal">
               <%# Table row %>
-              <div class="order-modal-btn d-flex w-100 justify-content-between table-row">
+              <div class="order-modal-button d-flex w-100 justify-content-between table-row">
                 <div style="width: 5%;" class="table-data"><input class="form-check-input" type="checkbox"></div>
                 <div style="width: 10%;" class="table-data">000<%= order.id %></div>
                 <div style="width: 25%;" class="table-data"><%= order.buyer.name %></div>
@@ -57,10 +57,10 @@
                 <div style="width: 15%;" class="table-data"><%= total_price(order) %></div>
                 <div style="width: 15%;" class="table-data"><%= change_date_format(order.created_at) %></div>
               </div>
-              <div class="modal">
+              <div class="dashboard-modal">
                 <div class="order-card modal-content">
                   <div class="modal-header">
-                    <span class="close"><%= image_tag "close.svg" %></span>
+                    <span class="icon-close"><%= image_tag "close.svg" %></span>
                     <%# <h2>Modal Header</h2> %>
                   </div>
                   <!-- Modal content -->

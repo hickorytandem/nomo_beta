@@ -5,7 +5,7 @@ const initOrderModal = () => {
     const btns = document.querySelectorAll('.order-modal-btn')
     btns.forEach((btn,index)=>{
       btn.addEventListener('click', (e)=>{
-        modals[index - 1].style.display = "block"
+        modals[index].style.display = "block"
       })
     })
     closers.forEach((closer,index)=> {
