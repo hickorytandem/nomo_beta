@@ -15,7 +15,7 @@
 </div>
 <%# Customer %>
 <div class="dashboard-page-header d-flex justify-content-between mt-5 mb-4">
-  <h1>Total customers</h1>
+  <h1>Customer rate</h1>
 </div>
 <%# chart %>
 <div class="d-flex justify-content-center">
@@ -28,13 +28,13 @@
 <div class="d-flex justify-content-center">
   <%= line_chart @orders.group_by_day(:created_at).count, width: "90%",colors: ["#095941"] %>
 </div>
-<%# Total Income %>
-<div class="dashboard-page-header d-flex justify-content-between mt-5 mb-4">
+<%# Daily Income %>
+<%# <div class="dashboard-page-header d-flex justify-content-between mt-5 mb-4">
   <h1>Daily sales</h1>
-</div>
-<div class="d-flex justify-content-center">
-  <%= column_chart @orders.group_by_day(:created_at).sum(:weight).transform_keys{ |key| key.strftime("%A") }, colors: [["#F6C042", "#FFDEE5", "#A3D0BF", "#EE7246", "#095941", "#CED3F9", "#57BD6F"]], width: "90%" %>
-</div>
+</div> %>
+<%# <div class="d-flex justify-content-center"> %>
+<%#= column_chart @orders.group_by_day(:created_at).sum(:weight).transform_keys{ |key| key.strftime("%A") }, colors: [["#F6C042", "#FFDEE5", "#A3D0BF", "#EE7246", "#095941", "#CED3F9", "#57BD6F"]], width: "90%" %>
+<%# </div> %>
 <%# Revenue %>
 <div class="dashboard-page-header d-flex justify-content-between mt-5 mb-4">
   <h1>Revenue</h1>

@@ -5,13 +5,13 @@
       <div class="card-ingredient-info">
         <i class="far fa-heart position-icon"></i>
         <div class="card-ingredient-text">
-          <%# if ingredient.seller.restaurant %>
-          <%# <p style="font-size:13px;"><%= ingredient.seller.restaurant.name %>
-          <%# <% end %>
-          <h2 class="mb-1"><%= ingredient.name %></h2>
-          <h3><strong><%= humanized_money_with_symbol(ingredient.price * ingredient.stock_amount) %></strong> / <%= ingredient.stock_amount %> kg</h3>
+          <% if ingredient.seller.restaurant %>
+            <p style="font-size:13px;"><%= ingredient.seller.restaurant.name %>
+            <% end %>
+            <h2 class="mb-1"><%= ingredient.name %></h2>
+            <h3><strong><%= humanized_money_with_symbol(ingredient.price * ingredient.stock_amount) %></strong> / <%= ingredient.stock_amount %> kg</h3>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+      <% end %>
+    </div>
+  <% end %>
