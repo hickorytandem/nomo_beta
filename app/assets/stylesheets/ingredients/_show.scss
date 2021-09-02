@@ -7,8 +7,11 @@
 
 .left-pane {
     position: fixed;
-    width: 43.8%;
-    height: 100%;
+    width: 46%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:50% 50%;
 }
 
 .nm-black {
@@ -26,10 +29,6 @@
   padding-right: 0;
 }
 
-.ingredient-image {
-  width: 100% !important;
-  height: 83%;
-}
 
 .ingredient-header {
     font-size: 32px;
@@ -37,36 +36,47 @@
 
 .qty-order {
   display: flex;
-  align-item: top;
-  margin-top: 0;
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  background-color: white;
+  width: 100%;
+  z-index: 2;
 }
 
 .quantity {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: $nm-l-orange;
   vertical-align: baseline;
-  padding-top: 20px;
+  padding: 20px;
+  z-index: 10;
 }
 
 .quantity p {
   font-weight: 700 !important;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .order {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   background-color: $nm-black;
   color: white;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
   width: 100%;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  border: 2px solid $nm-black;
-  text-align: center;
+  padding: 20px;
+  .order-btn {
+    color: white;
+    background-color: transparent;
+    font-weight: 700;
+    padding: 0;
+    border: none;
+
+  }
 }
 
 .form-group-valid {
