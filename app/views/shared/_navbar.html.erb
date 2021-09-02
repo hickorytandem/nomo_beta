@@ -13,12 +13,12 @@
       <%# Search %>
       <div class="nav-item">
         <%= form_tag ingredients_path, method: :get do %>
-        <%= text_field_tag :query,
+          <%= text_field_tag :query,
             params[:query],
             class: "form-control",
             placeholder: "Search"
           %>
-        <%= submit_tag "", style: "display: none;" %>
+          <%= submit_tag "", style: "display: none;" %>
         <% end %>
       </div>
       <%# For business %>
@@ -54,7 +54,7 @@
                   <%= image_tag "PencilLine.svg", alt: "my-account" %>Account settings
                 <% end %>
                 <p class="business">BUSINESS</p>
-                <%= link_to dashboard_path, class: "dropdown-item icon" do %>
+                <%= link_to dashboard_path, class: "dropdown-item icon", target: :_blank do %>
                   <%= image_tag "store.svg", alt: "my-account" %>Manage store
                 <% end %>
                 <%= link_to shop_settings_path, class: "dropdown-item icon" do %>
@@ -64,7 +64,7 @@
                 <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item icon" do %>
                   <%= image_tag "ArrowRight.svg", alt: "log-out" %>Log out
                 <% end %>
-            </div>
+              </div>
             <% elsif user_signed_in? %>
               <%= image_tag "nomo_default_avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <%# DropdownList : Not Login%>

@@ -1,3 +1,6 @@
+<%# Cart Navigation %>
+<%= content_for :navbar, 'checkout' %>
+<%# Content %>
 <div class="row">
   <div class="col-6 checkout-summary-left">
     <div class="co-container">
@@ -43,7 +46,6 @@
             <% end %>
             <button id="pay" class="btn btn-pay">Checkout</button>
           </div>
-
           <script src="https://js.stripe.com/v3/"></script>
           <script>
             const paymentButton = document.getElementById('pay');
@@ -62,6 +64,6 @@
       <%#= f.hidden_field :total_price, value: @order_total_price %>
       <%#= f.hidden_field :status, value: :purchased %>
       <%#= f.submit "Pay & Place order", class: "btn btn-pay" %>
-    <%# end %>
+      <%# end %>
+    </div>
   </div>
-</div>
