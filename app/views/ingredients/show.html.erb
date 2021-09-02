@@ -37,7 +37,7 @@
   <div class="restaurant-info py-4">
     <div class="row">
       <div class="col-6">
-        <p class="pickup-detail">Pickup detail</p>
+        <p class="pickup-detail">Pickup details</p>
         <p class="detail-item "><strong>Opening hours: </strong><%= @ingredient.seller.restaurant.opening_hours %>AM - <%= @ingredient.seller.restaurant.closing_hours %>PM</p>
         <p class="detail-item"><strong>Store location: </strong><%= @ingredient.seller.restaurant.address %></p>
       </div>
@@ -51,14 +51,14 @@
   </div>
   <%# Matching recipe %>
   <div class="section-two">
-    <h1 class="ingredient-header">Matching recipe</h1>
+    <h1 class="ingredient-header">Matching recipes</h1>
     <div class="cards-flex justify-content-between">
       <%= render 'shared/card-recipe' %>
     </div>
   </div>
   <%# Often pair with %>
   <div class="section-three">
-    <h1 class="ingredient-header">Often pair with...</h1>
+    <h1 class="ingredient-header">Often paired with...</h1>
     <div class="cards-flex justify-content-between">
       <%= render partial: 'shared/show-card-ingredient', locals: { ingredients: @paired_ingredients } %>
     </div>
