@@ -16,7 +16,6 @@
             </div>
           </div>
           <p mb-0><%= humanized_money_with_symbol(ingredient.price) %></p>
-          <%# <hr> %>
         </div>
       <% end %>
       <%= link_to order_checkout_path(current_user.pending_order), class: "btn btn-checkout" do %>
