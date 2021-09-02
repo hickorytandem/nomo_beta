@@ -12,7 +12,7 @@
     # t.string "phone_number"
     # t.string "card_detail"
     opening_hours = [8, 8.30, 9, 9.30, 10].sample
-    closing_hours = [8, 8.30, 9, 9.30, 10, 10.30, 11, 11.30, 12].sample
+    closing_hours = [8, 8.30, 9, 9.30, 10, 10.30, 11, 11.30].sample
     payment_method = ["cash", "credit", "paypal"].sample
     category = ["Japanese", "Chinese", "Greasy-spoon", "Thai", "Mexican", "Mongolian", "Semi-fast food", "Italian", "Cafe'"].sample
     anna_restaurant = Restaurant.create!(
