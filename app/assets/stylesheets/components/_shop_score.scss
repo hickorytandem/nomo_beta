@@ -19,19 +19,87 @@
 
 }
 
+.rank-small {
+  background-color: $nm-green;
+  // padding: auto;
+  width: 46px;
+  height: 46px;
+  margin-right: 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+  color: white;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+  }
+}
+
+.bg-l-green {
+  background-color: $nm-l-green;
+}
+.bg-d-green {
+  background-color: $nm-d-green;
+}
+.bg-yellow {
+  background-color: $nm-yellow;
+}
+.bg-orange {
+  background-color: $nm-orange;
+}
+
+.rank-rectangle {
+  background-color: $nm-d-green;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 72px;
+  h3 {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: Manrope;
+    margin:0;
+  }
+}
+
 
 .suggest-action-container {
   background-color: white;
   width: 60%;
   margin-right: 20px;
-  height: 20px;
-   border-radius: 12px;
+  border-radius: 12px;
+  padding: 24px;
+  h4 {
+    font-weight: 700;
+  }
+
 
 }
 
 .nearby-score-container {
   background-color: white;
   width: 40%;
-  height: 20px;
-   border-radius: 12px;
+  border-radius: 12px;
+  padding: 24px;
+  h4 {
+    font-weight: 700;
+  }
+}
+
+.green-action {
+  width: 48%;
+}
+
+
+.score-list {
+  align-items: center;
+  display: flex;
+  margin-bottom: 20px;
 }

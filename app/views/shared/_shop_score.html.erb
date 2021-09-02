@@ -19,13 +19,98 @@
   </div>
 </div>
 <%# Suggest action + Nearby score %>
-<div class="panel-container d-flex">
+<div class="panel-container d-flex mt-3">
   <%# Suggest action %>
   <div class="suggest-action-container">
-    hi
+    <h4 class="mb-4">Suggested greener actions</h4>
+    <div class="container d-flex flex-wrap p-0">
+      <%# Actions %>
+      <div class="green-action mr-3 mb-5">
+        <div class="rank-rectangle">
+          <h3>-$32</h3>
+        </div>
+        <p style="font-weight: 600;" class="mb-1 mt-2">Decrease  10% of carrot</p>
+        <p style="color: rgba(0, 0, 0, 0.6);">You will save $32 per month and <br>
+          save 40kg of CO2</p>
+      </div>
+      <div class="green-action mb-5">
+        <div class="rank-rectangle">
+          <h3>-$32</h3>
+        </div>
+        <p style="font-weight: 600;" class="mb-1 mt-2">Decrease  10% of carrot</p>
+        <p style="color: rgba(0, 0, 0, 0.6);">You will save $32 per month and <br>
+          save 40kg of CO2</p>
+      </div>
+      <div class="green-action">
+        <div class="rank-rectangle">
+          <h3>-$32</h3>
+        </div>
+        <p style="font-weight: 600;" class="mb-1 mt-2">Decrease  10% of carrot</p>
+        <p style="color: rgba(0, 0, 0, 0.6);">You will save $32 per month and<br>
+          save 40kg of CO2</p>
+      </div>
+      <div class="green-action">
+        <div class="rank-rectangle">
+          <h3>-$32</h3>
+        </div>
+        <p style="font-weight: 600;" class="mb-1 mt-2">Decrease  10% of carrot</p>
+        <p style="color: rgba(0, 0, 0, 0.6);">You will save $32 per month and <br>
+          save 40kg of CO2</p>
+      </div>
+    </div>
   </div>
   <%# Nearby score %>
   <div class="nearby-score-container">
-    hi
+    <%# Header%>
+    <div class="d-flex justify-content-between">
+      <h4 class="mb-4">Nearby shop</h4>
+      <span style="font-size: 14px;"><%= link_to 'View all', "#" %></span>
+    </div>
+    <%# Score list %>
+    <div class="score-list">
+      <div class="rank-small bg-d-green">
+        <h4>87</h4>
+      </div>
+      <div class="label">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #34</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
+    <div class="score-list">
+      <div class="rank-small">
+        <h4>58</h4>
+      </div>
+      <div class="label ">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #90</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
+    <div class="score-list">
+      <div class="rank-small bg-l-green" style="background-color: $nm-l-green;">
+        <h4>45</h4>
+      </div>
+      <div class="label">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #123</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
+    <div class="score-list">
+      <div class="rank-small bg-yellow">
+        <h4>32</h4>
+      </div>
+      <div class="label">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #238</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
+    <div class="score-list mb-0">
+      <div class="rank-small bg-orange" style="background-color: $nm-orange;">
+        <h4>12</h4>
+      </div>
+      <div class="label">
+        <p class="mb-0" style="font-size: 16px; font-weight: 600;">Rank #457</p>
+        <p class="mb-0"><%= Faker::Restaurant.name %></p>
+      </div>
+    </div>
   </div>
 </div>
