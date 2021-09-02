@@ -26,6 +26,7 @@
 
   &:hover {
     text-decoration: none;
+    background-color: #FDCCD6;
   }
 }
 
@@ -48,7 +49,7 @@
   border-radius: 12px;
   display: flex;
   justify-content: space-around;
-  width: 48%;
+  width: 44%;
   align-items: middle;
   text-align: center;
   height: 56px;
@@ -56,6 +57,7 @@
 
   &:hover {
     text-decoration: none;
+    background-color: #F1EAE5;
   }
 }
 
@@ -73,13 +75,13 @@
 
 .btn-become-seller {
   background-color: $nm-black;
-  padding: 16px 8px;
+  padding: 16px 0;
   color: white;
   margin-top: 8px;
   border-radius: 12px;
   display: flex;
   justify-content: space-around;
-  width: 48%;
+  width: 44%;
   align-items: middle;
   text-align: center;
   height: 56px;
@@ -87,6 +89,7 @@
 
   &:hover {
     text-decoration: none;
+    background-color: black;
   }
 }
 
@@ -100,6 +103,7 @@
   text-align: left;
   padding-top: 0;
   margin-bottom: 0 !important;
+  color: white;
 }
 
 .btn-try-now {
@@ -117,6 +121,11 @@
   margin-top: 16px;
   margin-left: 48px;
 
+  &:hover {
+    background-color: black;
+    text-decoration: none;
+  }
+
   img {
     color: white;
   }
@@ -130,6 +139,7 @@
   line-height: 27px;
   letter-spacing: 0px;
   text-align: left;
+  color: white;
 }
 
 .btn-show-more {
