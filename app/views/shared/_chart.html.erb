@@ -19,7 +19,7 @@
 </div>
 <%# chart %>
 <div class="d-flex justify-content-center">
-  <%= line_chart @orders.group_by_day(:created_at).count(:buyer_id), colors: ["#F6C042"]%>
+  <%= line_chart @orders.group_by_day(:created_at).count(:buyer_id), colors: ["#F6C042"], width: "90%"%>
 </div>
 <%# Orders %>
 <div class="dashboard-page-header d-flex justify-content-between mt-5 mb-4">
@@ -36,10 +36,9 @@
   <%= column_chart @orders.group_by_day(:created_at).sum(:weight).transform_keys{ |key| key.strftime("%A") }, colors: [["#F6C042", "#FFDEE5", "#A3D0BF", "#EE7246", "#095941", "#CED3F9", "#57BD6F"]], width: "90%" %>
 </div>
 <%# Revenue %>
-<%# Total Income %>
 <div class="dashboard-page-header d-flex justify-content-between mt-5 mb-4">
   <h1>Revenue</h1>
 </div>
-<div class="d-flex justify-content-center">
-  <%= line_chart @orders.group_by_day(:created_at).sum("total_price_cents / 100"), colors: ["#D3D6ED"] %>
+<div class="d-flex justify-content-center mb-4">
+  <%= line_chart @orders.group_by_day(:created_at).sum("total_price_cents / 100"), colors: ["#D3D6ED"], width: "90%" %>
 </div>
