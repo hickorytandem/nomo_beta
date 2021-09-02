@@ -1,15 +1,15 @@
 <% ingredients.each do |ingredient| %>
   <div class="card-column card-ingredient">
     <%= link_to ingredient_path(ingredient), action: 'go' do %>
-    <%= cl_image_tag ingredient.photo.key, class: "image" %>
+      <%= cl_image_tag ingredient.photo.key, class: "image" %>
       <div class="card-ingredient-info">
         <i class="far fa-heart position-icon"></i>
         <div class="card-ingredient-text">
-        <% if ingredient.seller.restaurant %>
-          <p><%= ingredient.seller.restaurant.name %></p>
-        <% end %>
+          <% if ingredient.seller.restaurant %>
+            <p><%= ingredient.seller.restaurant.name %></p>
+          <% end %>
           <h2><%= ingredient.name %></h2>
-          <h3><strong><%= humanized_money_with_symbol(ingredient.price) %></strong> / <%= ingredient.weight %> kg</h3>
+          <h3><strong><%= humanized_money_with_symbol(ingredient.price * ingredient.stock_amount) %></strong> / <%= ingredient.stock_amount %> kg</h3>
         </div>
       </div>
     <% end %>

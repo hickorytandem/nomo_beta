@@ -4,14 +4,14 @@
   <div class="qty-order">
     <div class="col-6 quantity margin-0">
       <p>QTY : </p>
-      <p><%= @ingredient.weight%> kg</p>
+      <p><%= @ingredient.stock_amount%> kg</p>
     </div>
     <div class="col-6 margin-0 order">
       <%= simple_form_for @ingredient do |f| %>
         <%= f.input :order_id, value: @order.id, as: :hidden, class: "nm-black mt-0" %>
         <%= f.submit 'Add to cart', class: 'order-btn'%>
       <% end %>
-      $<%= @ingredient.price_cents %>.00
+      <%= humanized_money_with_symbol(@ingredient.price * @ingredient.stock_amount) %>
     </div>
   </div>
 </div>
