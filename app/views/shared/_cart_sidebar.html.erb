@@ -6,20 +6,18 @@
     <h4 class="my-cart">My cart</h4>
     <% if current_user.pending_order.present?  %>
       <% current_user.pending_order.ingredients.each do |ingredient| %>
-      <div class="row cart-item">
-        <div class="col-4">
+        <div class="cart-item mb-3">
           <%= cl_image_tag ingredient.photo.key, class: "cart-img" %>
-        </div>
-        <div class="col-8">
           <div class="cart-detail">
             <div class="item-price">
-              <p><%= ingredient.stock_amount %> X <%= ingredient.name %></p>
-              <p><%= humanized_money_with_symbol(ingredient.price) %></p>
+              <p class="mb-0" style="font-size: 16px; font-weight: 600;"><%= ingredient.stock_amount %><%= ingredient.unit.downcase %>x <%= ingredient.name %></p>
+              <p class="cart-resto mt-1"><%= ingredient.seller.restaurant.name %></p>
+              <%# Remove %>
             </div>
-            <p class="cart-resto"><%= ingredient.seller.restaurant.name %></p>
           </div>
+          <p mb-0><%= humanized_money_with_symbol(ingredient.price) %></p>
+          <%# <hr> %>
         </div>
-      </div>
       <% end %>
       <%= link_to order_checkout_path(current_user.pending_order), class: "btn btn-checkout" do %>
         <p>Proceed to checkout</p>

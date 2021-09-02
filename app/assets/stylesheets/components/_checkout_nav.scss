@@ -1,0 +1,18 @@
+.checkout-navbar{
+  height: 64px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 12;
+  background-color: $nm-pink;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 14px;
+}
+
+.back {
+  position: absolute;
+  left: 48px;
+  top: 20px;
+}
