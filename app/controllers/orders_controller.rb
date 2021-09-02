@@ -75,9 +75,9 @@ class OrdersController < ApplicationController
     authorize @order
     @order.update(status: :purchased)
     @order.update(total_price: @order_total_price)
-    @latest_order = Order.where(buyer: current_user).last
+    # @latest_order = Order.where(status: penbuyer: current_user).last
     @all_carbon = 0
-    @order_carbon = @latest_order.ingredients.each do |ingredient|
+    @order_carbon = @order.ingredients.each do |ingredient|
       @all_carbon += ingredient.stock_amount * 2.54
     end
     @all_carbon

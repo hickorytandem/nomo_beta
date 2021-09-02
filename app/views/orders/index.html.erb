@@ -34,7 +34,11 @@
             <% @not_collected_orders.each do |not_collected_order| %>
               <div class="order-section">
                 <div class="order-details">
-                  <%= cl_image_tag not_collected_order.ingredients.first.photo.key, height: 84, width: 84, crop: :fill %>
+                  <% if not_collected_order.ingredients.first.photo.attached? %>
+                    <%= cl_image_tag not_collected_order.ingredients.first.photo.key, height: 84, width: 84, crop: :fill %>
+                  <% else %>
+                    <%= image_tag "ingredient_default.png" %>
+                  <% end %>
                   <div class="order-info ml-3">
                     <h4 class="mt-3 mb-0">Order #0000<%= not_collected_order.id %></h4>
                     <p class="order-date"><%= change_date_format(not_collected_order.created_at) %></p>
