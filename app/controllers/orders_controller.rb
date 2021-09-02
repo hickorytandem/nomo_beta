@@ -6,13 +6,18 @@ class OrdersController < ApplicationController
     @collected_orders = @orders.where(status: :collected, buyer: current_user)
     @not_collected_orders = @orders.where(status: :purchased, buyer: current_user)
     @my_orders = []
+    @carbon = []
+
 
     Order.where(buyer: current_user).each do |order|
       order.ingredients.each do |ingredient|
         @my_orders << ingredient.stock_amount
+        @carbon << ingredient.stock_amount * 2.54
+
       end
     end
     @my_ingredients = @my_orders.sum
+    @my_carbon = @carbon.sum
 
     # Order.where(buyer: current_user).each do |order|
     #   @my_order_ingredients = []
