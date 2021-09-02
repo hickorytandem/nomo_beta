@@ -27,7 +27,7 @@
     position: absolute;
     z-index: 1;
     top: 172px;
-    left: 530px;
+    left: 600px;
   }
 
   span::before {
@@ -52,11 +52,11 @@
   background-color: $nm-orange;
   background-size: 100vw;
   height: 96vh;
-  padding: 48px 64px;
+  padding: 48px 80px;
   align-items: center;
   color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
   h4 {
     font-family: $home-font;
@@ -90,8 +90,8 @@
 .home-banner-3 {
   background-color: $nm-pink;
   background-size: 100vw;
-  height: 84vh;
-  padding: 56px 64px;
+  height: 90vh;
+  padding: 56px 80px;
   align-items: center;
   color: white;
 
@@ -99,19 +99,19 @@
     font-family: $home-font;
     font-size: 64px;
     font-style: normal;
-    font-weight: 900;
+    font-weight: 700;
     line-height: 79px;
     letter-spacing: 0em;
     text-align: left;
     color: $nm-black;
     margin-bottom: 48px;
-    margin-left: 48px;
+    margin-top: 48px;
   }
 }
 
 .home-banner-3-row {
   display:flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-bottom: 24px;
 }
 
@@ -192,14 +192,15 @@
     font-family: $body-font;
     font-size: 22px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 33px;
     letter-spacing: 0em;
     text-align: left;
     color: $nm-l-brown;
     padding-left: 16px;
     position: absolute;
-    top: 248px;
+    bottom: 20px;
+    margin:0;
   }
 }
 
@@ -215,14 +216,15 @@
     font-family: $body-font;
     font-size: 22px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 33px;
     letter-spacing: 0em;
     text-align: left;
     color: $nm-l-brown;
     padding-left: 16px;
     position: absolute;
-    top: 248px;
+    bottom: 20px;
+    margin:0;
   }
 }
 
@@ -238,7 +240,7 @@
     font-family: $body-font;
     font-size: 22px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 33px;
     letter-spacing: 0em;
     text-align: left;
@@ -246,7 +248,8 @@
     padding-left: 16px;
     padding-right: 16px;
     position: absolute;
-    top: 216px;
+    bottom: 20px;
+    margin:0;
   }
 }
 
