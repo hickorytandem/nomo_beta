@@ -1,71 +1,78 @@
-<div class="container">
-  <div class="categories">
-    <div class="category nm-green">Vegetarian</div>
-    <div class="category nm-l-green">Vegan</div>
-    <div class="category nm-pink">Gluten free</div>
-    <div class="category nm-l-orange">Lactose free</div>
-    <div class="category nm-blue">Fish</div>
-    <div class="category nm-orange">Meat</div>
-  </div>
+<%# Categories %>
+<div class="categories">
+  <div class="category nm-pink">Vegetarian</div>
+  <div class="category nm-d-green">Vegan</div>
+  <div class="category nm-green">Gluten free</div>
+  <div class="category nm-orange">Lactose free</div>
+  <div class="category nm-yellow">Fish</div>
+  <div class="category nm-l-orange mr-0">Meat</div>
 </div>
+<%# Deals %>
 <div class="monthly-deals">
-  <!-- <div class="row monthly-deals-layout"> -->
-  <div class="month">
+  <div class="month p-0">
     <h2>September Deals</h2>
-    <p>Exclusive deals for all Nomo customers,<br> starting from 1 - 30 Sep 2021</p>
+    <p>Exclusive deals for all Nomo customers,<br>
+      starting from 1 - 30 Sep 2021</p>
   </div>
-  <div class="card1">
-    <%= render 'shared/card-frame1' %>
-  </div>
-  <div class="card2">
-    <%= render 'shared/card-frame2' %>
+  <div class="d-flex">
+    <%= image_tag "deal-03.svg", class: "mr-4" %>
+    <%= image_tag "deal-4.svg" %>
   </div>
   <!-- </div> -->
 </div>
-<div class="row">
-  <div class="col-3 filter-col">
+<div class="d-flex">
+  <div class="filter-col">
     <div class="filters">
-      <h2>Filters</h2>
+      <h2>All ingredients</h2>
       <div class="sort">
         <p>Sort</p>
         <div class="radio-buttons">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label promotion-item" for="flexRadioDefault1">
               Most popular
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               Location
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               Opening hours
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               Ratings
             </label>
           </div>
         </div>
       </div>
+      <div class="expiry-date mb-4">
+        <p>Price</p>
+        <div class="d-flex">
+          <div class="tag">$</div>
+          <div class="tag">$$</div>
+          <div class="tag">$$$</div>
+          <div class="tag">$$$$</div>
+        </div>
+      </div>
       <div class="expiry-date">
         <p>Expiry date</p>
         <div class="radio-buttons">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label promotion-item" for="flexRadioDefault1">
               Newest
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               Oldest
             </label>
@@ -76,31 +83,31 @@
         <p>Promotion</p>
         <div class="radio-buttons">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label promotion-item" for="flexRadioDefault1">
               5% off
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               10% off
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               15% off
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
               20% off
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <input class="form-check-input mr-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label promotion-item" for="flexRadioDefault2">
               50% off
             </label>
@@ -115,36 +122,36 @@
         <h1 class="ig-header">Today's offers</h1>
         <div class="card-row">
           <!-- <div class="owl-carousel owl-theme"> -->
-            <%#= @ingredients.each do |ingredient| %>
-              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @ingredients.first(6) } %>
+          <%#= @ingredients.each do |ingredient| %>
+            <%= render partial: 'shared/card-ingredient', locals: { ingredients: @ingredients.first(6) } %>
             <%# end %>
-          <!-- </div> -->
+            <!-- </div> -->
+          </div>
         </div>
-      </div>
-      <div class="section-ig-two">
-        <h1 class="ig-header">Popular near you</h1>
-        <div class="card-row">
-     <!--      <div class="owl-carousel owl-theme"> -->
+        <div class="section-ig-two">
+          <h1 class="ig-header">Popular near you</h1>
+          <div class="card-row">
+            <!--      <div class="owl-carousel owl-theme"> -->
             <%#= @ingredients.each do |ingredient| %>
               <%= render partial: 'shared/card-ingredient', locals: { ingredients: @near_ingredients }%>
-            <%# end %>
-          <!-- </div> -->
+              <%# end %>
+              <!-- </div> -->
+            </div>
+          </div>
+          <div class="section-ig-three">
+            <h1 class="ig-header">One last call</h1>
+            <div class="card-row">
+              <!-- <div class="owl-carousel owl-theme"> -->
+              <%#= @ingredients.each do |ingredient| %>
+                <%= render partial: 'shared/card-ingredient', locals: { ingredients: @expire_today_three_ing } %>
+                <%# end %>
+                <!--           </div> -->
+              </div>
+            </div>
+            <div class="section-ig-fourth">
+              <%= link_to "Show more", ingredients_path, class: "checkout-button"  %>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="section-ig-three">
-        <h1 class="ig-header">One last call</h1>
-        <div class="card-row">
-          <!-- <div class="owl-carousel owl-theme"> -->
-            <%#= @ingredients.each do |ingredient| %>
-              <%= render partial: 'shared/card-ingredient', locals: { ingredients: @expire_today_three_ing } %>
-            <%# end %>
-<!--           </div> -->
-        </div>
-      </div>
-      <div class="section-ig-four">
-        <%= link_to "Show more", ingredients_path, class: "btn-show-more"  %>
-      </div>
-    </div>
-  </div>
-</div>
-<%= render 'shared/footer' %>
+      <%= render 'shared/footer' %>

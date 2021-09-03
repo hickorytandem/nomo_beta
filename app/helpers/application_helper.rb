@@ -18,4 +18,9 @@ module ApplicationHelper
     @total_price
   end
 
+  # def order_image(order)
+  #   order.ingredients.each do |ingredient|
+  #     ingre
+  #   end
+  # end
 end

@@ -3,18 +3,15 @@
 
 .categories {
   display: flex;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 16px;
-  padding-top: 88px;
+  padding: 88px 80px 24px 80px;
   justify-content: space-between;
-  padding-bottom: 24px;
   // border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .category {
   width: 15%;
-  padding: 8px 16px;
+  height: 48px;
+  padding-top: 14px;
   border-radius: 8px;
   margin-right: 8px;
   text-align: center;
@@ -23,13 +20,11 @@
 }
 
 .monthly-deals {
-  padding-top: 48px;
-  padding-bottom: 48px;
-  padding-left: 88px;
-  padding-right: 80px;
+  padding: 48px 80px 48px 80px;
   background-color: #F5F7FA;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .monthly-deals-layout {
@@ -37,7 +32,7 @@
 }
 
 .monthly-deals h2 {
-  font-family: $headers-font;
+  font-family: Manrope;
   font-size: 32px;
   margin-bottom: 16px;
 }
@@ -56,76 +51,64 @@
 .filter-col {
   margin-right: 0 !important;
   padding-right: 0 !important;
-  padding-left: 116px;
+  padding-left: 80px;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
   margin-top: 32px;
+  width: 48%;
 }
 
 .filters {
-  // padding-top: 32px;
-  padding-bottom: 32px;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.filters h2 {
-  font-family: $headers-font;
-  font-size: 24px;
+  h2 {
+  font-family: Manrope;
+  font-size: 28px;
   font-weight: 400px;
   padding-top: 24px;
   padding-bottom: 32px;
+  }
 }
-
 .ig-col {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
 .ingredients {
-  padding-top: 32px;
-  padding-bottom: 32px;
-  // padding-left: 16px;
-  // padding-right: 16px;
+  padding: 56px 80px 32px 36px;
 
   .ig-header {
-    padding-left: 48px;
+    margin-left: 12px;
+    font-family: Manrope;
+    font-weight: 700;
+    font-size: 28px;
   }
 
   .card-row {
     flex-wrap: wrap;
     display: flex;
-    justify-content: space-between;
-    padding-left: 32px;
-    padding-right: 76px;
-    margin-bottom: 16px;
+    // padding-left: 32px;
+    // padding-right: 76px;
+    // margin-bottom: 16px;
+    font-family: Manrope;
   }
 
   .section-ig-one {
     padding-bottom: 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    margin-right: 56px;
-    margin-left: 32px;
   }
 
   .section-ig-two {
-    padding-top: 32px;
-    padding-bottom: 16px;
-    padding-left: 0 !important;
+    padding: 36px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    margin-right: 56px;
-    margin-left: 32px;
+
+
   }
 
   .section-ig-three {
-    padding-top: 32px;
-    padding-bottom: 16px;
-    margin-right: 32px;
-    margin-left: 16px;
+     padding: 36px 0;
+    // border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   }
 
   .section-ig-four{
     padding-top: 32px;
-    padding-bottom: 64px;
     text-align: center;
   }
 
@@ -193,10 +176,15 @@
 
 .nm-green {
   background-color: $nm-green;
+  color: white;
 }
 
 .nm-l-green {
   background-color: $nm-l-green;
+}
+.nm-d-green {
+  background-color: $nm-d-green;
+  color: white;
 }
 
 .nm-pink {
@@ -205,12 +193,34 @@
 
 .nm-l-orange {
   background-color: $nm-l-orange;
+
 }
 
 .nm-orange {
   background-color: $nm-orange;
+  color: white;
 }
 
-.nm-blue {
-  background-color: $nm-blue;
+.nm-yellow {
+  background-color: $nm-yellow;
+}
+
+.nm-brown{
+  background-color:$nm-l-brown;
+}
+
+.deal {
+  padding: 20px;
+}
+
+.tag {
+  padding:4px 12px;
+  border: 1px solid $nm-black;
+  border-radius: 20px;
+  margin-right: 12px;
+  &:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
 }

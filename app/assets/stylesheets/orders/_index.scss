@@ -1,6 +1,9 @@
 @import "success";
 @import "edit";
 
+.order-container {
+  width: 60%;
+}
 .all-orders h1 {
   margin-top: 16px;
   margin-bottom: 16px;
@@ -47,14 +50,14 @@
   justify-content: space-between;
   align-items : center;
   vertical-align: middle;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-right: 282px;
-  padding-left: 48px;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 
-.order-details h4 {
+.order-details {
+  align-items: center;
+  display: flex;
+  h4 {
   font-family: $body-font;
   font-size: 16px;
   font-style: normal;
@@ -62,7 +65,10 @@
   line-height: 20px;
   letter-spacing: 0px;
   text-align: left;
+  }
 }
+
+
 
 .order-price {
   font-family: $body-font;
@@ -88,4 +94,5 @@
 // .order-modal {
 //   vertical-align: middle;
 // }
+
 

@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-    <hr class="#">
     <%# End Topnav %>
     <div class="dashboard-content">
       <div class="content-container">
@@ -80,7 +79,11 @@
                 <% @expired_ingredients.each do |ingredient| %>
                   <tr>
                     <td scope="row" class="pr-0"><input class="form-check-input" type="checkbox"></td>
-                    <td scope="row" class="pl-2 pr-0"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
+                    <% if ingredient.photo.attached? %>
+                      <td scope="row" class="pl-2 pr-0"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
+                    <% else %>
+                      <td scope="row" class="pl-2 pr-0"><%= image_tag "ingredient_default.png", width: 40, height: 40, crop: :fill %></td>
+                    <% end %>
                     <td scope="row">000<%= ingredient.id %></td>
                     <td scope="row"><%= ingredient.name %></td>
                     <td scope="row">$<%= ingredient.unit_price %></td>
@@ -101,7 +104,11 @@
                 <% @sold_ingredients.each do |ingredient| %>
                   <tr>
                     <td scope="row" class="pr-0"><input class="form-check-input" type="checkbox"></td>
-                    <td scope="row" class="pl-2 pr-0"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
+                    <% if ingredient.photo.attached? %>
+                      <td scope="row" class="pl-2 pr-0"><%= cl_image_tag ingredient.photo.key, width: 40, height: 40, crop: :fill %></td>
+                    <% else %>
+                      <td scope="row" class="pl-2 pr-0"><%= image_tag "ingredient_default.png", width: 40, height: 40, crop: :fill %></td>
+                    <% end %>
                     <td scope="row">000<%= ingredient.id %></td>
                     <td scope="row"><%= ingredient.name %></td>
                     <td scope="row">$<%= ingredient.unit_price %></td>
