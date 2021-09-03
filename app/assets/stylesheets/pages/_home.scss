@@ -7,6 +7,15 @@
   padding: auto;
   align-items: center;
   color: white;
+  .animate-text {
+    position: relative;
+  }
+  span {
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    right: 16px;
+  }
   h4 {
     font-family: $home-font;
     font-style: normal;
