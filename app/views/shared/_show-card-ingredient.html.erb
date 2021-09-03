@@ -3,6 +3,8 @@
     <%= link_to ingredient_path(ingredient), action: 'go' do %>
       <% if ingredient.photo.attached? %>
         <%= cl_image_tag ingredient.photo.key, class: "image" %>
+      <% else %>
+        <p>No image</p>
       <% end %>
       <div class="show-card-ingredient-info">
         <i class="far fa-heart position-icon mt-2"></i>
