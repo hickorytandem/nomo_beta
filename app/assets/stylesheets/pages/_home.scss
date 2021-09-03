@@ -23,11 +23,14 @@
     line-height: 110px;
     // text-decoration: underline;
   }
+  .animate-text {
+    position: relative;
+  }
   span {
     position: absolute;
     z-index: 1;
-    top: 190px;
-    left: 600px;
+    top: -30px;
+    right: 16px;
   }
 
   span::before {
