@@ -6,13 +6,17 @@ class OrdersController < ApplicationController
     @collected_orders = @orders.where(status: :collected, buyer: current_user)
     @not_collected_orders = @orders.where(status: :purchased, buyer: current_user)
     @my_orders = []
+    @carbon = []
+
 
     Order.where(buyer: current_user).each do |order|
       order.ingredients.each do |ingredient|
         @my_orders << ingredient.stock_amount
+        @carbon << ingredient.stock_amount * 2.54
       end
     end
     @my_ingredients = @my_orders.sum
+    @my_carbon = @carbon.sum
 
     # Order.where(buyer: current_user).each do |order|
     #   @my_order_ingredients = []
@@ -71,6 +75,12 @@ class OrdersController < ApplicationController
     authorize @order
     @order.update(status: :purchased)
     @order.update(total_price: @order_total_price)
+    # @latest_order = Order.where(status: penbuyer: current_user).last
+    @all_carbon = 0
+    @order_carbon = @order.ingredients.each do |ingredient|
+      @all_carbon += ingredient.stock_amount * 2.54
+    end
+    @all_carbon
   end
 
   def update

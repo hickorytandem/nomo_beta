@@ -8,11 +8,10 @@
       <%= image_tag "NomoEarth.png", alt: "logo" %>
       <div class="carbon-footprint-infos-infos">
         <p>You've saved<br>
-        <span class="carbon-kg">45 KG</span> of your carbon footprint</p>
+          <span class="carbon-kg"><%= @all_carbon %> kg</span> of your carbon footprint</p>
         <p class="carbon-note">Read more about <a href='https://www.carbonfootprint.com/' target="blank">carbon footprints.</a></p>
       </div>
     </div>
     <%= link_to "View my orders", orders_path, class: "btn btn-view-orders" %>
   </div>
 </div>
-

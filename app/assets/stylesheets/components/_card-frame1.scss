@@ -1,11 +1,9 @@
 .card-frame1 {
   height: 160px;
-  width: 27vw;
+  width: 100%;
   background-size: contain;
   background-repeat: no-repeat;
-  padding-top: 16px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 24px;
   margin-right: 0;
 }
 
@@ -14,9 +12,6 @@
   font-size: 28px;
   font-style: normal;
   font-weight: 700;
-  line-height: 44px;
-  letter-spacing: 0px;
-  text-align: left;
   padding-bottom: 8px;
   margin-bottom: 0;
 }
@@ -26,7 +21,4 @@
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px;
-  letter-spacing: 0px;
-  text-align: left;
 }

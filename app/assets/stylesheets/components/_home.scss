@@ -24,15 +24,15 @@
   span {
     position: absolute;
     z-index: 1;
-    top: 210px;
-    left: 598px;
+
   }
 
   span::before {
     content: "goodbye";
     // Uncomment to see text animation
-    animation: animate infinite 3s;
-    padding-left: 10px;
+    // animation: animate infinite 3s;
+      top: 500px;
+    left:800px;
   }
 }
 

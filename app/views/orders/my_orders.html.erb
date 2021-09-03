@@ -17,7 +17,6 @@
         </div>
       </div>
     </div>
-    <hr class="#">
     <%# End Topnav %>
     <div class="dashboard-content">
       <div class="content-container">
@@ -72,7 +71,11 @@
                     <p class="mb-4" style="color: rgba(0, 0, 0, 0.5);; font-weight: 400;"><%= change_date_format(order.created_at) %></p>
                     <% order.ingredients.each do |ingredient| %>
                       <div class="modal-list">
-                        <%= cl_image_tag ingredient.photo.key, height: 50, width: 50, crop: :fill %>
+                        <% if ingredient.photo.attached? %>
+                          <%= cl_image_tag ingredient.photo.key, width: 50, height: 50, crop: :fill %>
+                        <% else %>
+                          <%= image_tag "ingredient_default.png", width: 50, height: 50, crop: :fill %>
+                        <% end %>
                         <div class="label ml-3">
                           <strong><%= ingredient.stock_amount %><%= ingredient.unit.downcase %> x <%= ingredient.name %></strong>
                           <p class="mb-0" style="color: rgba(0, 0, 0, 0.5);">#000<%= ingredient.id %></p>
