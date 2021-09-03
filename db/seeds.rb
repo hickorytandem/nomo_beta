@@ -251,7 +251,7 @@ end
       unit: "Kg",
       )
       ingredient[:price_cents] = ingredient[:unit_price]*ingredient[:stock_amount]
-      # ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+      ingredient.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
       michael_ingredients << ingredient if ingredient.save
       if veg_index >= 21
         veg_index = 0
